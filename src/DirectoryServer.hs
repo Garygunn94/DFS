@@ -181,6 +181,7 @@ clientHandler sock chan server@DirectoryServer{..} =
             ("HELO") -> heloCommand sock server $ (words msg) !! 1
             ("KILL_SERVICE") -> killCommand chan sock
             ("DOWNLOAD") -> downloadCommand sock server msg
+            ("UPLOAD") -> uploadCommand sock server msg
             ("JOIN") -> joinCommand sock server msg
             _ -> do send sock (pack ("Unknown Command - " ++ msg ++ "\n\n")) ; return ()
 
@@ -213,21 +214,24 @@ downloadCommand sock server@DirectoryServer{..} command = do
   return ()
                 
 
-downloadmsg :: String -> String -> String -> Socket -> IO (Int)
+downloadmsg :: String -> String -> String -> Socket -> IO(Int)
 downloadmsg filename host port sock = do
-  addrInfo <- getAddrInfo Nothing (Just host) (Just $ show port)
+  addrInfo <- getAddrInfo (Just (defaultHints {addrFlags = [AI_PASSIVE]})) Nothing (Just port)
   let serverAddr = head addrInfo
   clsock <- socket (addrFamily serverAddr) Stream defaultProtocol
   connect clsock (addrAddress serverAddr)
   sClose clsock
   send clsock $ pack $ "DOWNLOAD:FILE" ++ "\\n" ++
-                     "FILENAME:" ++ filename ++ "\n"
+                     "FILENAME:" ++ filename ++ "\\n"
   resp <- recv clsock 1024
   let msg = unpack resp
   let clines = splitOn "\\n" msg
       fdata = (splitOn ":" $ clines !! 1) !! 1
   send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\\n" ++
                      "DATA: " ++ fdata ++ "\n\n"
+
+  sClose clsock
+  return (0)
 
 uploadCommand :: Socket -> DirectoryServer ->String -> IO ()
 uploadCommand sock server@DirectoryServer{..} command = do
@@ -240,7 +244,9 @@ uploadCommand sock server@DirectoryServer{..} command = do
     Just fm -> send sock $ pack $ "UPLOAD: " ++ filename ++ "\n" ++
                                   "STATUS: " ++ "File Already Exists" ++ "\n\n"
     Nothing -> do numfs <- atomically $ M.size <$> readTVar fileservers
-                  rand <- randomRIO (0, numfs)
+                  printf (show numfs)
+                  rand <- randomRIO (0, (numfs-1))
+                  printf (show rand)
                   fs <- atomically $ lookupFileserver server rand
                   case fs of
                     Nothing -> send sock $ pack $ "UPLOAD: " ++ filename ++ "\n"++
@@ -250,21 +256,24 @@ uploadCommand sock server@DirectoryServer{..} command = do
                                   
                                   
                                   
+                                  
                                    
   return ()
                 
 
-uploadmsg :: Socket -> String -> String -> Fileserver -> Int -> DirectoryServer -> IO (Int )
-uploadmsg sock filename fdata fs rand server@DirectoryServer{..}= do
-  addrInfo <- getAddrInfo Nothing (Just (getFileserveraddress fs)) (Just $ show (getFileserverport fs))
+uploadmsg :: Socket -> String -> String -> Fileserver -> Int -> DirectoryServer -> IO (Int)
+uploadmsg sock filename fdata fs rand server@DirectoryServer{..} = withSocketsDo $ do
+  addrInfo <- getAddrInfo (Just (defaultHints {addrFlags = [AI_PASSIVE]})) Nothing (Just "7007")
   let serverAddr = head addrInfo
   clsock <- socket (addrFamily serverAddr) Stream defaultProtocol
   connect clsock (addrAddress serverAddr)
   send clsock $ pack $ "UPLOAD:FILE" ++ "\\n" ++
-                     "FILENAME:" ++ filename ++ "\n" ++
-                     "DATA:" ++ fdata ++ "\n"
+                       "FILENAME:" ++ filename ++ "\\n" ++
+                       "DATA:" ++ fdata ++ "\\n"
   resp <- recv clsock 1024
+  sClose clsock
   let msg = unpack resp
+  print $ msg ++ "!ENDLINE!"
   let clines = splitOn "\\n" msg
       status = (splitOn ":" $ clines !! 1) !! 1
       
@@ -287,7 +296,7 @@ joinCommand sock server@DirectoryServer{..} command = do
   atomically $ addFileserver server nodeID newaddress newport
   atomically $ incrementFileserverCount fileservercount
 
-  send sock $ pack $ "JOINED DISTRIBUTED FILE SERVICE" ++ "\n\n"
+  send sock $ pack $ "JOINED DISTRIBUTED FILE SERVICE as fileserver: " ++ (show nodeID) ++ "\n\n"
 
   return ()
       

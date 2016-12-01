@@ -33,6 +33,10 @@ serverport = "7007"
 
 serverhost :: String
 serverhost = "localhost"
+
+hostname :: HostName
+hostname = "localhost"
+
 run:: IO ()
 run = withSocketsDo $ do
 
@@ -41,7 +45,7 @@ run = withSocketsDo $ do
   createDirectoryIfMissing True ("distserver" ++ serverhost ++ ":" ++ serverport ++ "/")
   setCurrentDirectory ("distserver" ++ serverhost ++ ":" ++ serverport ++ "/")
 
-  addrInfo <- getAddrInfo Nothing (Just serverhost) (Just $ show (serverport))
+  addrInfo <- getAddrInfo (Just (defaultHints {addrFlags = [AI_PASSIVE]})) Nothing (Just "7008")
   let serverAddr = head addrInfo
   clsock <- socket (addrFamily serverAddr) Stream defaultProtocol
   connect clsock (addrAddress serverAddr)
@@ -51,6 +55,7 @@ run = withSocketsDo $ do
   resp <- recv clsock 1024
   let msg = unpack resp
   printf msg
+  sClose clsock
   server <- newFileServer serverhost serverport
     --sock <- listenOn (PortNumber (fromIntegral serverport))
 
