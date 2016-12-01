@@ -40,6 +40,17 @@ run = withSocketsDo $ do
   --args <- getArgs
   createDirectoryIfMissing True ("distserver" ++ serverhost ++ ":" ++ serverport ++ "/")
   setCurrentDirectory ("distserver" ++ serverhost ++ ":" ++ serverport ++ "/")
+
+  addrInfo <- getAddrInfo Nothing (Just serverhost) (Just $ show (serverport))
+  let serverAddr = head addrInfo
+  clsock <- socket (addrFamily serverAddr) Stream defaultProtocol
+  connect clsock (addrAddress serverAddr)
+  send clsock $ pack $ "JOIN:" ++ "\\n" ++
+                     "ADDRESS:" ++ serverhost ++ "\n" ++
+                     "PORT:" ++ serverport ++ "\n"
+  resp <- recv clsock 1024
+  let msg = unpack resp
+  printf msg
   server <- newFileServer serverhost serverport
     --sock <- listenOn (PortNumber (fromIntegral serverport))
 
