@@ -205,34 +205,47 @@ downloadCommand sock server@DirectoryServer{..} command = do
   let clines = splitOn "\\n" command
       filename = (splitOn ":" $ clines !! 1) !! 1
       
-  fm <- atomically $ lookupFilemapping server $ filename
+  fm <- atomically $ lookupFilemapping server filename
   case fm of
-    Nothing ->  send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\n" ++
+    (Nothing) ->  send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\n" ++
                             "STATUS: " ++ "File not found" ++ "\n\n"
-    Just fm -> do downloadmsg filename (getFilemappingaddress fm) (getFilemappingport fm) sock
+    (Just fm) -> do print (getFilemappingaddress fm)
+                    print (getFilemappingport fm)
+                    forkIO $ downloadmsg filename (getFilemappingaddress fm) (getFilemappingport fm) sock
+                    send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\n" ++
+                                       "STATUS: " ++ "SUCCESSFUL" ++ "\n\n"
       
   return ()
                 
 
-downloadmsg :: String -> String -> String -> Socket -> IO(Int)
+downloadmsg :: String -> String -> String -> Socket -> IO()
 downloadmsg filename host port sock = do
-  addrInfo <- getAddrInfo (Just (defaultHints {addrFlags = [AI_PASSIVE]})) Nothing (Just port)
+  addrInfo <- getAddrInfo (Just (defaultHints {addrFlags = [AI_PASSIVE]})) Nothing (Just "7007")
   let serverAddr = head addrInfo
   clsock <- socket (addrFamily serverAddr) Stream defaultProtocol
   connect clsock (addrAddress serverAddr)
-  sClose clsock
   send clsock $ pack $ "DOWNLOAD:FILE" ++ "\\n" ++
-                     "FILENAME:" ++ filename ++ "\\n"
+                       "FILENAME:" ++ filename ++ "\\n\n"
   resp <- recv clsock 1024
   let msg = unpack resp
   let clines = splitOn "\\n" msg
       fdata = (splitOn ":" $ clines !! 1) !! 1
-  send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\\n" ++
-                     "DATA: " ++ fdata ++ "\n\n"
 
   sClose clsock
-  return (0)
+  send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\n" ++
+                     "DATA: " ++ fdata ++ "\n\n"
+ -- forkIO $ returndata filename sock fdata
 
+  
+  return ()
+
+
+returndata :: String -> Socket -> String -> IO ()
+returndata filename sock fdata = do
+  send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\\n" ++
+                     "DATA: " ++ fdata ++ "\n\n"
+  return ()
+  
 uploadCommand :: Socket -> DirectoryServer ->String -> IO ()
 uploadCommand sock server@DirectoryServer{..} command = do
   let clines = splitOn "\\n" command
@@ -241,18 +254,21 @@ uploadCommand sock server@DirectoryServer{..} command = do
 
   fm <- atomically $ lookupFilemapping server filename
   case fm of
-    Just fm -> send sock $ pack $ "UPLOAD: " ++ filename ++ "\n" ++
+    (Just fm) -> send sock $ pack $ "UPLOAD: " ++ filename ++ "\n" ++
                                   "STATUS: " ++ "File Already Exists" ++ "\n\n"
-    Nothing -> do numfs <- atomically $ M.size <$> readTVar fileservers
-                  printf (show numfs)
-                  rand <- randomRIO (0, (numfs-1))
-                  printf (show rand)
-                  fs <- atomically $ lookupFileserver server rand
-                  case fs of
-                    Nothing -> send sock $ pack $ "UPLOAD: " ++ filename ++ "\n"++
+    (Nothing) -> do numfs <- atomically $ M.size <$> readTVar fileservers
+                    rand <- randomRIO (0, (numfs-1))
+                    fs <- atomically $ lookupFileserver server rand
+                    case fs of
+                     (Nothing) -> send sock $ pack $ "UPLOAD: " ++ filename ++ "\n"++
                                                   "FAILED: " ++ "No valid Fileserver found to host" ++ "\n\n"
 
-                    Just fs -> do uploadmsg sock filename fdata fs rand server
+                     (Just fs) -> do forkIO $ uploadmsg sock filename fdata fs rand server
+                                     fm <- atomically $ newFilemapping filename rand (getFileserveraddress fs) (getFileserverport fs) (fmap show getZonedTime)
+                                     atomically $ addFilemapping server filename rand (getFileserveraddress fs) (getFileserverport fs) (fmap show getZonedTime)
+                                     send sock $ pack $ "UPLOAD: " ++ filename ++ "\\n" ++
+                                                     "STATUS: " ++ "Successfull" ++ "\n\n"
+                                  
                                   
                                   
                                   
@@ -261,7 +277,7 @@ uploadCommand sock server@DirectoryServer{..} command = do
   return ()
                 
 
-uploadmsg :: Socket -> String -> String -> Fileserver -> Int -> DirectoryServer -> IO (Int)
+uploadmsg :: Socket -> String -> String -> Fileserver -> Int -> DirectoryServer -> IO ()
 uploadmsg sock filename fdata fs rand server@DirectoryServer{..} = withSocketsDo $ do
   addrInfo <- getAddrInfo (Just (defaultHints {addrFlags = [AI_PASSIVE]})) Nothing (Just "7007")
   let serverAddr = head addrInfo
@@ -276,14 +292,11 @@ uploadmsg sock filename fdata fs rand server@DirectoryServer{..} = withSocketsDo
   print $ msg ++ "!ENDLINE!"
   let clines = splitOn "\\n" msg
       status = (splitOn ":" $ clines !! 1) !! 1
-      
-  send sock $ pack $ "UPLOAD: " ++ filename ++ "\\n" ++
-                     "STATUS: " ++ status ++ "\n\n"
+  
 
-  fm <- atomically $ newFilemapping filename rand (getFileserveraddress fs) (getFileserverport fs) (fmap show getZonedTime)
-  atomically $ addFilemapping server filename rand (getFileserveraddress fs) (getFileserverport fs) (fmap show getZonedTime)
-
-  return (0)
+  
+  return ()
+     
 
 joinCommand :: Socket -> DirectoryServer ->String -> IO ()
 joinCommand sock server@DirectoryServer{..} command = do

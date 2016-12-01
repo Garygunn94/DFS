@@ -50,8 +50,8 @@ run = withSocketsDo $ do
   clsock <- socket (addrFamily serverAddr) Stream defaultProtocol
   connect clsock (addrAddress serverAddr)
   send clsock $ pack $ "JOIN:" ++ "\\n" ++
-                     "ADDRESS:" ++ serverhost ++ "\n" ++
-                     "PORT:" ++ serverport ++ "\n"
+                     "ADDRESS:" ++ serverhost ++ "\\n" ++
+                     "PORT:" ++ serverport ++ "\\n"
   resp <- recv clsock 1024
   let msg = unpack resp
   printf msg
@@ -151,13 +151,15 @@ downloadCommand sock server@FileServer{..} command = do
     let clines = splitOn "\\n" command
         filename = (splitOn ":" $ clines !! 1) !! 1
 
+    print filename
     doesFileExist filename >>= \case
         True -> do fdata <- readFile filename
-		   send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\n" ++
-                                      "DATA: " ++ fdata ++ "\n\n"
+                   print "here"
+		   send sock $ pack $ "DOWNLOAD:" ++ filename ++ "\\n" ++
+                                      "DATA:" ++ fdata ++ "\n\n"
 				   
-        False -> send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\n" ++
-                                     "DATA: " ++ "File not Found!!" ++ "\n\n"
+        False -> send sock $ pack $ "DOWNLOAD:" ++ filename ++ "\\n" ++
+                                     "DATA:" ++ "File not Found!!" ++ "\\n\n"
                                  
     return ()
 				   
@@ -170,11 +172,11 @@ uploadCommand sock server@FileServer{..} command = do
         fdata = (splitOn ":" $ clines !! 2) !! 1
         
     doesFileExist filename >>= \case
-        True -> send sock $ pack $ "UPLOAD: " ++ filename ++ "\n" ++
-                                   "Failed: " ++ "File Already Exists!" ++ "\n\n"
+        True -> send sock $ pack $ "UPLOAD:" ++ filename ++ "\\n" ++
+                                   "Failed:" ++ "File Already Exists!" ++ "\\n\n"
         False -> do file <- writeFile filename fdata
-                    send sock $ pack $ "UPLOAD: " ++ filename ++ "\n" ++
-                                       "STATUS: " ++ "Success" ++ "\n\n"
+                    send sock $ pack $ "UPLOAD:" ++ filename ++ "\\n" ++
+                                       "STATUS:" ++ "Success" ++ "\\n\n"
 
     return ()
 
@@ -186,10 +188,10 @@ updateCommand sock server@FileServer{..} command = do
 
   doesFileExist filename >>= \case
     True -> do file <- appendFile filename fdata
-               send sock $ pack $ "UPDATE: " ++ filename ++ "\n" ++
-                                  "STATUS: " ++ "Success" ++ "\n\n"
-    False -> send sock $ pack $ "UPLOAD: " ++ filename ++ "\n" ++
-                                "STATUS " ++ "Failed; File doesn't exist!" ++ "\n\n"
+               send sock $ pack $ "UPDATE:" ++ filename ++ "\\n" ++
+                                  "STATUS:" ++ "Success" ++ "\\n\n"
+    False -> send sock $ pack $ "UPLOAD:" ++ filename ++ "\\n" ++
+                                "STATUS:" ++ "Failed; File doesn't exist!" ++ "\\n\n"
 
   return ()
      
