@@ -66,7 +66,7 @@ newHandle capacity = Handle <$> newIORef (empty capacity)
 iolookup ::  (Hashable k, Ord k) =>  Handle k v -> k -> IO(Maybe (v))
 iolookup (Handle ref) k = do
   lookupRes <- atomicModifyIORef' ref $ \c -> case lookup k c of
-       Nothing      -> (c,  Nothing)
+       Nothing      -> (c, Nothing)
        Just (v, c') -> (c', Just v)
        
   return lookupRes

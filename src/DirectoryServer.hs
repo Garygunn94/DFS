@@ -153,7 +153,7 @@ mainHandler sock chan = do
     ("KILL_SERVICE") -> putStrLn "Terminating the Service!"
     _ -> mainHandler sock chan
 
-clientconnectHandler :: Socket -> Chan String -> TVar Int -> DirectoryServer  -> (C.Handle k v) -> IO ()
+clientconnectHandler :: Socket -> Chan String -> TVar Int -> DirectoryServer  -> (C.Handle String String) -> IO ()
 clientconnectHandler sock chan numThreads server cache = do
 
   --Accept the socket which returns a handle, host and port
@@ -174,7 +174,7 @@ clientconnectHandler sock chan numThreads server cache = do
 
   clientconnectHandler sock chan numThreads server cache
 
-clientHandler :: Socket -> Chan String -> DirectoryServer -> (C.Handle k v) -> IO ()
+clientHandler :: Socket -> Chan String -> DirectoryServer -> (C.Handle String String) -> IO ()
 clientHandler sock chan server@DirectoryServer{..} cache =
     forever $ do
         message <- recv sock 1024
@@ -209,22 +209,20 @@ killCommand chan sock = do
 returnb :: a -> IO a
 returnb a = return a
 
-downloadCommand ::  Socket -> DirectoryServer -> String -> (C.Handle k v) -> IO ()
+downloadCommand ::  Socket -> DirectoryServer -> String -> (C.Handle String String) -> IO ()
 downloadCommand sock server@DirectoryServer{..} command cache = do
   let clines = splitOn "\\n" command
       filename = (splitOn ":" $ clines !! 1) !! 1
-  
-  -- let k = filename 
- -- incache <- C.iolookup cache (filename)
- -- case incache of
-   -- (Nothing) -> do
+ 
+  let k = filename
+  incache <- C.iolookup cache k
+  case incache of
+    (Nothing) -> do
                       fm <- atomically $ lookupFilemapping server filename
                       case fm of
                          (Nothing) ->  send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\n" ++
                                                           "STATUS: " ++ "File not found" ++ "\n\n"
-                         (Just fm) -> do print (getFilemappingaddress fm)
-                                         print (getFilemappingport fm)
-                                         forkIO $ downloadmsg filename (getFilemappingaddress fm) (getFilemappingport fm) sock cache
+                         (Just fm) -> do forkIO $ downloadmsg filename (getFilemappingaddress fm) (getFilemappingport fm) sock cache
                                          send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\n" ++
                                                             "STATUS: " ++ "SUCCESSFUL" ++ "\n\n"
     (Just v) -> do    print "Cache hit"
@@ -235,7 +233,7 @@ downloadCommand sock server@DirectoryServer{..} command cache = do
   return ()
                 
 
-downloadmsg ::(Hashable k, Ord k) => String -> String -> String -> Socket -> (C.Handle k v) -> IO()
+downloadmsg :: String -> String -> String -> Socket -> (C.Handle String String) -> IO()
 downloadmsg filename host port sock cache = do
   addrInfo <- getAddrInfo (Just (defaultHints {addrFlags = [AI_PASSIVE]})) Nothing (Just "7007")
   let serverAddr = head addrInfo
