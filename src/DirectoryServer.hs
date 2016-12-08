@@ -1,6 +1,6 @@
 {-#LANGUAGE RecordWildCards #-}
 {-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE QuasiQuotes, TemplateHaskell, TypeFamilies #-}
+{-# LANGUAGE QuasiQuotes, TemplateHaskell, TypeFamilies, TypeApplications #-}
 {-# LANGUAGE OverloadedStrings, GADTs, FlexibleContexts #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving, MultiParamTypeClasses #-}
 
@@ -24,6 +24,8 @@ import Data.Map (Map) -- from the `containers` library
 import Data.Time
 import System.Random
 import qualified Data.Map as M
+import LRUCache as C
+import Data.Hashable
 
 
 type Uuid = Int
@@ -127,12 +129,15 @@ dirrun = withSocketsDo $ do
   
   --New Abstract FIFO Channel
   chan <- newChan
+
+  --New Cache
+  cache <- C.newHandle 5
   
   --Tvars are variables Stored in memory, this way we can access the numThreads from any method
   numThreads <- atomically $ newTVar 0
 
   --Spawns a new thread to handle the clientconnectHandler method, passes socket, channel, numThreads and server
-  forkIO $ clientconnectHandler sock chan numThreads server
+  forkIO $ clientconnectHandler sock chan numThreads server cache
   
   --Calls the mainHandler which will monitor the FIFO channel
   mainHandler sock chan
@@ -148,8 +153,8 @@ mainHandler sock chan = do
     ("KILL_SERVICE") -> putStrLn "Terminating the Service!"
     _ -> mainHandler sock chan
 
-clientconnectHandler :: Socket -> Chan String -> TVar Int -> DirectoryServer -> IO ()
-clientconnectHandler sock chan numThreads server = do
+clientconnectHandler :: Socket -> Chan String -> TVar Int -> DirectoryServer  -> (C.Handle k v) -> IO ()
+clientconnectHandler sock chan numThreads server cache = do
 
   --Accept the socket which returns a handle, host and port
   --(handle, host, port) <- accept sock
@@ -161,16 +166,16 @@ clientconnectHandler sock chan numThreads server = do
 
   --If there are still threads remaining create new thread and increment (exception if thread is lost -> decrement), else tell user capacity has been reached
   if (count < maxnumThreads) then do
-    forkFinally (clientHandler s chan server) (\_ -> atomically $ decrementTVar numThreads)
+    forkFinally (clientHandler s chan server cache) (\_ -> atomically $ decrementTVar numThreads)
     atomically $ incrementTVar numThreads
     else do
       send s (pack ("Maximum number of threads in use. try again soon"++"\n\n"))
       sClose s
 
-  clientconnectHandler sock chan numThreads server
+  clientconnectHandler sock chan numThreads server cache
 
-clientHandler :: Socket -> Chan String -> DirectoryServer -> IO ()
-clientHandler sock chan server@DirectoryServer{..} =
+clientHandler :: Socket -> Chan String -> DirectoryServer -> (C.Handle k v) -> IO ()
+clientHandler sock chan server@DirectoryServer{..} cache =
     forever $ do
         message <- recv sock 1024
 	let msg = unpack message
@@ -180,9 +185,10 @@ clientHandler sock chan server@DirectoryServer{..} =
         case cmd of
             ("HELO") -> heloCommand sock server $ (words msg) !! 1
             ("KILL_SERVICE") -> killCommand chan sock
-            ("DOWNLOAD") -> downloadCommand sock server msg
+            ("DOWNLOAD") -> downloadCommand sock server msg cache
             ("UPLOAD") -> uploadCommand sock server msg
             ("JOIN") -> joinCommand sock server msg
+            ("UPDATE") -> updateCommand sock server msg
             _ -> do send sock (pack ("Unknown Command - " ++ msg ++ "\n\n")) ; return ()
 
 --Function called when HELO text command recieved  
@@ -200,26 +206,37 @@ killCommand chan sock = do
     send sock $ pack $ "Service is now terminating!"
     writeChan chan "KILL_SERVICE"
 
-downloadCommand :: Socket -> DirectoryServer ->String -> IO ()
-downloadCommand sock server@DirectoryServer{..} command = do
+returnb :: a -> IO a
+returnb a = return a
+
+downloadCommand ::  Socket -> DirectoryServer -> String -> (C.Handle k v) -> IO ()
+downloadCommand sock server@DirectoryServer{..} command cache = do
   let clines = splitOn "\\n" command
       filename = (splitOn ":" $ clines !! 1) !! 1
-      
-  fm <- atomically $ lookupFilemapping server filename
-  case fm of
-    (Nothing) ->  send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\n" ++
-                            "STATUS: " ++ "File not found" ++ "\n\n"
-    (Just fm) -> do print (getFilemappingaddress fm)
-                    print (getFilemappingport fm)
-                    forkIO $ downloadmsg filename (getFilemappingaddress fm) (getFilemappingport fm) sock
-                    send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\n" ++
-                                       "STATUS: " ++ "SUCCESSFUL" ++ "\n\n"
+  
+  -- let k = filename 
+ -- incache <- C.iolookup cache (filename)
+ -- case incache of
+   -- (Nothing) -> do
+                      fm <- atomically $ lookupFilemapping server filename
+                      case fm of
+                         (Nothing) ->  send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\n" ++
+                                                          "STATUS: " ++ "File not found" ++ "\n\n"
+                         (Just fm) -> do print (getFilemappingaddress fm)
+                                         print (getFilemappingport fm)
+                                         forkIO $ downloadmsg filename (getFilemappingaddress fm) (getFilemappingport fm) sock cache
+                                         send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\n" ++
+                                                            "STATUS: " ++ "SUCCESSFUL" ++ "\n\n"
+    (Just v) -> do    print "Cache hit"
+                      ioinsert cache filename v
+                      send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\n" ++
+                                         "DATA: " ++ v ++ "\n\n"
       
   return ()
                 
 
-downloadmsg :: String -> String -> String -> Socket -> IO()
-downloadmsg filename host port sock = do
+downloadmsg ::(Hashable k, Ord k) => String -> String -> String -> Socket -> (C.Handle k v) -> IO()
+downloadmsg filename host port sock cache = do
   addrInfo <- getAddrInfo (Just (defaultHints {addrFlags = [AI_PASSIVE]})) Nothing (Just "7007")
   let serverAddr = head addrInfo
   clsock <- socket (addrFamily serverAddr) Stream defaultProtocol
@@ -234,9 +251,8 @@ downloadmsg filename host port sock = do
   sClose clsock
   send sock $ pack $ "DOWNLOAD: " ++ filename ++ "\n" ++
                      "DATA: " ++ fdata ++ "\n\n"
- -- forkIO $ returndata filename sock fdata
 
-  
+  ioinsert cache filename fdata
   return ()
 
 
@@ -267,19 +283,13 @@ uploadCommand sock server@DirectoryServer{..} command = do
                                      fm <- atomically $ newFilemapping filename rand (getFileserveraddress fs) (getFileserverport fs) (fmap show getZonedTime)
                                      atomically $ addFilemapping server filename rand (getFileserveraddress fs) (getFileserverport fs) (fmap show getZonedTime)
                                      send sock $ pack $ "UPLOAD: " ++ filename ++ "\\n" ++
-                                                     "STATUS: " ++ "Successfull" ++ "\n\n"
-                                  
-                                  
-                                  
-                                  
-                                  
-                                   
+                                                     "STATUS: " ++ "Successfull" ++ "\n\n"                                 
   return ()
                 
 
 uploadmsg :: Socket -> String -> String -> Fileserver -> Int -> DirectoryServer -> IO ()
 uploadmsg sock filename fdata fs rand server@DirectoryServer{..} = withSocketsDo $ do
-  addrInfo <- getAddrInfo (Just (defaultHints {addrFlags = [AI_PASSIVE]})) Nothing (Just "7007")
+  addrInfo <- getAddrInfo (Just (defaultHints {addrFlags = [AI_PASSIVE]})) Nothing (Just (getFileserverport fs))
   let serverAddr = head addrInfo
   clsock <- socket (addrFamily serverAddr) Stream defaultProtocol
   connect clsock (addrAddress serverAddr)
@@ -292,9 +302,6 @@ uploadmsg sock filename fdata fs rand server@DirectoryServer{..} = withSocketsDo
   print $ msg ++ "!ENDLINE!"
   let clines = splitOn "\\n" msg
       status = (splitOn ":" $ clines !! 1) !! 1
-  
-
-  
   return ()
      
 
@@ -311,6 +318,46 @@ joinCommand sock server@DirectoryServer{..} command = do
 
   send sock $ pack $ "JOINED DISTRIBUTED FILE SERVICE as fileserver: " ++ (show nodeID) ++ "\n\n"
 
+  return ()
+
+updateCommand :: Socket -> DirectoryServer ->String -> IO ()
+updateCommand sock server@DirectoryServer{..} command = do
+  let clines = splitOn "\\n" command
+      filename = (splitOn ":" $ clines !! 1) !! 1
+      fdata = (splitOn ":" $ clines !! 2) !! 1
+
+  fm <- atomically $ lookupFilemapping server filename
+  case fm of
+    (Nothing) -> send sock $ pack $ "UPDATE: " ++ filename ++ "\n" ++
+                                  "STATUS: " ++ "File Doesnt Exists" ++ "\n\n"
+    (Just fm) -> do fs <- atomically $ lookupFileserver server (getFilemappinguuid fm)
+                    case fs of
+                     (Nothing) -> send sock $ pack $ "UPDATE: " ++ filename ++ "\n"++
+                                                  "FAILED: " ++ "No valid Fileserver found to host" ++ "\n\n"
+
+                     (Just fs) -> do forkIO $ updatemsg sock filename fdata fs (getFilemappinguuid fm) server
+                                     fm <- atomically $ newFilemapping filename (getFilemappinguuid fm) (getFileserveraddress fs) (getFileserverport fs) (fmap show getZonedTime)
+                                     atomically $ addFilemapping server filename (getFilemappinguuid fm) (getFileserveraddress fs) (getFileserverport fs) (fmap show getZonedTime)
+                                     send sock $ pack $ "UPDATE: " ++ filename ++ "\\n" ++
+                                                        "STATUS: " ++ "Successfull" ++ "\n\n"                                 
+  return ()
+                
+
+updatemsg :: Socket -> String -> String -> Fileserver -> Int -> DirectoryServer -> IO ()
+updatemsg sock filename fdata fs rand server@DirectoryServer{..} = withSocketsDo $ do
+  addrInfo <- getAddrInfo (Just (defaultHints {addrFlags = [AI_PASSIVE]})) Nothing (Just (getFileserverport fs))
+  let serverAddr = head addrInfo
+  clsock <- socket (addrFamily serverAddr) Stream defaultProtocol
+  connect clsock (addrAddress serverAddr) 
+  send clsock $ pack $ "UPDATE:FILE" ++ "\\n" ++
+                       "FILENAME:" ++ filename ++ "\\n" ++
+                       "DATA:" ++ fdata ++ "\\n"
+  resp <- recv clsock 1024
+  sClose clsock
+  let msg = unpack resp
+  print $ msg ++ "!ENDLINE!"
+  let clines = splitOn "\\n" msg
+      status = (splitOn ":" $ clines !! 1) !! 1
   return ()
       
 --Increment Tvar stored in memory i.e. numThreads
