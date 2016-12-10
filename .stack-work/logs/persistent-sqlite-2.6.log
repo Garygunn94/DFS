@@ -1,0 +1,45 @@
+Configuring persistent-sqlite-2.6...
+Building persistent-sqlite-2.6...
+Preprocessing library persistent-sqlite-2.6...
+[1 of 2] Compiling Database.Sqlite  ( Database/Sqlite.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Database/Sqlite.o )
+[2 of 2] Compiling Database.Persist.Sqlite ( Database/Persist/Sqlite.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Database/Persist/Sqlite.o )
+
+Database/Persist/Sqlite.hs:43:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+Database/Persist/Sqlite.hs:267:20: warning: [-Wmissing-fields]
+    • Fields of ‘SqlBackend’ not initialised: connUpsertSql
+    • In the expression:
+        SqlBackend
+          {connPrepare = \ _ -> do { return (...) }, connStmtMap = smap,
+           connInsertSql = insertSql', connInsertManySql = Nothing,
+           connClose = undefined, connMigrateSql = migrate',
+           connBegin = helper "BEGIN", connCommit = helper "COMMIT",
+           connRollback = ignoreExceptions . helper "ROLLBACK",
+           connEscapeName = escape, connNoLimit = "LIMIT -1",
+           connRDBMS = "sqlite",
+           connLimitOffset = decorateSQLWithLimitOffset "LIMIT -1",
+           connLogFunc = undefined}
+      In an equation for ‘sqlbackend’:
+          sqlbackend
+            = SqlBackend
+                {connPrepare = \ _ -> do { ... }, connStmtMap = smap,
+                 connInsertSql = insertSql', connInsertManySql = Nothing,
+                 connClose = undefined, connMigrateSql = migrate',
+                 connBegin = helper "BEGIN", connCommit = helper "COMMIT",
+                 connRollback = ignoreExceptions . helper "ROLLBACK",
+                 connEscapeName = escape, connNoLimit = "LIMIT -1",
+                 connRDBMS = "sqlite",
+                 connLimitOffset = decorateSQLWithLimitOffset "LIMIT -1",
+                 connLogFunc = undefined}
+      In the expression:
+        do { smap <- newIORef $ Map.empty;
+             let sqlbackend = ...
+                 result = runReaderT . runWriterT . runWriterT $ mig;
+             resp <- result sqlbackend;
+             mapM_ TIO.putStrLn $ map snd $ snd resp }
+Installing library in
+/home/ggunn/.stack/snapshots/x86_64-linux/lts-7.11/8.0.1/lib/x86_64-linux-ghc-8.0.1/persistent-sqlite-2.6-Pc2g69EmL1JEJWvbhyALK
+Registering persistent-sqlite-2.6...

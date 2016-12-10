@@ -1,0 +1,32 @@
+Configuring monad-logger-0.3.20.1...
+Building monad-logger-0.3.20.1...
+Preprocessing library monad-logger-0.3.20.1...
+[1 of 2] Compiling Control.Monad.Logger ( Control/Monad/Logger.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Monad/Logger.o )
+
+Control/Monad/Logger.hs:125:1: warning: [-Wdeprecations]
+    Module ‘Control.Monad.Trans.Error’ is deprecated:
+      Use Control.Monad.Trans.Except instead
+
+Control/Monad/Logger.hs:234:26: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘Error’
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Control/Monad/Logger.hs:234:51: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘ErrorT’
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Control/Monad/Logger.hs:252:28: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘Error’
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+
+Control/Monad/Logger.hs:252:55: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘ErrorT’
+    (imported from Control.Monad.Trans.Error):
+    Deprecated: "Use Control.Monad.Trans.Except instead"
+[2 of 2] Compiling Control.Monad.Logger.CallStack ( Control/Monad/Logger/CallStack.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Monad/Logger/CallStack.o )
+Installing library in
+/home/ggunn/.stack/snapshots/x86_64-linux/lts-7.11/8.0.1/lib/x86_64-linux-ghc-8.0.1/monad-logger-0.3.20.1-Id6Qefl6M7BBA3QajigPhK
+Registering monad-logger-0.3.20.1...

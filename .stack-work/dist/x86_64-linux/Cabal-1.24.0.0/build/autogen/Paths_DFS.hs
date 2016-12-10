@@ -29,11 +29,11 @@ version :: Version
 version = Version [0,1,0,0] []
 bindir, libdir, datadir, libexecdir, sysconfdir :: FilePath
 
-bindir     = "/home/ggunn/DFS/.stack-work/install/x86_64-linux/lts-7.11/8.0.1/bin"
-libdir     = "/home/ggunn/DFS/.stack-work/install/x86_64-linux/lts-7.11/8.0.1/lib/x86_64-linux-ghc-8.0.1/DFS-0.1.0.0-5Ol8MkoGqXRGjB0pYAodFD"
-datadir    = "/home/ggunn/DFS/.stack-work/install/x86_64-linux/lts-7.11/8.0.1/share/x86_64-linux-ghc-8.0.1/DFS-0.1.0.0"
-libexecdir = "/home/ggunn/DFS/.stack-work/install/x86_64-linux/lts-7.11/8.0.1/libexec"
-sysconfdir = "/home/ggunn/DFS/.stack-work/install/x86_64-linux/lts-7.11/8.0.1/etc"
+bindir     = "/home/ggunn/DFS/.stack-work/install/x86_64-linux/lts-7.10/8.0.1/bin"
+libdir     = "/home/ggunn/DFS/.stack-work/install/x86_64-linux/lts-7.10/8.0.1/lib/x86_64-linux-ghc-8.0.1/DFS-0.1.0.0-8an8YU57OtlLJWbvpjsF8P"
+datadir    = "/home/ggunn/DFS/.stack-work/install/x86_64-linux/lts-7.10/8.0.1/share/x86_64-linux-ghc-8.0.1/DFS-0.1.0.0"
+libexecdir = "/home/ggunn/DFS/.stack-work/install/x86_64-linux/lts-7.10/8.0.1/libexec"
+sysconfdir = "/home/ggunn/DFS/.stack-work/install/x86_64-linux/lts-7.10/8.0.1/etc"
 
 getBinDir, getLibDir, getDataDir, getLibexecDir, getSysconfDir :: IO FilePath
 getBinDir = catchIO (getEnv "DFS_bindir") (\_ -> return bindir)
