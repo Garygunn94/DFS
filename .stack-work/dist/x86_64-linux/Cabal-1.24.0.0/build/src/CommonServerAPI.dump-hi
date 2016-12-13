@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-10 14:08:07.925427 UTC
+2016-12-10 16:40:51.189048 UTC
 
-interface DFS-0.1.0.0-8an8YU57OtlLJWbvpjsF8P:CommonServerAPI 8001
-  interface hash: bf6042aed8bb37716f7262498f6f2e0e
-  ABI hash: 96d7436111f087057bf6b75a29d5b555
-  export-list hash: 141629ee1d864d2af40cc3b965e59ae0
+interface DFS-0.1.0.0-DxCIFRvwoPlEaq2HpZrZms:CommonServerAPI 8001
+  interface hash: fc9eed74d6202d9c9d84abb2833f08cf
+  ABI hash: adfa12ee8ccf02216b2b73ade71be5bb
+  export-list hash: 87f70ae3b06ad222648ae7ec38e8d53a
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: e5f34364e205868484265d2f82e40f4e
   sig of: Nothing
@@ -27,9 +27,13 @@ package dependencies: aeson-1.0.2.1@aeson-1.0.2.1-B1H7uvY9HnXH2BYsViQp5P
                       blaze-builder-0.4.0.2@blaze-builder-0.4.0.2-KWDLbdBYSBoALiMW0LHIz1
                       blaze-html-0.8.1.2@blaze-html-0.8.1.2-2kD96kJB6JEGow1dP8IL6C
                       blaze-markup-0.7.1.0@blaze-markup-0.7.1.0-5a5pBG0fO8kJX4ke3K7j3D
+                      bson-0.1.7@bson-0.1.7-EfO3lqdNpyP7R8trpQ6nyr
+                      bson-generic-0.0.6@bson-generic-0.0.6-30eJELZ6Ijc3ZMPnC8RdU
                       bytestring-0.10.8.1@bytestring-0.10.8.1
                       case-insensitive-1.2.0.7@case-insensitive-1.2.0.7-FlqweN7AuKj9EdU2arVEt4
+                      compact-string-fix-0.3.2@compact-string-fix-0.3.2-DndIO7hdLRnH1KEjhXPArZ
                       containers-0.5.7.1@containers-0.5.7.1
+                      cryptohash-0.11.9@cryptohash-0.11.9-9KNu0EEbreBFrmNJAeHgYz
                       cryptonite-0.19@cryptonite-0.19-G9PYO4oOEqhDTta2u9rAaU
                       deepseq-1.4.2.0@deepseq-1.4.2.0 directory-1.2.6.2@directory-1.2.6.2
                       dlist-0.8.0.2@dlist-0.8.0.2-GWAMmbX9rLg3tqrbOizHGv
@@ -76,7 +80,10 @@ orphans: attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Att
          attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Text.Internal
          base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
          binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bson-0.1.7@bson-0.1.7-EfO3lqdNpyP7R8trpQ6nyr:Data.UString
+         bson-generic-0.0.6@bson-generic-0.0.6-30eJELZ6Ijc3ZMPnC8RdU:Data.Bson.Generic
          bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         compact-string-fix-0.3.2@compact-string-fix-0.3.2-DndIO7hdLRnH1KEjhXPArZ:Data.CompactString
          hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G:Data.Hashable.Generic
          network-2.6.3.1@network-2.6.3.1-G4Up1CPKbp7DeFsnywOnGG:Network.Socket
          text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text
@@ -88,7 +95,7 @@ orphans: attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Att
          transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Fusion.Bundle
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
-family instance modules: DFS-0.1.0.0-8an8YU57OtlLJWbvpjsF8P:CommonServer
+family instance modules: DFS-0.1.0.0-DxCIFRvwoPlEaq2HpZrZms:CommonServer
                          attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Internal.Types
                          base-4.9.0.0:Control.Applicative base-4.9.0.0:Data.Complex
                          base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Compose
@@ -99,6 +106,7 @@ family instance modules: DFS-0.1.0.0-8an8YU57OtlLJWbvpjsF8P:CommonServer
                          base-4.9.0.0:Data.Version base-4.9.0.0:Data.Void
                          base-4.9.0.0:GHC.Exts base-4.9.0.0:GHC.Generics
                          base-4.9.0.0:GHC.IO.Exception base-4.9.0.0:GHC.TypeLits
+                         bson-generic-0.0.6@bson-generic-0.0.6-30eJELZ6Ijc3ZMPnC8RdU:Data.Bson.Generic
                          containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
                          containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
                          containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
@@ -132,11 +140,11 @@ family instance modules: DFS-0.1.0.0-8an8YU57OtlLJWbvpjsF8P:CommonServer
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  CommonServer 7d4651c24a85a1b9bf98841bfab76e23
-  exports: 0218be8c23712ad173fe9a0dbe448197
-  CServer 160d62a72d0d8550fe274e8b01935f3c
-  File 42513a5c677b0018f83c4911bf9d7b07
-  Response 160d62a72d0d8550fe274e8b01935f3c
+import  -/  CommonServer b3302477bdac83feca13fc588e530e7f
+  exports: 0cefaf3f9bbe57449395f28b0ad4eac3
+  CServer 9cb787d7cb290bda11dc044fe501cdec
+  File 55bf435ad2d9bba89b70694b70e1df82
+  Response 9cb787d7cb290bda11dc044fe501cdec
 import  -/  aeson-1.0.2.1@aeson-1.0.2.1-B1H7uvY9HnXH2BYsViQp5P:Data.Aeson e960fea1151de60d585d4bce1ceb5620
 import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
 import  -/  base-4.9.0.0:GHC.IO 7ddc7086a7fc3b7d7043cc7bc59a04ba
@@ -152,27 +160,27 @@ import  -/  servant-server-0.9.1.1@servant-server-0.9.1.1-KfCgpd5muFc7jb5SGA48HW
 import  -/  servant-server-0.9.1.1@servant-server-0.9.1.1-KfCgpd5muFc7jb5SGA48HW:Servant.Server.Internal.ServantErr dae7a3433698917dc13a860c0e693dd0
 import  -/  transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Except 71b1d86204f6908788cb5223e3c73193
 import  -/  wai-3.2.1.1@wai-3.2.1.1-f77bMYZGLQBAD3XJrvGiW:Network.Wai f10fb472d685284a8637bf34e58bc7f2
-f00bc05a131941365bf4b85bab8d86ab
+59ee41b6ed2b7f299b02b3d78d728a97
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.Module
                    CommonServerAPI.$trModule2
                    CommonServerAPI.$trModule1) -}
-af581049fd159a67b041bbe19173062e
+157be526c192ab8cfe7858dd4de70fe0
   $trModule1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "CommonServerAPI"#) -}
-27cea8139564fdca7d5e39ed6dd4781e
+8d7f87cea8061b6d64ffcd2072eeac61
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
-                   "DFS-0.1.0.0-8an8YU57OtlLJWbvpjsF8P"#) -}
-3c540aebf1dc6a01f2c0fe4aec675fa3
+                   "DFS-0.1.0.0-DxCIFRvwoPlEaq2HpZrZms"#) -}
+36db4e82642d37c42bc77d1aff0afe45
   type APIHandler =
     Control.Monad.Trans.Except.ExceptT
       Servant.Server.Internal.ServantErr.ServantErr GHC.Types.IO
     :: * -> *
-817293661ad8c76541d2695b90ec8ade
+296cdc2b8cbe0e5a5fcb1fe713091ec7
   type DirectoryApi =
     ("files"
      Servant.API.Sub.:> Servant.API.Verbs.Get
@@ -197,7 +205,7 @@ af581049fd159a67b041bbe19173062e
                                                                                                                   Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                                                        '[Servant.API.ContentTypes.JSON]
                                                                                                                                        CommonServer.File))))
-8af89acbed1d6c3cd41c10bf0d7de31b
+ca18b4b96acb194a7e0e5581de08ae58
   type FileApi =
     ("files"
      Servant.API.Sub.:> Servant.API.Verbs.Get
@@ -215,7 +223,7 @@ af581049fd159a67b041bbe19173062e
                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                          '[Servant.API.ContentTypes.JSON]
                                                                                                          CommonServer.Response)))
-faf4e74d722514ad33c37f426b844e0c
+19613d0f3d1b70b60f80f8ea8e0960e3
   type HandshakeApi =
     "shake"
     Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody

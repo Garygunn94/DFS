@@ -1,34 +1,104 @@
-{-# LANGUAGE DataKinds            #-}
-{-# LANGUAGE DeriveAnyClass       #-}
-{-# LANGUAGE DeriveGeneric        #-}
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE OverloadedStrings    #-}
-{-# LANGUAGE StandaloneDeriving   #-}
-{-# LANGUAGE TypeOperators        #-}
-{-# LANGUAGE TypeSynonymInstances #-}
+{-# LANGUAGE DataKinds     #-}
+{-# LANGUAGE DeriveGeneric #-}
+--{-# LANGUAGE LambdaCase    #-}
+{-# LANGUAGE TypeOperators #-}
 
 module CommonServer where
-
-import           GHC.Generics
-import           Data.Aeson
-import           Data.Aeson.TH
-import           Data.Bson.Generic
-import           Servant
-
-data File = File { fileName :: FilePath, fileContent :: String } deriving (Eq, Show, Generic)
+import Data.Aeson
+import GHC.Generics
+import Network.HTTP.Client (newManager, defaultManagerSettings)
+------------------------------
+--  File Structure
+------------------------------
+data File = File { 
+    fileName :: FilePath, 
+    fileContent :: String 
+} deriving (Eq, Show, Generic)
 
 instance ToJSON File
 instance FromJSON File
 
-data CServer = CServer { address :: String, port :: String } deriving (Eq, Show, Generic)
-instance ToJSON CServer
-instance FromJSON CServer
+------------------------------
+--  Server Identity 
+------------------------------
+data Identity = Identity { 
+    address :: String, 
+    port :: String,
+    serverType :: ServerType
+} deriving (Eq, Show, Generic)
 
+instance ToJSON Identity
+instance FromJSON Identity
 
-data Response = Response {response :: CServer} deriving (Generic, ToJSON, FromJSON,FromBSON, Show)
-instance ToBSON CServer
-instance FromBSON CServer
+------------------------------
+--  Registered Server Types 
+------------------------------
 
+data ServerType = 
+    FileServer |
+    DirectoryServer |
+    ProxyServer |
+    SecurityServer |
+    TransactionServer |
+    IdentityServer |
+    ReplicationServer
+    deriving(Eq, Show, Generic)
+instance ToJSON ServerType
+instance FromJSON ServerType
 
+------------------------------
+--  Resources Directory 
+------------------------------
+data Resources = Resources { 
+    path :: String     
+} deriving (Eq, Show, Generic)
 
+instance ToJSON Resources
+instance FromJSON Resources
 
+------------------------------
+--  Client Data
+------------------------------
+data Client = Client {
+    username :: String,
+    password :: String
+} deriving (Eq, Show, Generic)
+instance ToJSON Client
+instance FromJSON Client
+------------------------------
+--  Security Token
+------------------------------
+data Token = Token {
+    sessionId :: String,
+    sessionKey :: String,
+    ticket :: String,
+    client :: Identity
+} deriving (Eq, Show, Generic)
+instance ToJSON Token
+instance FromJSON Token
+
+------------------------------
+--  Response Packet 
+------------------------------
+data Response = Response { 
+    code :: ResponseCode, 
+    server :: Identity 
+} deriving (Eq, Show, Generic)
+
+instance ToJSON Response
+instance FromJSON Response
+
+------------------------------
+--  Response Codes 
+------------------------------
+data ResponseCode = 
+    FileUploadComplete |
+    FileUploadError |
+    HandshakeSuccessful |
+    HandshakeError |
+    IdentityFound |
+    IdentityNotFound |
+    IdentityReceived
+    deriving(Eq, Show, Generic)
+instance ToJSON ResponseCode
+instance FromJSON ResponseCode
