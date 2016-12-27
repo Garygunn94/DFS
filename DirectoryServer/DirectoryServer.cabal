@@ -25,6 +25,7 @@ library
                      , warp
                      , wai
                      , transformers
+                     , random
                      , wai-logger
                      , mongoDB
                      , hslogger

@@ -198,20 +198,20 @@ openFile key = liftIO $ do
 	        file <- openFileQuery key fm
                 return file
 
-closeFile :: File -> ApiHandler Response
-closeFile file = liftIO $  do
+closeFile :: File -> APIHandler Response
+closeFile file = do
   fileServers <- liftIO $ withMongoDbConnection $ do
        docs <- find (select [] "FILESERVER_RECORD") >>= drainCursor
        return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileServer) docs
-  let range = length fileServers
+  range <- length fileServers
   index <- randomRIO (1, range)
-  let fs = fileServers !! index
-  let fm = (FileMapping (fileName file) (fsaddress fs) (fsport fs))
+  fs <- fileServers !! index
+  fm <- (FileMapping (fileName file) (fsaddress fs) (fsport fs))
   withMongoDbConnection $ upsert (select ["id" =: (fileName file)] "FILEMAPPING_RECORD") $ toBSON fm
   manager <- newManager defaultManagerSettings
   res <- runClientM (uploadQuery file) (ClientEnv manager (BaseUrl Http (fsaddress fs) (read(fsport fs)) ""))
   case res of
-   Left err -> return (Response "Failed")
+   Left err -> retrurn (Response "Failed")
                           
    Right response -> return (response)
   
