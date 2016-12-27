@@ -178,20 +178,22 @@ searchFileMappings key =  do
             return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileMapping) docs
         return $ head $ filemappings
 
-openFileQuery :: String -> FileMapping -> IO(File)
-openFileQuery key fm =  do
+openFileQuery :: String -> FileMapping -> IO(Maybe File)
+openFileQuery key fm = liftIO $ do
 	manager <- newManager defaultManagerSettings
         res <- runClientM (downloadQuery key) (ClientEnv manager (BaseUrl Http (fmaddress fm) (read(fmport fm)) ""))
         case res of
-           Left err -> return (File "" "")
-                          
-           Right response -> return (response) 
+           Left err -> do putStrLn $ "Error: " ++ show err
+                          return Nothing
+           Right response -> return (Just response) 
 
 openFile :: String -> ApiHandler File
-openFile key = liftIO $ do
+openFile key = liftIO $  do
 	        fm <- searchFileMappings key
 	        file <- openFileQuery key fm
-                return file
+                case file of
+                  Nothing ->  putStrLn $ "Error: Could not download file from fileserver"
+	          Just file -> return (Just file)
             
 
 

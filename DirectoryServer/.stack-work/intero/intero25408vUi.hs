@@ -141,14 +141,10 @@ storefs fs@(FileServer key _ _) = liftIO $ do
     withMongoDbConnection $ upsert (select ["id" =: key] "FILESERVER_RECORD") $ toBSON fs
    -- return True
 
-storefm :: String  -> [FileMapping] -> String -> IO[FileMapping]
-storefm  port a  filename =  do
-	warnLog $ "Storing file under key " ++ filename ++ "."
-        let serverNumber = port `mod` 8080
-        let serverName = "Server" ++ show serverNumber
-        let fileMapping = (FileMapping filename serverName (show port))
-	withMongoDbConnection $ upsert (select ["id" =: filename] "FILEMAPPING_RECORD") $ toBSON fileMapping
-        return $ (FileMapping filename serverName (show port)):a
+storefm :: FileMapping -> IO()
+storefm fm@(FileMapping key _ _) = liftIO $ do
+	warnLog $ "Storing file under key " ++ key ++ "."
+	withMongoDbConnection $ upsert (select ["id" =: key] "FILEMAPPING_RECORD") $ toBSON fm
 --	return True
 
 getStoreFm :: FileServer -> IO()
@@ -157,11 +153,7 @@ getStoreFm fs = liftIO $ do
     res <- runClientM getFilesQuery (ClientEnv manager (BaseUrl Http (fsaddress fs) (read(fsport fs)) ""))
     case res of
         Left err -> putStrLn $ "Error: " ++ show err
-        Right response' -> do
-          blah' <- mapM (storefm (fsport fs) []) response'
-          return ()
-                         
-                         
+        Right response -> map (storefm FileMapping(fsaddress fs) (fsport fs)) response
    -- return True
 
 fsJoin :: FileServer -> ApiHandler Response
@@ -178,20 +170,22 @@ searchFileMappings key =  do
             return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileMapping) docs
         return $ head $ filemappings
 
-openFileQuery :: String -> FileMapping -> IO(File)
-openFileQuery key fm =  do
+openFileQuery :: String -> FileMapping -> IO(Maybe File)
+openFileQuery key fm = liftIO $ do
 	manager <- newManager defaultManagerSettings
         res <- runClientM (downloadQuery key) (ClientEnv manager (BaseUrl Http (fmaddress fm) (read(fmport fm)) ""))
         case res of
-           Left err -> return (File "" "")
-                          
-           Right response -> return (response) 
+           Left err -> do putStrLn $ "Error: " ++ show err
+                          return Nothing
+           Right response -> return (Just response) 
 
 openFile :: String -> ApiHandler File
-openFile key = liftIO $ do
+openFile key = liftIO $  do
 	        fm <- searchFileMappings key
 	        file <- openFileQuery key fm
-                return file
+                case file of
+                  Nothing ->  putStrLn $ "Error: Could not download file from fileserver"
+	          Just file -> return (Just file)
             
 
 
