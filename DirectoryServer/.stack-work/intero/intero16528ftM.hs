@@ -42,7 +42,7 @@ import           	Database.MongoDB
 import Control.Monad (when)
 import Network.HTTP.Client (newManager, defaultManagerSettings)
 
---manager = newManager defaultManagerSettings
+manager = newManager defaultManagerSettings
 
 data File = File { 
     fileName :: FilePath, 
@@ -76,10 +76,10 @@ data FileMapping = FileMapping{
 	fmport :: String
 } deriving (Eq, Show, Generic)
 
-instance ToJSON FileMapping
-instance FromJSON FileMapping
-instance ToBSON FileMapping
-instance FromBSON FileMapping
+instance ToJSON FileServer
+instance FromJSON FileServer
+instance ToBSON FileServer
+instance FromBSON FileServer
 
 type ApiHandler = ExceptT ServantErr IO
 
@@ -135,31 +135,30 @@ mkApp :: IO()
 mkApp = do
     run (read (serverport) ::Int) directoryApp 
 
-storefs:: FileServer -> IO()
+storefs:: FileServer -> Bool
 storefs fs@(FileServer key _ _) = liftIO $ do
-    --warnLog $ "Storing file under key " ++ key ++ "."
-    withMongoDbConnection $ upsert (select ["id" =: key] "FILESERVER_RECORD") $ toBSON fs
-   -- return True
+    warnLog $ "Storing file under key " ++ key ++ "."
+	withMongoDbConnection $ upsert (select ["id" =: key] "FILESERVER_RECORD") $ toBSON fs
+	return True
 
-storefm :: FileMapping -> IO()
+storefm :: FileMapping -> Bool
 storefm fm@(FileMapping key _ _) = liftIO $ do
 	warnLog $ "Storing file under key " ++ key ++ "."
 	withMongoDbConnection $ upsert (select ["id" =: key] "FILEMAPPING_RECORD") $ toBSON fm
---	return True
-
-getStoreFm :: FileServer -> IO()
-getStoreFm fs = liftIO $ do
+	return True
+getStoreFm :: FileServer -> Bool
+getStoreFm fs = do
     manager <- newManager defaultManagerSettings
     res <- runClientM getFilesQuery (ClientEnv manager (BaseUrl Http (fsaddress fs) (read(fsport fs)) ""))
     case res of
         Left err -> putStrLn $ "Error: " ++ show err
         Right response -> map (storefm (fsaddress fs) (fsport fs)) response
-   -- return True
+    return True
 
 fsJoin :: FileServer -> ApiHandler Response
-fsJoin fs = liftIO $  do
-	storefs fs
-	getStoreFm fs
+fsJoin fs = do
+	bool <- storefs fs
+	bool2 <- getStoreFm fs
 	return (Response "Success")
 
 searchFileMappings :: String -> Maybe FileMapping
@@ -167,7 +166,7 @@ searchFileMappings key = liftIO $ do
 	warnLog $ "Searching for value for key: " ++ key
 	withMongoDbConnection $ do 
 	    docs <- find (select ["fmfileName" =: key] "FILEMAPPING_RECORD") >>= drainCursor
-            file <- DL.map (\ b -> fromBSON b :: Maybe FileMapping) docs
+            file <- head $ DL.map (\ b -> fromBSON b :: Maybe FileMapping) docs
             return file
 
 openFileQuery :: String -> FileMapping -> File
