@@ -1,6 +1,7 @@
 module Main where
 
 import Lib
+import DirectoryServer
 
 main :: IO ()
-main = someFunc
+main = mkApp

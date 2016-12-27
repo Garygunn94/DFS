@@ -146,14 +146,12 @@ storefs fs@(FileServer key _ _) = liftIO $ do
     withMongoDbConnection $ upsert (select ["id" =: key] "FILESERVER_RECORD") $ toBSON fs
    -- return True
 
-storefm :: String  -> [FileMapping] -> String -> IO[FileMapping]
-storefm  port a  filename =  do
+storefm :: String  -> String-> [FileMapping] -> String -> IO[FileMapping]
+storefm  port address a  filename =  do
 	warnLog $ "Storing file under key " ++ filename ++ "."
-        let serverNumber = port `mod` 8080
-        let serverName = "Server" ++ show serverNumber
-        let fileMapping = (FileMapping filename serverName (show port))
+        let fileMapping = (FileMapping filename address port)
 	withMongoDbConnection $ upsert (select ["id" =: filename] "FILEMAPPING_RECORD") $ toBSON fileMapping
-        return $ (FileMapping filename serverName (show port)):a
+        return $ (FileMapping filename address port):a
 --	return True
 
 getStoreFm :: FileServer -> IO()
@@ -163,7 +161,7 @@ getStoreFm fs = liftIO $ do
     case res of
         Left err -> putStrLn $ "Error: " ++ show err
         Right response' -> do
-          blah' <- mapM (storefm (fsport fs) []) response'
+          blah' <- mapM (storefm (fsport fs) (fsaddress fs)[]) response'
           return ()
                          
                          
