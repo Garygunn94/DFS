@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-27 12:45:29.755407 UTC
+2016-12-28 13:08:23.077701 UTC
 
 interface main@main:Main 8001
-  interface hash: a40d75a4b61592d923a458db7429ba62
-  ABI hash: ce23936d2ed3f4e33139ab65e656be1c
+  interface hash: 1ca01fc57ec9c3bd33aa34db59405409
+  ABI hash: 611285a04af0dc2fc9eea68db6419e18
   export-list hash: bdb0194746a906c356eddf877c411de9
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: ff77ed83ade2bf643bf24a469b2a2c5c
@@ -192,7 +192,7 @@ family instance modules: DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-22zsnFl
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-22zsnFlpHNOkYoICSShQs:DirectoryServer 69e04bd55858df25a72830724561bc3e
+import  -/  DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-22zsnFlpHNOkYoICSShQs:DirectoryServer 12b2b6859b56ef4463dc3e513373797e
 import  -/  DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-22zsnFlpHNOkYoICSShQs:Lib 14750336d6c93bd6505b92e89e3771f2
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
@@ -208,12 +208,12 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-7c25a6066dac9e82fee33ad02e43c3f9
+bb1eb193ce9c3fd0061150ba6f3fdf5b
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 DirectoryServer.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-43e380252c9b3b81e11db2d1250d420f
+1426de6fb6600090018533ef95d8858e
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

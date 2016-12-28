@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-15 19:05:33.689161 UTC
+2016-12-28 13:09:09.90153 UTC
 
 interface main@main:Main 8001
-  interface hash: 034be4eb75d3ff78bd658214a341f15c
-  ABI hash: 082b8876f8ab46f11ed3085157b94252
-  export-list hash: 4a99ee369f9c8350c02744b13c09edc5
+  interface hash: 711e33d24caceaa77fbd372f0bf180cc
+  ABI hash: c53219af9d8535d718994d5b36f15056
+  export-list hash: c1eb354c81efa0c802df5ceb01a79edc
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 843d1844531e2000602023ea0a6e6e2e
   sig of: Nothing
@@ -14,7 +14,7 @@ interface main@main:Main 8001
 exports:
   Main.main
 module dependencies:
-package dependencies: FileServer-0.1.0.0@FileServer-0.1.0.0-4cRZ4ZdfdghDvQIMAkgiWl
+package dependencies: FileServer-0.1.0.0@FileServer-0.1.0.0-3w6BH864VJWDz7jS8hVC22
                       aeson-1.0.2.1@aeson-1.0.2.1-B1H7uvY9HnXH2BYsViQp5P
                       appar-0.1.4@appar-0.1.4-1in4Ewd8JBkAYDZSWXLSe0
                       array-0.5.1.1@array-0.5.1.1
@@ -105,7 +105,7 @@ orphans: attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Att
          transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Fusion.Bundle
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
-family instance modules: FileServer-0.1.0.0@FileServer-0.1.0.0-4cRZ4ZdfdghDvQIMAkgiWl:FileServer
+family instance modules: FileServer-0.1.0.0@FileServer-0.1.0.0-3w6BH864VJWDz7jS8hVC22:FileServer
                          attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Internal.Types
                          base-4.9.0.0:Control.Applicative base-4.9.0.0:Data.Complex
                          base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Compose
@@ -155,7 +155,7 @@ family instance modules: FileServer-0.1.0.0@FileServer-0.1.0.0-4cRZ4ZdfdghDvQIMA
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  FileServer-0.1.0.0@FileServer-0.1.0.0-4cRZ4ZdfdghDvQIMAkgiWl:FileServer f6302b631946deee7afe0a13b602c446
+import  -/  FileServer-0.1.0.0@FileServer-0.1.0.0-3w6BH864VJWDz7jS8hVC22:FileServer 396445206939936d97e625d1f8cf785d
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 d6831ef04cb9301b090dfae6f7bb7ec7
@@ -170,12 +170,12 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-ae486cf6962775008948c718dca4014a
+04f8a370674f4b89bd37693c36a544ec
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 FileServer.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-a6c0ab60e2a08f8a9fc5405f023ca52a
+2be3c8dbe5282694042fbfb99894cc62
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

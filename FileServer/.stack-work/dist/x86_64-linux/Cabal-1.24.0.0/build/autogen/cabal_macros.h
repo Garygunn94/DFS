@@ -28,6 +28,13 @@
   (major1) == 1 && (major2) <  2 || \
   (major1) == 1 && (major2) == 2 && (minor) <= 6)
 
+/* package http-client-0.4.31.2 */
+#define VERSION_http_client "0.4.31.2"
+#define MIN_VERSION_http_client(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  4 || \
+  (major1) == 0 && (major2) == 4 && (minor) <= 31)
+
 /* package servant-0.9.1.1 */
 #define VERSION_servant "0.9.1.1"
 #define MIN_VERSION_servant(major1,major2,minor) (\
@@ -76,13 +83,6 @@
   (major1) <  3 || \
   (major1) == 3 && (major2) <  1 || \
   (major1) == 3 && (major2) == 1 && (minor) <= 6)
-
-/* tool cpphs-1.20.2 */
-#define TOOL_VERSION_cpphs "1.20.2"
-#define MIN_TOOL_VERSION_cpphs(major1,major2,minor) (\
-  (major1) <  1 || \
-  (major1) == 1 && (major2) <  20 || \
-  (major1) == 1 && (major2) == 20 && (minor) <= 2)
 
 /* tool gcc-5.4.0 */
 #define TOOL_VERSION_gcc "5.4.0"
@@ -154,7 +154,7 @@
   (major1) == 2 && (major2) <  26 || \
   (major1) == 2 && (major2) == 26 && (minor) <= 0)
 
-#define CURRENT_COMPONENT_ID "FileServer-0.1.0.0-4cRZ4ZdfdghDvQIMAkgiWl"
+#define CURRENT_COMPONENT_ID "FileServer-0.1.0.0-3w6BH864VJWDz7jS8hVC22"
 
-#define CURRENT_PACKAGE_KEY "FileServer-0.1.0.0-4cRZ4ZdfdghDvQIMAkgiWl"
+#define CURRENT_PACKAGE_KEY "FileServer-0.1.0.0-3w6BH864VJWDz7jS8hVC22"
 

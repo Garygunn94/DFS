@@ -1,0 +1,5 @@
+;;POST http://127.0.0.1:7008/close
+;;Content-Type: application/json
+;;{"fileName":"blah.txt", "fileContent": "njfkbvfkjvb"}
+
+GET http://127.0.0.1:7008/open/blah.txt

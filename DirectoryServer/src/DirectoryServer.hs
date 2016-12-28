@@ -142,8 +142,9 @@ mkApp = do
 
 storefs:: FileServer -> IO()
 storefs fs@(FileServer key _ _) = liftIO $ do
-    --warnLog $ "Storing file under key " ++ key ++ "."
+    warnLog $ "Storing file under key " ++ key ++ "."
     withMongoDbConnection $ upsert (select ["id" =: key] "FILESERVER_RECORD") $ toBSON fs
+    warnLog $ "Success"
    -- return True
 
 storefm :: String  -> String-> [FileMapping] -> String -> IO[FileMapping]
@@ -157,7 +158,7 @@ storefm  port address a  filename =  do
 getStoreFm :: FileServer -> IO()
 getStoreFm fs = liftIO $ do
     manager <- newManager defaultManagerSettings
-    res <- runClientM getFilesQuery (ClientEnv manager (BaseUrl Http (fsaddress fs) (read(fsport fs)) ""))
+    res <- runClientM getFilesQuery (ClientEnv manager (BaseUrl Http (fsaddress fs) (read(fsport fs) :: Int) ""))
     case res of
         Left err -> putStrLn $ "Error: " ++ show err
         Right response' -> do
@@ -170,7 +171,7 @@ getStoreFm fs = liftIO $ do
 fsJoin :: FileServer -> ApiHandler Response
 fsJoin fs = liftIO $  do
 	storefs fs
-	getStoreFm fs
+
 	return (Response "Success")
 
 searchFileMappings :: String -> IO(FileMapping)
@@ -184,7 +185,7 @@ searchFileMappings key =  do
 openFileQuery :: String -> FileMapping -> IO(File)
 openFileQuery key fm =  do
 	manager <- newManager defaultManagerSettings
-        res <- runClientM (downloadQuery key) (ClientEnv manager (BaseUrl Http (fmaddress fm) (read(fmport fm)) ""))
+        res <- runClientM (downloadQuery key) (ClientEnv manager (BaseUrl Http (fmaddress fm) (read(fmport fm) :: Int) ""))
         case res of
            Left err -> return (File "" "")
                           
@@ -192,9 +193,13 @@ openFileQuery key fm =  do
 
 openFile :: String -> ApiHandler File
 openFile key = liftIO $ do
-	        fm <- searchFileMappings key
-	        file <- openFileQuery key fm
-                return file
+          fileServers <- liftIO $ withMongoDbConnection $ do
+              docs <- find (select [] "FILESERVER_RECORD") >>= drainCursor
+              return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileServer) docs
+          mapM getStoreFm fileServers
+	  fm <- searchFileMappings key
+	  file <- openFileQuery key fm
+          return file
 
 closeFile :: File -> ApiHandler Response
 closeFile file = liftIO $  do
@@ -202,12 +207,12 @@ closeFile file = liftIO $  do
        docs <- find (select [] "FILESERVER_RECORD") >>= drainCursor
        return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileServer) docs
   let range = length fileServers
-  index <- randomRIO (1, range)
+  index <- randomRIO (0, (range-1))
   let fs = fileServers !! index
   let fm = (FileMapping (fileName file) (fsaddress fs) (fsport fs))
   withMongoDbConnection $ upsert (select ["id" =: (fileName file)] "FILEMAPPING_RECORD") $ toBSON fm
   manager <- newManager defaultManagerSettings
-  res <- runClientM (uploadQuery file) (ClientEnv manager (BaseUrl Http (fsaddress fs) (read(fsport fs)) ""))
+  res <- runClientM (uploadQuery file) (ClientEnv manager (BaseUrl Http (fsaddress fs) (read(fsport fs) :: Int) ""))
   case res of
    Left err -> return (Response "Failed")
                           
@@ -281,7 +286,7 @@ drainCursor cur = drainCursor' cur []
 
 -- | The IP address of the mongoDB database that devnostics-rest uses to store and access data
 mongoDbIp :: IO String
-mongoDbIp = defEnv "MONGODB_IP" Prelude.id "database" True
+mongoDbIp = defEnv "MONGODB_IP" Prelude.id "127.0.0.1" True
 
 -- | The port number of the mongoDB database that devnostics-rest uses to store and access data
 mongoDbPort :: IO Integer

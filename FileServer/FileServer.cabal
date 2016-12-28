@@ -24,6 +24,7 @@ library
                      , directory  
                      , warp
                      , wai
+                     , http-client
                      , transformers
   default-language:    Haskell2010
 
