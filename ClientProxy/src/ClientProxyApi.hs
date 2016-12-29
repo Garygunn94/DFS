@@ -12,7 +12,7 @@
 module ClientProxyApi where
 import              System.Random
 import              Control.Monad.Trans.Except
-import              Control.Monad.Trans.Resource
+import              Control.Monad.Trans.Resource hiding (register)
 import              Control.Monad.IO.Class
 import              Data.Aeson
 import              Data.Aeson.TH
@@ -57,6 +57,26 @@ data Response = Response{
 instance ToJSON Response
 instance FromJSON Response
 
+data User = User{
+    uusername :: String,
+    upassword :: String,
+  timeout :: String,
+  token :: String
+} deriving (Eq, Show, Generic)
+instance ToJSON User
+instance FromJSON User
+instance ToBSON User
+instance FromBSON User
+
+data Signin = Signin{
+  susername :: String,
+  spassword :: String
+} deriving (Eq, Show, Generic)
+instance ToJSON Signin
+instance FromJSON Signin
+instance ToBSON Signin
+instance FromBSON Signin
+
 type ApiHandler = ExceptT ServantErr IO
 
 serverport :: String
@@ -64,6 +84,36 @@ serverport = "8080"
 
 serverhost :: String
 serverhost = "localhost"
+
+type AuthApi = 
+    "signin" :> ReqBody '[JSON] Signin :> Post '[JSON] User :<|>
+    "register" :> ReqBody '[JSON] Signin :> Post '[JSON] Response  :<|>
+    "isvalid" :> ReqBody '[JSON] User :> Post '[JSON] Response
+
+authApi :: Proxy AuthApi
+authApi = Proxy
+
+signin :: Signin -> ClientM User
+register :: Signin -> ClientM Response
+isvalid :: User -> ClientM Response
+
+signin :<|> register :<|> isvalid = client authApi
+
+signinQuery :: Signin -> ClientM User
+signinQuery signindetails = do
+  signinquery <- signin signindetails
+  return signinquery
+
+registerQuery :: Signin -> ClientM Response
+registerQuery registerdetails = do
+  registerquery <- register registerdetails
+  return registerquery
+
+isvalidQuery :: User -> ClientM Response
+isvalidQuery isvaliddetails = do
+  isvalidquery <- isvalid isvaliddetails
+  return isvalidquery
+
 
 type DirectoryApi = 
     "open" :> Capture "fileName" String :> Get '[JSON] File :<|>
@@ -92,21 +142,60 @@ mainClient :: IO()
 mainClient = do
   createDirectoryIfMissing True ("localstorage/")
   setCurrentDirectory ("localstorage/")
-  mainloop
+  authpart
 
-mainloop :: IO()
-mainloop = do
+authpart :: IO()
+authpart = do
+  putStrLn $ "Enter one of the following commands: LOGIN/REGISTER"
+  cmd <- getLine
+  case cmd of
+    "LOGIN" -> authlogin
+    "REGISTER" -> authregister
+
+authlogin :: IO ()
+authlogin = do
+  putStrLn $ "Enter your username:"
+  username <- getLine
+  putStrLn $ "Enter your password"
+  password <- getLine
+  let user = (Signin username password)
+  manager <- newManager defaultManagerSettings
+  res <- runClientM (signinQuery user) (ClientEnv manager (BaseUrl Http "localhost" 8082 ""))
+  case res of
+   Left err -> do putStrLn $ "Error: " ++ show err
+                  authpart
+   Right response -> do let tokener = token response
+                        let timeouter = timeout response
+                        mainloop tokener timeouter
+authregister :: IO ()
+authregister = do
+  putStrLn $ "Enter your details to make a new account"
+  putStrLn $ "Enter your username:"
+  username <- getLine
+  putStrLn $ "Enter your password"
+  password <- getLine
+  let user = (Signin username password)
+  manager <- newManager defaultManagerSettings
+  res <- runClientM (registerQuery user) (ClientEnv manager (BaseUrl Http "localhost" 8082 ""))
+  case res of
+   Left err -> do putStrLn $ "Error: " ++ show err
+                  authpart
+   Right response -> authpart
+
+
+mainloop :: String -> String -> IO()
+mainloop tokener timeouter = do
     putStrLn $ "Enter one of the following commands: UPLOAD/DOWNLOAD/CLOSE"
     cmd <- getLine
     case cmd of
-        "UPLOAD" -> uploadFile
-        "DOWNLOAD" -> downloadFile
+        "UPLOAD" -> uploadFile tokener timeouter
+        "DOWNLOAD" -> downloadFile tokener timeouter
         "CLOSE" -> putStrLn $ "Closing service!"
         _ -> do putStrLn $ "Invalid Command. Try Again"
-                mainloop
+                mainloop tokener timeouter
 
-uploadFile :: IO()
-uploadFile = do
+uploadFile :: String -> String -> IO()
+uploadFile tokener timeouter = do
     putStrLn "Please enter the name of the file to upload"
     fileName <- getLine
     putStrLn "Please enter the contents of the file to upload"
@@ -114,18 +203,18 @@ uploadFile = do
     let file = File fileName fileContent
     response <- putFile file
     putStrLn $  "Response: " ++ show response
-    mainloop
+    mainloop tokener timeouter
 
 
-downloadFile :: IO()
-downloadFile = do
+downloadFile :: String -> String -> IO()
+downloadFile tokener timeouter = do
 	putStrLn "Please enter the name of the file to download"
 	fileName <- getLine
-        getFile fileName
-	mainloop
+        getFile fileName tokener timeouter
+	mainloop tokener timeouter
 
-getFile:: String -> IO()
-getFile filename = do
+getFile:: String -> String -> String -> IO()
+getFile filename tokener timeouter = do
   manager <- newManager defaultManagerSettings
   res <- runClientM (openQuery filename) (ClientEnv manager (BaseUrl Http "localhost" 7008 ""))
   case res of
@@ -144,12 +233,10 @@ getFile filename = do
                                      putStrLn $ fileContent
                                      let file = File filename fileContent
                                      putFile file
-                                     mainloop
-                         (_) -> mainloop
+                                     mainloop tokener timeouter
+                         (_) -> mainloop tokener timeouter
 
                                     
-                        
-
 putFile:: File -> IO ()
 putFile file = do
   manager <- newManager defaultManagerSettings

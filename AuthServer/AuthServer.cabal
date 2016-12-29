@@ -39,7 +39,7 @@ library
                      , http-client
                      , process
                      , uuid
-                     , time
+                     , split
   default-language:    Haskell2010
 
 executable AuthServer-exe

@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-29 14:58:43.309217 UTC
+2016-12-29 16:57:10.695294 UTC
 
 interface main@main:Main 8001
-  interface hash: c30058d35f1f35cc6b67b55090652c3e
-  ABI hash: 2ba17aa7c76e0cf02644bf7ae51fc870
-  export-list hash: 211a3340699f150209ad42c80e81597c
+  interface hash: c6b26c0f3b648bd261dab7bbded5b1e6
+  ABI hash: 3cfe48825051a0e70ae5ad7e88c70b6c
+  export-list hash: e8565c5a40c0f32e8a6c2d379568862d
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: f64db973905fcdfcd6b56dd70b2818ea
   sig of: Nothing
@@ -14,7 +14,7 @@ interface main@main:Main 8001
 exports:
   Main.main
 module dependencies:
-package dependencies: AuthServer-0.1.0.0@AuthServer-0.1.0.0-DxSrrEId83kJu2Lz997sPX
+package dependencies: AuthServer-0.1.0.0@AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl
                       MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov
                       aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz
                       appar-0.1.4@appar-0.1.4-1in4Ewd8JBkAYDZSWXLSe0
@@ -91,6 +91,7 @@ package dependencies: AuthServer-0.1.0.0@AuthServer-0.1.0.0-DxSrrEId83kJu2Lz997s
                       servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3
                       servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd
                       simple-sendfile-0.2.25@simple-sendfile-0.2.25-FZS0Stqtwd5AOyFRQgM4IV
+                      split-0.2.3.1@split-0.2.3.1-IJKK4pOCYGKud0jZImZke
                       stm-2.4.4.1@stm-2.4.4.1-4z2NRWnB0NIIUvSJsHW0kF
                       streaming-commons-0.1.16@streaming-commons-0.1.16-KtRawhq8O97EWCabefpk66
                       string-conversions-0.4@string-conversions-0.4-8T0UFmRDEly2gsNJzmHrNQ
@@ -141,7 +142,7 @@ orphans: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.
          unix-time-0.3.7@unix-time-0.3.7-HcxGsrnTmTlC98pyanzoMW:Data.UnixTime.Diff
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Fusion.Bundle
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
-family instance modules: AuthServer-0.1.0.0@AuthServer-0.1.0.0-DxSrrEId83kJu2Lz997sPX:AuthServer
+family instance modules: AuthServer-0.1.0.0@AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl:AuthServer
                          attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Internal.Types
                          base-4.9.0.0:Control.Applicative base-4.9.0.0:Data.Complex
                          base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Compose
@@ -195,8 +196,8 @@ family instance modules: AuthServer-0.1.0.0@AuthServer-0.1.0.0-DxSrrEId83kJu2Lz9
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-DxSrrEId83kJu2Lz997sPX:AuthServer 10991dfc9fda03ac0ee06836cfe51203
-import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-DxSrrEId83kJu2Lz997sPX:Lib 8cfac2bb810733c007b7c9fe16334e85
+import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl:AuthServer e09a780447a12af908f5470efcef38bc
+import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl:Lib fc6545111778842b40150f0da01b8f2e
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 d6831ef04cb9301b090dfae6f7bb7ec7
@@ -211,12 +212,12 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-aff5d5576a2b1c6ed0f5d4bc299e6e72
+071260f79607bbf02610ef2de4f2cd70
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 AuthServer.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-e002ea473ac7029d606996d66db8abef
+cc49d3948d1e7e7636d6950a8c432b3b
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

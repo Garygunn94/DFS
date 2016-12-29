@@ -1,0 +1,15 @@
+;; This buffer is for notes you don't want to save, and for Lisp evaluation.
+;; If you want to create a file, visit that file with C-x C-f,
+;; then enter the text in that file's own buffer.
+
+POST http://localhost:8082/isvalid
+Content-Type: application/json
+{
+  "timeout": "2016-12-29 17:15:49.003831",
+  "uusername": "blah",
+  "token": "be974722-cde9-11e6-8001-000c2994a6b3",
+  "upassword": "123456789"
+}
+
+
+

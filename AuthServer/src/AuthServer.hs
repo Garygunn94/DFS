@@ -17,6 +17,7 @@ import           Control.Monad.IO.Class
 import           Data.Aeson
 import           Data.Aeson.TH
 import           Data.Bson.Generic
+import           Data.List.Split
 import           GHC.Generics
 import           Network.Wai hiding(Response)
 import           Network.Wai.Handler.Warp
@@ -42,7 +43,7 @@ import           	Database.MongoDB
 import Control.Monad (when)
 import Network.HTTP.Client (newManager, defaultManagerSettings)
 import Data.UUID.V1
-import Data.UUID
+import Data.UUID hiding (null)
 import Data.Time
 
 data Response = Response{
@@ -58,20 +59,17 @@ data User = User{
 	timeout :: String,
 	token :: String
 } deriving (Eq, Show, Generic)
-
+instance ToJSON User
+instance FromJSON User
+instance ToBSON User
+instance FromBSON User
 
 data Signin = Signin{
 	susername :: String,
 	spassword :: String
 } deriving (Eq, Show, Generic)
-
-
-instance ToJSON User
-instance FromJSON User
 instance ToJSON Signin
 instance FromJSON Signin
-instance ToBSON User
-instance FromBSON User
 instance ToBSON Signin
 instance FromBSON Signin
 
@@ -85,8 +83,8 @@ serverhost = "localhost"
 
 type AuthApi = 
     "signin" :> ReqBody '[JSON] Signin :> Post '[JSON] User :<|>
-    "register" :> ReqBody '[JSON] Signin :> Post '[JSON] Response -- :<|>
- --   "isvalid" :> Capture "token" User :> Get '[JSON] Response
+    "register" :> ReqBody '[JSON] Signin :> Post '[JSON] Response  :<|>
+    "isvalid" :> ReqBody '[JSON] User :> Post '[JSON] Response
 
 authApi :: Proxy AuthApi
 authApi = Proxy
@@ -94,8 +92,8 @@ authApi = Proxy
 server :: Server AuthApi
 server = 
     login :<|>
-    newuser-- :<|>
---    checkToken
+    newuser :<|>
+    checkToken
 
 authApp :: Application
 authApp = serve authApi server
@@ -110,9 +108,10 @@ login signin = liftIO $ do
 	let psswrd = spassword signin
 	warnLog $ "Searching for value for key: " ++ uname ++ ", " ++ psswrd
 	user <- withMongoDbConnection $ do 
-	    docs <- find (select ["uname" =: uname, "password" =: psswrd] "USER_RECORD") >>= drainCursor
-            return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe User) docs
+	    docs <- find (select ["susername" =: uname] "USER_RECORD") >>= drainCursor
+            return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe Signin) docs
         let thisuser = head $ user
+        putStrLn (show thisuser)
         a <- nextUUID
         let tokener = Data.UUID.toString $ fromJust a
         currentTime <- getCurrentTime
@@ -122,8 +121,8 @@ login signin = liftIO $ do
         let timeouter = utcToLocalTime currentZone newTime
         let finaltimeout = show timeouter
         warnLog $ "Storing Session key under key " ++ uname ++ "."
-        let session = (User uname psswrd finaltimeout tokener)
-	withMongoDbConnection $ upsert (select ["id" =: uname] "SESSION_RECORD") $ toBSON session
+        let session = (User (susername thisuser) (spassword thisuser) finaltimeout tokener)
+	withMongoDbConnection $ upsert (select ["uusername" =: uname] "SESSION_RECORD") $ toBSON session
         warnLog $ "Session Successfully Stored."
 	return (session)
 
@@ -134,8 +133,47 @@ newuser signin = liftIO $ do
   let psswrd = spassword signin
   warnLog $ "Storing value under key: " ++ uname
   let user = (Signin uname psswrd)
-  withMongoDbConnection $ upsert (select ["uname" =: uname, "password" =: psswrd] "USER_RECORD") $ toBSON user
+  withMongoDbConnection $ upsert (select ["susername" =: uname] "USER_RECORD") $ toBSON user
   return (Response "Success")
+
+checkToken :: User -> ApiHandler Response
+checkToken user = liftIO $ do
+  let uname = uusername user
+  let tokener = token user
+  warnLog $ "Searching for user: " ++ uname
+  session <- withMongoDbConnection $ do 
+      docs <- find (select ["uusername" =: uname] "SESSION_RECORD") >>= drainCursor
+      return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe User) docs
+  warnLog $ "User found" ++ (show session)
+  let thissession = head $ session
+  let senttoken = token user
+  let storedtoken = token thissession
+  case senttoken == storedtoken of
+      False -> return (Response "Token not valid")
+      True -> do let tokentimeout = timeout thissession
+                 currentTime <- getCurrentTime
+                 currentZone <- getCurrentTimeZone
+                 let localcurrentTime = show (utcToLocalTime currentZone currentTime)
+                 let tokentimeoutsplit = words $ tokentimeout
+                 let localcurrentTimesplit = words $ localcurrentTime
+                 case ((tokentimeoutsplit !! 0) == (localcurrentTimesplit !! 0)) of
+                      False -> return (Response "Current date not equal to token date")
+                      True -> do let localcurrenthours = localcurrentTimesplit !! 1
+                                 let tokenhours = tokentimeoutsplit !! 1
+                                 let localhour = (splitOn ":" $ localcurrenthours) !! 0
+                                 let tokenhour = (splitOn ":" $ tokenhours) !! 0
+                                 case localhour == tokenhour of
+                                   False -> return (Response "Either token timeout or hour rollover")
+                                   True -> do let tokenminutes = read(((splitOn ":" $ tokenhours) !! 1))
+                                              let currentminutes = read(((splitOn ":" $ localcurrenthours) !! 1))
+                                              case ((tokenminutes - currentminutes)<= 5) of
+                                                  False -> return (Response "Token Timeout")
+                                                  True -> return (Response "Token is Valid")
+
+
+
+
+
 
 
   
@@ -202,7 +240,7 @@ drainCursor cur = drainCursor' cur []
   where
     drainCursor' cur res  = do
       batch <- nextBatch cur
-      if DL.null batch
+      if null batch
         then return res
         else drainCursor' cur (res ++ batch)
 
