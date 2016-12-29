@@ -4,4 +4,4 @@ import Lib
 import ClientProxyApi
 
 main :: IO ()
-main = mkApp
+main = mainClient

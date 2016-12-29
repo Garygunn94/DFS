@@ -88,8 +88,14 @@ closeQuery file = do
 	closequery <- close file
 	return closequery
 
-mkApp :: IO()
-mkApp = do
+mainClient :: IO()
+mainClient = do
+  createDirectoryIfMissing True ("localstorage/")
+  setCurrentDirectory ("localstorage/")
+  mainloop
+
+mainloop :: IO()
+mainloop = do
     putStrLn $ "Enter one of the following commands: UPLOAD/DOWNLOAD/CLOSE"
     cmd <- getLine
     case cmd of
@@ -97,7 +103,7 @@ mkApp = do
         "DOWNLOAD" -> downloadFile
         "CLOSE" -> putStrLn $ "Closing service!"
         _ -> do putStrLn $ "Invalid Command. Try Again"
-                mkApp
+                mainloop
 
 uploadFile :: IO()
 uploadFile = do
@@ -108,7 +114,7 @@ uploadFile = do
     let file = File fileName fileContent
     response <- putFile file
     putStrLn $  "Response: " ++ show response
-    mkApp
+    mainloop
 
 
 downloadFile :: IO()
@@ -116,7 +122,7 @@ downloadFile = do
 	putStrLn "Please enter the name of the file to download"
 	fileName <- getLine
         getFile fileName
-	mkApp
+	mainloop
 
 getFile:: String -> IO()
 getFile filename = do
@@ -138,8 +144,8 @@ getFile filename = do
                                      putStrLn $ fileContent
                                      let file = File filename fileContent
                                      putFile file
-                                     mkApp
-                         (_) -> mkApp
+                                     mainloop
+                         (_) -> mainloop
 
                                     
                         

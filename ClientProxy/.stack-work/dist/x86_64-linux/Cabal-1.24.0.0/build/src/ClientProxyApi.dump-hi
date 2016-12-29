@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-28 17:00:47.922765 UTC
+2016-12-29 12:41:03.16317 UTC
 
 interface ClientProxy-0.1.0.0-CaSNj6e4lFq9iCoIyuRtaa:ClientProxyApi [family instance module] 8001
-  interface hash: 8a9d0c4b849956043cd94ef679d57f65
-  ABI hash: cfeefd00f8430d6870d9c194ef478430
-  export-list hash: ebd8da7d0e0d4138f6f0820189e664b2
+  interface hash: 331d4030604dc9e1d6f02445fb7d7385
+  ABI hash: 9345b9d644f4868d6bef4786bf47def0
+  export-list hash: 71284136e67e685286745d090c2522b9
   orphan hash: 5d382a2181201bd35920c8be6178b424
   flag hash: 232b91cb96073461cf6c3dcd6a42e778
   sig of: Nothing
@@ -16,9 +16,9 @@ exports:
   ClientProxyApi.closeQuery
   ClientProxyApi.directoryApi
   ClientProxyApi.downloadFile
-  ClientProxyApi.first
   ClientProxyApi.getFile
-  ClientProxyApi.mkApp
+  ClientProxyApi.mainClient
+  ClientProxyApi.mainloop
   ClientProxyApi.open
   ClientProxyApi.openQuery
   ClientProxyApi.putFile
@@ -3282,10 +3282,6 @@ bf9207102d854990ba8c86a944382d69
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: ClientProxyApi.File) ->
                  case ds of wild { ClientProxyApi.File ds1 ds2 -> ds1 }) -}
-2d57590cb6796a1bf503b1e2e5973036
-  first :: GHC.Types.Bool
-  {- HasNoCafRefs,
-     Unfolding: InlineRule (0, True, True) GHC.Types.True -}
 5cb2ae60cc5c02098a57938161b4927a
   getFile :: GHC.Base.String -> GHC.Types.IO ()
   {- Arity: 2, Strictness: <L,U><S,U>,
@@ -3299,16 +3295,42 @@ bf9207102d854990ba8c86a944382d69
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 2, Strictness: <L,U><S,U> -}
-ffa8aae90bd6e5a3a8acf235b8b04f18
-  mkApp :: GHC.Types.IO ()
+7ca31c1172ba7c45383ad6057c7f41db
+  mainClient :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
-                ClientProxyApi.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-6eba8e5f375be73f1b6ba8bb881cdc30
-  mkApp1 ::
+                ClientProxyApi.mainClient1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+a16ff05c6d8a18ce411bd9d90d3551e4
+  mainClient1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case System.Directory.createDirectoryIfMissing1
+                        GHC.Types.True
+                        ClientProxyApi.mainClient3
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 case System.Posix.Directory.changeWorkingDirectory1
+                        ClientProxyApi.mainClient3
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 ClientProxyApi.mainClient2 ipv2 } }) -}
+93ef9a6e7b03fbfd8c5ceef2eb2eb1be
+  mainClient2 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1, Strictness: <S,U> -}
+397727c004c6176e69a7ff9c318ce516
+  mainClient3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "localstorage/"#) -}
+f6d64ebd6ea0ff124351ab6f89f78b3d
+  mainloop :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                ClientProxyApi.mainClient2
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <()>_R)) -}
 0cda4c6429baaae46eebeaa02f9694ea
   open ::
     GHC.Base.String -> Servant.Common.Req.ClientM ClientProxyApi.File

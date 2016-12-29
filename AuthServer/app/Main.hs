@@ -1,6 +1,7 @@
 module Main where
 
 import Lib
+import AuthServer
 
 main :: IO ()
-main = someFunc
+main = mkApp
