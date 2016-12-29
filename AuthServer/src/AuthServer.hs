@@ -154,21 +154,21 @@ checkToken user = liftIO $ do
                  currentTime <- getCurrentTime
                  currentZone <- getCurrentTimeZone
                  let localcurrentTime = show (utcToLocalTime currentZone currentTime)
-                 let tokentimeoutsplit = words $ tokentimeout
-                 let localcurrentTimesplit = words $ localcurrentTime
+                 let tokentimeoutsplit = splitOn " " $ tokentimeout
+                 let localcurrentTimesplit = splitOn " " $ localcurrentTime
                  case ((tokentimeoutsplit !! 0) == (localcurrentTimesplit !! 0)) of
                       False -> return (Response "Current date not equal to token date")
                       True -> do let localcurrenthours = localcurrentTimesplit !! 1
                                  let tokenhours = tokentimeoutsplit !! 1
-                                 let localhour = (splitOn ":" $ localcurrenthours) !! 0
-                                 let tokenhour = (splitOn ":" $ tokenhours) !! 0
-                                 case localhour == tokenhour of
-                                   False -> return (Response "Either token timeout or hour rollover")
-                                   True -> do let tokenminutes = read(((splitOn ":" $ tokenhours) !! 1))
-                                              let currentminutes = read(((splitOn ":" $ localcurrenthours) !! 1))
-                                              case ((tokenminutes - currentminutes)<= 5) of
-                                                  False -> return (Response "Token Timeout")
-                                                  True -> return (Response "Token is Valid")
+                                 let localhour = read(((splitOn ":" $ localcurrenthours) !! 0))
+                                 let tokenhour = read(((splitOn ":" $ tokenhours) !! 0))
+                                 let tokenminutes = read(((splitOn ":" $ tokenhours) !! 1))
+                                 let currentminutes = read(((splitOn ":" $ localcurrenthours) !! 1))
+                                 let totaltokenminutes = (tokenhour * 60) + tokenminutes
+                                 let totalcurrentminutes = (localhour * 60) + currentminutes
+                                 case totaltokenminutes > totalcurrentminutes of
+                                      False -> return (Response "Token Timeout")
+                                      True -> return (Response "Token is Valid")
 
 
 

@@ -164,9 +164,8 @@ authlogin = do
   case res of
    Left err -> do putStrLn $ "Error: " ++ show err
                   authpart
-   Right response -> do let tokener = token response
-                        let timeouter = timeout response
-                        mainloop tokener timeouter
+   Right response -> mainloop response
+
 authregister :: IO ()
 authregister = do
   putStrLn $ "Enter your details to make a new account"
@@ -182,39 +181,50 @@ authregister = do
                   authpart
    Right response -> authpart
 
-
-mainloop :: String -> String -> IO()
-mainloop tokener timeouter = do
+mainloop :: User -> IO()
+mainloop user = do
     putStrLn $ "Enter one of the following commands: UPLOAD/DOWNLOAD/CLOSE"
     cmd <- getLine
     case cmd of
-        "UPLOAD" -> uploadFile tokener timeouter
-        "DOWNLOAD" -> downloadFile tokener timeouter
+        "UPLOAD" -> uploadFile user
+        "DOWNLOAD" -> downloadFile user
         "CLOSE" -> putStrLn $ "Closing service!"
         _ -> do putStrLn $ "Invalid Command. Try Again"
-                mainloop tokener timeouter
+                mainloop user
 
-uploadFile :: String -> String -> IO()
-uploadFile tokener timeouter = do
+uploadFile :: User -> IO()
+uploadFile user = do
     putStrLn "Please enter the name of the file to upload"
     fileName <- getLine
     putStrLn "Please enter the contents of the file to upload"
     fileContent <- getLine
     let file = File fileName fileContent
-    response <- putFile file
+    response <- putFile file user
     putStrLn $  "Response: " ++ show response
-    mainloop tokener timeouter
+    mainloop user
 
 
-downloadFile :: String -> String -> IO()
-downloadFile tokener timeouter = do
+downloadFile :: User -> IO()
+downloadFile user = do
 	putStrLn "Please enter the name of the file to download"
 	fileName <- getLine
-        getFile fileName tokener timeouter
-	mainloop tokener timeouter
+        getFile fileName user
+	mainloop user
 
-getFile:: String -> String -> String -> IO()
-getFile filename tokener timeouter = do
+isTokenValid :: User -> IO()
+isTokenValid user = do
+  manager <- newManager defaultManagerSettings
+  res <- runClientM (isvalidQuery user) (ClientEnv manager (BaseUrl Http "localhost" 8082 ""))
+  case res of
+   Left err -> putStrLn $ "Error: " ++ show err
+   Right responser -> do case (response responser) of
+                            "Token is Valid" -> return()
+                            _ -> do putStrLn $ "Session timeout, returning to login menu"
+                                    authpart
+
+getFile:: String -> User -> IO()
+getFile filename user = do
+  isTokenValid user
   manager <- newManager defaultManagerSettings
   res <- runClientM (openQuery filename) (ClientEnv manager (BaseUrl Http "localhost" 7008 ""))
   case res of
@@ -230,15 +240,15 @@ getFile filename tokener timeouter = do
                      
                         case sure of
                          ("y") -> do fileContent <- readFile (fileName response)
-                                     putStrLn $ fileContent
                                      let file = File filename fileContent
-                                     putFile file
-                                     mainloop tokener timeouter
-                         (_) -> mainloop tokener timeouter
+                                     putFile file user
+                                     mainloop user
+                         (_) -> mainloop user
 
                                     
-putFile:: File -> IO ()
-putFile file = do
+putFile:: File -> User-> IO ()
+putFile file user = do
+  isTokenValid user
   manager <- newManager defaultManagerSettings
   res <- runClientM (closeQuery file) (ClientEnv manager (BaseUrl Http "localhost" 7008 ""))
   case res of

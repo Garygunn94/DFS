@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-29 17:43:18.053953 UTC
+2016-12-29 18:00:52.042355 UTC
 
 interface ClientProxy-0.1.0.0-CaSNj6e4lFq9iCoIyuRtaa:ClientProxyApi [family instance module] 8001
-  interface hash: aa0913f807b2c6215e51d02f0e26b3a1
-  ABI hash: d01c5d8fbdca54f2e475780908940584
-  export-list hash: fe4c59fda856d98773cd340b0732928d
+  interface hash: d1f04114e95da5b2e49cbc0544a20655
+  ABI hash: dfb60dd49009d39771e27b5e83a6ba53
+  export-list hash: 6d3c1f28e54963957497d14c1b76aa3b
   orphan hash: 592b375a8609e492309fefb552f723be
   flag hash: 232b91cb96073461cf6c3dcd6a42e778
   sig of: Nothing
@@ -21,6 +21,7 @@ exports:
   ClientProxyApi.directoryApi
   ClientProxyApi.downloadFile
   ClientProxyApi.getFile
+  ClientProxyApi.isTokenValid
   ClientProxyApi.isvalid
   ClientProxyApi.isvalidQuery
   ClientProxyApi.mainClient
@@ -8448,22 +8449,6 @@ ef7002dc4b58eafd968484c9f5202348
                             w1
                             b1
                             w2) }))) -}
-aebc4946c14c3a663d190210ab152d27
-  $wdownloadFile ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 1, Strictness: <S,U>, Inline: [0] -}
-dab52e21e91e2e4e0f83e3f4c6731fbd
-  $wgetFile ::
-    GHC.Base.String
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2, Strictness: <L,U><S,U>, Inline: [0] -}
-78735c007a310b578cb3a0723f93d6e4
-  $wmainloop ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 1, Strictness: <S,U>, Inline: [0] -}
 1a1fbd0c8cf2eec23a2a7d8939881b14
   $wouter ::
     Data.Text.Array.MArray GHC.Prim.RealWorld
@@ -8508,11 +8493,6 @@ f2d1d7b9fc1fae8e73792b2e34aab8f2
           Data.Text.Internal.Text #)
   {- Arity: 5, Strictness: <L,U(U)><L,U(U)><S,1*U><S,U><S,U>,
      Inline: [0] -}
-7f50a658f013ec82ef05f85c1de871e9
-  $wuploadFile ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 1, Strictness: <S,U>, Inline: [0] -}
 8fd2d31dc589dab2416f7119c2bf6e8b
   type ApiHandler =
     Control.Monad.Trans.Except.ExceptT
@@ -8697,86 +8677,39 @@ f538f8bfbc15fad8ae2b9a5fbd021768
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1, Strictness: <S,U> -}
-a374e95ba801d973078765784ef8a105
+397ac9734019f3bf9affd9dfc9166041
   authpart :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 ClientProxyApi.authpart1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-d09025c7da299faf15264fbe0ff9f5dd
+cbb6755c1a581aa782d558d436990f9c
   authpart1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case GHC.IO.Handle.Text.hPutStr2
-                        GHC.IO.Handle.FD.stdout
-                        ClientProxyApi.authpart7
-                        GHC.Types.True
-                        s of ds1 { (#,#) ipv ipv1 ->
-                 case GHC.IO.Handle.Internals.wantReadableHandle_1
-                        @ GHC.Base.String
-                        GHC.IO.Handle.Text.hGetLine4
-                        GHC.IO.Handle.FD.stdin
-                        GHC.IO.Handle.Text.hGetLine2
-                          `cast`
-                        (<GHC.IO.Handle.Types.Handle__>_R
-                         ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R))
-                        ipv of ds2 { (#,#) ipv2 ipv3 ->
-                 case GHC.Base.eqString ipv3 ClientProxyApi.authpart6 of wild {
-                   GHC.Types.False
-                   -> case GHC.Base.eqString ipv3 ClientProxyApi.authpart5 of wild1 {
-                        GHC.Types.False
-                        -> case ClientProxyApi.authpart4
-                           ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-                           of {}
-                        GHC.Types.True
-                        -> case GHC.IO.Handle.Text.hPutStr2
-                                  GHC.IO.Handle.FD.stdout
-                                  ClientProxyApi.authpart3
-                                  GHC.Types.True
-                                  ipv2 of ds3 { (#,#) ipv4 ipv5 ->
-                           ClientProxyApi.authpart2 ipv4 } }
-                   GHC.Types.True -> ClientProxyApi.authlogin1 ipv2 } } }) -}
-df6e2bd434ca35b4fe78396b35b2bcfa
-  authpart2 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1, Strictness: <S,U> -}
-8666433458155ea3fd5e1a5c20c7716f
-  authpart3 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString#
-                   "Enter your details to make a new account"#) -}
-7790a50224aa5effc30491ff89b4afe5
-  authpart4 :: GHC.Types.IO ()
-  {- Strictness: x -}
-82f5b040690e9e4b7aa797a9f08d1624
-  authpart5 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "REGISTER"#) -}
-707bd3c3a4ca46fc5d0afce7a73ade10
-  authpart6 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "LOGIN"#) -}
-c72c14185ecc304daf1ced643d36a191
-  authpart7 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString#
-                   "Enter one of the following commands: LOGIN/REGISTER"#) -}
-7e509d09d4ae05447e70b61bd246fd78
+aaf681146229372c5869931a48a8c194
   authregister :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 ClientProxyApi.authregister1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-e7e2c661b9e13913bd83ec05fad58515
+53e99d979977df7a0c3b658a90eb1879
   authregister1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (1, True, False)
                 (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case ClientProxyApi.authregister2 s of ds1 { (#,#) ipv ipv1 ->
-                 ClientProxyApi.authpart2 ipv }) -}
-fee0911896999b46cc91daa45831813c
+                 case ClientProxyApi.authregister3 s of ds1 { (#,#) ipv ipv1 ->
+                 ClientProxyApi.authregister2 ipv }) -}
+d30a168710865445827954727b5c50ba
   authregister2 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U> -}
+7097f4a2af8be1cd744d4b0c084d7332
+  authregister3 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1, Strictness: <S,U>,
@@ -8784,9 +8717,13 @@ fee0911896999b46cc91daa45831813c
                              GHC.Prim.RealWorld)[OneShot] ->
                  GHC.IO.Handle.Text.hPutStr2
                    GHC.IO.Handle.FD.stdout
-                   ClientProxyApi.authpart3
+                   ClientProxyApi.authregister4
                    GHC.Types.True
                    eta) -}
+0a4a55540233d74884d8f82850732cc7
+  authregister4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "Enter your details to make a new account"#) -}
 8544c7b1afd90815966d1edf73bc116e
   close ::
     ClientProxyApi.File
@@ -8934,28 +8871,19 @@ a5350b67ba5cf35fd97eeac118618306
   {- HasNoCafRefs,
      Unfolding: InlineRule (0, True, True)
                 (Data.Proxy.Proxy @ * @ ClientProxyApi.DirectoryApi) -}
-924fb16aa96ce2b1da9680be7669c0af
-  downloadFile ::
-    GHC.Base.String -> GHC.Base.String -> GHC.Types.IO ()
-  {- Arity: 3, Strictness: <L,A><L,A><S,U>,
+de0132f428b8e9852471099075bca013
+  downloadFile :: ClientProxyApi.User -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <L,U(U,U,U,U)><S,U>,
      Unfolding: InlineRule (0, True, True)
                 ClientProxyApi.downloadFile1
                   `cast`
-                (<GHC.Base.String>_R
-                 ->_R <GHC.Base.String>_R
-                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-c1571d31432b969fdd23f9ddf8294fda
+                (<ClientProxyApi.User>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+a7f6e7f753c7a7c4ebbf5ccb46c39740
   downloadFile1 ::
-    GHC.Base.String
-    -> GHC.Base.String
+    ClientProxyApi.User
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 3, Strictness: <L,A><L,A><S,U>, Inline: INLINE[0],
-     Unfolding: InlineRule (3, True, True)
-                (\ (w :: GHC.Base.String)
-                   (w1 :: GHC.Base.String)
-                   (w2 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 ClientProxyApi.$wdownloadFile w2) -}
+  {- Arity: 2, Strictness: <L,U(U,U,U,U)><S,U> -}
 6fbbfd8a5ee807b741c529db0d38c198
   fileContent :: ClientProxyApi.File -> GHC.Base.String
   RecSel Left ClientProxyApi.File
@@ -8970,49 +8898,153 @@ c1571d31432b969fdd23f9ddf8294fda
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: ClientProxyApi.File) ->
                  case ds of wild { ClientProxyApi.File ds1 ds2 -> ds1 }) -}
-7bb0934f29d80e7160533082486e9e95
+66a61c35682a25bef52965d936000782
   getFile ::
-    GHC.Base.String
-    -> GHC.Base.String -> GHC.Base.String -> GHC.Types.IO ()
-  {- Arity: 4, Strictness: <L,U><L,A><L,A><S,U>,
+    GHC.Base.String -> ClientProxyApi.User -> GHC.Types.IO ()
+  {- Arity: 3, Strictness: <L,U><L,U(U,U,U,U)><S,U>,
      Unfolding: InlineRule (0, True, True)
                 ClientProxyApi.getFile1
                   `cast`
                 (<GHC.Base.String>_R
-                 ->_R <GHC.Base.String>_R
-                 ->_R <GHC.Base.String>_R
+                 ->_R <ClientProxyApi.User>_R
                  ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-c773f92d357778f83b6dd148797a8e95
+da9cd8678bbf1ae1ebbfb331308ccea6
   getFile1 ::
     GHC.Base.String
-    -> GHC.Base.String
-    -> GHC.Base.String
+    -> ClientProxyApi.User
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 4, Strictness: <L,U><L,A><L,A><S,U>, Inline: INLINE[0],
-     Unfolding: InlineRule (4, True, True)
-                (\ (w :: GHC.Base.String)
-                   (w1 :: GHC.Base.String)
-                   (w2 :: GHC.Base.String)
-                   (w3 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 ClientProxyApi.$wgetFile w w3) -}
-697cdb5c2576efc037c6e5db894d44a2
-  isvalid ::
-    ClientProxyApi.User
-    -> Servant.Common.Req.ClientM ClientProxyApi.Response
-  {- Arity: 1, Strictness: <L,1*U(U,U,U,U)>,
+  {- Arity: 3, Strictness: <L,U><L,U(U,U,U,U)><S,U> -}
+155817fd134b410dd9e0d3d073b9df09
+  isTokenValid :: ClientProxyApi.User -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <L,1*U(U,U,U,U)><S,U>,
      Unfolding: InlineRule (0, True, True)
-                ClientProxyApi.isvalid1
+                ClientProxyApi.isTokenValid1
                   `cast`
-                (<ClientProxyApi.User>_R
-                 ->_R Sub (Servant.Client.D:R:ClientTYPEVerb2[0]
-                               <Network.HTTP.Types.Method.StdMethod>_N
-                               <ClientProxyApi.Response>_N
-                               <'Network.HTTP.Types.Method.POST>_N
-                               <'[Servant.API.ContentTypes.JSON]>_N
-                               <200>_N)) -}
-9454a9b946c001831357d3773af90f1e
-  isvalid1 ::
+                (<ClientProxyApi.User>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+b7f891257e7fb6fe661a4e09abce607f
+  isTokenValid1 ::
+    ClientProxyApi.User
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <L,1*U(U,U,U,U)><S,U>,
+     Unfolding: (\ (user :: ClientProxyApi.User)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case Network.HTTP.Client.Manager.$wnewManager
+                        Network.HTTP.Client.Manager.defaultManagerSettings18
+                        Network.HTTP.Client.Manager.defaultManagerSettings15
+                          `cast`
+                        (Sym (GHC.Types.N:IO[0]
+                                  <GHC.Base.Maybe Network.Socket.Types.HostAddress
+                                   -> GHC.Base.String
+                                   -> GHC.Types.Int
+                                   -> GHC.Types.IO Network.HTTP.Client.Types.Connection>_R))
+                        Network.HTTP.Client.Manager.defaultManagerSettings14
+                          `cast`
+                        (Sym (GHC.Types.N:IO[0]
+                                  <GHC.Base.Maybe Network.Socket.Types.HostAddress
+                                   -> GHC.Base.String
+                                   -> GHC.Types.Int
+                                   -> GHC.Types.IO Network.HTTP.Client.Types.Connection>_R))
+                        Network.HTTP.Client.Manager.defaultManagerSettings11
+                          `cast`
+                        (Sym (GHC.Types.N:IO[0]
+                                  <Data.ByteString.Internal.ByteString
+                                   -> (Network.HTTP.Client.Types.Connection -> GHC.Types.IO ())
+                                   -> GHC.Base.String
+                                   -> GHC.Base.Maybe Network.Socket.Types.HostAddress
+                                   -> GHC.Base.String
+                                   -> GHC.Types.Int
+                                   -> GHC.Types.IO Network.HTTP.Client.Types.Connection>_R))
+                        Network.HTTP.Client.Manager.defaultManagerSettings9
+                        Network.HTTP.Client.Manager.defaultManagerSettings8
+                        Network.HTTP.Client.Manager.defaultManagerSettings6
+                          `cast`
+                        (forall (a :: <*>_N).
+                         <GHC.Types.IO a>_R ->_R Sym (GHC.Types.N:IO[0] <a>_R))
+                        Network.HTTP.Client.Manager.defaultManagerSettings5
+                        (GHC.Base.returnIO1 @ Network.HTTP.Client.Types.Request)
+                          `cast`
+                        (<Network.HTTP.Client.Types.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0] <Network.HTTP.Client.Types.Request>_R))
+                        Network.HTTP.Client.Manager.defaultManagerSettings1
+                          `cast`
+                        (Trans
+                             (<GHC.Types.Bool>_R
+                              ->_R Sym (GHC.Types.N:IO[0]
+                                            <Network.HTTP.Client.Types.Request
+                                             -> Network.HTTP.Client.Types.Request>_R))
+                             (Sym (Network.HTTP.Client.Types.N:ProxyOverride[0])))
+                        Network.HTTP.Client.Manager.defaultManagerSettings1
+                          `cast`
+                        (Trans
+                             (<GHC.Types.Bool>_R
+                              ->_R Sym (GHC.Types.N:IO[0]
+                                            <Network.HTTP.Client.Types.Request
+                                             -> Network.HTTP.Client.Types.Request>_R))
+                             (Sym (Network.HTTP.Client.Types.N:ProxyOverride[0])))
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 case ((ClientProxyApi.isTokenValid5 user)
+                         `cast`
+                       (Trans
+                            (Sub (Servant.Client.D:R:ClientTYPEVerb2[0]
+                                      <Network.HTTP.Types.Method.StdMethod>_N
+                                      <ClientProxyApi.Response>_N
+                                      <'Network.HTTP.Types.Method.POST>_N
+                                      <'[Servant.API.ContentTypes.JSON]>_N
+                                      <200>_N))
+                            (Trans
+                                 (Servant.Common.Req.N:ClientM[0] <ClientProxyApi.Response>_N)
+                                 (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                      <*>_N
+                                      <Servant.Common.Req.ClientEnv>_R
+                                      <Control.Monad.Trans.Except.ExceptT
+                                         Servant.Common.Req.ServantError GHC.Types.IO>_R
+                                      <ClientProxyApi.Response>_N)))
+                         (Servant.Common.Req.ClientEnv ipv1 ClientProxyApi.isTokenValid3))
+                        `cast`
+                      (Trans
+                           (Control.Monad.Trans.Except.N:ExceptT[0]
+                                <Servant.Common.Req.ServantError>_N
+                                <GHC.Types.IO>_R
+                                <ClientProxyApi.Response>_N)
+                           (GHC.Types.N:IO[0]
+                                <Data.Either.Either
+                                   Servant.Common.Req.ServantError ClientProxyApi.Response>_R))
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 case ipv3 of wild {
+                   Data.Either.Left e1
+                   -> GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        (GHC.CString.unpackAppendCString#
+                           "Error: "#
+                           (Servant.Common.Req.$w$cshowsPrec
+                              0#
+                              e1
+                              (GHC.Types.[] @ GHC.Types.Char)))
+                        GHC.Types.True
+                        ipv2
+                   Data.Either.Right x
+                   -> case x of wild1 { ClientProxyApi.Response ds ->
+                      case GHC.Base.eqString ds ClientProxyApi.isTokenValid2 of wild2 {
+                        GHC.Types.False -> ClientProxyApi.authpart1 ipv2
+                        GHC.Types.True -> (# ipv2, GHC.Tuple.() #) } } } } }) -}
+fbc4383d80931227b44bef1e372994a0
+  isTokenValid2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Token is Valid"#) -}
+e94d4805869c16efa62cc5d8d983986d
+  isTokenValid3 :: Servant.Common.BaseUrl.BaseUrl
+  {- Strictness: m,
+     Unfolding: (Servant.Common.BaseUrl.BaseUrl
+                   Servant.Common.BaseUrl.Http
+                   ClientProxyApi.serverhost
+                   ClientProxyApi.isTokenValid4
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+3e1bba172bb86db711281e186d54ed55
+  isTokenValid4 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 8082#) -}
+f191384d81ae10efabd4bd6a17f9fbca
+  isTokenValid5 ::
     ClientProxyApi.User
     -> Servant.Client.Client
          (Servant.API.Verbs.Verb
@@ -9048,7 +9080,7 @@ c773f92d357778f83b6dd148797a8e95
                            '[Servant.API.ContentTypes.JSON]
                            ClientProxyApi.Response))
                    (Servant.Common.Req.Req
-                      ClientProxyApi.isvalid2
+                      ClientProxyApi.isTokenValid6
                       (GHC.Types.[]
                          @ (Data.Text.Internal.Text,
                             GHC.Base.Maybe Data.Text.Internal.Text))
@@ -9059,13 +9091,28 @@ c773f92d357778f83b6dd148797a8e95
                           Servant.API.ContentTypes.$fAcceptTYPEJSON1))
                       (GHC.Types.[] @ Network.HTTP.Media.MediaType.Internal.MediaType)
                       (GHC.Types.[] @ (GHC.Base.String, Data.Text.Internal.Text)))) -}
-daa85af696a304751260f5425f33f722
-  isvalid2 :: [GHC.Types.Char]
+36e353d93101ecbdf119fd1db40b9840
+  isTokenValid6 :: [GHC.Types.Char]
   {- Unfolding: (GHC.Base.++
                    @ GHC.Types.Char
                    (GHC.Types.[] @ GHC.Types.Char)
                    ClientProxyApi.$sclient9) -}
-9dbf385c73fc3c78d6c681d8a43f4af8
+9c119203e56e6210f61fbae7dff979a0
+  isvalid ::
+    ClientProxyApi.User
+    -> Servant.Common.Req.ClientM ClientProxyApi.Response
+  {- Arity: 1, Strictness: <L,1*U(U,U,U,U)>,
+     Unfolding: InlineRule (0, True, True)
+                ClientProxyApi.isTokenValid5
+                  `cast`
+                (<ClientProxyApi.User>_R
+                 ->_R Sub (Servant.Client.D:R:ClientTYPEVerb2[0]
+                               <Network.HTTP.Types.Method.StdMethod>_N
+                               <ClientProxyApi.Response>_N
+                               <'Network.HTTP.Types.Method.POST>_N
+                               <'[Servant.API.ContentTypes.JSON]>_N
+                               <200>_N)) -}
+c7ba739942689b3481b1921278d574e1
   isvalidQuery ::
     ClientProxyApi.User
     -> Servant.Common.Req.ClientM ClientProxyApi.Response
@@ -9078,7 +9125,7 @@ daa85af696a304751260f5425f33f722
                               200
                               '[Servant.API.ContentTypes.JSON]
                               ClientProxyApi.Response)
-                   = ClientProxyApi.isvalid1 isvaliddetails
+                   = ClientProxyApi.isTokenValid5 isvaliddetails
                  } in
                  (\ (r1 :: Servant.Common.Req.ClientEnv)
                     (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
@@ -9138,14 +9185,14 @@ daa85af696a304751260f5425f33f722
                                         Servant.Common.Req.ServantError GHC.Types.IO>_R
                                      <ClientProxyApi.Response>_N))
                            (Sym (Servant.Common.Req.N:ClientM[0]) <ClientProxyApi.Response>_N)))) -}
-21bb16cd77417408df02f094c8aefa87
+5a212504682767d720c42a722182cd62
   mainClient :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 ClientProxyApi.mainClient1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-c42bd9c1ef186e0f97b18c09c8da0121
+749c2ce59aa8df3fd056fbec1f7da7bb
   mainClient1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -9162,27 +9209,19 @@ c42bd9c1ef186e0f97b18c09c8da0121
 0753cd39acca62395c09efc8f5eb81a2
   mainClient2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "localstorage/"#) -}
-df7d51b48e34b5a54f442bc5f0ee26a8
-  mainloop :: GHC.Base.String -> GHC.Base.String -> GHC.Types.IO ()
-  {- Arity: 3, Strictness: <L,A><L,A><S,U>,
+a39314f32cb4598ac83b9cb3aadb5552
+  mainloop :: ClientProxyApi.User -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <L,U(U,U,U,U)><S,U>,
      Unfolding: InlineRule (0, True, True)
                 ClientProxyApi.mainloop1
                   `cast`
-                (<GHC.Base.String>_R
-                 ->_R <GHC.Base.String>_R
-                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-9a54101f3e40c3ca3f816a96780a1a7d
+                (<ClientProxyApi.User>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+e8f74082c09ecbcd3f4d10a52c997e02
   mainloop1 ::
-    GHC.Base.String
-    -> GHC.Base.String
+    ClientProxyApi.User
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 3, Strictness: <L,A><L,A><S,U>, Inline: INLINE[0],
-     Unfolding: InlineRule (3, True, True)
-                (\ (w :: GHC.Base.String)
-                   (w1 :: GHC.Base.String)
-                   (w2 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 ClientProxyApi.$wmainloop w2) -}
+  {- Arity: 2, Strictness: <L,U(U,U,U,U)><S,U> -}
 1ec876b34844dd0422225c8277faeefc
   open ::
     GHC.Base.String -> Servant.Common.Req.ClientM ClientProxyApi.File
@@ -9357,21 +9396,29 @@ ffebb7dd4e358fa3e68fd881b6414fba
                                         Servant.Common.Req.ServantError GHC.Types.IO>_R
                                      <ClientProxyApi.File>_N))
                            (Sym (Servant.Common.Req.N:ClientM[0]) <ClientProxyApi.File>_N)))) -}
-ed3c010420d59495664559bd34880c98
-  putFile :: ClientProxyApi.File -> GHC.Types.IO ()
-  {- Arity: 2, Strictness: <L,1*U(1*U,1*U)><S,U>,
+d0be585370f1a4a5618593bf42d8b775
+  putFile ::
+    ClientProxyApi.File -> ClientProxyApi.User -> GHC.Types.IO ()
+  {- Arity: 3, Strictness: <L,1*U(1*U,1*U)><L,1*U(U,U,U,U)><S,U>,
      Unfolding: InlineRule (0, True, True)
                 ClientProxyApi.putFile1
                   `cast`
-                (<ClientProxyApi.File>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-0787037e0c90ecee1b050041afc51de2
+                (<ClientProxyApi.File>_R
+                 ->_R <ClientProxyApi.User>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+1e0433588af45ef92f376e00fe0346aa
   putFile1 ::
     ClientProxyApi.File
+    -> ClientProxyApi.User
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2, Strictness: <L,1*U(1*U,1*U)><S,U>,
+  {- Arity: 3, Strictness: <L,1*U(1*U,1*U)><L,1*U(U,U,U,U)><S,U>,
      Unfolding: (\ (file :: ClientProxyApi.File)
+                   (user :: ClientProxyApi.User)
                    (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case ClientProxyApi.isTokenValid1
+                        user
+                        eta of ds1 { (#,#) ipv ipv1 ->
                  case Network.HTTP.Client.Manager.$wnewManager
                         Network.HTTP.Client.Manager.defaultManagerSettings18
                         Network.HTTP.Client.Manager.defaultManagerSettings15
@@ -9425,7 +9472,7 @@ ed3c010420d59495664559bd34880c98
                                             <Network.HTTP.Client.Types.Request
                                              -> Network.HTTP.Client.Types.Request>_R))
                              (Sym (Network.HTTP.Client.Types.N:ProxyOverride[0])))
-                        eta of ds1 { (#,#) ipv ipv1 ->
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
                  case ((ClientProxyApi.close1 file)
                          `cast`
                        (Trans
@@ -9443,7 +9490,7 @@ ed3c010420d59495664559bd34880c98
                                       <Control.Monad.Trans.Except.ExceptT
                                          Servant.Common.Req.ServantError GHC.Types.IO>_R
                                       <ClientProxyApi.Response>_N)))
-                         (Servant.Common.Req.ClientEnv ipv1 ClientProxyApi.putFile2))
+                         (Servant.Common.Req.ClientEnv ipv3 ClientProxyApi.putFile2))
                         `cast`
                       (Trans
                            (Control.Monad.Trans.Except.N:ExceptT[0]
@@ -9453,8 +9500,8 @@ ed3c010420d59495664559bd34880c98
                            (GHC.Types.N:IO[0]
                                 <Data.Either.Either
                                    Servant.Common.Req.ServantError ClientProxyApi.Response>_R))
-                        ipv of ds2 { (#,#) ipv2 ipv3 ->
-                 case ipv3 of wild {
+                        ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                 case ipv5 of wild {
                    Data.Either.Left e1
                    -> GHC.IO.Handle.Text.hPutStr2
                         GHC.IO.Handle.FD.stdout
@@ -9465,13 +9512,13 @@ ed3c010420d59495664559bd34880c98
                               e1
                               (GHC.Types.[] @ GHC.Types.Char)))
                         GHC.Types.True
-                        ipv2
+                        ipv4
                    Data.Either.Right x
                    -> GHC.IO.Handle.Text.hPutStr2
                         GHC.IO.Handle.FD.stdout
                         (ClientProxyApi.$fShowResponse_$cshow x)
                         GHC.Types.True
-                        ipv2 } } }) -}
+                        ipv4 } } } }) -}
 aa3f238b55e9ed07992b51ce8c657864
   putFile2 :: Servant.Common.BaseUrl.BaseUrl
   {- Strictness: m,
@@ -9815,27 +9862,19 @@ ec556cc9c4fb776eddceb80ebfe07572
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: ClientProxyApi.User) ->
                  case ds of wild { ClientProxyApi.User ds1 ds2 ds3 ds4 -> ds2 }) -}
-9861be534347ac7ba993701baaf96911
-  uploadFile :: GHC.Base.String -> GHC.Base.String -> GHC.Types.IO ()
-  {- Arity: 3, Strictness: <L,A><L,A><S,U>,
+763f740317fbb8286aed361f370bb60a
+  uploadFile :: ClientProxyApi.User -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <L,U(U,U,U,U)><S,U>,
      Unfolding: InlineRule (0, True, True)
                 ClientProxyApi.uploadFile1
                   `cast`
-                (<GHC.Base.String>_R
-                 ->_R <GHC.Base.String>_R
-                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-21232a6bcba9ed10060e0343e497eca6
+                (<ClientProxyApi.User>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+1b744c5d76674390d51ac3eed128460d
   uploadFile1 ::
-    GHC.Base.String
-    -> GHC.Base.String
+    ClientProxyApi.User
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 3, Strictness: <L,A><L,A><S,U>, Inline: INLINE[0],
-     Unfolding: InlineRule (3, True, True)
-                (\ (w :: GHC.Base.String)
-                   (w1 :: GHC.Base.String)
-                   (w2 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 ClientProxyApi.$wuploadFile w2) -}
+  {- Arity: 2, Strictness: <L,U(U,U,U,U)><S,U> -}
 9e13b05527d29800388d7fb204812e1b
   uusername :: ClientProxyApi.User -> GHC.Base.String
   RecSel Left ClientProxyApi.User

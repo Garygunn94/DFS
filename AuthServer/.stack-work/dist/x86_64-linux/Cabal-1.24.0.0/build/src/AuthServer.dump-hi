@@ -1,9 +1,9 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-29 17:33:29.420679 UTC
+2016-12-29 18:41:51.537327 UTC
 
 interface AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl:AuthServer [family instance module] 8001
-  interface hash: 24a2ffef0714024a7893950e5ad275b7
+  interface hash: 7c5da53623bd73ed9ee8356eb0fd6ef3
   ABI hash: e09a780447a12af908f5470efcef38bc
   export-list hash: a4f63ff02418334cf6f80c388e57aafc
   orphan hash: b25852b0ea7a0c1e68d51f2130544255
@@ -229,7 +229,6 @@ import  -/  base-4.9.0.0:Control.Monad.IO.Class d702028d883e700bd7066b031147030d
 import  -/  base-4.9.0.0:Data.Foldable 8aeb682f6c74f97fcf0ace0d608a43ea
 import  -/  base-4.9.0.0:Data.List 49b86831b79b49ce5d4d9416ecba61df
 import  -/  base-4.9.0.0:Data.Maybe 5f2ba364cbe65c060bc5436bc0b9d049
-import  -/  base-4.9.0.0:Data.OldList 0058409f994fb13ae0616e3f1e5b4dae
 import  -/  base-4.9.0.0:Data.Proxy aa86c72628cf3b1ceb0816ca84687d80
 import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
 import  -/  base-4.9.0.0:GHC.Generics 8e2a7658e8b966c1d29d0d5fd4129f38

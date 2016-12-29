@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-29 17:43:26.07847 UTC
+2016-12-29 18:00:55.766836 UTC
 
 interface main@main:Main 8001
-  interface hash: 1087eb7d02f4028bd69d80fc24b5aaae
-  ABI hash: e8700b9e1c6a07439485bd4846a6a505
+  interface hash: 9c943ea2f17fbb37fcd6783e9de44279
+  ABI hash: 4b42402d7e484040e9429ae629ea2f73
   export-list hash: 80d2f9f16dc510f3de3aaf573113fd8a
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: b3b251e3c9b409ef7881af8545b4529a
@@ -179,7 +179,7 @@ family instance modules: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-CaSNj6e4lFq9iCo
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-CaSNj6e4lFq9iCoIyuRtaa:ClientProxyApi d01c5d8fbdca54f2e475780908940584
+import  -/  ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-CaSNj6e4lFq9iCoIyuRtaa:ClientProxyApi dfb60dd49009d39771e27b5e83a6ba53
 import  -/  ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-CaSNj6e4lFq9iCoIyuRtaa:Lib 7de17d97af1919bceae6d2265f3f4d03
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
@@ -195,14 +195,14 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-5ec0a6d36d43ecc2f9ca58e011049139
+74d398f061930b345ba51a834cc621ac
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 ClientProxyApi.mainClient1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-ac6c3f2498f50d429d75283cf824dfc7
+bb47a89f3805319b2038a3400f84c667
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
