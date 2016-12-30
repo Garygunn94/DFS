@@ -88,7 +88,8 @@ serverhost = "localhost"
 type AuthApi = 
     "signin" :> ReqBody '[JSON] Signin :> Post '[JSON] User :<|>
     "register" :> ReqBody '[JSON] Signin :> Post '[JSON] Response  :<|>
-    "isvalid" :> ReqBody '[JSON] User :> Post '[JSON] Response
+    "isvalid" :> ReqBody '[JSON] User :> Post '[JSON] Response :<|>
+    "extend" :> ReqBody '[JSON] User :> Post '[JSON] Response
 
 authApi :: Proxy AuthApi
 authApi = Proxy
@@ -96,8 +97,9 @@ authApi = Proxy
 signin :: Signin -> ClientM User
 register :: Signin -> ClientM Response
 isvalid :: User -> ClientM Response
+extend :: User -> ClientM Response
 
-signin :<|> register :<|> isvalid = client authApi
+signin :<|> register :<|> isvalid :<|> extend = client authApi
 
 signinQuery :: Signin -> ClientM User
 signinQuery signindetails = do
@@ -114,10 +116,16 @@ isvalidQuery isvaliddetails = do
   isvalidquery <- isvalid isvaliddetails
   return isvalidquery
 
+extendQuery :: User -> ClientM Response
+extendQuery extenddetails = do
+  extendquery <- extend extenddetails
+  return extendquery
+
 
 type DirectoryApi = 
     "open" :> Capture "fileName" String :> Get '[JSON] File :<|>
-    "close" :> ReqBody '[JSON] File :> Post '[JSON] Response
+    "close" :> ReqBody '[JSON] File :> Post '[JSON] Response :<|>
+    "allfiles" :> Get '[JSON] [String]
 
 directoryApi :: Proxy DirectoryApi
 directoryApi = Proxy
@@ -125,8 +133,9 @@ directoryApi = Proxy
 
 open :: String -> ClientM File
 close :: File -> ClientM Response
+allfiles :: ClientM [String]
 
-open :<|> close = client directoryApi
+open :<|> close :<|> allfiles = client directoryApi
 
 openQuery:: String -> ClientM File
 openQuery filename = do
@@ -183,14 +192,27 @@ authregister = do
 
 mainloop :: User -> IO()
 mainloop user = do
-    putStrLn $ "Enter one of the following commands: UPLOAD/DOWNLOAD/CLOSE"
+    putStrLn $ "Enter one of the following commands: FILES/UPLOAD/DOWNLOAD/CLOSE"
     cmd <- getLine
     case cmd of
+        "FILES" -> displayFiles user
         "UPLOAD" -> uploadFile user
         "DOWNLOAD" -> downloadFile user
         "CLOSE" -> putStrLn $ "Closing service!"
         _ -> do putStrLn $ "Invalid Command. Try Again"
                 mainloop user
+
+displayFiles :: User -> IO()
+displayFiles user = do
+  putStrLn "Fetching file list. Please wait."
+  isTokenValid user
+  manager <- newManager defaultManagerSettings
+  res <- runClientM allfiles (ClientEnv manager (BaseUrl Http "localhost" 7008 ""))
+  case res of
+   Left err -> putStrLn $ "Error: " ++ show err
+   Right response -> do extendToken user
+                        mapM putStrLn response
+                        mainloop user
 
 uploadFile :: User -> IO()
 uploadFile user = do
@@ -222,6 +244,15 @@ isTokenValid user = do
                             _ -> do putStrLn $ "Session timeout, returning to login menu"
                                     authpart
 
+extendToken :: User -> IO()
+extendToken user = do
+  manager <- newManager defaultManagerSettings
+  res <- runClientM (extendQuery user) (ClientEnv manager (BaseUrl Http "localhost" 8082 ""))
+  case res of
+   Left err -> putStrLn $ "Error: " ++ show err
+   Right response -> return()
+
+
 getFile:: String -> User -> IO()
 getFile filename user = do
   isTokenValid user
@@ -230,7 +261,8 @@ getFile filename user = do
   case res of
    Left err -> putStrLn $ "Error: " ++ show err
                           
-   Right response -> do liftIO (writeFile (fileName response) (fileContent response))
+   Right response -> do extendToken user 
+                        liftIO (writeFile (fileName response) (fileContent response))
                      	let cmd = shell ("vim " ++ (fileName response))
 	                createProcess_ "vim" cmd
                         putStrLn $ "Would you like to re-upload this file? y/n"
@@ -254,5 +286,6 @@ putFile file user = do
   case res of
    Left err -> putStrLn $ "Error: " ++ show err
                           
-   Right response -> putStrLn $ show response
+   Right response -> do extendToken user
+                        putStrLn $ show response
 

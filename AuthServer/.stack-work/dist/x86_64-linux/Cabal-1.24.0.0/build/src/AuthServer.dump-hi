@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-29 18:41:51.537327 UTC
+2016-12-30 20:03:22.918849 UTC
 
 interface AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl:AuthServer [family instance module] 8001
-  interface hash: 7c5da53623bd73ed9ee8356eb0fd6ef3
-  ABI hash: e09a780447a12af908f5470efcef38bc
-  export-list hash: a4f63ff02418334cf6f80c388e57aafc
+  interface hash: fcb52026bb7ff23998d906d6a2a961e7
+  ABI hash: a0cdee033aae348cfe270e7a5c90e0f1
+  export-list hash: 42f6c968c7fb739ca6d6c360b191a5cd
   orphan hash: b25852b0ea7a0c1e68d51f2130544255
   flag hash: 232b91cb96073461cf6c3dcd6a42e778
   sig of: Nothing
@@ -20,6 +20,7 @@ exports:
   AuthServer.doLog
   AuthServer.drainCursor
   AuthServer.errorLog
+  AuthServer.extendToken
   AuthServer.iso8601
   AuthServer.logLevel
   AuthServer.login
@@ -4704,7 +4705,7 @@ b0ef9664fc1297f697cccc3901096aea
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
                 AuthServer.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa -}
-4c4715c0ee06c79a362eb544e3b88fda
+6c7b66e86ce3d7af88371b4d2a2e0067
   $s$fAllMimeUnrender:a2 ::
     Servant.API.ContentTypes.AllMimeUnrender
       '[Servant.API.ContentTypes.JSON] AuthServer.User
@@ -4716,17 +4717,17 @@ b0ef9664fc1297f697cccc3901096aea
                      @ Servant.API.ContentTypes.JSON
                      @ AuthServer.User
                      @ '[]
-                     AuthServer.$s$fAllMimeUnrender:a_$dMimeUnrender
+                     AuthServer.$s$fAllMimeUnrender:a3
                      (Servant.API.ContentTypes.$fAllMimeUnrender[]a @ AuthServer.User))
                   (Servant.API.ContentTypes.$fAllMimeUnrender:a_$callMimeUnrender
                      @ Servant.API.ContentTypes.JSON
                      @ AuthServer.User
                      @ '[]
-                     AuthServer.$s$fAllMimeUnrender:a_$dMimeUnrender
+                     AuthServer.$s$fAllMimeUnrender:a3
                      (Servant.API.ContentTypes.$fAllMimeUnrender[]a
                         @ AuthServer.User)) -}
-39cd7f6f5bb831eeaff0e51dd8c312eb
-  $s$fAllMimeUnrender:a_$dMimeUnrender ::
+eb0ed521f70e6eaf20486b6984fcd1fe
+  $s$fAllMimeUnrender:a3 ::
     Servant.API.ContentTypes.MimeUnrender
       Servant.API.ContentTypes.JSON AuthServer.User
   {- Strictness: m,
@@ -4792,163 +4793,6 @@ b732ffe6d53fd4e09e128f460fb8d157
                      `cast`
                    (Sym (Data.Aeson.Types.Class.N:FromJSON[0] <AuthServer.User>_N))
                    eta) -}
-52af81e977b1ec71b115d091d3ac2bf6
-  $sserve10 ::
-    Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
-    -> Data.ByteString.Lazy.Internal.ByteString
-    -> Data.ByteString.Lazy.Internal.ByteString
-    -> GHC.Base.Maybe
-         (Data.Either.Either GHC.Base.String AuthServer.Signin)
-  {- Arity: 3, Strictness: <L,A><L,1*U><L,U>,
-     Unfolding: InlineRule (3, True, True)
-                (\ (w1 :: Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON])
-                   (w2 :: Data.ByteString.Lazy.Internal.ByteString)
-                   (w3 :: Data.ByteString.Lazy.Internal.ByteString) ->
-                 Servant.API.ContentTypes.$w$chandleCTypeH
-                   @ '[Servant.API.ContentTypes.JSON]
-                   @ AuthServer.Signin
-                   AuthServer.$s$fAllMimeUnrender:a
-                   w2
-                   w3) -}
-b31e31a5f73ff25138950c121e6bc7b0
-  $sserve11 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          Data.Text.Internal.Text #)
-  {- Arity: 1,
-     Unfolding: (\ (s1 :: GHC.Prim.State#
-                            GHC.Prim.RealWorld)[OneShot] ->
-                 case GHC.Prim.newByteArray#
-                        @ GHC.Prim.RealWorld
-                        8#
-                        s1 of ds1 { (#,#) ipv ipv1 ->
-                 Servant.Server.Internal.$wouter
-                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
-                   Servant.Server.Internal.$fHasServerTYPE:>context20
-                   AuthServer.$sserve12
-                   0#
-                   ipv }) -}
-0a214a9f42d8e9fc9a90354ab27f75d6
-  $sserve12 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "signin"#) -}
-a3740b743ab66fbbb0bc0460369adf2d
-  $sserve2 ::
-    Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
-    -> Data.ByteString.Lazy.Internal.ByteString
-    -> Data.ByteString.Lazy.Internal.ByteString
-    -> GHC.Base.Maybe
-         (Data.Either.Either GHC.Base.String AuthServer.User)
-  {- Arity: 3, Strictness: <L,A><L,1*U><L,U>,
-     Unfolding: InlineRule (3, True, True)
-                (\ (w1 :: Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON])
-                   (w2 :: Data.ByteString.Lazy.Internal.ByteString)
-                   (w3 :: Data.ByteString.Lazy.Internal.ByteString) ->
-                 Servant.API.ContentTypes.$w$chandleCTypeH
-                   @ '[Servant.API.ContentTypes.JSON]
-                   @ AuthServer.User
-                   AuthServer.$s$fAllMimeUnrender:a2
-                   w2
-                   w3) -}
-1076130c2bb3de39bc958758ce996fd9
-  $sserve3 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          Data.Text.Internal.Text #)
-  {- Arity: 1,
-     Unfolding: (\ (s1 :: GHC.Prim.State#
-                            GHC.Prim.RealWorld)[OneShot] ->
-                 case GHC.Prim.newByteArray#
-                        @ GHC.Prim.RealWorld
-                        8#
-                        s1 of ds1 { (#,#) ipv ipv1 ->
-                 Servant.Server.Internal.$wouter
-                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
-                   Servant.Server.Internal.$fHasServerTYPE:>context20
-                   AuthServer.$sserve4
-                   0#
-                   ipv }) -}
-0c38bca1893a3cafb9fb46cd6e9b0a67
-  $sserve4 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "isvalid"#) -}
-e3385cb6586e4c1bbb4728f00f2862a7
-  $sserve5 ::
-    Data.Proxy.Proxy
-      (Servant.API.Verbs.Verb
-         'Network.HTTP.Types.Method.POST
-         200
-         '[Servant.API.ContentTypes.JSON]
-         AuthServer.Response)
-    -> Servant.Server.Internal.Context.Context '[]
-    -> Servant.Server.Internal.RoutingApplication.Delayed
-         env
-         (Servant.Server.Internal.Server
-            (Servant.API.Verbs.Verb
-               'Network.HTTP.Types.Method.POST
-               200
-               '[Servant.API.ContentTypes.JSON]
-               AuthServer.Response))
-    -> Servant.Server.Internal.Router.Router env
-  {- Arity: 2, Strictness: <S,1*H><L,A>,
-     Unfolding: InlineRule (2, True, False)
-                (\ @ env
-                   (w3 :: Data.Proxy.Proxy
-                            (Servant.API.Verbs.Verb
-                               'Network.HTTP.Types.Method.POST
-                               200
-                               '[Servant.API.ContentTypes.JSON]
-                               AuthServer.Response))
-                   (w4 :: Servant.Server.Internal.Context.Context '[]) ->
-                 case w3 of w5 { Data.Proxy.Proxy ->
-                 Servant.Server.Internal.$w$croute8
-                   @ Network.HTTP.Types.Method.StdMethod
-                   @ '[Servant.API.ContentTypes.JSON]
-                   @ AuthServer.Response
-                   @ 'Network.HTTP.Types.Method.POST
-                   @ 200
-                   @ '[]
-                   AuthServer.$s$fAllCTRender:a
-                   Servant.API.Verbs.$fReflectMethodStdMethodPOST_$creflectMethod
-                     `cast`
-                   (Sym (Servant.API.Verbs.N:ReflectMethod[0]
-                             <Network.HTTP.Types.Method.StdMethod>_N
-                             <'Network.HTTP.Types.Method.POST>_N))
-                   AuthServer.$sserve6
-                     `cast`
-                   (Trans
-                        (Sym (GHC.TypeLits.N:SNat[0] <200>_P))
-                        (Sym (GHC.TypeLits.N:KnownNat[0]) <200>_N))
-                   @ env
-                   (Data.Proxy.Proxy
-                      @ *
-                      @ (Servant.API.Verbs.Verb
-                           'Network.HTTP.Types.Method.POST
-                           200
-                           '[Servant.API.ContentTypes.JSON]
-                           AuthServer.Response)) }) -}
-f6943faafc50f08aa7890c588c51b069
-  $sserve6 :: GHC.Integer.Type.Integer
-  {- HasNoCafRefs, Unfolding: (200) -}
-6dc9b0f5768d9e80112359540fad9d1d
-  $sserve7 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          Data.Text.Internal.Text #)
-  {- Arity: 1,
-     Unfolding: (\ (s1 :: GHC.Prim.State#
-                            GHC.Prim.RealWorld)[OneShot] ->
-                 case GHC.Prim.newByteArray#
-                        @ GHC.Prim.RealWorld
-                        8#
-                        s1 of ds1 { (#,#) ipv ipv1 ->
-                 Servant.Server.Internal.$wouter
-                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
-                   Servant.Server.Internal.$fHasServerTYPE:>context20
-                   AuthServer.$sserve8
-                   0#
-                   ipv }) -}
-e0e9a4ddc2946a4326930cb9d9b3893f
-  $sserve8 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "register"#) -}
 3ffc0e9efabfbf619f0a89b79ca7611a
   $tc'Response :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -7134,7 +6978,7 @@ a4bc292142115b5ad53db1e09dfa6272
     Control.Monad.Trans.Except.ExceptT
       Servant.Server.Internal.ServantErr.ServantErr GHC.Types.IO
     :: * -> *
-cdaf26f1f275d83b534b8c12a20e284d
+e837655e9c05d8dcd39ed24cef208a47
   type AuthApi =
     ("signin"
      Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
@@ -7148,13 +6992,20 @@ cdaf26f1f275d83b534b8c12a20e284d
                                                        Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                             '[Servant.API.ContentTypes.JSON]
                                                                             AuthServer.Response))
-                                  Servant.API.Alternative.:<|> ("isvalid"
-                                                                Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
-                                                                                      '[Servant.API.ContentTypes.JSON]
-                                                                                      AuthServer.User
-                                                                                    Servant.API.Sub.:> Servant.API.Verbs.Post
-                                                                                                         '[Servant.API.ContentTypes.JSON]
-                                                                                                         AuthServer.Response)))
+                                  Servant.API.Alternative.:<|> (("isvalid"
+                                                                 Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                       '[Servant.API.ContentTypes.JSON]
+                                                                                       AuthServer.User
+                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                          '[Servant.API.ContentTypes.JSON]
+                                                                                                          AuthServer.Response))
+                                                                Servant.API.Alternative.:<|> ("extend"
+                                                                                              Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                    '[Servant.API.ContentTypes.JSON]
+                                                                                                                    AuthServer.User
+                                                                                                                  Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                       '[Servant.API.ContentTypes.JSON]
+                                                                                                                                       AuthServer.Response))))
 f781620fa5693e94d0b981944f4ac80d
   axiom Rep_Response::
       GHC.Generics.Rep AuthServer.Response
@@ -7252,17 +7103,17 @@ c05e69c0afb9e36300043097494e6a69
             upassword :: GHC.Base.String,
             timeout :: GHC.Base.String,
             token :: GHC.Base.String}
-b7b0342d117a7f7b6e15094fab8f1a50
+3ab87352ab01faed4e891fb700500f74
   authApi :: Data.Proxy.Proxy AuthServer.AuthApi
   {- HasNoCafRefs,
      Unfolding: InlineRule (0, True, True)
                 (Data.Proxy.Proxy @ * @ AuthServer.AuthApi) -}
-929b6162ea5fdf3fb5e91d6b65e67970
+9a6f03f78184855bb295992ec8f02120
   authApp :: Network.Wai.Application
   {- Arity: 2,
      Unfolding: (Servant.Server.Internal.RoutingApplication.toApplication
                    AuthServer.authApp1) -}
-922d5ffc0aac22e86d1372a5fc2c16a3
+210e0013afa01522baba19f8625411aa
   authApp1 ::
     Network.Wai.Internal.Request
     -> (Servant.Server.Internal.RoutingApplication.RouteResult
@@ -7282,19 +7133,125 @@ b7b0342d117a7f7b6e15094fab8f1a50
                    GHC.Tuple.()
                    eta
                    eta1) -}
-53429ada9e0e4ba1737d4393755bac6b
+34359e9ca457640e875719d6fc68c876
   authApp10 ::
+    AuthServer.User
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either
+            Servant.Server.Internal.ServantErr.ServantErr
+            AuthServer.Response #)
+  {- Arity: 2, Strictness: <L,U(U,1*U,A,1*U)><S,U> -}
+87cf82f35d858719cfc08e397577ab02
+  authApp11 ::
+    Data.Proxy.Proxy
+      (Servant.API.Verbs.Verb
+         'Network.HTTP.Types.Method.POST
+         200
+         '[Servant.API.ContentTypes.JSON]
+         AuthServer.Response)
+    -> Servant.Server.Internal.Context.Context '[]
+    -> Servant.Server.Internal.RoutingApplication.Delayed
+         env
+         (Servant.Server.Internal.Server
+            (Servant.API.Verbs.Verb
+               'Network.HTTP.Types.Method.POST
+               200
+               '[Servant.API.ContentTypes.JSON]
+               AuthServer.Response))
+    -> Servant.Server.Internal.Router.Router env
+  {- Arity: 2, Strictness: <S,1*H><L,A>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ env
+                   (w3 :: Data.Proxy.Proxy
+                            (Servant.API.Verbs.Verb
+                               'Network.HTTP.Types.Method.POST
+                               200
+                               '[Servant.API.ContentTypes.JSON]
+                               AuthServer.Response))
+                   (w4 :: Servant.Server.Internal.Context.Context '[]) ->
+                 case w3 of w5 { Data.Proxy.Proxy ->
+                 Servant.Server.Internal.$w$croute8
+                   @ Network.HTTP.Types.Method.StdMethod
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ AuthServer.Response
+                   @ 'Network.HTTP.Types.Method.POST
+                   @ 200
+                   @ '[]
+                   AuthServer.$s$fAllCTRender:a
+                   Servant.API.Verbs.$fReflectMethodStdMethodPOST_$creflectMethod
+                     `cast`
+                   (Sym (Servant.API.Verbs.N:ReflectMethod[0]
+                             <Network.HTTP.Types.Method.StdMethod>_N
+                             <'Network.HTTP.Types.Method.POST>_N))
+                   AuthServer.authApp12
+                     `cast`
+                   (Trans
+                        (Sym (GHC.TypeLits.N:SNat[0] <200>_P))
+                        (Sym (GHC.TypeLits.N:KnownNat[0]) <200>_N))
+                   @ env
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.Verbs.Verb
+                           'Network.HTTP.Types.Method.POST
+                           200
+                           '[Servant.API.ContentTypes.JSON]
+                           AuthServer.Response)) }) -}
+21749e6763dec3d8671654e903c4af94
+  authApp12 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (200) -}
+31deeac5b90125fa4af6e03e3ea4f572
+  authApp13 ::
+    Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> GHC.Base.Maybe
+         (Data.Either.Either GHC.Base.String AuthServer.User)
+  {- Arity: 3, Strictness: <L,A><L,1*U><L,U>,
+     Unfolding: InlineRule (3, True, True)
+                (\ (w1 :: Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON])
+                   (w2 :: Data.ByteString.Lazy.Internal.ByteString)
+                   (w3 :: Data.ByteString.Lazy.Internal.ByteString) ->
+                 Servant.API.ContentTypes.$w$chandleCTypeH
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ AuthServer.User
+                   AuthServer.$s$fAllMimeUnrender:a2
+                   w2
+                   w3) -}
+ebe7856535618f594315a06a986d1872
+  authApp14 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 1,
+     Unfolding: (\ (s1 :: GHC.Prim.State#
+                            GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newByteArray#
+                        @ GHC.Prim.RealWorld
+                        8#
+                        s1 of ds1 { (#,#) ipv ipv1 ->
+                 Servant.Server.Internal.$wouter
+                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                   Servant.Server.Internal.$fHasServerTYPE:>context20
+                   AuthServer.authApp15
+                   0#
+                   ipv }) -}
+c2840684b885a91aba0dc9bdee8bcf56
+  authApp15 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "extend"#) -}
+6b3bdd6b7aee0b29e832b375575e9317
+  authApp16 ::
     Servant.Server.Internal.Router.Router'
       () Servant.Server.Internal.RoutingApplication.RoutingApplication
   {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
                    @ ()
                    @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   AuthServer.authApp11
+                   AuthServer.authApp17
                    (GHC.Types.[]
                       @ (()
                          -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
-8919ecf01b1a6e7ddff8a9806fb80968
-  authApp11 ::
+3347c7b0dee23098344dbf6e3f4f951d
+  authApp17 ::
     Data.Map.Base.Map
       Data.Text.Internal.Text
       (Servant.Server.Internal.Router.Router'
@@ -7302,7 +7259,7 @@ b7b0342d117a7f7b6e15094fab8f1a50
   {- Unfolding: (case GHC.Magic.runRW#
                         @ 'GHC.Types.PtrRepLifted
                         @ Data.Text.Internal.Text
-                        AuthServer.$sserve7 of ds1 { (#,#) ipv ipv1 ->
+                        AuthServer.authApp23 of ds1 { (#,#) ipv ipv1 ->
                  case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
                  Data.Map.Base.Bin
                    @ Data.Text.Internal.Text
@@ -7310,7 +7267,7 @@ b7b0342d117a7f7b6e15094fab8f1a50
                         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
                    1#
                    dt
-                   AuthServer.authApp12
+                   AuthServer.authApp18
                    (Data.Map.Base.Tip
                       @ Data.Text.Internal.Text
                       @ (Servant.Server.Internal.Router.Router'
@@ -7320,8 +7277,283 @@ b7b0342d117a7f7b6e15094fab8f1a50
                       @ (Servant.Server.Internal.Router.Router'
                            ()
                            Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
-0f38e8c9f3080781be2edcfb76772245
-  authApp12 :: Servant.Server.Internal.Router.Router ()
+d18a4db40c3d67d625a1524615dc86d3
+  authApp18 :: Servant.Server.Internal.Router.Router ()
+  {- Unfolding: (Servant.Server.Internal.$w$croute2
+                   @ *
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ AuthServer.User
+                   @ (Servant.API.Verbs.Verb
+                        'Network.HTTP.Types.Method.POST
+                        200
+                        '[Servant.API.ContentTypes.JSON]
+                        AuthServer.Response)
+                   @ '[]
+                   AuthServer.authApp13
+                     `cast`
+                   (Sym (Servant.API.ContentTypes.N:AllCTUnrender[0]
+                             <'[Servant.API.ContentTypes.JSON]>_N <AuthServer.User>_N))
+                   AuthServer.authApp11
+                     `cast`
+                   (Sym (Servant.Server.Internal.N:HasServer[0]
+                             <*>_N
+                             <Servant.API.Verbs.Verb
+                                'Network.HTTP.Types.Method.POST
+                                200
+                                '[Servant.API.ContentTypes.JSON]
+                                AuthServer.Response>_N
+                             <'[]>_N))
+                   @ ()
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.ReqBody.ReqBody
+                           '[Servant.API.ContentTypes.JSON] AuthServer.User
+                         Servant.API.Sub.:> Servant.API.Verbs.Verb
+                                              'Network.HTTP.Types.Method.POST
+                                              200
+                                              '[Servant.API.ContentTypes.JSON]
+                                              AuthServer.Response))
+                   Servant.Server.Internal.Context.$WEmptyContext
+                   AuthServer.authApp19
+                     `cast`
+                   (Servant.Server.Internal.RoutingApplication.Delayed
+                      <()>_R
+                      (Sub (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                <*>_N
+                                <"isvalid">_N
+                                <Servant.API.ReqBody.ReqBody
+                                   '[Servant.API.ContentTypes.JSON] AuthServer.User
+                                 Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                      '[Servant.API.ContentTypes.JSON]
+                                                      AuthServer.Response>_N
+                                <Control.Monad.Trans.Except.ExceptT
+                                   Servant.Server.Internal.ServantErr.ServantErr
+                                   GHC.Types.IO>_N)))_R) -}
+ade307621498f34282732eba6a41f4d2
+  authApp19 ::
+    Servant.Server.Internal.RoutingApplication.Delayed
+      ()
+      (Servant.Server.Internal.Server
+         ("isvalid"
+          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                '[Servant.API.ContentTypes.JSON] AuthServer.User
+                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                   '[Servant.API.ContentTypes.JSON]
+                                                   AuthServer.Response)))
+  {- Unfolding: (Servant.Server.Internal.RoutingApplication.Delayed
+                   @ ()
+                   @ (Servant.Server.Internal.Server
+                        ("isvalid"
+                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON] AuthServer.User
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  AuthServer.Response)))
+                   @ ()
+                   @ ()
+                   @ ()
+                   (Servant.Server.Internal.RoutingApplication.emptyDelayed2 @ ())
+                     `cast`
+                   (<()>_R
+                    ->_R Trans
+                             (<Network.Wai.Internal.Request>_R
+                              ->_R Sym (GHC.Types.N:IO[0]
+                                            <Servant.Server.Internal.RoutingApplication.RouteResult
+                                               ()>_R))
+                             (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                       <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   AuthServer.authApp20) -}
+3effb921e0b5b926c48a938672626789
+  authApp2 ::
+    Servant.Server.Internal.Router.Router'
+      () Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Unfolding: (Servant.Server.Internal.Router.choice
+                   @ ()
+                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
+                   AuthServer.authApp25
+                   AuthServer.authApp3) -}
+b1233a396f8498413fd59b2b0aa9ab72
+  authApp20 ::
+    ()
+    -> ()
+    -> ()
+    -> Network.Wai.Internal.Request
+    -> Servant.Server.Internal.RoutingApplication.RouteResult
+         (Servant.Server.Internal.Server
+            ("isvalid"
+             Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                   '[Servant.API.ContentTypes.JSON] AuthServer.User
+                                 Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                      '[Servant.API.ContentTypes.JSON]
+                                                      AuthServer.Response)))
+  {- Arity: 4,
+     Unfolding: (\ (c :: ())
+                   (a1 :: ())
+                   (b1 :: ())
+                   (req :: Network.Wai.Internal.Request) ->
+                 AuthServer.authApp21) -}
+0980a2fd38ce8ced3ca6402d4b0296bc
+  authApp21 ::
+    Servant.Server.Internal.RoutingApplication.RouteResult
+      (Servant.Server.Internal.Server
+         ("isvalid"
+          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                '[Servant.API.ContentTypes.JSON] AuthServer.User
+                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                   '[Servant.API.ContentTypes.JSON]
+                                                   AuthServer.Response)))
+  {- Unfolding: (Servant.Server.Internal.RoutingApplication.Route
+                   @ (Servant.Server.Internal.Server
+                        ("isvalid"
+                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON] AuthServer.User
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  AuthServer.Response)))
+                   AuthServer.authApp22
+                     `cast`
+                   (Trans
+                        (<AuthServer.User>_R
+                         ->_R Trans
+                                  (Sym (GHC.Types.N:IO[0]
+                                            <Data.Either.Either
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               AuthServer.Response>_R))
+                                  (Trans
+                                       (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                                 <Servant.Server.Internal.ServantErr.ServantErr>_N
+                                                 <GHC.Types.IO>_R
+                                                 <AuthServer.Response>_N))
+                                       (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
+                                                      <Network.HTTP.Types.Method.StdMethod>_N
+                                                      <'[Servant.API.ContentTypes.JSON]>_N
+                                                      <AuthServer.Response>_N
+                                                      <'Network.HTTP.Types.Method.POST>_N
+                                                      <200>_N
+                                                      <Control.Monad.Trans.Except.ExceptT
+                                                         Servant.Server.Internal.ServantErr.ServantErr
+                                                         GHC.Types.IO>_N)))))
+                        (Trans
+                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
+                                            <*>_N
+                                            <'[Servant.API.ContentTypes.JSON]>_N
+                                            <AuthServer.User>_N
+                                            <Servant.API.Verbs.Verb
+                                               'Network.HTTP.Types.Method.POST
+                                               200
+                                               '[Servant.API.ContentTypes.JSON]
+                                               AuthServer.Response>_N
+                                            <Control.Monad.Trans.Except.ExceptT
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               GHC.Types.IO>_N)))
+                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                            <*>_N
+                                            <"isvalid">_N
+                                            <Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON] AuthServer.User
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  AuthServer.Response>_N
+                                            <Control.Monad.Trans.Except.ExceptT
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               GHC.Types.IO>_N)))))) -}
+0242ef2e31851fd23ace4780f836f0b2
+  authApp22 ::
+    AuthServer.User
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either
+            Servant.Server.Internal.ServantErr.ServantErr
+            AuthServer.Response #)
+  {- Arity: 2, Strictness: <L,U(1*U,A,A,1*U)><S,U> -}
+4facce83b7ddb3b78f900c8aa9c8a02f
+  authApp23 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 1,
+     Unfolding: (\ (s1 :: GHC.Prim.State#
+                            GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newByteArray#
+                        @ GHC.Prim.RealWorld
+                        8#
+                        s1 of ds1 { (#,#) ipv ipv1 ->
+                 Servant.Server.Internal.$wouter
+                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                   Servant.Server.Internal.$fHasServerTYPE:>context20
+                   AuthServer.authApp24
+                   0#
+                   ipv }) -}
+4decf81cbc46d75189777d3b40d2173d
+  authApp24 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "isvalid"#) -}
+b473cf292dd2b5f24f858a224430e793
+  authApp25 ::
+    Servant.Server.Internal.Router.Router'
+      () Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
+                   @ ()
+                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
+                   AuthServer.authApp26
+                   (GHC.Types.[]
+                      @ (()
+                         -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
+4c9f73c5da167fa79d80666bd51d744f
+  authApp26 ::
+    Data.Map.Base.Map
+      Data.Text.Internal.Text
+      (Servant.Server.Internal.Router.Router'
+         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
+  {- Unfolding: (case GHC.Magic.runRW#
+                        @ 'GHC.Types.PtrRepLifted
+                        @ Data.Text.Internal.Text
+                        AuthServer.authApp41 of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
+                 Data.Map.Base.Bin
+                   @ Data.Text.Internal.Text
+                   @ (Servant.Server.Internal.Router.Router'
+                        () Servant.Server.Internal.RoutingApplication.RoutingApplication)
+                   1#
+                   dt
+                   AuthServer.authApp27
+                   (Data.Map.Base.Tip
+                      @ Data.Text.Internal.Text
+                      @ (Servant.Server.Internal.Router.Router'
+                           () Servant.Server.Internal.RoutingApplication.RoutingApplication))
+                   (Data.Map.Base.Tip
+                      @ Data.Text.Internal.Text
+                      @ (Servant.Server.Internal.Router.Router'
+                           ()
+                           Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
+405e7079685515a24716e4101546f883
+  authApp27 :: Servant.Server.Internal.Router.Router ()
   {- Unfolding: (Servant.Server.Internal.$w$croute2
                    @ *
                    @ '[Servant.API.ContentTypes.JSON]
@@ -7332,11 +7564,11 @@ b7b0342d117a7f7b6e15094fab8f1a50
                         '[Servant.API.ContentTypes.JSON]
                         AuthServer.Response)
                    @ '[]
-                   AuthServer.$sserve10
+                   AuthServer.authApp40
                      `cast`
                    (Sym (Servant.API.ContentTypes.N:AllCTUnrender[0]
                              <'[Servant.API.ContentTypes.JSON]>_N <AuthServer.Signin>_N))
-                   AuthServer.$sserve5
+                   AuthServer.authApp11
                      `cast`
                    (Sym (Servant.Server.Internal.N:HasServer[0]
                              <*>_N
@@ -7357,7 +7589,7 @@ b7b0342d117a7f7b6e15094fab8f1a50
                                               '[Servant.API.ContentTypes.JSON]
                                               AuthServer.Response))
                    Servant.Server.Internal.Context.$WEmptyContext
-                   AuthServer.authApp13
+                   AuthServer.authApp28
                      `cast`
                    (Servant.Server.Internal.RoutingApplication.Delayed
                       <()>_R
@@ -7372,8 +7604,8 @@ b7b0342d117a7f7b6e15094fab8f1a50
                                 <Control.Monad.Trans.Except.ExceptT
                                    Servant.Server.Internal.ServantErr.ServantErr
                                    GHC.Types.IO>_N)))_R) -}
-c7140c39132e4311605ba2d1364557bb
-  authApp13 ::
+a8210deeef440e66d64ae857e37f9efe
+  authApp28 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       ()
       (Servant.Server.Internal.Server
@@ -7432,9 +7664,9 @@ c7140c39132e4311605ba2d1364557bb
                                           ()>_R))
                         (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
                                   <()>_R)))
-                   AuthServer.authApp14) -}
-9e12961daca902ad9b0aa5f72aec4916
-  authApp14 ::
+                   AuthServer.authApp29) -}
+9fc1ae43e69408b9c0c247a24cd71de4
+  authApp29 ::
     ()
     -> ()
     -> ()
@@ -7452,9 +7684,18 @@ c7140c39132e4311605ba2d1364557bb
                    (a1 :: ())
                    (b1 :: ())
                    (req :: Network.Wai.Internal.Request) ->
-                 AuthServer.authApp15) -}
-276a4c69e6aa29fdd431dd916bb1ea05
-  authApp15 ::
+                 AuthServer.authApp30) -}
+a7e0f9e0a6020cd6839f09199a0ad821
+  authApp3 ::
+    Servant.Server.Internal.Router.Router'
+      () Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Unfolding: (Servant.Server.Internal.Router.choice
+                   @ ()
+                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
+                   AuthServer.authApp16
+                   AuthServer.authApp4) -}
+d8b8f8ee20ceb1651ca25ce0ceccddb0
+  authApp30 ::
     Servant.Server.Internal.RoutingApplication.RouteResult
       (Servant.Server.Internal.Server
          ("register"
@@ -7471,7 +7712,7 @@ c7140c39132e4311605ba2d1364557bb
                                              Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                   '[Servant.API.ContentTypes.JSON]
                                                                   AuthServer.Response)))
-                   AuthServer.authApp16
+                   AuthServer.authApp31
                      `cast`
                    (Trans
                         (<AuthServer.Signin>_R
@@ -7518,8 +7759,8 @@ c7140c39132e4311605ba2d1364557bb
                                             <Control.Monad.Trans.Except.ExceptT
                                                Servant.Server.Internal.ServantErr.ServantErr
                                                GHC.Types.IO>_N)))))) -}
-da64cad48f081c1a807cfa2cf51d579f
-  authApp16 ::
+19bdb5521e6bd93e11fd6f5244937674
+  authApp31 ::
     AuthServer.Signin
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
@@ -7533,7 +7774,7 @@ da64cad48f081c1a807cfa2cf51d579f
                    uname :: GHC.Base.String
                    = case signin of wild { AuthServer.Signin ds ds1 -> ds }
                  } in
-                 case AuthServer.authApp23
+                 case AuthServer.authApp38
                         @ ()
                         System.Log.Logger.warningM1
                           `cast`
@@ -7544,18 +7785,40 @@ da64cad48f081c1a807cfa2cf51d579f
                            "Storing value under key: "#
                            uname)
                         s of ds1 { (#,#) ipv ipv1 ->
-                 case AuthServer.authApp22
+                 case AuthServer.authApp37
                         @ ()
-                        (Database.MongoDB.Query.$wupdate
+                        (let {
+                           psswrd :: GHC.Base.String
+                           = case signin of wild { AuthServer.Signin ds ds2 -> ds2 }
+                         } in
+                         Database.MongoDB.Query.$wupdate
                            @ GHC.Types.IO
                            Control.Monad.IO.Class.$fMonadIOIO
                            Database.MongoDB.Query.repsert1
                            (GHC.Types.:
                               @ Data.Bson.Field
-                              (case AuthServer.authApp21 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
-                               Data.Bson.:= dt (Data.Bson.$fValChar_$cvalList uname) })
+                              (case AuthServer.authApp36 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
+                               Data.Bson.:=
+                                 dt
+                                 (Data.Bson.String
+                                    (case GHC.Magic.runRW#
+                                            @ 'GHC.Types.PtrRepLifted
+                                            @ Data.Text.Internal.Text
+                                            (\ (s1 :: GHC.Prim.State#
+                                                        GHC.Prim.RealWorld)[OneShot] ->
+                                             case GHC.Prim.newByteArray#
+                                                    @ GHC.Prim.RealWorld
+                                                    8#
+                                                    s1 of ds2 { (#,#) ipv5 ipv6 ->
+                                             Data.Bson.$wouter
+                                               (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv6)
+                                               Data.Bson.$fValChar2
+                                               (GHC.Base.++ @ GHC.Types.Char uname psswrd)
+                                               0#
+                                               ipv5 }) of ds2 { (#,#) ipv5 ipv6 ->
+                                     ipv6 })) })
                               (GHC.Types.[] @ Data.Bson.Field))
-                           AuthServer.authApp20
+                           AuthServer.authApp35
                            (Data.Bson.Generic.$w$cgenericToBSON1
                               @ (GHC.Generics.S1
                                    ('GHC.Generics.MetaSel
@@ -7630,24 +7893,23 @@ da64cad48f081c1a807cfa2cf51d579f
                                                 <GHC.Generics.K1
                                                    GHC.Generics.R
                                                    GHC.Base.String>_R) <GHC.Prim.Any>_N))
-                                 (case signin of wild { AuthServer.Signin ds ds2 ->
-                                  ds2
-                                    `cast`
-                                  (Trans
-                                       (Sym (GHC.Generics.N:K1[0]
-                                                 <GHC.Generics.R>_P
-                                                 <GHC.Base.String>_R
-                                                 <GHC.Prim.Any>_P))
-                                       (Sym (GHC.Generics.N:M1[0]
-                                                 <GHC.Generics.S>_P
-                                                 <'GHC.Generics.MetaSel
-                                                    ('GHC.Base.Just "spassword")
-                                                    'GHC.Generics.NoSourceUnpackedness
-                                                    'GHC.Generics.NoSourceStrictness
-                                                    'GHC.Generics.DecidedLazy>_P
-                                                 <GHC.Generics.K1
-                                                    GHC.Generics.R
-                                                    GHC.Base.String>_R) <GHC.Prim.Any>_N)) }))
+                                 psswrd
+                                   `cast`
+                                 (Trans
+                                      (Sym (GHC.Generics.N:K1[0]
+                                                <GHC.Generics.R>_P
+                                                <GHC.Base.String>_R
+                                                <GHC.Prim.Any>_P))
+                                      (Sym (GHC.Generics.N:M1[0]
+                                                <GHC.Generics.S>_P
+                                                <'GHC.Generics.MetaSel
+                                                   ('GHC.Base.Just "spassword")
+                                                   'GHC.Generics.NoSourceUnpackedness
+                                                   'GHC.Generics.NoSourceStrictness
+                                                   'GHC.Generics.DecidedLazy>_P
+                                                <GHC.Generics.K1
+                                                   GHC.Generics.R
+                                                   GHC.Base.String>_R) <GHC.Prim.Any>_N)))
                                 `cast`
                               (Sym (GHC.Generics.N:M1[0]
                                         <GHC.Generics.C>_P
@@ -7672,45 +7934,36 @@ da64cad48f081c1a807cfa2cf51d579f
                                                                GHC.Generics.R
                                                                GHC.Base.String)>_R) <GHC.Prim.Any>_N)))
                         ipv of ds2 { (#,#) ipv2 ipv3 ->
-                 (# ipv2, AuthServer.authApp17 #) } }) -}
-9055df42ee3f9133fcf27b73bb4170e8
-  authApp17 ::
+                 (# ipv2, AuthServer.authApp32 #) } }) -}
+e45d5013d278437f71a15a84f578f5b8
+  authApp32 ::
     Data.Either.Either
       Servant.Server.Internal.ServantErr.ServantErr AuthServer.Response
   {- Unfolding: (Data.Either.Right
                    @ Servant.Server.Internal.ServantErr.ServantErr
                    @ AuthServer.Response
-                   AuthServer.authApp18) -}
-f7525da1a2de2b4ba3a270be267dce6f
-  authApp18 :: AuthServer.Response
+                   AuthServer.authApp33) -}
+885147f9731470c98f8bd50c0bcc8ddb
+  authApp33 :: AuthServer.Response
   {- Strictness: m,
-     Unfolding: (AuthServer.Response AuthServer.authApp19) -}
-0d6f8c085ed610986bee596491ee6774
-  authApp19 :: [GHC.Types.Char]
+     Unfolding: (AuthServer.Response AuthServer.authApp34) -}
+3767e942dd50f86ca7ffd1c37b99357c
+  authApp34 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Success"#) -}
-9d562efc87300a34505c78e5eb9e81a8
-  authApp2 ::
-    Servant.Server.Internal.Router.Router'
-      () Servant.Server.Internal.RoutingApplication.RoutingApplication
-  {- Unfolding: (Servant.Server.Internal.Router.choice
-                   @ ()
-                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   AuthServer.authApp10
-                   AuthServer.authApp3) -}
-f4ff28a884ecb4b05ca6ec15ebb28f0b
-  authApp20 :: Database.MongoDB.Query.Collection
+ed3630fbe2e64492cd95b94baf63cca0
+  authApp35 :: Database.MongoDB.Query.Collection
   {- Unfolding: (Data.Text.Show.unpackCString# "USER_RECORD"#) -}
-70bf0b0b4006e2ef47c110cda9abc040
-  authApp21 :: Data.Bson.Label
-  {- Unfolding: (Data.Text.Show.unpackCString# "susername"#) -}
-6e3f807cf97ef3c83d7334b483b0dec3
-  authApp22 ::
+f10e07620d03634845ffd2a75182891b
+  authApp36 :: Data.Bson.Label
+  {- Unfolding: (Data.Text.Show.unpackCString# "_id"#) -}
+bf5e0b131fd2e450971385e1df11ec89
+  authApp37 ::
     Database.MongoDB.Query.Action GHC.Types.IO a
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, a #)
   {- Arity: 2, Strictness: <L,1*C1(U)><S,U> -}
-a367ffdfa9b859a5278ba8165067d815
-  authApp23 ::
+c56b507f688d7dea06899777928761a2
+  authApp38 ::
     (GHC.Base.String -> [GHC.Types.Char] -> GHC.Types.IO b)
     -> [GHC.Types.Char]
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -7733,7 +7986,7 @@ a367ffdfa9b859a5278ba8165067d815
                           (Sym (Data.Time.Format.N:FormatTime[0]
                                     <Data.Time.Clock.UTC.UTCTime>_N))
                           Data.Time.Format.Locale.defaultTimeLocale
-                          AuthServer.authApp24
+                          AuthServer.authApp39
                           (case Data.Time.Clock.POSIX.$wposixSecondsToUTCTime
                                   (Data.Time.Clock.POSIX.getCurrentTime2
                                      ipv3) of ww { (#,#) ww1 ww2 ->
@@ -7742,22 +7995,72 @@ a367ffdfa9b859a5278ba8165067d815
                    `cast`
                  (GHC.Types.N:IO[0] <b>_R)
                    ipv2 } }) -}
-b7192f7120a216297ade50f24150fd91
-  authApp24 :: [GHC.Types.Char]
+bd81e040a55b0c9f88bf05aacfddb0bb
+  authApp39 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "%FT%T%q%z"#) -}
-f7fa46f05173b27f3265361ef161af26
-  authApp25 ::
+142362439b2beb56e4eee66493385171
+  authApp4 ::
     Servant.Server.Internal.Router.Router'
       () Servant.Server.Internal.RoutingApplication.RoutingApplication
   {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
                    @ ()
                    @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   AuthServer.authApp26
+                   AuthServer.authApp5
                    (GHC.Types.[]
                       @ (()
                          -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
-ecdd546d28eb13b29eb65a06a21275e5
-  authApp26 ::
+b60d9a183e2ba2c45b850b4f7abc3d19
+  authApp40 ::
+    Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> GHC.Base.Maybe
+         (Data.Either.Either GHC.Base.String AuthServer.Signin)
+  {- Arity: 3, Strictness: <L,A><L,1*U><L,U>,
+     Unfolding: InlineRule (3, True, True)
+                (\ (w1 :: Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON])
+                   (w2 :: Data.ByteString.Lazy.Internal.ByteString)
+                   (w3 :: Data.ByteString.Lazy.Internal.ByteString) ->
+                 Servant.API.ContentTypes.$w$chandleCTypeH
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ AuthServer.Signin
+                   AuthServer.$s$fAllMimeUnrender:a
+                   w2
+                   w3) -}
+4d9529b1dd9b2d0ac1b9ae861d38d1b2
+  authApp41 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 1,
+     Unfolding: (\ (s1 :: GHC.Prim.State#
+                            GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newByteArray#
+                        @ GHC.Prim.RealWorld
+                        8#
+                        s1 of ds1 { (#,#) ipv ipv1 ->
+                 Servant.Server.Internal.$wouter
+                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                   Servant.Server.Internal.$fHasServerTYPE:>context20
+                   AuthServer.authApp42
+                   0#
+                   ipv }) -}
+90c599a5de80dcf4baacb06e48541be5
+  authApp42 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "register"#) -}
+7704e496a5a2ee0946a55f295b8b2bcd
+  authApp43 ::
+    Servant.Server.Internal.Router.Router'
+      () Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
+                   @ ()
+                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
+                   AuthServer.authApp44
+                   (GHC.Types.[]
+                      @ (()
+                         -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
+968964a6a2ea2f0b6a68f349d7a795ba
+  authApp44 ::
     Data.Map.Base.Map
       Data.Text.Internal.Text
       (Servant.Server.Internal.Router.Router'
@@ -7765,7 +8068,7 @@ ecdd546d28eb13b29eb65a06a21275e5
   {- Unfolding: (case GHC.Magic.runRW#
                         @ 'GHC.Types.PtrRepLifted
                         @ Data.Text.Internal.Text
-                        AuthServer.$sserve11 of ds1 { (#,#) ipv ipv1 ->
+                        AuthServer.authApp51 of ds1 { (#,#) ipv ipv1 ->
                  case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
                  Data.Map.Base.Bin
                    @ Data.Text.Internal.Text
@@ -7773,7 +8076,7 @@ ecdd546d28eb13b29eb65a06a21275e5
                         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
                    1#
                    dt
-                   AuthServer.authApp27
+                   AuthServer.authApp45
                    (Data.Map.Base.Tip
                       @ Data.Text.Internal.Text
                       @ (Servant.Server.Internal.Router.Router'
@@ -7783,8 +8086,8 @@ ecdd546d28eb13b29eb65a06a21275e5
                       @ (Servant.Server.Internal.Router.Router'
                            ()
                            Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
-6631e8d56fc48274a780ae72906ca6f7
-  authApp27 :: Servant.Server.Internal.Router.Router ()
+77c3ed2ae89338eb182caee5bace9ac7
+  authApp45 :: Servant.Server.Internal.Router.Router ()
   {- Unfolding: (Servant.Server.Internal.$w$croute2
                    @ *
                    @ '[Servant.API.ContentTypes.JSON]
@@ -7795,11 +8098,11 @@ ecdd546d28eb13b29eb65a06a21275e5
                         '[Servant.API.ContentTypes.JSON]
                         AuthServer.User)
                    @ '[]
-                   AuthServer.$sserve10
+                   AuthServer.authApp40
                      `cast`
                    (Sym (Servant.API.ContentTypes.N:AllCTUnrender[0]
                              <'[Servant.API.ContentTypes.JSON]>_N <AuthServer.Signin>_N))
-                   AuthServer.authApp32
+                   AuthServer.authApp50
                      `cast`
                    (Sym (Servant.Server.Internal.N:HasServer[0]
                              <*>_N
@@ -7820,7 +8123,7 @@ ecdd546d28eb13b29eb65a06a21275e5
                                               '[Servant.API.ContentTypes.JSON]
                                               AuthServer.User))
                    Servant.Server.Internal.Context.$WEmptyContext
-                   AuthServer.authApp28
+                   AuthServer.authApp46
                      `cast`
                    (Servant.Server.Internal.RoutingApplication.Delayed
                       <()>_R
@@ -7835,8 +8138,8 @@ ecdd546d28eb13b29eb65a06a21275e5
                                 <Control.Monad.Trans.Except.ExceptT
                                    Servant.Server.Internal.ServantErr.ServantErr
                                    GHC.Types.IO>_N)))_R) -}
-632671986e311960d7e74b9c7593f5f1
-  authApp28 ::
+0a1927a6529685f115519051478792b1
+  authApp46 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       ()
       (Servant.Server.Internal.Server
@@ -7895,9 +8198,9 @@ ecdd546d28eb13b29eb65a06a21275e5
                                           ()>_R))
                         (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
                                   <()>_R)))
-                   AuthServer.authApp29) -}
-eff3ee7ea293b073fb47d144a0d72af9
-  authApp29 ::
+                   AuthServer.authApp47) -}
+4d3a603d03a943ceb01e2b096b17cef1
+  authApp47 ::
     ()
     -> ()
     -> ()
@@ -7915,20 +8218,9 @@ eff3ee7ea293b073fb47d144a0d72af9
                    (a1 :: ())
                    (b1 :: ())
                    (req :: Network.Wai.Internal.Request) ->
-                 AuthServer.authApp30) -}
-4ee5d18113589ccb9dc5909c61ea7a9e
-  authApp3 ::
-    Servant.Server.Internal.Router.Router'
-      () Servant.Server.Internal.RoutingApplication.RoutingApplication
-  {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
-                   @ ()
-                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   AuthServer.authApp4
-                   (GHC.Types.[]
-                      @ (()
-                         -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
-3b3fb5be7a80f01a50875b0133a2d34c
-  authApp30 ::
+                 AuthServer.authApp48) -}
+1fb590183efe06e09b2281bbc28eaed2
+  authApp48 ::
     Servant.Server.Internal.RoutingApplication.RouteResult
       (Servant.Server.Internal.Server
          ("signin"
@@ -7945,7 +8237,7 @@ eff3ee7ea293b073fb47d144a0d72af9
                                              Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                   '[Servant.API.ContentTypes.JSON]
                                                                   AuthServer.User)))
-                   AuthServer.authApp31
+                   AuthServer.authApp49
                      `cast`
                    (Trans
                         (<AuthServer.Signin>_R
@@ -7992,16 +8284,43 @@ eff3ee7ea293b073fb47d144a0d72af9
                                             <Control.Monad.Trans.Except.ExceptT
                                                Servant.Server.Internal.ServantErr.ServantErr
                                                GHC.Types.IO>_N)))))) -}
-3b5499e25c55fbb0420f7875babe7184
-  authApp31 ::
+921a8c8b770e4a45470de9f450227ed3
+  authApp49 ::
     AuthServer.Signin
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
           Data.Either.Either
             Servant.Server.Internal.ServantErr.ServantErr AuthServer.User #)
   {- Arity: 2, Strictness: <L,U(1*U,1*U)><S,U> -}
-854875e3f5d4c0ef563d1efd556f0ea2
-  authApp32 ::
+199253f43f4f0ac5b008e069a7d91ad7
+  authApp5 ::
+    Data.Map.Base.Map
+      Data.Text.Internal.Text
+      (Servant.Server.Internal.Router.Router'
+         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
+  {- Unfolding: (case GHC.Magic.runRW#
+                        @ 'GHC.Types.PtrRepLifted
+                        @ Data.Text.Internal.Text
+                        AuthServer.authApp14 of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
+                 Data.Map.Base.Bin
+                   @ Data.Text.Internal.Text
+                   @ (Servant.Server.Internal.Router.Router'
+                        () Servant.Server.Internal.RoutingApplication.RoutingApplication)
+                   1#
+                   dt
+                   AuthServer.authApp6
+                   (Data.Map.Base.Tip
+                      @ Data.Text.Internal.Text
+                      @ (Servant.Server.Internal.Router.Router'
+                           () Servant.Server.Internal.RoutingApplication.RoutingApplication))
+                   (Data.Map.Base.Tip
+                      @ Data.Text.Internal.Text
+                      @ (Servant.Server.Internal.Router.Router'
+                           ()
+                           Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
+25c7a257ae4095bb0db8f4c422c4f6b0
+  authApp50 ::
     Data.Proxy.Proxy
       (Servant.API.Verbs.Verb
          'Network.HTTP.Types.Method.POST
@@ -8041,7 +8360,7 @@ eff3ee7ea293b073fb47d144a0d72af9
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
                              <Network.HTTP.Types.Method.StdMethod>_N
                              <'Network.HTTP.Types.Method.POST>_N))
-                   AuthServer.$sserve6
+                   AuthServer.authApp12
                      `cast`
                    (Trans
                         (Sym (GHC.TypeLits.N:SNat[0] <200>_P))
@@ -8054,35 +8373,29 @@ eff3ee7ea293b073fb47d144a0d72af9
                            200
                            '[Servant.API.ContentTypes.JSON]
                            AuthServer.User)) }) -}
-b2b186e84201418a46c540edfec8a415
-  authApp4 ::
-    Data.Map.Base.Map
-      Data.Text.Internal.Text
-      (Servant.Server.Internal.Router.Router'
-         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
-  {- Unfolding: (case GHC.Magic.runRW#
-                        @ 'GHC.Types.PtrRepLifted
-                        @ Data.Text.Internal.Text
-                        AuthServer.$sserve3 of ds1 { (#,#) ipv ipv1 ->
-                 case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
-                 Data.Map.Base.Bin
-                   @ Data.Text.Internal.Text
-                   @ (Servant.Server.Internal.Router.Router'
-                        () Servant.Server.Internal.RoutingApplication.RoutingApplication)
-                   1#
-                   dt
-                   AuthServer.authApp5
-                   (Data.Map.Base.Tip
-                      @ Data.Text.Internal.Text
-                      @ (Servant.Server.Internal.Router.Router'
-                           () Servant.Server.Internal.RoutingApplication.RoutingApplication))
-                   (Data.Map.Base.Tip
-                      @ Data.Text.Internal.Text
-                      @ (Servant.Server.Internal.Router.Router'
-                           ()
-                           Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
-ff493655a675a4897417a53406182909
-  authApp5 :: Servant.Server.Internal.Router.Router ()
+4405868b8ec1b720fffaac81d647bb18
+  authApp51 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 1,
+     Unfolding: (\ (s1 :: GHC.Prim.State#
+                            GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newByteArray#
+                        @ GHC.Prim.RealWorld
+                        8#
+                        s1 of ds1 { (#,#) ipv ipv1 ->
+                 Servant.Server.Internal.$wouter
+                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                   Servant.Server.Internal.$fHasServerTYPE:>context20
+                   AuthServer.authApp52
+                   0#
+                   ipv }) -}
+88e72c34bcda63ac272f0a442c1c84e9
+  authApp52 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "signin"#) -}
+3b893569289ed51c4bcd88a25a521db8
+  authApp6 :: Servant.Server.Internal.Router.Router ()
   {- Unfolding: (Servant.Server.Internal.$w$croute2
                    @ *
                    @ '[Servant.API.ContentTypes.JSON]
@@ -8093,11 +8406,11 @@ ff493655a675a4897417a53406182909
                         '[Servant.API.ContentTypes.JSON]
                         AuthServer.Response)
                    @ '[]
-                   AuthServer.$sserve2
+                   AuthServer.authApp13
                      `cast`
                    (Sym (Servant.API.ContentTypes.N:AllCTUnrender[0]
                              <'[Servant.API.ContentTypes.JSON]>_N <AuthServer.User>_N))
-                   AuthServer.$sserve5
+                   AuthServer.authApp11
                      `cast`
                    (Sym (Servant.Server.Internal.N:HasServer[0]
                              <*>_N
@@ -8118,13 +8431,13 @@ ff493655a675a4897417a53406182909
                                               '[Servant.API.ContentTypes.JSON]
                                               AuthServer.Response))
                    Servant.Server.Internal.Context.$WEmptyContext
-                   AuthServer.authApp6
+                   AuthServer.authApp7
                      `cast`
                    (Servant.Server.Internal.RoutingApplication.Delayed
                       <()>_R
                       (Sub (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
                                 <*>_N
-                                <"isvalid">_N
+                                <"extend">_N
                                 <Servant.API.ReqBody.ReqBody
                                    '[Servant.API.ContentTypes.JSON] AuthServer.User
                                  Servant.API.Sub.:> Servant.API.Verbs.Post
@@ -8133,12 +8446,12 @@ ff493655a675a4897417a53406182909
                                 <Control.Monad.Trans.Except.ExceptT
                                    Servant.Server.Internal.ServantErr.ServantErr
                                    GHC.Types.IO>_N)))_R) -}
-8750629a37151466e179c28be5f41879
-  authApp6 ::
+eb1b4cf5b3bc762b2c83b295ec32bf26
+  authApp7 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       ()
       (Servant.Server.Internal.Server
-         ("isvalid"
+         ("extend"
           Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
                                 '[Servant.API.ContentTypes.JSON] AuthServer.User
                               Servant.API.Sub.:> Servant.API.Verbs.Post
@@ -8147,7 +8460,7 @@ ff493655a675a4897417a53406182909
   {- Unfolding: (Servant.Server.Internal.RoutingApplication.Delayed
                    @ ()
                    @ (Servant.Server.Internal.Server
-                        ("isvalid"
+                        ("extend"
                          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
                                                '[Servant.API.ContentTypes.JSON] AuthServer.User
                                              Servant.API.Sub.:> Servant.API.Verbs.Post
@@ -8193,16 +8506,16 @@ ff493655a675a4897417a53406182909
                                           ()>_R))
                         (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
                                   <()>_R)))
-                   AuthServer.authApp7) -}
-eed84d782bc560edc08ace3dc9e92ce6
-  authApp7 ::
+                   AuthServer.authApp8) -}
+8f22f1116ee7440c3d9fa36c12986d2d
+  authApp8 ::
     ()
     -> ()
     -> ()
     -> Network.Wai.Internal.Request
     -> Servant.Server.Internal.RoutingApplication.RouteResult
          (Servant.Server.Internal.Server
-            ("isvalid"
+            ("extend"
              Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
                                    '[Servant.API.ContentTypes.JSON] AuthServer.User
                                  Servant.API.Sub.:> Servant.API.Verbs.Post
@@ -8213,12 +8526,12 @@ eed84d782bc560edc08ace3dc9e92ce6
                    (a1 :: ())
                    (b1 :: ())
                    (req :: Network.Wai.Internal.Request) ->
-                 AuthServer.authApp8) -}
-f32dc5fe669cb638f52de27faa09eaba
-  authApp8 ::
+                 AuthServer.authApp9) -}
+3bdcb41bb322c9a4efa9e6997a8ba865
+  authApp9 ::
     Servant.Server.Internal.RoutingApplication.RouteResult
       (Servant.Server.Internal.Server
-         ("isvalid"
+         ("extend"
           Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
                                 '[Servant.API.ContentTypes.JSON] AuthServer.User
                               Servant.API.Sub.:> Servant.API.Verbs.Post
@@ -8226,13 +8539,13 @@ f32dc5fe669cb638f52de27faa09eaba
                                                    AuthServer.Response)))
   {- Unfolding: (Servant.Server.Internal.RoutingApplication.Route
                    @ (Servant.Server.Internal.Server
-                        ("isvalid"
+                        ("extend"
                          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
                                                '[Servant.API.ContentTypes.JSON] AuthServer.User
                                              Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                   '[Servant.API.ContentTypes.JSON]
                                                                   AuthServer.Response)))
-                   AuthServer.authApp9
+                   AuthServer.authApp10
                      `cast`
                    (Trans
                         (<AuthServer.User>_R
@@ -8270,7 +8583,7 @@ f32dc5fe669cb638f52de27faa09eaba
                                                GHC.Types.IO>_N)))
                              (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
                                             <*>_N
-                                            <"isvalid">_N
+                                            <"extend">_N
                                             <Servant.API.ReqBody.ReqBody
                                                '[Servant.API.ContentTypes.JSON] AuthServer.User
                                              Servant.API.Sub.:> Servant.API.Verbs.Post
@@ -8279,28 +8592,19 @@ f32dc5fe669cb638f52de27faa09eaba
                                             <Control.Monad.Trans.Except.ExceptT
                                                Servant.Server.Internal.ServantErr.ServantErr
                                                GHC.Types.IO>_N)))))) -}
-9e9f058f492236f77afc76143ece9c47
-  authApp9 ::
-    AuthServer.User
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          Data.Either.Either
-            Servant.Server.Internal.ServantErr.ServantErr
-            AuthServer.Response #)
-  {- Arity: 2, Strictness: <L,U(1*U,A,A,1*U)><S,U> -}
-d20f6818121bc88cdacf714828cf4257
+1fab67148f5e0320e290179bb8c7bceb
   authApp_r :: Servant.Server.Internal.Router.Router ()
   {- Unfolding: (Servant.Server.Internal.Router.choice
                    @ ()
                    @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   AuthServer.authApp25
+                   AuthServer.authApp43
                    AuthServer.authApp2) -}
-111b275488fda5f8f5463533bbd0ae3d
+29bf6c53996698ea23982c07758e5214
   checkToken ::
     AuthServer.User -> AuthServer.ApiHandler AuthServer.Response
   {- Arity: 2, Strictness: <L,U(1*U,A,A,1*U)><S,U>,
      Unfolding: InlineRule (0, True, True)
-                AuthServer.authApp9
+                AuthServer.authApp22
                   `cast`
                 (<AuthServer.User>_R
                  ->_R Trans
@@ -8312,27 +8616,27 @@ d20f6818121bc88cdacf714828cf4257
                                     <Servant.Server.Internal.ServantErr.ServantErr>_N
                                     <GHC.Types.IO>_R
                                     <AuthServer.Response>_N))) -}
-0f3dac588347b8714c2d8f054f73d1d4
+8acc0c55fc9c4e8e6bae7512be13af54
   debugLog :: GHC.Base.String -> GHC.Types.IO ()
   {- Arity: 2,
      Unfolding: InlineRule (0, True, True)
                 AuthServer.debugLog1
                   `cast`
                 (<[GHC.Types.Char]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-d355937032e9ccd91256e78121874535
+238a1adf7d1d43bdfdd0e94bf01c9861
   debugLog1 ::
     [GHC.Types.Char]
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 2,
-     Unfolding: (AuthServer.authApp23
+     Unfolding: (AuthServer.authApp38
                    @ ()
                    System.Log.Logger.debugM1
                      `cast`
                    (<GHC.Base.String>_R
                     ->_R <GHC.Base.String>_R
                     ->_R Sym (GHC.Types.N:IO[0] <()>_R))) -}
-5a4735a999fc607d514271ba010a21b4
+52985da83d8b5560f5bdf90d9ed6048f
   defEnv ::
     GHC.Show.Show a =>
     GHC.Base.String
@@ -8349,7 +8653,7 @@ d355937032e9ccd91256e78121874535
                  ->_R <a>_R
                  ->_R <GHC.Types.Bool>_R
                  ->_R Sym (GHC.Types.N:IO[0] <a>_R)) -}
-627841f84d3dccd1fc2b3bb08c820a59
+a0fb924a7eb888778627c5cd17f5148c
   defEnv1 ::
     GHC.Show.Show a =>
     GHC.Base.String
@@ -8386,7 +8690,7 @@ d355937032e9ccd91256e78121874535
                    -> case doWarn of wild2 {
                         GHC.Types.False -> (# ipv2, def #)
                         GHC.Types.True
-                        -> case AuthServer.authApp23
+                        -> case AuthServer.authApp38
                                   @ ()
                                   System.Log.Logger.warningM1
                                     `cast`
@@ -8428,13 +8732,13 @@ d355937032e9ccd91256e78121874535
                    "Environment variable: "#
                    c
                    n) -}
-2e20dc835db38b818e6a7ed00a567beb
+ed776d61964b38561180b5b812d36f36
   doLog ::
     (GHC.Base.String -> [GHC.Types.Char] -> GHC.Types.IO b)
     -> [GHC.Types.Char] -> GHC.Types.IO b
   {- Arity: 3, Strictness: <L,1*C1(C1(C1(U(U,U))))><L,U><S,U>,
      Unfolding: InlineRule (0, True, True)
-                AuthServer.authApp23
+                AuthServer.authApp38
                   `cast`
                 (forall (b :: <*>_N).
                  <GHC.Base.String -> [GHC.Types.Char] -> GHC.Types.IO b>_R
@@ -8459,27 +8763,44 @@ b03e8e6e22e3779d09208df68a263189
          GHC.Types.IO
          [Data.Bson.Document]
   {- Arity: 2, Strictness: <L,U><L,U> -}
-9392ca3a98e7e4ef8c7b4585d99f8fbe
+102dfa9510c779e0e5639a6d1899dea7
   errorLog :: GHC.Base.String -> GHC.Types.IO ()
   {- Arity: 2,
      Unfolding: InlineRule (0, True, True)
                 AuthServer.errorLog1
                   `cast`
                 (<[GHC.Types.Char]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-b657f4351ecbb4a653cd2499ecce1bbd
+8b0a640e9a086a1737a32a86588d02ee
   errorLog1 ::
     [GHC.Types.Char]
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 2,
-     Unfolding: (AuthServer.authApp23
+     Unfolding: (AuthServer.authApp38
                    @ ()
                    System.Log.Logger.errorM1
                      `cast`
                    (<GHC.Base.String>_R
                     ->_R <GHC.Base.String>_R
                     ->_R Sym (GHC.Types.N:IO[0] <()>_R))) -}
-71f5925ed6bd265f23db78b6720c86c1
+37c3cf2d843ea9bf6a8cb4d6e034aaf3
+  extendToken ::
+    AuthServer.User -> AuthServer.ApiHandler AuthServer.Response
+  {- Arity: 2, Strictness: <L,U(U,1*U,A,1*U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                AuthServer.authApp10
+                  `cast`
+                (<AuthServer.User>_R
+                 ->_R Trans
+                          (Sym (GHC.Types.N:IO[0]
+                                    <Data.Either.Either
+                                       Servant.Server.Internal.ServantErr.ServantErr
+                                       AuthServer.Response>_R))
+                          (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                    <Servant.Server.Internal.ServantErr.ServantErr>_N
+                                    <GHC.Types.IO>_R
+                                    <AuthServer.Response>_N))) -}
+4c648eb5159473b073f9d28f68d0f07b
   iso8601 :: Data.Time.Clock.UTC.UTCTime -> GHC.Base.String
   {- Arity: 1,
      Unfolding: (Data.Time.Format.formatTime
@@ -8489,15 +8810,15 @@ b657f4351ecbb4a653cd2499ecce1bbd
                    (Sym (Data.Time.Format.N:FormatTime[0]
                              <Data.Time.Clock.UTC.UTCTime>_N))
                    Data.Time.Format.Locale.defaultTimeLocale
-                   AuthServer.authApp24) -}
-28b0248571dd0e1599efd4013eb9901e
+                   AuthServer.authApp39) -}
+e3dd3f25fb91a43d5c40a827dfac215b
   logLevel :: GHC.Types.IO GHC.Base.String
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 AuthServer.logLevel1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <[GHC.Types.Char]>_R)) -}
-f9ec2bd577ebdacbf1875cc5b533e008
+499f2782e936c4ba60496d0a34e89652
   logLevel1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
@@ -8520,7 +8841,7 @@ f9ec2bd577ebdacbf1875cc5b533e008
                         ipv of ds2 { (#,#) ipv2 ipv3 ->
                  case ipv3 of wild1 {
                    GHC.Base.Nothing
-                   -> case AuthServer.authApp23
+                   -> case AuthServer.authApp38
                              @ ()
                              System.Log.Logger.warningM1
                                `cast`
@@ -8573,11 +8894,11 @@ a44feea29d62e7267f713aa9479a21d1
 072aad273933799170718c9b9a311660
   logLevel9 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "LOG_LEVEL"#) -}
-b8e6e6ba1da2e494fe9a871e85aec362
+b5e4974c706889e1aa20cd5ce1f50a1c
   login :: AuthServer.Signin -> AuthServer.ApiHandler AuthServer.User
   {- Arity: 2, Strictness: <L,U(1*U,1*U)><S,U>,
      Unfolding: InlineRule (0, True, True)
-                AuthServer.authApp31
+                AuthServer.authApp49
                   `cast`
                 (<AuthServer.Signin>_R
                  ->_R Trans
@@ -8589,12 +8910,12 @@ b8e6e6ba1da2e494fe9a871e85aec362
                                     <Servant.Server.Internal.ServantErr.ServantErr>_N
                                     <GHC.Types.IO>_R
                                     <AuthServer.User>_N))) -}
-11deea6c99a89939ffb2a2ae04f3a039
+ec164fd70986f05bd9be5cade65b3bea
   mkApp :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 AuthServer.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-c4957eca9e489a90edf8f6fd01fefaa2
+bec9a4c8a313267d56c3d397e4e30db6
   mkApp1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -8695,14 +9016,14 @@ c4957eca9e489a90edf8f6fd01fefaa2
                  (Text.ParserCombinators.ReadP.N:ReadP[0] <GHC.Types.Int>_R)
                    @ GHC.Types.Int
                    (Text.Read.readEither5 @ GHC.Types.Int)) -}
-92a3790869860411cc25e7d5707338e6
+6fba10011d95396ba7ecfdb837c30dea
   mongoDbDatabase :: GHC.Types.IO GHC.Base.String
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 AuthServer.mongoDbDatabase1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <[GHC.Types.Char]>_R)) -}
-903c9588168ca8dc609bd20926de4825
+f02a4f66a1f8c0d834ae86732e591e58
   mongoDbDatabase1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
@@ -8725,7 +9046,7 @@ c4957eca9e489a90edf8f6fd01fefaa2
                         ipv of ds2 { (#,#) ipv2 ipv3 ->
                  case ipv3 of wild1 {
                    GHC.Base.Nothing
-                   -> case AuthServer.authApp23
+                   -> case AuthServer.authApp38
                              @ ()
                              System.Log.Logger.warningM1
                                `cast`
@@ -8771,14 +9092,14 @@ cb166cb8ce4e94caec09019e5d30de84
 f56c23079f09aaef5de504d44062c215
   mongoDbDatabase8 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "MONGODB_DATABASE"#) -}
-230adcb382e82a0f1a1b6c19ed3b8334
+f5dcb1781db565010ca3922d700327dd
   mongoDbIp :: GHC.Types.IO GHC.Base.String
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 AuthServer.mongoDbIp1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <[GHC.Types.Char]>_R)) -}
-357043e930ccccc5cc12174d6012f8aa
+d57e6c3bc904837ba5255148e4059be9
   mongoDbIp1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
@@ -8801,7 +9122,7 @@ f56c23079f09aaef5de504d44062c215
                         ipv of ds2 { (#,#) ipv2 ipv3 ->
                  case ipv3 of wild1 {
                    GHC.Base.Nothing
-                   -> case AuthServer.authApp23
+                   -> case AuthServer.authApp38
                              @ ()
                              System.Log.Logger.warningM1
                                `cast`
@@ -8917,12 +9238,12 @@ b557300b7d61b839b3ccd5298ec9eaff
 6560a4ff8bb3d854cae950f44daa36e0
   mongoDbPort7 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "MONGODB_PORT"#) -}
-b958ec942f67b383d62ee1d5f6d455d3
+eea2582b8e19adfbc5b16de5201d071b
   newuser ::
     AuthServer.Signin -> AuthServer.ApiHandler AuthServer.Response
   {- Arity: 2, Strictness: <L,U(1*U,1*U)><S,U>,
      Unfolding: InlineRule (0, True, True)
-                AuthServer.authApp16
+                AuthServer.authApp31
                   `cast`
                 (<AuthServer.Signin>_R
                  ->_R Trans
@@ -8934,20 +9255,20 @@ b958ec942f67b383d62ee1d5f6d455d3
                                     <Servant.Server.Internal.ServantErr.ServantErr>_N
                                     <GHC.Types.IO>_R
                                     <AuthServer.Response>_N))) -}
-f13bb93da0232581afc4517d9981e7a5
+07133f94ceb8abaa1176c0b2ac47c2f4
   noticeLog :: [GHC.Types.Char] -> GHC.Types.IO ()
   {- Arity: 2,
      Unfolding: InlineRule (0, True, True)
                 AuthServer.noticeLog1
                   `cast`
                 (<[GHC.Types.Char]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-c428a030c249196b8dbb2f0f9f1c11e8
+9609d6f65d251a2424d5fadfa8f27996
   noticeLog1 ::
     [GHC.Types.Char]
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 2,
-     Unfolding: (AuthServer.authApp23
+     Unfolding: (AuthServer.authApp38
                    @ ()
                    System.Log.Logger.noticeM1
                      `cast`
@@ -8961,7 +9282,7 @@ c428a030c249196b8dbb2f0f9f1c11e8
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: AuthServer.Response) ->
                  case ds of wild { AuthServer.Response ds1 -> ds1 }) -}
-f5b6f29e66f3eef598b65723b38cf521
+db033c42e5170aac8ebe9c6eb0a33af3
   server :: Servant.Server.Internal.Server AuthServer.AuthApi
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
@@ -9041,41 +9362,96 @@ f5b6f29e66f3eef598b65723b38cf521
                                                                                    Servant.Server.Internal.ServantErr.ServantErr
                                                                                    GHC.Types.IO>_N))))
                                                         Servant.API.Alternative.:<|> Trans
-                                                                                         (<AuthServer.User>_R
-                                                                                          ->_R Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
-                                                                                                             <Network.HTTP.Types.Method.StdMethod>_N
-                                                                                                             <'[Servant.API.ContentTypes.JSON]>_N
-                                                                                                             <AuthServer.Response>_N
-                                                                                                             <'Network.HTTP.Types.Method.POST>_N
-                                                                                                             <200>_N
-                                                                                                             <Control.Monad.Trans.Except.ExceptT
-                                                                                                                Servant.Server.Internal.ServantErr.ServantErr
-                                                                                                                GHC.Types.IO>_N)))
                                                                                          (Trans
-                                                                                              (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
-                                                                                                             <*>_N
-                                                                                                             <'[Servant.API.ContentTypes.JSON]>_N
-                                                                                                             <AuthServer.User>_N
-                                                                                                             <Servant.API.Verbs.Verb
-                                                                                                                'Network.HTTP.Types.Method.POST
-                                                                                                                200
-                                                                                                                '[Servant.API.ContentTypes.JSON]
-                                                                                                                AuthServer.Response>_N
-                                                                                                             <Control.Monad.Trans.Except.ExceptT
-                                                                                                                Servant.Server.Internal.ServantErr.ServantErr
-                                                                                                                GHC.Types.IO>_N)))
-                                                                                              (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
-                                                                                                             <*>_N
-                                                                                                             <"isvalid">_N
-                                                                                                             <Servant.API.ReqBody.ReqBody
-                                                                                                                '[Servant.API.ContentTypes.JSON]
-                                                                                                                AuthServer.User
-                                                                                                              Servant.API.Sub.:> Servant.API.Verbs.Post
-                                                                                                                                   '[Servant.API.ContentTypes.JSON]
-                                                                                                                                   AuthServer.Response>_N
-                                                                                                             <Control.Monad.Trans.Except.ExceptT
-                                                                                                                Servant.Server.Internal.ServantErr.ServantErr
-                                                                                                                GHC.Types.IO>_N)))))_R
+                                                                                              (<AuthServer.User>_R
+                                                                                               ->_R Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
+                                                                                                                  <Network.HTTP.Types.Method.StdMethod>_N
+                                                                                                                  <'[Servant.API.ContentTypes.JSON]>_N
+                                                                                                                  <AuthServer.Response>_N
+                                                                                                                  <'Network.HTTP.Types.Method.POST>_N
+                                                                                                                  <200>_N
+                                                                                                                  <Control.Monad.Trans.Except.ExceptT
+                                                                                                                     Servant.Server.Internal.ServantErr.ServantErr
+                                                                                                                     GHC.Types.IO>_N)))
+                                                                                              (Trans
+                                                                                                   (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
+                                                                                                                  <*>_N
+                                                                                                                  <'[Servant.API.ContentTypes.JSON]>_N
+                                                                                                                  <AuthServer.User>_N
+                                                                                                                  <Servant.API.Verbs.Verb
+                                                                                                                     'Network.HTTP.Types.Method.POST
+                                                                                                                     200
+                                                                                                                     '[Servant.API.ContentTypes.JSON]
+                                                                                                                     AuthServer.Response>_N
+                                                                                                                  <Control.Monad.Trans.Except.ExceptT
+                                                                                                                     Servant.Server.Internal.ServantErr.ServantErr
+                                                                                                                     GHC.Types.IO>_N)))
+                                                                                                   (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                                                                                                  <*>_N
+                                                                                                                  <"isvalid">_N
+                                                                                                                  <Servant.API.ReqBody.ReqBody
+                                                                                                                     '[Servant.API.ContentTypes.JSON]
+                                                                                                                     AuthServer.User
+                                                                                                                   Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                        '[Servant.API.ContentTypes.JSON]
+                                                                                                                                        AuthServer.Response>_N
+                                                                                                                  <Control.Monad.Trans.Except.ExceptT
+                                                                                                                     Servant.Server.Internal.ServantErr.ServantErr
+                                                                                                                     GHC.Types.IO>_N))))
+                                                                                          Servant.API.Alternative.:<|> Trans
+                                                                                                                           (<AuthServer.User>_R
+                                                                                                                            ->_R Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
+                                                                                                                                               <Network.HTTP.Types.Method.StdMethod>_N
+                                                                                                                                               <'[Servant.API.ContentTypes.JSON]>_N
+                                                                                                                                               <AuthServer.Response>_N
+                                                                                                                                               <'Network.HTTP.Types.Method.POST>_N
+                                                                                                                                               <200>_N
+                                                                                                                                               <Control.Monad.Trans.Except.ExceptT
+                                                                                                                                                  Servant.Server.Internal.ServantErr.ServantErr
+                                                                                                                                                  GHC.Types.IO>_N)))
+                                                                                                                           (Trans
+                                                                                                                                (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
+                                                                                                                                               <*>_N
+                                                                                                                                               <'[Servant.API.ContentTypes.JSON]>_N
+                                                                                                                                               <AuthServer.User>_N
+                                                                                                                                               <Servant.API.Verbs.Verb
+                                                                                                                                                  'Network.HTTP.Types.Method.POST
+                                                                                                                                                  200
+                                                                                                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                  AuthServer.Response>_N
+                                                                                                                                               <Control.Monad.Trans.Except.ExceptT
+                                                                                                                                                  Servant.Server.Internal.ServantErr.ServantErr
+                                                                                                                                                  GHC.Types.IO>_N)))
+                                                                                                                                (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                                                                                                                               <*>_N
+                                                                                                                                               <"extend">_N
+                                                                                                                                               <Servant.API.ReqBody.ReqBody
+                                                                                                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                  AuthServer.User
+                                                                                                                                                Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                                                     '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                                     AuthServer.Response>_N
+                                                                                                                                               <Control.Monad.Trans.Except.ExceptT
+                                                                                                                                                  Servant.Server.Internal.ServantErr.ServantErr
+                                                                                                                                                  GHC.Types.IO>_N)))))_R
+                                                                                         (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:<|>m[0]
+                                                                                                        <"isvalid"
+                                                                                                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                               '[Servant.API.ContentTypes.JSON]
+                                                                                                                               AuthServer.User
+                                                                                                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                  AuthServer.Response)>_N
+                                                                                                        <"extend"
+                                                                                                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                               '[Servant.API.ContentTypes.JSON]
+                                                                                                                               AuthServer.User
+                                                                                                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                  AuthServer.Response)>_N
+                                                                                                        <Control.Monad.Trans.Except.ExceptT
+                                                                                                           Servant.Server.Internal.ServantErr.ServantErr
+                                                                                                           GHC.Types.IO>_N))))_R
                                                        (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:<|>m[0]
                                                                       <"register"
                                                                        Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
@@ -9084,13 +9460,20 @@ f5b6f29e66f3eef598b65723b38cf521
                                                                                            Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                                 '[Servant.API.ContentTypes.JSON]
                                                                                                                 AuthServer.Response)>_N
-                                                                      <"isvalid"
-                                                                       Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
-                                                                                             '[Servant.API.ContentTypes.JSON]
-                                                                                             AuthServer.User
-                                                                                           Servant.API.Sub.:> Servant.API.Verbs.Post
-                                                                                                                '[Servant.API.ContentTypes.JSON]
-                                                                                                                AuthServer.Response)>_N
+                                                                      <("isvalid"
+                                                                        Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                              '[Servant.API.ContentTypes.JSON]
+                                                                                              AuthServer.User
+                                                                                            Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                 '[Servant.API.ContentTypes.JSON]
+                                                                                                                 AuthServer.Response))
+                                                                       Servant.API.Alternative.:<|> ("extend"
+                                                                                                     Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                           '[Servant.API.ContentTypes.JSON]
+                                                                                                                           AuthServer.User
+                                                                                                                         Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                              '[Servant.API.ContentTypes.JSON]
+                                                                                                                                              AuthServer.Response))>_N
                                                                       <Control.Monad.Trans.Except.ExceptT
                                                                          Servant.Server.Internal.ServantErr.ServantErr
                                                                          GHC.Types.IO>_N))))_R
@@ -9109,31 +9492,44 @@ f5b6f29e66f3eef598b65723b38cf521
                                                           Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                '[Servant.API.ContentTypes.JSON]
                                                                                AuthServer.Response))
-                                     Servant.API.Alternative.:<|> ("isvalid"
-                                                                   Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
-                                                                                         '[Servant.API.ContentTypes.JSON]
-                                                                                         AuthServer.User
-                                                                                       Servant.API.Sub.:> Servant.API.Verbs.Post
-                                                                                                            '[Servant.API.ContentTypes.JSON]
-                                                                                                            AuthServer.Response))>_N
+                                     Servant.API.Alternative.:<|> (("isvalid"
+                                                                    Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                          '[Servant.API.ContentTypes.JSON]
+                                                                                          AuthServer.User
+                                                                                        Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                             '[Servant.API.ContentTypes.JSON]
+                                                                                                             AuthServer.Response))
+                                                                   Servant.API.Alternative.:<|> ("extend"
+                                                                                                 Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                       '[Servant.API.ContentTypes.JSON]
+                                                                                                                       AuthServer.User
+                                                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                          '[Servant.API.ContentTypes.JSON]
+                                                                                                                                          AuthServer.Response)))>_N
                                     <Control.Monad.Trans.Except.ExceptT
                                        Servant.Server.Internal.ServantErr.ServantErr
                                        GHC.Types.IO>_N)))) -}
-de8ce9d663abfe161c956b821a8198dc
+7978e39928922c749faee4fe3cf65dbb
   server1 ::
     (AuthServer.Signin -> AuthServer.ApiHandler AuthServer.User)
     Servant.API.Alternative.:<|> ((AuthServer.Signin
                                    -> AuthServer.ApiHandler AuthServer.Response)
-                                  Servant.API.Alternative.:<|> (AuthServer.User
-                                                                -> AuthServer.ApiHandler
-                                                                     AuthServer.Response))
+                                  Servant.API.Alternative.:<|> ((AuthServer.User
+                                                                 -> AuthServer.ApiHandler
+                                                                      AuthServer.Response)
+                                                                Servant.API.Alternative.:<|> (AuthServer.User
+                                                                                              -> AuthServer.ApiHandler
+                                                                                                   AuthServer.Response)))
   {- Strictness: m,
      Unfolding: (Servant.API.Alternative.:<|>
                    @ (AuthServer.Signin -> AuthServer.ApiHandler AuthServer.User)
                    @ ((AuthServer.Signin -> AuthServer.ApiHandler AuthServer.Response)
-                      Servant.API.Alternative.:<|> (AuthServer.User
-                                                    -> AuthServer.ApiHandler AuthServer.Response))
-                   AuthServer.authApp31
+                      Servant.API.Alternative.:<|> ((AuthServer.User
+                                                     -> AuthServer.ApiHandler AuthServer.Response)
+                                                    Servant.API.Alternative.:<|> (AuthServer.User
+                                                                                  -> AuthServer.ApiHandler
+                                                                                       AuthServer.Response)))
+                   AuthServer.authApp49
                      `cast`
                    (<AuthServer.Signin>_R
                     ->_R Trans
@@ -9146,16 +9542,21 @@ de8ce9d663abfe161c956b821a8198dc
                                        <GHC.Types.IO>_R
                                        <AuthServer.User>_N)))
                    AuthServer.server2) -}
-ce87ea12e4d384ee8aa230bb39a49315
+77d78a00a480b1cfee63202253a3cdb8
   server2 ::
     (AuthServer.Signin -> AuthServer.ApiHandler AuthServer.Response)
-    Servant.API.Alternative.:<|> (AuthServer.User
-                                  -> AuthServer.ApiHandler AuthServer.Response)
+    Servant.API.Alternative.:<|> ((AuthServer.User
+                                   -> AuthServer.ApiHandler AuthServer.Response)
+                                  Servant.API.Alternative.:<|> (AuthServer.User
+                                                                -> AuthServer.ApiHandler
+                                                                     AuthServer.Response))
   {- Strictness: m,
      Unfolding: (Servant.API.Alternative.:<|>
                    @ (AuthServer.Signin -> AuthServer.ApiHandler AuthServer.Response)
-                   @ (AuthServer.User -> AuthServer.ApiHandler AuthServer.Response)
-                   AuthServer.authApp16
+                   @ ((AuthServer.User -> AuthServer.ApiHandler AuthServer.Response)
+                      Servant.API.Alternative.:<|> (AuthServer.User
+                                                    -> AuthServer.ApiHandler AuthServer.Response))
+                   AuthServer.authApp31
                      `cast`
                    (<AuthServer.Signin>_R
                     ->_R Trans
@@ -9167,7 +9568,29 @@ ce87ea12e4d384ee8aa230bb39a49315
                                        <Servant.Server.Internal.ServantErr.ServantErr>_N
                                        <GHC.Types.IO>_R
                                        <AuthServer.Response>_N)))
-                   AuthServer.authApp9
+                   AuthServer.server3) -}
+714b7e7b0ead5b0ede44d3638969d8f5
+  server3 ::
+    (AuthServer.User -> AuthServer.ApiHandler AuthServer.Response)
+    Servant.API.Alternative.:<|> (AuthServer.User
+                                  -> AuthServer.ApiHandler AuthServer.Response)
+  {- Strictness: m,
+     Unfolding: (Servant.API.Alternative.:<|>
+                   @ (AuthServer.User -> AuthServer.ApiHandler AuthServer.Response)
+                   @ (AuthServer.User -> AuthServer.ApiHandler AuthServer.Response)
+                   AuthServer.authApp22
+                     `cast`
+                   (<AuthServer.User>_R
+                    ->_R Trans
+                             (Sym (GHC.Types.N:IO[0]
+                                       <Data.Either.Either
+                                          Servant.Server.Internal.ServantErr.ServantErr
+                                          AuthServer.Response>_R))
+                             (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                       <Servant.Server.Internal.ServantErr.ServantErr>_N
+                                       <GHC.Types.IO>_R
+                                       <AuthServer.Response>_N)))
+                   AuthServer.authApp10
                      `cast`
                    (<AuthServer.User>_R
                     ->_R Trans
@@ -9227,27 +9650,27 @@ efc0028ec4983c099dbe9ae885af8137
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: AuthServer.User) ->
                  case ds of wild { AuthServer.User ds1 ds2 ds3 ds4 -> ds1 }) -}
-9fd8dd0814f869fcbb91a0e21750f929
+7e126ac8ae6abae5870453f998f230a1
   warnLog :: GHC.Base.String -> GHC.Types.IO ()
   {- Arity: 2,
      Unfolding: InlineRule (0, True, True)
                 AuthServer.warnLog1
                   `cast`
                 (<[GHC.Types.Char]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-367709c7626ef9a9e8673e8be589fc49
+754c2bced94c31454c685d5a9e5f0847
   warnLog1 ::
     [GHC.Types.Char]
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 2,
-     Unfolding: (AuthServer.authApp23
+     Unfolding: (AuthServer.authApp38
                    @ ()
                    System.Log.Logger.warningM1
                      `cast`
                    (<GHC.Base.String>_R
                     ->_R <GHC.Base.String>_R
                     ->_R Sym (GHC.Types.N:IO[0] <()>_R))) -}
-875d910b555065bf334fe88a54d6e96b
+1aac1763f22c38043dfbffe330fc317b
   withLogging ::
     (Network.Wai.Logger.ApacheLogger -> GHC.Types.IO a)
     -> GHC.Types.IO a
@@ -9258,7 +9681,7 @@ efc0028ec4983c099dbe9ae885af8137
                 (forall (a :: <*>_N).
                  <Network.Wai.Logger.ApacheLogger -> GHC.Types.IO a>_R
                  ->_R Sym (GHC.Types.N:IO[0] <a>_R)) -}
-133332d3cb6251c49e996e578976ad7e
+f92b08a7048c1592b0ed944cc9612ce3
   withLogging1 ::
     (Network.Wai.Logger.ApacheLogger -> GHC.Types.IO a)
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -9328,7 +9751,7 @@ efc0028ec4983c099dbe9ae885af8137
                     } in
                     case ipv5 of wild2 {
                       GHC.Base.Nothing
-                      -> case AuthServer.authApp23
+                      -> case AuthServer.authApp38
                                 @ ()
                                 System.Log.Logger.warningM1
                                   `cast`
@@ -9349,12 +9772,12 @@ efc0028ec4983c099dbe9ae885af8137
 24d9e12f290eac1ac566b7a3f9e0c324
   withLogging3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "ERROR"#) -}
-dc8874ea559994f8ab5acb693ae2e3de
+8bf92b307a9b4aba0bdad8e1687dfc6c
   withMongoDbConnection ::
     Database.MongoDB.Query.Action GHC.Types.IO a -> GHC.Types.IO a
   {- Arity: 2, Strictness: <L,1*C1(U)><S,U>,
      Unfolding: InlineRule (0, True, True)
-                AuthServer.authApp22
+                AuthServer.authApp37
                   `cast`
                 (forall (a :: <*>_N).
                  <Database.MongoDB.Query.Action GHC.Types.IO a>_R

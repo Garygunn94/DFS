@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-29 16:57:10.695294 UTC
+2016-12-30 20:03:30.750624 UTC
 
 interface main@main:Main 8001
-  interface hash: c6b26c0f3b648bd261dab7bbded5b1e6
-  ABI hash: 3cfe48825051a0e70ae5ad7e88c70b6c
+  interface hash: 6fc72d3c9cad71d560a17f6912fb4cad
+  ABI hash: 34fc6a66273e95abe272151e1661d9e6
   export-list hash: e8565c5a40c0f32e8a6c2d379568862d
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: f64db973905fcdfcd6b56dd70b2818ea
@@ -196,7 +196,7 @@ family instance modules: AuthServer-0.1.0.0@AuthServer-0.1.0.0-4BtoUs0xefd93VEME
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl:AuthServer e09a780447a12af908f5470efcef38bc
+import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl:AuthServer a0cdee033aae348cfe270e7a5c90e0f1
 import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl:Lib fc6545111778842b40150f0da01b8f2e
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
@@ -212,12 +212,12 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-071260f79607bbf02610ef2de4f2cd70
+d3941cff538646eb51fb0f946387f244
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 AuthServer.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-cc49d3948d1e7e7636d6950a8c432b3b
+d3d5ec767f2510dadb43e3d4009ec9d5
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

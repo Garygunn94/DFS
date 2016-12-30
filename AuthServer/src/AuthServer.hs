@@ -84,7 +84,8 @@ serverhost = "localhost"
 type AuthApi = 
     "signin" :> ReqBody '[JSON] Signin :> Post '[JSON] User :<|>
     "register" :> ReqBody '[JSON] Signin :> Post '[JSON] Response  :<|>
-    "isvalid" :> ReqBody '[JSON] User :> Post '[JSON] Response
+    "isvalid" :> ReqBody '[JSON] User :> Post '[JSON] Response :<|>
+    "extend" :> ReqBody '[JSON] User :> Post '[JSON] Response
 
 authApi :: Proxy AuthApi
 authApi = Proxy
@@ -93,7 +94,8 @@ server :: Server AuthApi
 server = 
     login :<|>
     newuser :<|>
-    checkToken
+    checkToken :<|>
+    extendToken
 
 authApp :: Application
 authApp = serve authApi server
@@ -108,7 +110,7 @@ login signin = liftIO $ do
 	let psswrd = spassword signin
 	warnLog $ "Searching for value for key: " ++ uname ++ ", " ++ psswrd
 	user <- withMongoDbConnection $ do 
-	    docs <- find (select ["susername" =: uname] "USER_RECORD") >>= drainCursor
+	    docs <- find (select ["_id" =: (uname++psswrd)] "USER_RECORD") >>= drainCursor
             return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe Signin) docs
         let thisuser = head $ user
         putStrLn (show thisuser)
@@ -122,7 +124,7 @@ login signin = liftIO $ do
         let finaltimeout = show timeouter
         warnLog $ "Storing Session key under key " ++ uname ++ "."
         let session = (User (susername thisuser) (spassword thisuser) finaltimeout tokener)
-	withMongoDbConnection $ upsert (select ["uusername" =: uname] "SESSION_RECORD") $ toBSON session
+	withMongoDbConnection $ upsert (select ["_id" =: uname] "SESSION_RECORD") $ toBSON session
         warnLog $ "Session Successfully Stored."
 	return (session)
 
@@ -133,7 +135,7 @@ newuser signin = liftIO $ do
   let psswrd = spassword signin
   warnLog $ "Storing value under key: " ++ uname
   let user = (Signin uname psswrd)
-  withMongoDbConnection $ upsert (select ["susername" =: uname] "USER_RECORD") $ toBSON user
+  withMongoDbConnection $ upsert (select ["_id" =: (uname++psswrd)] "USER_RECORD") $ toBSON user
   return (Response "Success")
 
 checkToken :: User -> ApiHandler Response
@@ -142,7 +144,7 @@ checkToken user = liftIO $ do
   let tokener = token user
   warnLog $ "Searching for user: " ++ uname
   session <- withMongoDbConnection $ do 
-      docs <- find (select ["uusername" =: uname] "SESSION_RECORD") >>= drainCursor
+      docs <- find (select ["_id" =: uname] "SESSION_RECORD") >>= drainCursor
       return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe User) docs
   warnLog $ "User found" ++ (show session)
   let thissession = head $ session
@@ -171,6 +173,19 @@ checkToken user = liftIO $ do
                                       True -> return (Response "Token is Valid")
 
 
+extendToken :: User -> ApiHandler Response
+extendToken user = liftIO $ do
+  currentTime <- getCurrentTime
+  currentZone <- getCurrentTimeZone
+  let fiveMinutes = 5 * 60
+  let newTime = addUTCTime fiveMinutes currentTime
+  let timeouter = utcToLocalTime currentZone newTime
+  let finaltimeout = show timeouter
+  warnLog $ "Storing Session key under key " ++ (uusername user) ++ "."
+  let session = (User (uusername user) (upassword user) finaltimeout (token user))
+  withMongoDbConnection $ upsert (select ["_id" =: (uusername user)] "SESSION_RECORD") $ toBSON session
+  warnLog $ "Session Successfully Stored."
+  return (Response "Success")
 
 
 

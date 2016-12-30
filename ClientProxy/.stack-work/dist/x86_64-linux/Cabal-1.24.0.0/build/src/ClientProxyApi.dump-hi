@@ -1,17 +1,18 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-29 18:00:52.042355 UTC
+2016-12-30 20:05:52.732214 UTC
 
 interface ClientProxy-0.1.0.0-CaSNj6e4lFq9iCoIyuRtaa:ClientProxyApi [family instance module] 8001
-  interface hash: d1f04114e95da5b2e49cbc0544a20655
-  ABI hash: dfb60dd49009d39771e27b5e83a6ba53
-  export-list hash: 6d3c1f28e54963957497d14c1b76aa3b
-  orphan hash: 592b375a8609e492309fefb552f723be
+  interface hash: d579f4967ee98cd517689488bdf8fcef
+  ABI hash: f4543215b81529f4f51a35d1f6800388
+  export-list hash: 15d8b8931dab223752ac613947d13806
+  orphan hash: 16fd5e7e73eceba39639c21726d89687
   flag hash: 232b91cb96073461cf6c3dcd6a42e778
   sig of: Nothing
   used TH splices: False
   where
 exports:
+  ClientProxyApi.allfiles
   ClientProxyApi.authApi
   ClientProxyApi.authlogin
   ClientProxyApi.authpart
@@ -19,7 +20,11 @@ exports:
   ClientProxyApi.close
   ClientProxyApi.closeQuery
   ClientProxyApi.directoryApi
+  ClientProxyApi.displayFiles
   ClientProxyApi.downloadFile
+  ClientProxyApi.extend
+  ClientProxyApi.extendQuery
+  ClientProxyApi.extendToken
   ClientProxyApi.getFile
   ClientProxyApi.isTokenValid
   ClientProxyApi.isvalid
@@ -217,6 +222,7 @@ import  -/  base-4.9.0.0:Data.Either bd9f099b82d4ed2d98c56d7144ac6957
 import  -/  base-4.9.0.0:Data.List 49b86831b79b49ce5d4d9416ecba61df
 import  -/  base-4.9.0.0:Data.Maybe 5f2ba364cbe65c060bc5436bc0b9d049
 import  -/  base-4.9.0.0:Data.Proxy aa86c72628cf3b1ceb0816ca84687d80
+import  -/  base-4.9.0.0:Data.Traversable 7ce5b7ee67475ac3d03ae825b86efd9f
 import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
 import  -/  base-4.9.0.0:GHC.Generics 8e2a7658e8b966c1d29d0d5fd4129f38
 import  -/  base-4.9.0.0:GHC.IO 7ddc7086a7fc3b7d7043cc7bc59a04ba
@@ -5217,6 +5223,36 @@ def4ba8625b7cacfaafe9f74bddc93fd
                                     n
                                     eta)))) of dt1 { Data.Vector.Vector ipv ipv1 ipv2 ->
                  Data.Aeson.Types.Internal.Array dt1 }) -}
+53276eae81ec5510ffee61435f28ff0d
+  $s$fFromJSON[] ::
+    Data.Aeson.Types.FromJSON.FromJSON [GHC.Types.Char]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ [GHC.Types.Char]
+                  (Data.Aeson.Types.FromJSON.$dmfromJSONKeyList_$cparseJSON
+                     @ GHC.Types.Char
+                     Data.Aeson.Types.FromJSON.$fFromJSONChar)
+                  (Data.Aeson.Types.FromJSON.$fFromJSONKey[]_$cparseJSONList
+                     @ GHC.Types.Char
+                     Data.Aeson.Types.FromJSON.$fFromJSONChar) -}
+55fe3fcb7d61ae768af068dce798cc4a
+  $s$fFromJSON[]1 ::
+    Data.Aeson.Types.FromJSON.FromJSON [[GHC.Types.Char]]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ [[GHC.Types.Char]]
+                  (Data.Aeson.Types.FromJSON.$dmfromJSONKeyList_$cparseJSON
+                     @ [GHC.Types.Char]
+                     ClientProxyApi.$s$fFromJSON[]_$dFromJSON)
+                  (Data.Aeson.Types.FromJSON.$fFromJSONKey[]_$cparseJSONList
+                     @ [GHC.Types.Char]
+                     ClientProxyApi.$s$fFromJSON[]_$dFromJSON) -}
+fc16f01f6256a350d86e8d857199f631
+  $s$fFromJSON[]_$dFromJSON ::
+    Data.Aeson.Types.FromJSON.FromJSON [GHC.Types.Char]
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                ClientProxyApi.$s$fFromJSON[] -}
 829893549e586e95ed3b0eb1ca485e94
   $s$fMimeRenderTYPEJSONa_$sencode ::
     ClientProxyApi.File -> Data.ByteString.Lazy.Internal.ByteString
@@ -5292,6 +5328,25 @@ e4220a4e943aa5dc6e666a9b5a277c0b
                      @ ClientProxyApi.User
                      ClientProxyApi.$fFromJSONUser)
                   ClientProxyApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender2 -}
+bc6e0f2d0a4d27fc0f8405992d44e8f5
+  $s$fMimeUnrenderTYPEJSONa3 ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON [GHC.Base.String]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ [GHC.Base.String]
+                  (Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cp1MimeUnrender
+                     @ [GHC.Base.String]
+                     ClientProxyApi.$s$fMimeUnrenderTYPEJSONa_$dFromJSON)
+                  ClientProxyApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender3 -}
+f26517ca26ad0ce8f70ee5a29fafc2bc
+  $s$fMimeUnrenderTYPEJSONa_$dFromJSON ::
+    Data.Aeson.Types.FromJSON.FromJSON [GHC.Base.String]
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                ClientProxyApi.$s$fFromJSON[]1 -}
 a2a78a3aaa157b09baba221ea1211c34
   $s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender ::
     Data.Proxy.Proxy Servant.API.ContentTypes.JSON
@@ -5331,35 +5386,75 @@ fb93a5870abb088f3ed4e2812a08be7f
                    @ ClientProxyApi.User
                    ClientProxyApi.$fFromJSONUser
                    eta) -}
-7aad92797e1718432d1b1f01ef6dd830
-  $sclient10 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "isvalid"#) -}
-892505a5a8f3f6510ffd000a65257e41
+0845d66488a6808246c436955ce27cb6
+  $s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender3 ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.Either.Either GHC.Base.String [GHC.Base.String]
+  {- Arity: 2, Strictness: <L,A><S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
+                   (eta :: Data.ByteString.Lazy.Internal.ByteString) ->
+                 Servant.API.ContentTypes.eitherDecodeLenient
+                   @ [GHC.Base.String]
+                   ClientProxyApi.$s$fMimeUnrenderTYPEJSONa_$dFromJSON
+                   eta) -}
+cf0482a6feae1a2e0bcd783bb1cb7877
   $sclient11 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackAppendCString#
                    "/"#
                    ClientProxyApi.$sclient12) -}
-3e415f85d838ebd26e6fbe672ba6dbbb
+e9940bae8de98d48f24ca6d61aa437d6
   $sclient12 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "register"#) -}
-07f6be569af6fef7d2463a7537d2ee82
+  {- Unfolding: (GHC.CString.unpackCString# "extend"#) -}
+3a0d70434c42f439dd0cfe0a0a6cecee
   $sclient13 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackAppendCString#
                    "/"#
                    ClientProxyApi.$sclient14) -}
-a5360a2679edc31c195c673e05fb7c40
+1c36b32a626c02ec76fc6744b76585df
   $sclient14 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "signin"#) -}
-fe53bada46f38750a973bfe99938eaa0
-  $sclient2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "isvalid"#) -}
+24afb94f0ad42a406e548ddf1360bd00
+  $sclient15 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackAppendCString#
                    "/"#
-                   ClientProxyApi.$sclient3) -}
-bd3c9623e8c6f43d63b05021e5f8da0e
-  $sclient3 :: [GHC.Types.Char]
+                   ClientProxyApi.$sclient16) -}
+dd91c143101b58476e3ac998536277f7
+  $sclient16 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "register"#) -}
+0b3b756823ea890765d22bfed392703a
+  $sclient17 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "/"#
+                   ClientProxyApi.$sclient18) -}
+286bba0b492709b1515867c41bfb689f
+  $sclient18 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "signin"#) -}
+5a3e888e168ecbd028e5b0d8bc911b63
+  $sclient2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "allfiles"#) -}
+cd9216435353aba8b08356da9e06f722
+  $sclient3 ::
+    '[Servant.API.ContentTypes.JSON]
+    GHC.Types.~~ '[Servant.API.ContentTypes.JSON]
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Eq#
+                   @ [*]
+                   @ [*]
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @~ <'[Servant.API.ContentTypes.JSON]>_N) -}
+7bb76934ea89cb337ecea2efcd5ed4ae
+  $sclient4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "/"#
+                   ClientProxyApi.$sclient5) -}
+0fa1f5d8de0fcd9dd7fa99f19e730cbf
+  $sclient5 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "close"#) -}
-0d2d98b1cbfe8bb10acf48ad7a8cecab
-  $sclient4 ::
+daff3148967df2836394284fb75896d3
+  $sclient6 ::
     Data.Proxy.Proxy
       (Servant.API.Verbs.Verb
          'Network.HTTP.Types.Method.GET
@@ -5397,7 +5492,7 @@ bd3c9623e8c6f43d63b05021e5f8da0e
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
                              <Network.HTTP.Types.Method.StdMethod>_N
                              <'Network.HTTP.Types.Method.GET>_N))
-                   ClientProxyApi.$sclient_$d~~
+                   ClientProxyApi.$sclient3
                      `cast`
                    (Sym (Data.Type.Equality.N:~[0]
                              <[*]>_N) <'[Servant.API.ContentTypes.JSON]>_N <'[Servant.API.ContentTypes.JSON]>_N)
@@ -5409,30 +5504,14 @@ bd3c9623e8c6f43d63b05021e5f8da0e
                            '[Servant.API.ContentTypes.JSON]
                            ClientProxyApi.File))
                    w4 }) -}
-de0bbda3623ac63988d3bef047a4eda8
-  $sclient5 :: [GHC.Types.Char]
+b3cdf90ef1c78968fa28c57dd529f0a7
+  $sclient7 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackAppendCString#
                    "/"#
-                   ClientProxyApi.$sclient6) -}
-82b53365086bec4391d0bddeeabc3131
-  $sclient6 :: [GHC.Types.Char]
+                   ClientProxyApi.$sclient8) -}
+cca15b02d1f4b6baee0f8b4ddbc89d31
+  $sclient8 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "open"#) -}
-5ecbb000948443c6167f23b96df6e5fd
-  $sclient9 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackAppendCString#
-                   "/"#
-                   ClientProxyApi.$sclient10) -}
-337142c53c172393fa5f0acd67fe4e76
-  $sclient_$d~~ ::
-    '[Servant.API.ContentTypes.JSON]
-    GHC.Types.~~ '[Servant.API.ContentTypes.JSON]
-  {- HasNoCafRefs, Strictness: m,
-     Unfolding: (GHC.Types.Eq#
-                   @ [*]
-                   @ [*]
-                   @ '[Servant.API.ContentTypes.JSON]
-                   @ '[Servant.API.ContentTypes.JSON]
-                   @~ <'[Servant.API.ContentTypes.JSON]>_N) -}
 992d0106be6c455e01750559718b720c
   $tc'File :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -8498,7 +8577,7 @@ f2d1d7b9fc1fae8e73792b2e34aab8f2
     Control.Monad.Trans.Except.ExceptT
       Servant.Server.Internal.ServantErr.ServantErr GHC.Types.IO
     :: * -> *
-690958d1aa3388077ca66212ca519169
+9a78b3a1b72b7a1747dacb00523c79a6
   type AuthApi =
     ("signin"
      Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
@@ -8512,27 +8591,38 @@ f2d1d7b9fc1fae8e73792b2e34aab8f2
                                                        Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                             '[Servant.API.ContentTypes.JSON]
                                                                             ClientProxyApi.Response))
-                                  Servant.API.Alternative.:<|> ("isvalid"
-                                                                Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
-                                                                                      '[Servant.API.ContentTypes.JSON]
-                                                                                      ClientProxyApi.User
-                                                                                    Servant.API.Sub.:> Servant.API.Verbs.Post
-                                                                                                         '[Servant.API.ContentTypes.JSON]
-                                                                                                         ClientProxyApi.Response)))
-c95a9b872be9c2778852cc009e060620
+                                  Servant.API.Alternative.:<|> (("isvalid"
+                                                                 Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                       '[Servant.API.ContentTypes.JSON]
+                                                                                       ClientProxyApi.User
+                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                          '[Servant.API.ContentTypes.JSON]
+                                                                                                          ClientProxyApi.Response))
+                                                                Servant.API.Alternative.:<|> ("extend"
+                                                                                              Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                    '[Servant.API.ContentTypes.JSON]
+                                                                                                                    ClientProxyApi.User
+                                                                                                                  Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                       '[Servant.API.ContentTypes.JSON]
+                                                                                                                                       ClientProxyApi.Response))))
+27e20e6055855a81c928c1ef48ab704f
   type DirectoryApi =
     ("open"
      Servant.API.Sub.:> (Servant.API.Capture.Capture
                            "fileName" GHC.Base.String
                          Servant.API.Sub.:> Servant.API.Verbs.Get
                                               '[Servant.API.ContentTypes.JSON] ClientProxyApi.File))
-    Servant.API.Alternative.:<|> ("close"
-                                  Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
-                                                        '[Servant.API.ContentTypes.JSON]
-                                                        ClientProxyApi.File
-                                                      Servant.API.Sub.:> Servant.API.Verbs.Post
-                                                                           '[Servant.API.ContentTypes.JSON]
-                                                                           ClientProxyApi.Response))
+    Servant.API.Alternative.:<|> (("close"
+                                   Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                         '[Servant.API.ContentTypes.JSON]
+                                                         ClientProxyApi.File
+                                                       Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                            '[Servant.API.ContentTypes.JSON]
+                                                                            ClientProxyApi.Response))
+                                  Servant.API.Alternative.:<|> ("allfiles"
+                                                                Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                                                     '[Servant.API.ContentTypes.JSON]
+                                                                                     [GHC.Base.String]))
 9efb3cbb713cd07b13493bdd55c6e332
   data File
     = File {fileName :: GHC.IO.FilePath,
@@ -8660,7 +8750,114 @@ ba10be3caf14a1c432ee414ef592bc77
             upassword :: GHC.Base.String,
             timeout :: GHC.Base.String,
             token :: GHC.Base.String}
-f538f8bfbc15fad8ae2b9a5fbd021768
+2b3e071c4bedcfd8f2c0ba40dad43e8c
+  allfiles :: Servant.Common.Req.ClientM [GHC.Base.String]
+  {- Arity: 2, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                ClientProxyApi.allfiles1
+                  `cast`
+                (Trans
+                     (<Servant.Common.Req.ClientEnv>_R
+                      ->_R Trans
+                               (Sym (GHC.Types.N:IO[0]
+                                         <Data.Either.Either
+                                            Servant.Common.Req.ServantError [GHC.Base.String]>_R))
+                               (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                         <Servant.Common.Req.ServantError>_N
+                                         <GHC.Types.IO>_R
+                                         <[GHC.Base.String]>_N)))
+                     (Trans
+                          (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                    <*>_N
+                                    <Servant.Common.Req.ClientEnv>_R
+                                    <Control.Monad.Trans.Except.ExceptT
+                                       Servant.Common.Req.ServantError GHC.Types.IO>_R
+                                    <[GHC.Base.String]>_N))
+                          (Sym (Servant.Common.Req.N:ClientM[0]) <[GHC.Base.String]>_N))) -}
+0d6f9ea338a270b54b53fbc85d327d7d
+  allfiles1 ::
+    Servant.Common.Req.ClientEnv
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either
+            Servant.Common.Req.ServantError [GHC.Base.String] #)
+  {- Arity: 2, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (eta1 :: Servant.Common.Req.ClientEnv)
+                   (eta2 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case (ClientProxyApi.allfiles_eta
+                         `cast`
+                       (Trans
+                            (Servant.Common.Req.N:ClientM[0] <([Network.HTTP.Types.Header.Header],
+                                                               [GHC.Base.String])>_N)
+                            (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                 <*>_N
+                                 <Servant.Common.Req.ClientEnv>_R
+                                 <Control.Monad.Trans.Except.ExceptT
+                                    Servant.Common.Req.ServantError GHC.Types.IO>_R
+                                 <([Network.HTTP.Types.Header.Header], [GHC.Base.String])>_N))
+                         eta1)
+                        `cast`
+                      (Trans
+                           (Control.Monad.Trans.Except.N:ExceptT[0]
+                                <Servant.Common.Req.ServantError>_N
+                                <GHC.Types.IO>_R
+                                <([Network.HTTP.Types.Header.Header], [GHC.Base.String])>_N)
+                           (GHC.Types.N:IO[0]
+                                <Data.Either.Either
+                                   Servant.Common.Req.ServantError
+                                   ([Network.HTTP.Types.Header.Header], [GHC.Base.String])>_R))
+                        eta2 of ds { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    case ipv1 of wild {
+                      Data.Either.Left x
+                      -> Data.Either.Left
+                           @ Servant.Common.Req.ServantError
+                           @ [GHC.Base.String]
+                           x
+                      Data.Either.Right y
+                      -> Data.Either.Right
+                           @ Servant.Common.Req.ServantError
+                           @ [GHC.Base.String]
+                           (Data.Tuple.snd
+                              @ [Network.HTTP.Types.Header.Header]
+                              @ [GHC.Base.String]
+                              y) } #) }) -}
+69a8f386c0c8af3151e25d57265fa1f8
+  allfiles2 :: Servant.Common.Req.Req
+  {- Unfolding: (Servant.Common.Req.Req
+                   ClientProxyApi.allfiles3
+                   (GHC.Types.[]
+                      @ (Data.Text.Internal.Text,
+                         GHC.Base.Maybe Data.Text.Internal.Text))
+                   (GHC.Base.Nothing
+                      @ (Data.ByteString.Lazy.Internal.ByteString,
+                         Network.HTTP.Media.MediaType.Internal.MediaType))
+                   (GHC.Types.[] @ Network.HTTP.Media.MediaType.Internal.MediaType)
+                   (GHC.Types.[] @ (GHC.Base.String, Data.Text.Internal.Text))) -}
+34e411ff24e5e20d163b58c625deb12c
+  allfiles3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Base.++
+                   @ GHC.Types.Char
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   ClientProxyApi.allfiles4) -}
+3a50788cfaff45f1474adc14c9e3c22a
+  allfiles4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "/"#
+                   ClientProxyApi.$sclient2) -}
+8a5810c84693e86ff64481834451bdd7
+  allfiles_eta ::
+    Servant.Common.Req.ClientM
+      ([Network.HTTP.Types.Header.Header], [GHC.Base.String])
+  {- Unfolding: (Servant.Common.Req.performRequestCT
+                   @ Servant.API.ContentTypes.JSON
+                   @ [GHC.Base.String]
+                   ClientProxyApi.$s$fMimeUnrenderTYPEJSONa3
+                   (Data.Proxy.Proxy @ GHC.Types.* @ Servant.API.ContentTypes.JSON)
+                   Network.HTTP.Types.Method.methodGet
+                   ClientProxyApi.allfiles2) -}
+ce125c45c1a8543e68e81fdc8e874999
   authApi :: Data.Proxy.Proxy ClientProxyApi.AuthApi
   {- HasNoCafRefs,
      Unfolding: InlineRule (0, True, True)
@@ -8724,7 +8921,7 @@ d30a168710865445827954727b5c50ba
   authregister4 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
                    "Enter your details to make a new account"#) -}
-8544c7b1afd90815966d1edf73bc116e
+4d6fece800405b9e068aa08bc50aa78f
   close ::
     ClientProxyApi.File
     -> Servant.Common.Req.ClientM ClientProxyApi.Response
@@ -8739,7 +8936,7 @@ d30a168710865445827954727b5c50ba
                                <'Network.HTTP.Types.Method.POST>_N
                                <'[Servant.API.ContentTypes.JSON]>_N
                                <200>_N)) -}
-692b3b0dab80a40ef8e2e596fde28638
+b215f5ec3dba8ca9e1d5a883d7ddf7f5
   close1 ::
     ClientProxyApi.File
     -> Servant.Client.Client
@@ -8764,7 +8961,7 @@ d30a168710865445827954727b5c50ba
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
                              <Network.HTTP.Types.Method.StdMethod>_N
                              <'Network.HTTP.Types.Method.POST>_N))
-                   ClientProxyApi.$sclient_$d~~
+                   ClientProxyApi.$sclient3
                      `cast`
                    (Sym (Data.Type.Equality.N:~[0]
                              <[*]>_N) <'[Servant.API.ContentTypes.JSON]>_N <'[Servant.API.ContentTypes.JSON]>_N)
@@ -8787,13 +8984,13 @@ d30a168710865445827954727b5c50ba
                           Servant.API.ContentTypes.$fAcceptTYPEJSON1))
                       (GHC.Types.[] @ Network.HTTP.Media.MediaType.Internal.MediaType)
                       (GHC.Types.[] @ (GHC.Base.String, Data.Text.Internal.Text)))) -}
-a5350b67ba5cf35fd97eeac118618306
+7bbeebf6dcb859b18d49a0423ed981dc
   close2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.Base.++
                    @ GHC.Types.Char
                    (GHC.Types.[] @ GHC.Types.Char)
-                   ClientProxyApi.$sclient2) -}
-956e64996dc05623bbc21ab1ce51851b
+                   ClientProxyApi.$sclient4) -}
+8ec5b8031c4e2f9852b42bb17dc0bc1d
   closeQuery ::
     ClientProxyApi.File
     -> Servant.Common.Req.ClientM ClientProxyApi.Response
@@ -8866,11 +9063,24 @@ a5350b67ba5cf35fd97eeac118618306
                                         Servant.Common.Req.ServantError GHC.Types.IO>_R
                                      <ClientProxyApi.Response>_N))
                            (Sym (Servant.Common.Req.N:ClientM[0]) <ClientProxyApi.Response>_N)))) -}
-5250f9e8254ac9e80632528dfa0f09a5
+7561e3f10db858eb7d638eb790c60c8a
   directoryApi :: Data.Proxy.Proxy ClientProxyApi.DirectoryApi
   {- HasNoCafRefs,
      Unfolding: InlineRule (0, True, True)
                 (Data.Proxy.Proxy @ * @ ClientProxyApi.DirectoryApi) -}
+0e598fd3fed19f29a44fecc913f5c795
+  displayFiles :: ClientProxyApi.User -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <L,U(U,U,U,U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                ClientProxyApi.displayFiles1
+                  `cast`
+                (<ClientProxyApi.User>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+114cf00bbece4332d0528b2b67ad1fbc
+  displayFiles1 ::
+    ClientProxyApi.User
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <L,U(U,U,U,U)><S,U> -}
 de0132f428b8e9852471099075bca013
   downloadFile :: ClientProxyApi.User -> GHC.Types.IO ()
   {- Arity: 2, Strictness: <L,U(U,U,U,U)><S,U>,
@@ -8884,46 +9094,157 @@ a7f6e7f753c7a7c4ebbf5ccb46c39740
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 2, Strictness: <L,U(U,U,U,U)><S,U> -}
-6fbbfd8a5ee807b741c529db0d38c198
-  fileContent :: ClientProxyApi.File -> GHC.Base.String
-  RecSel Left ClientProxyApi.File
-  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)>,
-     Unfolding: InlineRule (1, True, False)
-                (\ (ds :: ClientProxyApi.File) ->
-                 case ds of wild { ClientProxyApi.File ds1 ds2 -> ds2 }) -}
-3e79c2ce8b7238d1209d173ebb503708
-  fileName :: ClientProxyApi.File -> GHC.IO.FilePath
-  RecSel Left ClientProxyApi.File
-  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
-     Unfolding: InlineRule (1, True, False)
-                (\ (ds :: ClientProxyApi.File) ->
-                 case ds of wild { ClientProxyApi.File ds1 ds2 -> ds1 }) -}
-66a61c35682a25bef52965d936000782
-  getFile ::
-    GHC.Base.String -> ClientProxyApi.User -> GHC.Types.IO ()
-  {- Arity: 3, Strictness: <L,U><L,U(U,U,U,U)><S,U>,
+f4b0969f2f5acff4556a8f3be3e2072e
+  extend ::
+    ClientProxyApi.User
+    -> Servant.Common.Req.ClientM ClientProxyApi.Response
+  {- Arity: 1, Strictness: <L,1*U(U,U,U,U)>,
      Unfolding: InlineRule (0, True, True)
-                ClientProxyApi.getFile1
+                ClientProxyApi.extend1
                   `cast`
-                (<GHC.Base.String>_R
-                 ->_R <ClientProxyApi.User>_R
-                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-da9cd8678bbf1ae1ebbfb331308ccea6
-  getFile1 ::
-    GHC.Base.String
-    -> ClientProxyApi.User
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 3, Strictness: <L,U><L,U(U,U,U,U)><S,U> -}
-155817fd134b410dd9e0d3d073b9df09
-  isTokenValid :: ClientProxyApi.User -> GHC.Types.IO ()
+                (<ClientProxyApi.User>_R
+                 ->_R Sub (Servant.Client.D:R:ClientTYPEVerb2[0]
+                               <Network.HTTP.Types.Method.StdMethod>_N
+                               <ClientProxyApi.Response>_N
+                               <'Network.HTTP.Types.Method.POST>_N
+                               <'[Servant.API.ContentTypes.JSON]>_N
+                               <200>_N)) -}
+4522e5a01e4c839e7a5df4878299ddc8
+  extend1 ::
+    ClientProxyApi.User
+    -> Servant.Client.Client
+         (Servant.API.Verbs.Verb
+            'Network.HTTP.Types.Method.POST
+            200
+            '[Servant.API.ContentTypes.JSON]
+            ClientProxyApi.Response)
+  {- Arity: 1, Strictness: <L,1*U(U,U,U,U)>,
+     Unfolding: (\ (body :: ClientProxyApi.User) ->
+                 Servant.Client.$w$cclientWithRoute8
+                   @ Network.HTTP.Types.Method.StdMethod
+                   @ Servant.API.ContentTypes.JSON
+                   @ ClientProxyApi.Response
+                   @ 'Network.HTTP.Types.Method.POST
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ '[]
+                   @ 200
+                   ClientProxyApi.$s$fMimeUnrenderTYPEJSONa1
+                   Servant.API.Verbs.$fReflectMethodStdMethodPOST_$creflectMethod
+                     `cast`
+                   (Sym (Servant.API.Verbs.N:ReflectMethod[0]
+                             <Network.HTTP.Types.Method.StdMethod>_N
+                             <'Network.HTTP.Types.Method.POST>_N))
+                   ClientProxyApi.$sclient3
+                     `cast`
+                   (Sym (Data.Type.Equality.N:~[0]
+                             <[*]>_N) <'[Servant.API.ContentTypes.JSON]>_N <'[Servant.API.ContentTypes.JSON]>_N)
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.Verbs.Verb
+                           'Network.HTTP.Types.Method.POST
+                           200
+                           '[Servant.API.ContentTypes.JSON]
+                           ClientProxyApi.Response))
+                   (Servant.Common.Req.Req
+                      ClientProxyApi.extend2
+                      (GHC.Types.[]
+                         @ (Data.Text.Internal.Text,
+                            GHC.Base.Maybe Data.Text.Internal.Text))
+                      (GHC.Base.Just
+                         @ (Data.ByteString.Lazy.Internal.ByteString,
+                            Network.HTTP.Media.MediaType.Internal.MediaType)
+                         (ClientProxyApi.$s$fMimeRenderTYPEJSONa_$sencode1 body,
+                          Servant.API.ContentTypes.$fAcceptTYPEJSON1))
+                      (GHC.Types.[] @ Network.HTTP.Media.MediaType.Internal.MediaType)
+                      (GHC.Types.[] @ (GHC.Base.String, Data.Text.Internal.Text)))) -}
+7724b16e873a48599da86d91d2da54dd
+  extend2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Base.++
+                   @ GHC.Types.Char
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   ClientProxyApi.$sclient11) -}
+655a35f79b21a564ae8e7fa998e3047d
+  extendQuery ::
+    ClientProxyApi.User
+    -> Servant.Common.Req.ClientM ClientProxyApi.Response
+  {- Arity: 1, Strictness: <L,1*U(U,U,U,U)>,
+     Unfolding: (\ (extenddetails :: ClientProxyApi.User) ->
+                 let {
+                   m1 :: Servant.Client.Client
+                           (Servant.API.Verbs.Verb
+                              'Network.HTTP.Types.Method.POST
+                              200
+                              '[Servant.API.ContentTypes.JSON]
+                              ClientProxyApi.Response)
+                   = ClientProxyApi.extend1 extenddetails
+                 } in
+                 (\ (r1 :: Servant.Common.Req.ClientEnv)
+                    (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                  case (m1
+                          `cast`
+                        (Trans
+                             (Sub (Servant.Client.D:R:ClientTYPEVerb2[0]
+                                       <Network.HTTP.Types.Method.StdMethod>_N
+                                       <ClientProxyApi.Response>_N
+                                       <'Network.HTTP.Types.Method.POST>_N
+                                       <'[Servant.API.ContentTypes.JSON]>_N
+                                       <200>_N))
+                             (Trans
+                                  (Servant.Common.Req.N:ClientM[0] <ClientProxyApi.Response>_N)
+                                  (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                       <*>_N
+                                       <Servant.Common.Req.ClientEnv>_R
+                                       <Control.Monad.Trans.Except.ExceptT
+                                          Servant.Common.Req.ServantError GHC.Types.IO>_R
+                                       <ClientProxyApi.Response>_N)))
+                          r1)
+                         `cast`
+                       (Trans
+                            (Control.Monad.Trans.Except.N:ExceptT[0]
+                                 <Servant.Common.Req.ServantError>_N
+                                 <GHC.Types.IO>_R
+                                 <ClientProxyApi.Response>_N)
+                            (GHC.Types.N:IO[0]
+                                 <Data.Either.Either
+                                    Servant.Common.Req.ServantError ClientProxyApi.Response>_R))
+                         s of ds1 { (#,#) ipv ipv1 ->
+                  case ipv1 of wild {
+                    Data.Either.Left e1 -> ds1
+                    Data.Either.Right x
+                    -> Servant.Common.Req.$fApplicativeClientM5
+                         @ ClientProxyApi.Response
+                         x
+                         r1
+                         ipv } })
+                   `cast`
+                 (Trans
+                      (<Servant.Common.Req.ClientEnv>_R
+                       ->_R Trans
+                                (Sym (GHC.Types.N:IO[0]
+                                          <Data.Either.Either
+                                             Servant.Common.Req.ServantError
+                                             ClientProxyApi.Response>_R))
+                                (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                          <Servant.Common.Req.ServantError>_N
+                                          <GHC.Types.IO>_R
+                                          <ClientProxyApi.Response>_N)))
+                      (Trans
+                           (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                     <*>_N
+                                     <Servant.Common.Req.ClientEnv>_R
+                                     <Control.Monad.Trans.Except.ExceptT
+                                        Servant.Common.Req.ServantError GHC.Types.IO>_R
+                                     <ClientProxyApi.Response>_N))
+                           (Sym (Servant.Common.Req.N:ClientM[0]) <ClientProxyApi.Response>_N)))) -}
+b8f93d3766fdbc13693b2271dc26a42a
+  extendToken :: ClientProxyApi.User -> GHC.Types.IO ()
   {- Arity: 2, Strictness: <L,1*U(U,U,U,U)><S,U>,
      Unfolding: InlineRule (0, True, True)
-                ClientProxyApi.isTokenValid1
+                ClientProxyApi.extendToken1
                   `cast`
                 (<ClientProxyApi.User>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-b7f891257e7fb6fe661a4e09abce607f
-  isTokenValid1 ::
+2545807f645cae16e0be8e32411a7e5b
+  extendToken1 ::
     ClientProxyApi.User
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -8984,7 +9305,7 @@ b7f891257e7fb6fe661a4e09abce607f
                                              -> Network.HTTP.Client.Types.Request>_R))
                              (Sym (Network.HTTP.Client.Types.N:ProxyOverride[0])))
                         eta of ds1 { (#,#) ipv ipv1 ->
-                 case ((ClientProxyApi.isTokenValid5 user)
+                 case ((ClientProxyApi.extend1 user)
                          `cast`
                        (Trans
                             (Sub (Servant.Client.D:R:ClientTYPEVerb2[0]
@@ -9001,7 +9322,7 @@ b7f891257e7fb6fe661a4e09abce607f
                                       <Control.Monad.Trans.Except.ExceptT
                                          Servant.Common.Req.ServantError GHC.Types.IO>_R
                                       <ClientProxyApi.Response>_N)))
-                         (Servant.Common.Req.ClientEnv ipv1 ClientProxyApi.isTokenValid3))
+                         (Servant.Common.Req.ClientEnv ipv1 ClientProxyApi.extendToken2))
                         `cast`
                       (Trans
                            (Control.Monad.Trans.Except.N:ExceptT[0]
@@ -9024,27 +9345,79 @@ b7f891257e7fb6fe661a4e09abce607f
                               (GHC.Types.[] @ GHC.Types.Char)))
                         GHC.Types.True
                         ipv2
-                   Data.Either.Right x
-                   -> case x of wild1 { ClientProxyApi.Response ds ->
-                      case GHC.Base.eqString ds ClientProxyApi.isTokenValid2 of wild2 {
-                        GHC.Types.False -> ClientProxyApi.authpart1 ipv2
-                        GHC.Types.True -> (# ipv2, GHC.Tuple.() #) } } } } }) -}
-fbc4383d80931227b44bef1e372994a0
-  isTokenValid2 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "Token is Valid"#) -}
-e94d4805869c16efa62cc5d8d983986d
-  isTokenValid3 :: Servant.Common.BaseUrl.BaseUrl
+                   Data.Either.Right x -> (# ipv2, GHC.Tuple.() #) } } }) -}
+d95a94434a989f5a593c6c097605e88f
+  extendToken2 :: Servant.Common.BaseUrl.BaseUrl
   {- Strictness: m,
      Unfolding: (Servant.Common.BaseUrl.BaseUrl
                    Servant.Common.BaseUrl.Http
                    ClientProxyApi.serverhost
-                   ClientProxyApi.isTokenValid4
+                   ClientProxyApi.extendToken3
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-3e1bba172bb86db711281e186d54ed55
-  isTokenValid4 :: GHC.Types.Int
+ed37ef7b319461302ae11a13d8ea1430
+  extendToken3 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 8082#) -}
-f191384d81ae10efabd4bd6a17f9fbca
-  isTokenValid5 ::
+6fbbfd8a5ee807b741c529db0d38c198
+  fileContent :: ClientProxyApi.File -> GHC.Base.String
+  RecSel Left ClientProxyApi.File
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: ClientProxyApi.File) ->
+                 case ds of wild { ClientProxyApi.File ds1 ds2 -> ds2 }) -}
+3e79c2ce8b7238d1209d173ebb503708
+  fileName :: ClientProxyApi.File -> GHC.IO.FilePath
+  RecSel Left ClientProxyApi.File
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: ClientProxyApi.File) ->
+                 case ds of wild { ClientProxyApi.File ds1 ds2 -> ds1 }) -}
+66a61c35682a25bef52965d936000782
+  getFile ::
+    GHC.Base.String -> ClientProxyApi.User -> GHC.Types.IO ()
+  {- Arity: 3, Strictness: <L,U><L,U(U,U,U,U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                ClientProxyApi.getFile1
+                  `cast`
+                (<GHC.Base.String>_R
+                 ->_R <ClientProxyApi.User>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+da9cd8678bbf1ae1ebbfb331308ccea6
+  getFile1 ::
+    GHC.Base.String
+    -> ClientProxyApi.User
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 3, Strictness: <L,U><L,U(U,U,U,U)><S,U> -}
+e5dd2d819d0bd3e9c2ca6a6d9b9ba725
+  isTokenValid :: ClientProxyApi.User -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <L,1*U(U,U,U,U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                ClientProxyApi.isTokenValid1
+                  `cast`
+                (<ClientProxyApi.User>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+91f664a0f06791a2a52211e0056ab57f
+  isTokenValid1 ::
+    ClientProxyApi.User
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <L,1*U(U,U,U,U)><S,U> -}
+9763d8cdbfd3c8095620bbc68e2443ea
+  isvalid ::
+    ClientProxyApi.User
+    -> Servant.Common.Req.ClientM ClientProxyApi.Response
+  {- Arity: 1, Strictness: <L,1*U(U,U,U,U)>,
+     Unfolding: InlineRule (0, True, True)
+                ClientProxyApi.isvalid1
+                  `cast`
+                (<ClientProxyApi.User>_R
+                 ->_R Sub (Servant.Client.D:R:ClientTYPEVerb2[0]
+                               <Network.HTTP.Types.Method.StdMethod>_N
+                               <ClientProxyApi.Response>_N
+                               <'Network.HTTP.Types.Method.POST>_N
+                               <'[Servant.API.ContentTypes.JSON]>_N
+                               <200>_N)) -}
+49847ebedd83ca23cdafdf71c249766f
+  isvalid1 ::
     ClientProxyApi.User
     -> Servant.Client.Client
          (Servant.API.Verbs.Verb
@@ -9068,7 +9441,7 @@ f191384d81ae10efabd4bd6a17f9fbca
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
                              <Network.HTTP.Types.Method.StdMethod>_N
                              <'Network.HTTP.Types.Method.POST>_N))
-                   ClientProxyApi.$sclient_$d~~
+                   ClientProxyApi.$sclient3
                      `cast`
                    (Sym (Data.Type.Equality.N:~[0]
                              <[*]>_N) <'[Servant.API.ContentTypes.JSON]>_N <'[Servant.API.ContentTypes.JSON]>_N)
@@ -9080,7 +9453,7 @@ f191384d81ae10efabd4bd6a17f9fbca
                            '[Servant.API.ContentTypes.JSON]
                            ClientProxyApi.Response))
                    (Servant.Common.Req.Req
-                      ClientProxyApi.isTokenValid6
+                      ClientProxyApi.isvalid2
                       (GHC.Types.[]
                          @ (Data.Text.Internal.Text,
                             GHC.Base.Maybe Data.Text.Internal.Text))
@@ -9091,28 +9464,13 @@ f191384d81ae10efabd4bd6a17f9fbca
                           Servant.API.ContentTypes.$fAcceptTYPEJSON1))
                       (GHC.Types.[] @ Network.HTTP.Media.MediaType.Internal.MediaType)
                       (GHC.Types.[] @ (GHC.Base.String, Data.Text.Internal.Text)))) -}
-36e353d93101ecbdf119fd1db40b9840
-  isTokenValid6 :: [GHC.Types.Char]
+4b67fc67e227772ceac333554e835649
+  isvalid2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.Base.++
                    @ GHC.Types.Char
                    (GHC.Types.[] @ GHC.Types.Char)
-                   ClientProxyApi.$sclient9) -}
-9c119203e56e6210f61fbae7dff979a0
-  isvalid ::
-    ClientProxyApi.User
-    -> Servant.Common.Req.ClientM ClientProxyApi.Response
-  {- Arity: 1, Strictness: <L,1*U(U,U,U,U)>,
-     Unfolding: InlineRule (0, True, True)
-                ClientProxyApi.isTokenValid5
-                  `cast`
-                (<ClientProxyApi.User>_R
-                 ->_R Sub (Servant.Client.D:R:ClientTYPEVerb2[0]
-                               <Network.HTTP.Types.Method.StdMethod>_N
-                               <ClientProxyApi.Response>_N
-                               <'Network.HTTP.Types.Method.POST>_N
-                               <'[Servant.API.ContentTypes.JSON]>_N
-                               <200>_N)) -}
-c7ba739942689b3481b1921278d574e1
+                   ClientProxyApi.$sclient13) -}
+98c4bb80d13abb68c8926b0465f007d4
   isvalidQuery ::
     ClientProxyApi.User
     -> Servant.Common.Req.ClientM ClientProxyApi.Response
@@ -9125,7 +9483,7 @@ c7ba739942689b3481b1921278d574e1
                               200
                               '[Servant.API.ContentTypes.JSON]
                               ClientProxyApi.Response)
-                   = ClientProxyApi.isTokenValid5 isvaliddetails
+                   = ClientProxyApi.isvalid1 isvaliddetails
                  } in
                  (\ (r1 :: Servant.Common.Req.ClientEnv)
                     (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
@@ -9222,7 +9580,7 @@ e8f74082c09ecbcd3f4d10a52c997e02
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 2, Strictness: <L,U(U,U,U,U)><S,U> -}
-1ec876b34844dd0422225c8277faeefc
+f27bd2bd4dce9ff830835b9324212d42
   open ::
     GHC.Base.String -> Servant.Common.Req.ClientM ClientProxyApi.File
   {- Arity: 1, Strictness: <L,U>,
@@ -9236,7 +9594,7 @@ e8f74082c09ecbcd3f4d10a52c997e02
                                <'Network.HTTP.Types.Method.GET>_N
                                <'[Servant.API.ContentTypes.JSON]>_N
                                <200>_N)) -}
-197f21085c4abc94280225d82a9880b4
+050c00cd489c38965294543cf00e1404
   open1 ::
     [GHC.Types.Char]
     -> Servant.Client.Client
@@ -9258,7 +9616,7 @@ e8f74082c09ecbcd3f4d10a52c997e02
                         '[Servant.API.ContentTypes.JSON]
                         ClientProxyApi.File)
                    Web.Internal.HttpApiData.$fToHttpApiData[]
-                   ClientProxyApi.$sclient4
+                   ClientProxyApi.$sclient6
                      `cast`
                    (Sym (Servant.Client.N:HasClient[0]
                              <*>_N
@@ -9277,7 +9635,7 @@ e8f74082c09ecbcd3f4d10a52c997e02
                                               ClientProxyApi.File))
                    ClientProxyApi.open2
                    w5) -}
-ffebb7dd4e358fa3e68fd881b6414fba
+c861d70997c64ec7904425bba11c2ad5
   open2 :: Servant.Common.Req.Req
   {- Strictness: m,
      Unfolding: (Servant.Common.Req.Req
@@ -9290,13 +9648,13 @@ ffebb7dd4e358fa3e68fd881b6414fba
                          Network.HTTP.Media.MediaType.Internal.MediaType))
                    (GHC.Types.[] @ Network.HTTP.Media.MediaType.Internal.MediaType)
                    (GHC.Types.[] @ (GHC.Base.String, Data.Text.Internal.Text))) -}
-7eca9f413b95c71c7e8be209911f02a9
+bfa8a37ae8a81a7d58151c8de5d5f2af
   open3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.Base.++
                    @ GHC.Types.Char
                    (GHC.Types.[] @ GHC.Types.Char)
-                   ClientProxyApi.$sclient5) -}
-7d8f99de5f3296d1b1e5c9597db00b13
+                   ClientProxyApi.$sclient7) -}
+44586b2e37cd5b0a1bad0b01e856211c
   openQuery ::
     GHC.Base.String -> Servant.Common.Req.ClientM ClientProxyApi.File
   {- Arity: 1, Strictness: <L,U>,
@@ -9318,7 +9676,7 @@ ffebb7dd4e358fa3e68fd881b6414fba
                             '[Servant.API.ContentTypes.JSON]
                             ClientProxyApi.File)
                        Web.Internal.HttpApiData.$fToHttpApiData[]
-                       ClientProxyApi.$sclient4
+                       ClientProxyApi.$sclient6
                          `cast`
                        (Sym (Servant.Client.N:HasClient[0]
                                  <*>_N
@@ -9396,23 +9754,23 @@ ffebb7dd4e358fa3e68fd881b6414fba
                                         Servant.Common.Req.ServantError GHC.Types.IO>_R
                                      <ClientProxyApi.File>_N))
                            (Sym (Servant.Common.Req.N:ClientM[0]) <ClientProxyApi.File>_N)))) -}
-d0be585370f1a4a5618593bf42d8b775
+c3019027c9ca614759a99a8e9d7a9475
   putFile ::
     ClientProxyApi.File -> ClientProxyApi.User -> GHC.Types.IO ()
-  {- Arity: 3, Strictness: <L,1*U(1*U,1*U)><L,1*U(U,U,U,U)><S,U>,
+  {- Arity: 3, Strictness: <L,1*U(1*U,1*U)><L,U(U,U,U,U)><S,U>,
      Unfolding: InlineRule (0, True, True)
                 ClientProxyApi.putFile1
                   `cast`
                 (<ClientProxyApi.File>_R
                  ->_R <ClientProxyApi.User>_R
                  ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-1e0433588af45ef92f376e00fe0346aa
+4ca9eb37e88a289761e31e25bb0decef
   putFile1 ::
     ClientProxyApi.File
     -> ClientProxyApi.User
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 3, Strictness: <L,1*U(1*U,1*U)><L,1*U(U,U,U,U)><S,U>,
+  {- Arity: 3, Strictness: <L,1*U(1*U,1*U)><L,U(U,U,U,U)><S,U>,
      Unfolding: (\ (file :: ClientProxyApi.File)
                    (user :: ClientProxyApi.User)
                    (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
@@ -9514,11 +9872,14 @@ d0be585370f1a4a5618593bf42d8b775
                         GHC.Types.True
                         ipv4
                    Data.Either.Right x
-                   -> GHC.IO.Handle.Text.hPutStr2
+                   -> case ClientProxyApi.extendToken1
+                             user
+                             ipv4 of ds4 { (#,#) ipv6 ipv7 ->
+                      GHC.IO.Handle.Text.hPutStr2
                         GHC.IO.Handle.FD.stdout
                         (ClientProxyApi.$fShowResponse_$cshow x)
                         GHC.Types.True
-                        ipv4 } } } }) -}
+                        ipv6 } } } } }) -}
 aa3f238b55e9ed07992b51ce8c657864
   putFile2 :: Servant.Common.BaseUrl.BaseUrl
   {- Strictness: m,
@@ -9530,7 +9891,7 @@ aa3f238b55e9ed07992b51ce8c657864
 a1c3142cef3ae400fa315b9dbb26a44a
   putFile3 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 7008#) -}
-a655198abab24ed24722bab00d795040
+17038295276c17f52e217dd0adca9192
   register ::
     ClientProxyApi.Signin
     -> Servant.Common.Req.ClientM ClientProxyApi.Response
@@ -9545,7 +9906,7 @@ a655198abab24ed24722bab00d795040
                                <'Network.HTTP.Types.Method.POST>_N
                                <'[Servant.API.ContentTypes.JSON]>_N
                                <200>_N)) -}
-a7c1484d4cec5fe794b65d44c911d702
+3896ac875d0bd1dc8cd7ab7d000a3eb4
   register1 ::
     ClientProxyApi.Signin
     -> Servant.Client.Client
@@ -9570,7 +9931,7 @@ a7c1484d4cec5fe794b65d44c911d702
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
                              <Network.HTTP.Types.Method.StdMethod>_N
                              <'Network.HTTP.Types.Method.POST>_N))
-                   ClientProxyApi.$sclient_$d~~
+                   ClientProxyApi.$sclient3
                      `cast`
                    (Sym (Data.Type.Equality.N:~[0]
                              <[*]>_N) <'[Servant.API.ContentTypes.JSON]>_N <'[Servant.API.ContentTypes.JSON]>_N)
@@ -9593,13 +9954,13 @@ a7c1484d4cec5fe794b65d44c911d702
                           Servant.API.ContentTypes.$fAcceptTYPEJSON1))
                       (GHC.Types.[] @ Network.HTTP.Media.MediaType.Internal.MediaType)
                       (GHC.Types.[] @ (GHC.Base.String, Data.Text.Internal.Text)))) -}
-c2c66a379b2fe159aa2cf0c7ae4fc0c7
+ee6437114d996d35e25114bc5e091220
   register2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.Base.++
                    @ GHC.Types.Char
                    (GHC.Types.[] @ GHC.Types.Char)
-                   ClientProxyApi.$sclient11) -}
-9519c835f9271609e542eb151e184ab3
+                   ClientProxyApi.$sclient15) -}
+27ff47b0a0ed01bcd916e4a076ead6da
   registerQuery ::
     ClientProxyApi.Signin
     -> Servant.Common.Req.ClientM ClientProxyApi.Response
@@ -9685,7 +10046,7 @@ b60e3a40dc864025b87a76c969b3e543
 a08f49855865ef6b6aca4af514acbc59
   serverport :: GHC.Base.String
   {- Unfolding: (GHC.CString.unpackCString# "8080"#) -}
-e941ce87a6bbbf1180fb4c85ebd764c7
+bc4ead373056cb578980c2a9d02139c1
   signin ::
     ClientProxyApi.Signin
     -> Servant.Common.Req.ClientM ClientProxyApi.User
@@ -9700,7 +10061,7 @@ e941ce87a6bbbf1180fb4c85ebd764c7
                                <'Network.HTTP.Types.Method.POST>_N
                                <'[Servant.API.ContentTypes.JSON]>_N
                                <200>_N)) -}
-ed3b76b49f982f7faebc16db0e79c427
+3394a5584beecbe41e324e2d18257023
   signin1 ::
     ClientProxyApi.Signin
     -> Servant.Client.Client
@@ -9725,7 +10086,7 @@ ed3b76b49f982f7faebc16db0e79c427
                    (Sym (Servant.API.Verbs.N:ReflectMethod[0]
                              <Network.HTTP.Types.Method.StdMethod>_N
                              <'Network.HTTP.Types.Method.POST>_N))
-                   ClientProxyApi.$sclient_$d~~
+                   ClientProxyApi.$sclient3
                      `cast`
                    (Sym (Data.Type.Equality.N:~[0]
                              <[*]>_N) <'[Servant.API.ContentTypes.JSON]>_N <'[Servant.API.ContentTypes.JSON]>_N)
@@ -9748,13 +10109,13 @@ ed3b76b49f982f7faebc16db0e79c427
                           Servant.API.ContentTypes.$fAcceptTYPEJSON1))
                       (GHC.Types.[] @ Network.HTTP.Media.MediaType.Internal.MediaType)
                       (GHC.Types.[] @ (GHC.Base.String, Data.Text.Internal.Text)))) -}
-2ecfc3cae881346b71c31a81655d54af
+e56c78cf37872b3dfba4b920f11d920e
   signin2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.Base.++
                    @ GHC.Types.Char
                    (GHC.Types.[] @ GHC.Types.Char)
-                   ClientProxyApi.$sclient13) -}
-1b639aafc740f908ed429e77be78ff1a
+                   ClientProxyApi.$sclient17) -}
+3d53faa11849ec05ef954261735f3ef9
   signinQuery ::
     ClientProxyApi.Signin
     -> Servant.Common.Req.ClientM ClientProxyApi.User
@@ -9938,6 +10299,15 @@ family instance GHC.Generics.Rep [ClientProxyApi.Response]
   = ClientProxyApi.Rep_Response
 family instance GHC.Generics.Rep [ClientProxyApi.File]
   = ClientProxyApi.Rep_File
+"SPEC/ClientProxyApi $fFromJSON[] @ Char" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.FromJSON.FromJSON
+                                                                           GHC.Types.Char)
+  Data.Aeson.Types.FromJSON.$fFromJSON[] @ GHC.Types.Char $dFromJSON
+  = ClientProxyApi.$s$fFromJSON[]
+"SPEC/ClientProxyApi $fFromJSON[] @ [Char]" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.FromJSON.FromJSON
+                                                                             [GHC.Types.Char])
+  Data.Aeson.Types.FromJSON.$fFromJSON[] @ [GHC.Types.Char]
+                                         $dFromJSON
+  = ClientProxyApi.$s$fFromJSON[]1
 "SPEC/ClientProxyApi $fMimeUnrenderTYPEJSONa @ File" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.FromJSON.FromJSON
                                                                                       ClientProxyApi.File)
   Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa @ ClientProxyApi.File
@@ -9953,6 +10323,11 @@ family instance GHC.Generics.Rep [ClientProxyApi.File]
   Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa @ ClientProxyApi.User
                                                    $dFromJSON
   = ClientProxyApi.$s$fMimeUnrenderTYPEJSONa2
+"SPEC/ClientProxyApi $fMimeUnrenderTYPEJSONa @ [String]" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.FromJSON.FromJSON
+                                                                                          [GHC.Base.String])
+  Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa @ [GHC.Base.String]
+                                                   $dFromJSON
+  = ClientProxyApi.$s$fMimeUnrenderTYPEJSONa3
 "SPEC/ClientProxyApi $fMimeUnrenderTYPEJSONa_$cmimeUnrender @ File" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.FromJSON.FromJSON
                                                                                                      ClientProxyApi.File)
   Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cmimeUnrender @ ClientProxyApi.File
@@ -9968,6 +10343,11 @@ family instance GHC.Generics.Rep [ClientProxyApi.File]
   Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cmimeUnrender @ ClientProxyApi.User
                                                                   $dFromJSON
   = ClientProxyApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender2
+"SPEC/ClientProxyApi $fMimeUnrenderTYPEJSONa_$cmimeUnrender @ [String]" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.FromJSON.FromJSON
+                                                                                                         [GHC.Base.String])
+  Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cmimeUnrender @ [GHC.Base.String]
+                                                                  $dFromJSON
+  = ClientProxyApi.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender3
 "SPEC/ClientProxyApi $fSelectorMetaMetaSel @ ('Just
                                                "fileContent") @ 'NoSourceUnpackedness @ 'NoSourceStrictness @ 'DecidedLazy" [ALWAYS] forall ($dSingI :: GHC.Generics.SingI
                                                                                                                                                                                                               ('GHC.Base.Just

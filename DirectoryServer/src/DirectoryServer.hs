@@ -92,7 +92,8 @@ serverhost = "localhost"
 type DirectoryApi = 
     "join" :> ReqBody '[JSON] FileServer :> Post '[JSON] Response :<|>
     "open" :> Capture "fileName" String :> Get '[JSON] File :<|>
-    "close" :> ReqBody '[JSON] File :> Post '[JSON] Response
+    "close" :> ReqBody '[JSON] File :> Post '[JSON] Response :<|>
+    "allfiles" :> Get '[JSON] [String]
 
 type FileApi = 
     "files" :> Get '[JSON] [FilePath] :<|>
@@ -131,7 +132,8 @@ server :: Server DirectoryApi
 server = 
     fsJoin :<|>
     DirectoryServer.openFile :<|>
-    closeFile
+    closeFile :<|>
+    allFiles
 
 directoryApp :: Application
 directoryApp = serve directoryApi server
@@ -143,7 +145,7 @@ mkApp = do
 storefs:: FileServer -> IO()
 storefs fs@(FileServer key _ _) = liftIO $ do
     warnLog $ "Storing file under key " ++ key ++ "."
-    withMongoDbConnection $ upsert (select ["id" =: key] "FILESERVER_RECORD") $ toBSON fs
+    withMongoDbConnection $ upsert (select ["_id" =: key] "FILESERVER_RECORD") $ toBSON fs
     warnLog $ "Success"
    -- return True
 
@@ -151,7 +153,7 @@ storefm :: String  -> String-> [FileMapping] -> String -> IO[FileMapping]
 storefm  port address a  filename =  do
 	warnLog $ "Storing file under key " ++ filename ++ "."
         let fileMapping = (FileMapping filename address port)
-	withMongoDbConnection $ upsert (select ["id" =: filename] "FILEMAPPING_RECORD") $ toBSON fileMapping
+	withMongoDbConnection $ upsert (select ["_id" =: filename] "FILEMAPPING_RECORD") $ toBSON fileMapping
         return $ (FileMapping filename address port):a
 --	return True
 
@@ -178,7 +180,7 @@ searchFileMappings :: String -> IO(FileMapping)
 searchFileMappings key =  do
 	warnLog $ "Searching for value for key: " ++ key
 	filemappings <- withMongoDbConnection $ do 
-	    docs <- find (select ["fmfileName" =: key] "FILEMAPPING_RECORD") >>= drainCursor
+	    docs <- find (select ["_id" =: key] "FILEMAPPING_RECORD") >>= drainCursor
             return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileMapping) docs
         return $ head $ filemappings
 
@@ -210,7 +212,7 @@ closeFile file = liftIO $  do
   index <- randomRIO (0, (range-1))
   let fs = fileServers !! index
   let fm = (FileMapping (fileName file) (fsaddress fs) (fsport fs))
-  withMongoDbConnection $ upsert (select ["id" =: (fileName file)] "FILEMAPPING_RECORD") $ toBSON fm
+  withMongoDbConnection $ upsert (select ["_id" =: (fileName file)] "FILEMAPPING_RECORD") $ toBSON fm
   manager <- newManager defaultManagerSettings
   res <- runClientM (uploadQuery file) (ClientEnv manager (BaseUrl Http (fsaddress fs) (read(fsport fs) :: Int) ""))
   case res of
@@ -219,6 +221,17 @@ closeFile file = liftIO $  do
    Right response -> return (response)
   
   
+allFiles :: ApiHandler [String]
+allFiles = liftIO $ do
+          fileServers <- liftIO $ withMongoDbConnection $ do
+              docs <- find (select [] "FILESERVER_RECORD") >>= drainCursor
+              return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileServer) docs
+          mapM getStoreFm fileServers
+          filemappings <- liftIO $ withMongoDbConnection $ do
+              docs <- find (select [] "FILEMAPPING_RECORD") >>= drainCursor
+              return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileMapping) docs
+          let filenames = map fmfileName filemappings
+          return filenames
   
             
 
