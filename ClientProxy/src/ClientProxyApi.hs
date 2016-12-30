@@ -41,6 +41,7 @@ import           	Data.Time.Format             (defaultTimeLocale, formatTime)
 import              Control.Monad (when)
 import              Network.HTTP.Client (newManager, defaultManagerSettings)
 import              System.Process
+import              LRUCache as C
 
 data File = File { 
     fileName :: FilePath, 
@@ -173,7 +174,8 @@ authlogin = do
   case res of
    Left err -> do putStrLn $ "Error: " ++ show err
                   authpart
-   Right response -> mainloop response
+   Right response -> do cache <- C.newHandle 5 
+                        mainloop response cache
 
 authregister :: IO ()
 authregister = do
@@ -190,20 +192,20 @@ authregister = do
                   authpart
    Right response -> authpart
 
-mainloop :: User -> IO()
-mainloop user = do
+mainloop :: User -> (C.Handle String String) -> IO()
+mainloop user cache = do
     putStrLn $ "Enter one of the following commands: FILES/UPLOAD/DOWNLOAD/CLOSE"
     cmd <- getLine
     case cmd of
-        "FILES" -> displayFiles user
-        "UPLOAD" -> uploadFile user
-        "DOWNLOAD" -> downloadFile user
+        "FILES" -> displayFiles user cache
+        "UPLOAD" -> uploadFile user cache
+        "DOWNLOAD" -> downloadFile user cache
         "CLOSE" -> putStrLn $ "Closing service!"
         _ -> do putStrLn $ "Invalid Command. Try Again"
-                mainloop user
+                mainloop user cache
 
-displayFiles :: User -> IO()
-displayFiles user = do
+displayFiles :: User -> (C.Handle String String) -> IO()
+displayFiles user cache = do
   putStrLn "Fetching file list. Please wait."
   isTokenValid user
   manager <- newManager defaultManagerSettings
@@ -212,26 +214,42 @@ displayFiles user = do
    Left err -> putStrLn $ "Error: " ++ show err
    Right response -> do extendToken user
                         mapM putStrLn response
-                        mainloop user
+                        mainloop user cache
 
-uploadFile :: User -> IO()
-uploadFile user = do
+uploadFile :: User -> (C.Handle String String) -> IO()
+uploadFile user cache = do
     putStrLn "Please enter the name of the file to upload"
     fileName <- getLine
     putStrLn "Please enter the contents of the file to upload"
     fileContent <- getLine
     let file = File fileName fileContent
-    response <- putFile file user
+    response <- putFile file user cache
     putStrLn $  "Response: " ++ show response
-    mainloop user
+    mainloop user cache
 
 
-downloadFile :: User -> IO()
-downloadFile user = do
-	putStrLn "Please enter the name of the file to download"
-	fileName <- getLine
-        getFile fileName user
-	mainloop user
+downloadFile :: User -> (C.Handle String String) -> IO()
+downloadFile user cache = do
+  putStrLn "Please enter the name of the file to download"
+  fileName <- getLine
+  incache <- C.iolookup cache fileName
+  case incache of
+    (Nothing) -> getFile fileName user cache
+    (Just v) -> do putStrLn $ "Cache hit"
+                   liftIO (writeFile (fileName) v)
+                   let cmd = shell ("vim " ++ fileName)
+                   createProcess_ "vim" cmd
+                   putStrLn $ "Would you like to re-upload this file? y/n"
+                   yesorno <- getLine
+                   putStrLn $ "Are you Sure? y/n"
+                   sure <- getLine
+                   fileContent <- readFile (fileName)
+                   case sure of
+                     ("y") -> do let file = File fileName fileContent
+                                 putFile file user cache
+                                 mainloop user cache
+                     (_) -> mainloop user cache
+  mainloop user cache
 
 isTokenValid :: User -> IO()
 isTokenValid user = do
@@ -253,15 +271,16 @@ extendToken user = do
    Right response -> return()
 
 
-getFile:: String -> User -> IO()
-getFile filename user = do
+getFile:: String -> User -> (C.Handle String String) -> IO()
+getFile filename user cache = do
   isTokenValid user
   manager <- newManager defaultManagerSettings
   res <- runClientM (openQuery filename) (ClientEnv manager (BaseUrl Http "localhost" 7008 ""))
   case res of
    Left err -> putStrLn $ "Error: " ++ show err
                           
-   Right response -> do extendToken user 
+   Right response -> do extendToken user
+                        C.ioinsert cache filename (fileContent response) 
                         liftIO (writeFile (fileName response) (fileContent response))
                      	let cmd = shell ("vim " ++ (fileName response))
 	                createProcess_ "vim" cmd
@@ -269,23 +288,27 @@ getFile filename user = do
                         yesorno <- getLine
                         putStrLn $ "Are you Sure? y/n"
                         sure <- getLine
-                     
                         case sure of
                          ("y") -> do fileContent <- readFile (fileName response)
                                      let file = File filename fileContent
-                                     putFile file user
-                                     mainloop user
-                         (_) -> mainloop user
+                                     putFile file user cache
+                                     mainloop user cache
+                         (_) -> mainloop user cache
 
                                     
-putFile:: File -> User-> IO ()
-putFile file user = do
+putFile:: File -> User-> (C.Handle String String) -> IO ()
+putFile file user cache = do
   isTokenValid user
   manager <- newManager defaultManagerSettings
   res <- runClientM (closeQuery file) (ClientEnv manager (BaseUrl Http "localhost" 7008 ""))
   case res of
    Left err -> putStrLn $ "Error: " ++ show err
                           
-   Right response -> do extendToken user
-                        putStrLn $ show response
+   Right responser -> do extendToken user
+                         incache <- C.iolookup cache (fileName file)
+                         case incache of 
+                          (Nothing) -> putStrLn $ (response responser)
+                          (Just v) -> C.ioinsert cache (fileName file) (fileContent file)
 
+
+                        

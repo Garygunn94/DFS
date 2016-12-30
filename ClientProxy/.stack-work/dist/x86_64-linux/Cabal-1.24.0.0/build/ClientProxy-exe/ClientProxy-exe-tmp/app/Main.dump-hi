@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-30 20:06:00.735039 UTC
+2016-12-30 20:59:34.132569 UTC
 
 interface main@main:Main 8001
-  interface hash: a74aa878f5b60804db88e4aad6e92ac2
-  ABI hash: 4b42402d7e484040e9429ae629ea2f73
-  export-list hash: 80d2f9f16dc510f3de3aaf573113fd8a
+  interface hash: 2f85b24e640de73deaebd9a1bb208edd
+  ABI hash: ba21234c15bb58fe2a3ce9fd341d2dff
+  export-list hash: 814fe95bda235e2685f85d8db4e80ade
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: b3b251e3c9b409ef7881af8545b4529a
   sig of: Nothing
@@ -14,7 +14,7 @@ interface main@main:Main 8001
 exports:
   Main.main
 module dependencies:
-package dependencies: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-CaSNj6e4lFq9iCoIyuRtaa
+package dependencies: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV3mIo
                       aeson-1.0.2.1@aeson-1.0.2.1-B1H7uvY9HnXH2BYsViQp5P
                       appar-0.1.4@appar-0.1.4-1in4Ewd8JBkAYDZSWXLSe0
                       array-0.5.1.1@array-0.5.1.1
@@ -126,7 +126,7 @@ orphans: attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Att
          unix-time-0.3.7@unix-time-0.3.7-HcxGsrnTmTlC98pyanzoMW:Data.UnixTime.Diff
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Fusion.Bundle
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
-family instance modules: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-CaSNj6e4lFq9iCoIyuRtaa:ClientProxyApi
+family instance modules: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV3mIo:ClientProxyApi
                          attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Internal.Types
                          base-4.9.0.0:Control.Applicative base-4.9.0.0:Data.Complex
                          base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Compose
@@ -179,8 +179,8 @@ family instance modules: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-CaSNj6e4lFq9iCo
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-CaSNj6e4lFq9iCoIyuRtaa:ClientProxyApi f4543215b81529f4f51a35d1f6800388
-import  -/  ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-CaSNj6e4lFq9iCoIyuRtaa:Lib 7de17d97af1919bceae6d2265f3f4d03
+import  -/  ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV3mIo:ClientProxyApi be23df2af1cfb4d322bae23e4fc96f8f
+import  -/  ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV3mIo:Lib 0964792235d78821b060e37ba7cb595b
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 d6831ef04cb9301b090dfae6f7bb7ec7
@@ -195,14 +195,14 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-74d398f061930b345ba51a834cc621ac
+f8b53fa6c3b8a1cc6579687ddea71ef9
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 ClientProxyApi.mainClient1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-bb47a89f3805319b2038a3400f84c667
+9192682064ddde66084fb23998c9a13a
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

@@ -49,6 +49,13 @@
   (major1) == 1 && (major2) <  2 || \
   (major1) == 1 && (major2) == 2 && (minor) <= 6)
 
+/* package hashable-1.2.4.0 */
+#define VERSION_hashable "1.2.4.0"
+#define MIN_VERSION_hashable(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  2 || \
+  (major1) == 1 && (major2) == 2 && (minor) <= 4)
+
 /* package hslogger-1.2.10 */
 #define VERSION_hslogger "1.2.10"
 #define MIN_VERSION_hslogger(major1,major2,minor) (\
@@ -76,6 +83,13 @@
   (major1) <  1 || \
   (major1) == 1 && (major2) <  4 || \
   (major1) == 1 && (major2) == 4 && (minor) <= 2)
+
+/* package psqueues-0.2.2.3 */
+#define VERSION_psqueues "0.2.2.3"
+#define MIN_VERSION_psqueues(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  2 || \
+  (major1) == 0 && (major2) == 2 && (minor) <= 2)
 
 /* package random-1.1 */
 #define VERSION_random "1.1"
@@ -132,6 +146,13 @@
   (major1) <  0 || \
   (major1) == 0 && (major2) <  5 || \
   (major1) == 0 && (major2) == 5 && (minor) <= 2)
+
+/* package vector-0.11.0.0 */
+#define VERSION_vector "0.11.0.0"
+#define MIN_VERSION_vector(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  11 || \
+  (major1) == 0 && (major2) == 11 && (minor) <= 0)
 
 /* package wai-3.2.1.1 */
 #define VERSION_wai "3.2.1.1"
@@ -238,7 +259,7 @@
   (major1) == 2 && (major2) <  26 || \
   (major1) == 2 && (major2) == 26 && (minor) <= 0)
 
-#define CURRENT_COMPONENT_ID "ClientProxy-0.1.0.0-CaSNj6e4lFq9iCoIyuRtaa"
+#define CURRENT_COMPONENT_ID "ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV3mIo"
 
-#define CURRENT_PACKAGE_KEY "ClientProxy-0.1.0.0-CaSNj6e4lFq9iCoIyuRtaa"
+#define CURRENT_PACKAGE_KEY "ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV3mIo"
 

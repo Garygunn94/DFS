@@ -1,0 +1,1019 @@
+
+==================== FINAL INTERFACE ====================
+2016-12-30 20:52:51.426663 UTC
+
+interface ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV3mIo:LRUCache 8001
+  interface hash: b46f46bca3882d7cbf9b8255790352f0
+  ABI hash: b5cf61e06c68c114efb6d8b2f6c2db6a
+  export-list hash: 94ede90fba31074d8331d6685911c5a3
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: d016f4f4e235848b6a91adfad17364ec
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  LRUCache.empty
+  LRUCache.insert
+  LRUCache.ioinsert
+  LRUCache.iolookup
+  LRUCache.lookup
+  LRUCache.newHandle
+  LRUCache.trim
+  LRUCache.Cache{LRUCache.Cache cCapacity cQueue cSize cTick}
+  LRUCache.Handle{LRUCache.Handle}
+  LRUCache.Priority
+module dependencies:
+package dependencies: array-0.5.1.1@array-0.5.1.1 base-4.9.0.0
+                      binary-0.8.3.0@binary-0.8.3.0
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G
+                      integer-gmp-1.0.0.1
+                      primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa
+                      psqueues-0.2.2.3@psqueues-0.2.2.3-YN2xKllZOMJLtAgRHlkEw
+                      text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s
+                      transformers-0.5.2.0@transformers-0.5.2.0
+                      vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6
+orphans: base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G:Data.Hashable.Generic
+         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text
+         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text.Lazy
+         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text.Show
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Fusion.Bundle
+family instance modules: base-4.9.0.0:Control.Applicative
+                         base-4.9.0.0:Data.Complex base-4.9.0.0:Data.Either
+                         base-4.9.0.0:Data.Functor.Const base-4.9.0.0:Data.Functor.Identity
+                         base-4.9.0.0:Data.List.NonEmpty base-4.9.0.0:Data.Monoid
+                         base-4.9.0.0:Data.Semigroup base-4.9.0.0:Data.Type.Equality
+                         base-4.9.0.0:Data.Version base-4.9.0.0:Data.Void
+                         base-4.9.0.0:GHC.Exts base-4.9.0.0:GHC.Generics
+                         base-4.9.0.0:GHC.IO.Exception base-4.9.0.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa:Control.Monad.Primitive
+                         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text
+                         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text.Lazy
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector
+import  -/  base-4.9.0.0:Control.Applicative 7728b33d6969dce59e89474349eb1397
+import  -/  base-4.9.0.0:Data.Functor 6fc476505db88d678632a4a838125f13
+import  -/  base-4.9.0.0:Data.IORef 4b625b2df7d0ef688ec068837f79c7b0
+import  -/  base-4.9.0.0:Data.Int fffb963871c0c31189724f1ce966d650
+import  -/  base-4.9.0.0:Data.Maybe 5f2ba364cbe65c060bc5436bc0b9d049
+import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
+import  -/  base-4.9.0.0:GHC.Enum fdf7ac3e1b0be0a4a37257601bddad14
+import  -/  base-4.9.0.0:GHC.Err 3bba35a16538d33d424682ce66876cdd
+import  -/  base-4.9.0.0:GHC.IORef c27b760cf1b1851f9cf1a1693e335fa5
+import  -/  base-4.9.0.0:GHC.Int 2421020ac5d687542a6612a08a16b1fd
+import  -/  base-4.9.0.0:GHC.Num 48f506a8f4ecf06285d0a0706594dcc0
+import  -/  base-4.9.0.0:GHC.Show 952347a6ab730bcb25c0854d8bc6ca51
+import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
+import  -/  hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G:Data.Hashable 71c3081f6f34402a5321988bec1814e7
+import  -/  hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G:Data.Hashable.Class 3d7203031dce57ddf5aeed91c7401264
+import  -/  psqueues-0.2.2.3@psqueues-0.2.2.3-YN2xKllZOMJLtAgRHlkEw:Data.HashPSQ 562d754d1256acbd53fc246a9051e01e
+import  -/  psqueues-0.2.2.3@psqueues-0.2.2.3-YN2xKllZOMJLtAgRHlkEw:Data.HashPSQ.Internal cb658eb8f29e0da883bce89f50ec5c23
+import  -/  vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector a0e152223d52c96cfbb5eb3d4ec6499a
+1d923b1c04449fa635b0e6c11fd621c1
+  $fEqCache ::
+    (GHC.Classes.Eq v, GHC.Classes.Ord k,
+     Data.Hashable.Class.Hashable k) =>
+    GHC.Classes.Eq (LRUCache.Cache k v)
+  DFunId
+  {- Arity: 3,
+     Strictness: <L,U(C(C1(U)),A)><L,U(U(C(C1(U)),A),A,C(C1(U)),A,A,A,A,A)><L,A>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ k
+                      @ v
+                      ($dEq :: GHC.Classes.Eq v)
+                      ($dOrd :: GHC.Classes.Ord k)
+                      ($dHashable :: Data.Hashable.Class.Hashable k).
+                  @ (LRUCache.Cache k v)
+                  (LRUCache.$fEqCache_$c== @ k @ v $dEq $dOrd $dHashable)
+                  (LRUCache.$fEqCache_$c/= @ k @ v $dEq $dOrd $dHashable) -}
+1d923b1c04449fa635b0e6c11fd621c1
+  $fEqCache_$c/= ::
+    (GHC.Classes.Eq v, GHC.Classes.Ord k,
+     Data.Hashable.Class.Hashable k) =>
+    LRUCache.Cache k v -> LRUCache.Cache k v -> GHC.Types.Bool
+  {- Arity: 5,
+     Strictness: <L,U(C(C1(U)),A)><L,U(U(C(C1(U)),A),A,C(C1(U)),A,A,A,A,A)><L,A><S(SLLS),1*U(U,U,U,U)><S(SLLS),1*U(U,U,U,U)>,
+     Unfolding: InlineRule (5, True, False)
+                (\ @ k
+                   @ v
+                   ($dEq :: GHC.Classes.Eq v)
+                   ($dOrd :: GHC.Classes.Ord k)
+                   ($dHashable :: Data.Hashable.Class.Hashable k)
+                   (a :: LRUCache.Cache k v)
+                   (b :: LRUCache.Cache k v) ->
+                 case LRUCache.$fEqCache_$c==
+                        @ k
+                        @ v
+                        $dEq
+                        $dOrd
+                        $dHashable
+                        a
+                        b of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False }) -}
+1d923b1c04449fa635b0e6c11fd621c1
+  $fEqCache_$c== ::
+    (GHC.Classes.Eq v, GHC.Classes.Ord k,
+     Data.Hashable.Class.Hashable k) =>
+    LRUCache.Cache k v -> LRUCache.Cache k v -> GHC.Types.Bool
+  {- Arity: 5,
+     Strictness: <L,U(C(C1(U)),A)><L,U(1*U(C(C1(U)),A),A,C(C1(U)),A,A,A,A,A)><L,A><S(SLLS),1*U(U,U,U,U)><S(SLLS),1*U(U,U,U,U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ k
+                   @ v
+                   (w :: GHC.Classes.Eq v)
+                   (w1 :: GHC.Classes.Ord k)
+                   (w2 :: Data.Hashable.Class.Hashable k)
+                   (w3 :: LRUCache.Cache k v)
+                   (w4 :: LRUCache.Cache k v) ->
+                 case w3 of ww { LRUCache.Cache ww1 ww2 ww3 ww4 ->
+                 case w4 of ww5 { LRUCache.Cache ww6 ww7 ww8 ww9 ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.==# ww1 ww6) of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True
+                   -> case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.==# ww2 ww7) of wild1 {
+                        GHC.Types.False -> GHC.Types.False
+                        GHC.Types.True
+                        -> case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.==# ww3 ww8) of wild2 {
+                             GHC.Types.False -> GHC.Types.False
+                             GHC.Types.True
+                             -> Data.HashPSQ.Internal.$w$c==
+                                  @ k
+                                  @ GHC.Int.Int64
+                                  @ v
+                                  (GHC.Classes.$p1Ord @ k w1)
+                                  GHC.Int.$fEqInt64
+                                  w
+                                  w1
+                                  GHC.Int.$fOrdInt64
+                                  ww4
+                                  ww9 } } } } }) -}
+1d923b1c04449fa635b0e6c11fd621c1
+  $fShowCache ::
+    (GHC.Show.Show k, GHC.Show.Show v) =>
+    GHC.Show.Show (LRUCache.Cache k v)
+  DFunId
+  {- Arity: 2, Strictness: <L,U(C(C1(U)),A,A)><L,U(C(C1(U)),A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ k
+                      @ v
+                      ($dShow :: GHC.Show.Show k)
+                      ($dShow1 :: GHC.Show.Show v).
+                  @ (LRUCache.Cache k v)
+                  (LRUCache.$fShowCache_$cshowsPrec @ k @ v $dShow $dShow1)
+                  (LRUCache.$fShowCache_$cshow @ k @ v $dShow $dShow1)
+                  (LRUCache.$fShowCache_$cshowList @ k @ v $dShow $dShow1) -}
+c0241f5fbaf5e5434450c534c40095e7
+  $fShowCache1 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+a9b856d386d3bc0a78db39916257d003
+  $fShowCache2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "}"#) -}
+69a3011d62f76bade70af70d0d1d4365
+  $fShowCache3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "cQueue = "#) -}
+75077390328c91e241e6cfb2462dc534
+  $fShowCache4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "cTick = "#) -}
+ea293c3b667141e15591d937fc94e716
+  $fShowCache5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "cSize = "#) -}
+98d786e771cc4c5249c0f2370c5b7e1c
+  $fShowCache6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# ", "#) -}
+4349beb62c4ed6ffb906804297f6048d
+  $fShowCache7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "cCapacity = "#) -}
+a9f17c86b1298809b8a1578738145a1f
+  $fShowCache8 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Cache {"#) -}
+1d923b1c04449fa635b0e6c11fd621c1
+  $fShowCache_$cshow ::
+    (GHC.Show.Show k, GHC.Show.Show v) =>
+    LRUCache.Cache k v -> GHC.Base.String
+  {- Arity: 3,
+     Strictness: <L,U(C(C1(U)),A,A)><L,U(C(C1(U)),A,A)><S(LLLS),1*U(U,U,U,U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ k
+                   @ v
+                   ($dShow :: GHC.Show.Show k)
+                   ($dShow1 :: GHC.Show.Show v)
+                   (x :: LRUCache.Cache k v) ->
+                 LRUCache.$fShowCache_$cshowsPrec
+                   @ k
+                   @ v
+                   $dShow
+                   $dShow1
+                   GHC.Show.shows22
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+1d923b1c04449fa635b0e6c11fd621c1
+  $fShowCache_$cshowList ::
+    (GHC.Show.Show k, GHC.Show.Show v) =>
+    [LRUCache.Cache k v] -> GHC.Show.ShowS
+  {- Arity: 4,
+     Strictness: <L,U(C(C1(U)),A,A)><L,U(C(C1(U)),A,A)><S,1*U><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ k
+                   @ v
+                   ($dShow :: GHC.Show.Show k)
+                   ($dShow1 :: GHC.Show.Show v)
+                   (eta :: [LRUCache.Cache k v])
+                   (eta1 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ (LRUCache.Cache k v)
+                   (LRUCache.$fShowCache_$cshowsPrec
+                      @ k
+                      @ v
+                      $dShow
+                      $dShow1
+                      LRUCache.$fShowCache1)
+                   eta
+                   eta1) -}
+1d923b1c04449fa635b0e6c11fd621c1
+  $fShowCache_$cshowsPrec ::
+    (GHC.Show.Show k, GHC.Show.Show v) =>
+    GHC.Types.Int -> LRUCache.Cache k v -> GHC.Show.ShowS
+  {- Arity: 4,
+     Strictness: <L,U(C(C1(U)),A,A)><L,U(C(C1(U)),A,A)><S(S),1*U(U)><S(LLLS),1*U(U,U,U,U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ k
+                   @ v
+                   (w :: GHC.Show.Show k)
+                   (w1 :: GHC.Show.Show v)
+                   (w2 :: GHC.Types.Int)
+                   (w3 :: LRUCache.Cache k v) ->
+                 case w2 of ww { GHC.Types.I# ww1 ->
+                 case w3 of ww2 { LRUCache.Cache ww3 ww4 ww5 ww6 ->
+                 LRUCache.$w$cshowsPrec @ k @ v w w1 ww1 ww3 ww4 ww5 ww6 } }) -}
+d302a0f0a2d198f315985d224cd7c347
+  $tc'Cache :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   5608569972405941480##
+                   6132554335703760976##
+                   LRUCache.$trModule
+                   LRUCache.$tc'Cache1) -}
+73d17a7836991a598ac9f47c53b93aa5
+  $tc'Cache1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Cache"#) -}
+0f0b27cdc2307c453d70598148637389
+  $tc'Handle :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   17023090532014529073##
+                   9315258167488154946##
+                   LRUCache.$trModule
+                   LRUCache.$tc'Handle1) -}
+31f7d4b0862f0688afd1f9641a57ace0
+  $tc'Handle1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Handle"#) -}
+b25c471f8291eca42e4f9d0f9e399f5d
+  $tcCache :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   4178507410583604581##
+                   5943987055452513524##
+                   LRUCache.$trModule
+                   LRUCache.$tcCache1) -}
+176e49ab585b80eb6ac5b25474b39dec
+  $tcCache1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Cache"#) -}
+257e0d8dc0f0d293e23c531a78af87ee
+  $tcHandle :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   8661304023174866525##
+                   17696744278531956735##
+                   LRUCache.$trModule
+                   LRUCache.$tcHandle1) -}
+59a2d3d5081219341537f7873231a415
+  $tcHandle1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Handle"#) -}
+975727b4c985a39dcc7583ccaf8c8d06
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   LRUCache.$trModule2
+                   LRUCache.$trModule1) -}
+efb9a82e9075084d101fd135ed1d5b37
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "LRUCache"#) -}
+b38dc847d0591f98feddb6ba0c896138
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV3mIo"#) -}
+f509b929470a2fb7f160b52a085c7cf7
+  $w$cshowsPrec ::
+    (GHC.Show.Show k, GHC.Show.Show v) =>
+    GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> Data.HashPSQ.Internal.HashPSQ k LRUCache.Priority v
+    -> GHC.Show.ShowS
+  {- Arity: 7,
+     Strictness: <L,U(C(C1(U)),A,A)><L,U(C(C1(U)),A,A)><S,U><L,U><L,U><L,U><S,U>,
+     Inline: [0],
+     Unfolding: (\ @ k
+                   @ v
+                   (w :: GHC.Show.Show k)
+                   (w1 :: GHC.Show.Show v)
+                   (ww :: GHC.Prim.Int#)
+                   (ww1 :: GHC.Prim.Int#)
+                   (ww2 :: GHC.Prim.Int#)
+                   (ww3 :: GHC.Prim.Int#)
+                   (ww4 :: Data.HashPSQ.Internal.HashPSQ k LRUCache.Priority v) ->
+                 let {
+                   f :: GHC.Base.String -> GHC.Base.String
+                   = Data.HashPSQ.Internal.$fShowHashPSQ_$cshowsPrec
+                       @ k
+                       @ GHC.Int.Int64
+                       @ v
+                       w
+                       GHC.Int.$fShowInt64
+                       w1
+                       LRUCache.$fShowCache1
+                       ww4
+                 } in
+                 let {
+                   p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,1*U> -}
+                   = \ (x :: GHC.Base.String) ->
+                     GHC.Base.++
+                       @ GHC.Types.Char
+                       LRUCache.$fShowCache8
+                       (GHC.Base.++
+                          @ GHC.Types.Char
+                          LRUCache.$fShowCache7
+                          (case GHC.Show.$wshowSignedInt
+                                  0#
+                                  ww1
+                                  (GHC.Base.++
+                                     @ GHC.Types.Char
+                                     LRUCache.$fShowCache6
+                                     (GHC.Base.++
+                                        @ GHC.Types.Char
+                                        LRUCache.$fShowCache5
+                                        (case GHC.Show.$wshowSignedInt
+                                                0#
+                                                ww2
+                                                (GHC.Base.++
+                                                   @ GHC.Types.Char
+                                                   LRUCache.$fShowCache6
+                                                   (GHC.Base.++
+                                                      @ GHC.Types.Char
+                                                      LRUCache.$fShowCache4
+                                                      (case GHC.Show.$wshowSignedInt
+                                                              0#
+                                                              ww3
+                                                              (GHC.Base.++
+                                                                 @ GHC.Types.Char
+                                                                 LRUCache.$fShowCache6
+                                                                 (GHC.Base.++
+                                                                    @ GHC.Types.Char
+                                                                    LRUCache.$fShowCache3
+                                                                    (f (GHC.Base.++
+                                                                          @ GHC.Types.Char
+                                                                          LRUCache.$fShowCache2
+                                                                          x)))) of ww5 { (#,#) ww6 ww7 ->
+                                                       GHC.Types.:
+                                                         @ GHC.Types.Char
+                                                         ww6
+                                                         ww7 }))) of ww5 { (#,#) ww6 ww7 ->
+                                         GHC.Types.:
+                                           @ GHC.Types.Char
+                                           ww6
+                                           ww7 }))) of ww5 { (#,#) ww6 ww7 ->
+                           GHC.Types.: @ GHC.Types.Char ww6 ww7 }))
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11#) of wild {
+                   GHC.Types.False -> p
+                   GHC.Types.True
+                   -> \ (x :: GHC.Base.String) ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (p (GHC.Types.: @ GHC.Types.Char GHC.Show.shows6 x)) }) -}
+85ea72e65ff5f9157cee762958fd0b13
+  $wiolookup ::
+    (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
+    GHC.Prim.MutVar# GHC.Prim.RealWorld (LRUCache.Cache k v)
+    -> k
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.Maybe v #)
+  {- Arity: 5,
+     Strictness: <L,U(A,C(U(U)))><L,U(U(C(C1(U)),A),C(C1(U)),C(C1(U)),C(C1(U)),A,A,A,A)><S,U><L,U><S,U>,
+     Inline: [0],
+     Unfolding: (\ @ k
+                   @ v
+                   (w :: Data.Hashable.Class.Hashable k)
+                   (w1 :: GHC.Classes.Ord k)
+                   (ww :: GHC.Prim.MutVar# GHC.Prim.RealWorld (LRUCache.Cache k v))
+                   (w2 :: k)
+                   (w3 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.atomicModifyMutVar#
+                        @ GHC.Prim.RealWorld
+                        @ (LRUCache.Cache k v)
+                        @ (LRUCache.Cache k v, GHC.Base.Maybe v)
+                        @ (GHC.Base.Maybe v)
+                        ww
+                        (\ (a1 :: LRUCache.Cache k v) ->
+                         case a1 of ww1 { LRUCache.Cache ww2 ww3 ww4 ww5 ->
+                         case LRUCache.$wlookup @ k @ v w w1 w2 ww2 ww3 ww4 ww5 of wild {
+                           GHC.Base.Nothing -> (ww1, GHC.Base.Nothing @ v)
+                           GHC.Base.Just ds
+                           -> case ds of wild1 { (,) v1 c' ->
+                              case c' of a'1 { LRUCache.Cache ipv ipv1 ipv2 ipv3 ->
+                              (a'1, GHC.Base.Just @ v v1) } } } })
+                        w3 of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of b1 { DEFAULT -> ds1 } }) -}
+bdcd9bf6e7ba1de3acde085d7cc3783a
+  $wlookup ::
+    (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
+    k
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> Data.HashPSQ.Internal.HashPSQ k LRUCache.Priority v
+    -> GHC.Base.Maybe (v, LRUCache.Cache k v)
+  {- Arity: 7,
+     Strictness: <L,1*U(A,1*C1(U(U)))><L,U(U(C(C1(U)),A),C(C1(U)),C(C1(U)),C(C1(U)),A,A,A,A)><L,U><L,U><L,U><L,U><S,U>,
+     Inline: [0],
+     Unfolding: (\ @ k
+                   @ v
+                   (w :: Data.Hashable.Class.Hashable k)
+                   (w1 :: GHC.Classes.Ord k)
+                   (w2 :: k)
+                   (ww :: GHC.Prim.Int#)
+                   (ww1 :: GHC.Prim.Int#)
+                   (ww2 :: GHC.Prim.Int#)
+                   (ww3 :: Data.HashPSQ.Internal.HashPSQ k LRUCache.Priority v) ->
+                 case Data.HashPSQ.Internal.$walter
+                        @ k
+                        @ LRUCache.Priority
+                        @ v
+                        @ (GHC.Base.Maybe v)
+                        w
+                        w1
+                        GHC.Int.$fOrdInt64
+                        (\ (ds :: GHC.Base.Maybe (LRUCache.Priority, v))[OneShot] ->
+                         case ds of wild {
+                           GHC.Base.Nothing -> LRUCache.iolookup2 @ v
+                           GHC.Base.Just ds1
+                           -> case ds1 of wild1 { (,) ds2 x ->
+                              (GHC.Base.Just @ v x,
+                               GHC.Base.Just @ (LRUCache.Priority, v) (GHC.Int.I64# ww2, x)) } })
+                        w2
+                        ww3 of ww4 { (#,#) ww5 ww6 ->
+                 case ww5 of wild {
+                   GHC.Base.Nothing -> GHC.Base.Nothing @ (v, LRUCache.Cache k v)
+                   GHC.Base.Just x
+                   -> case ww6
+                             `cast`
+                           (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                <k>_R <LRUCache.Priority>_R <v>_R) of nt { DEFAULT ->
+                      case case GHC.Prim.+# ww2 1# of wild1 {
+                             DEFAULT
+                             -> case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.># ww1 ww) of wild2 {
+                                  GHC.Types.False
+                                  -> LRUCache.Cache
+                                       @ k
+                                       @ v
+                                       ww
+                                       ww1
+                                       wild1
+                                       nt
+                                         `cast`
+                                       (Sym (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                                 <k>_R <LRUCache.Priority>_R <v>_R))
+                                  GHC.Types.True
+                                  -> case case Data.HashPSQ.Internal.$wminView
+                                                 @ k
+                                                 @ LRUCache.Priority
+                                                 @ v
+                                                 w1
+                                                 GHC.Int.$fOrdInt64
+                                                 nt
+                                                   `cast`
+                                                 (Sym (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                                           <k>_R
+                                                           <LRUCache.Priority>_R
+                                                           <v>_R)) of wild3 {
+                                            GHC.Base.Nothing -> nt
+                                            GHC.Base.Just ds
+                                            -> case ds of wild4 { (,,,) ds1 ds2 ds3 t' ->
+                                               t'
+                                                 `cast`
+                                               (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                                    <k>_R
+                                                    <LRUCache.Priority>_R
+                                                    <v>_R) } } of nt1 { DEFAULT ->
+                                     LRUCache.Cache
+                                       @ k
+                                       @ v
+                                       ww
+                                       (GHC.Prim.-# ww1 1#)
+                                       wild1
+                                       nt1
+                                         `cast`
+                                       (Sym (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                                 <k>_R <LRUCache.Priority>_R <v>_R)) } }
+                             9223372036854775807#
+                             -> case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.<# ww 1#) of wild2 {
+                                  GHC.Types.False
+                                  -> LRUCache.Cache
+                                       @ k
+                                       @ v
+                                       ww
+                                       0#
+                                       0#
+                                       (Data.IntPSQ.Internal.Nil
+                                          @ LRUCache.Priority
+                                          @ (Data.HashPSQ.Internal.Bucket k LRUCache.Priority v))
+                                         `cast`
+                                       (Sym (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                                 <k>_R <LRUCache.Priority>_R <v>_R))
+                                  GHC.Types.True
+                                  -> LRUCache.empty1
+                                       @ k
+                                       @ v } } of c' { LRUCache.Cache ipv ipv1 ipv2 ipv3 ->
+                      GHC.Base.Just @ (v, LRUCache.Cache k v) (x, c') } } } }) -}
+1d923b1c04449fa635b0e6c11fd621c1
+  data Cache k v
+    = Cache {cCapacity :: {-# UNPACK #-}GHC.Types.Int,
+             cSize :: {-# UNPACK #-}GHC.Types.Int,
+             cTick :: {-# UNPACK #-}LRUCache.Priority,
+             cQueue :: !Data.HashPSQ.Internal.HashPSQ k LRUCache.Priority v}
+47c312efbd3daf8693f800fbf5cbd8c9
+  newtype Handle k v = Handle (GHC.IORef.IORef (LRUCache.Cache k v))
+820ea86e12823aaea41e9bbe3d3e62d5
+  type Priority = GHC.Int.Int64
+77adcfeb99b51e941284bde29d17a2e1
+  cCapacity :: LRUCache.Cache k v -> GHC.Types.Int
+  RecSel Left LRUCache.Cache
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SLLL),1*U(U,A,A,A)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ k @ v (ds :: LRUCache.Cache k v) ->
+                 case ds of wild { LRUCache.Cache dt dt1 dt2 ds1 ->
+                 GHC.Types.I# dt }) -}
+c09fad56ceb38a45b1e8f950c7eda9b0
+  cQueue ::
+    LRUCache.Cache k v
+    -> Data.HashPSQ.Internal.HashPSQ k LRUCache.Priority v
+  RecSel Left LRUCache.Cache
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLLS),1*U(A,A,A,U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ k @ v (ds :: LRUCache.Cache k v) ->
+                 case ds of wild { LRUCache.Cache dt dt1 dt2 ds1 -> ds1 }) -}
+bbe0d753bfc45bc936589db2c08170b4
+  cSize :: LRUCache.Cache k v -> GHC.Types.Int
+  RecSel Left LRUCache.Cache
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSLL),1*U(A,U,A,A)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ k @ v (ds :: LRUCache.Cache k v) ->
+                 case ds of wild { LRUCache.Cache dt dt1 dt2 ds1 ->
+                 GHC.Types.I# dt1 }) -}
+af631b3a05860a2db9b8eb2492806589
+  cTick :: LRUCache.Cache k v -> LRUCache.Priority
+  RecSel Left LRUCache.Cache
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,U,A)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ k @ v (ds :: LRUCache.Cache k v) ->
+                 case ds of wild { LRUCache.Cache dt dt1 dt2 ds1 ->
+                 GHC.Int.I64# dt2 }) -}
+ecbd33732a3439e4b267fd7ad637d53f
+  empty :: GHC.Types.Int -> LRUCache.Cache k v
+  {- Arity: 1, Strictness: <S(S),1*U(U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ k @ v (capacity :: GHC.Types.Int) ->
+                 case capacity of wild { GHC.Types.I# x ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<# x 1#) of wild1 {
+                   GHC.Types.False
+                   -> LRUCache.Cache
+                        @ k
+                        @ v
+                        x
+                        0#
+                        0#
+                        (Data.IntPSQ.Internal.Nil
+                           @ LRUCache.Priority
+                           @ (Data.HashPSQ.Internal.Bucket k LRUCache.Priority v))
+                          `cast`
+                        (Sym (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                  <k>_R <LRUCache.Priority>_R <v>_R))
+                   GHC.Types.True -> LRUCache.empty1 @ k @ v } }) -}
+40e1f9b46ffb82a1fb997a98f61d4fbe
+  empty1 :: LRUCache.Cache k v
+  {- Strictness: x -}
+0164c464b58abc243719f1c79e6e1e64
+  insert ::
+    (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
+    k -> v -> LRUCache.Cache k v -> LRUCache.Cache k v
+  {- Arity: 5,
+     Strictness: <L,U(A,C(U(U)))><L,U(U(U,U),C(C1(U)),C(C1(U)),C(C1(U)),A,A,A,A)><L,U><L,U><S(SSSS),1*U(U,U,U,U)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ k
+                   @ v
+                   (w :: Data.Hashable.Class.Hashable k)
+                   (w1 :: GHC.Classes.Ord k)
+                   (w2 :: k)
+                   (w3 :: v)
+                   (w4 :: LRUCache.Cache k v) ->
+                 case w4 of ww { LRUCache.Cache ww1 ww2 ww3 ww4 ->
+                 case Data.HashPSQ.Internal.$winsertView
+                        @ k
+                        @ LRUCache.Priority
+                        @ v
+                        w
+                        w1
+                        GHC.Int.$fOrdInt64
+                        w2
+                        (GHC.Int.I64# ww3)
+                        w3
+                        ww4 of ww5 { (#,#) ww6 ww7 ->
+                 case ww6 of wild {
+                   GHC.Base.Nothing
+                   -> let {
+                        ww8 :: GHC.Prim.Int# = GHC.Prim.+# ww2 1#
+                      } in
+                      case GHC.Prim.+# ww3 1# of wild1 {
+                        DEFAULT
+                        -> case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.># ww8 ww1) of wild2 {
+                             GHC.Types.False -> LRUCache.Cache @ k @ v ww1 ww8 wild1 ww7
+                             GHC.Types.True
+                             -> case case Data.HashPSQ.Internal.$wminView
+                                            @ k
+                                            @ LRUCache.Priority
+                                            @ v
+                                            w1
+                                            GHC.Int.$fOrdInt64
+                                            ww7 of wild3 {
+                                       GHC.Base.Nothing
+                                       -> ww7
+                                            `cast`
+                                          (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                               <k>_R <LRUCache.Priority>_R <v>_R)
+                                       GHC.Base.Just ds
+                                       -> case ds of wild4 { (,,,) ds1 ds2 ds3 t' ->
+                                          t'
+                                            `cast`
+                                          (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                               <k>_R
+                                               <LRUCache.Priority>_R
+                                               <v>_R) } } of nt { DEFAULT ->
+                                LRUCache.Cache
+                                  @ k
+                                  @ v
+                                  ww1
+                                  (GHC.Prim.-# ww8 1#)
+                                  wild1
+                                  nt
+                                    `cast`
+                                  (Sym (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                            <k>_R <LRUCache.Priority>_R <v>_R)) } }
+                        9223372036854775807#
+                        -> case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.<# ww1 1#) of wild2 {
+                             GHC.Types.False
+                             -> LRUCache.Cache
+                                  @ k
+                                  @ v
+                                  ww1
+                                  0#
+                                  0#
+                                  (Data.IntPSQ.Internal.Nil
+                                     @ LRUCache.Priority
+                                     @ (Data.HashPSQ.Internal.Bucket k LRUCache.Priority v))
+                                    `cast`
+                                  (Sym (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                            <k>_R <LRUCache.Priority>_R <v>_R))
+                             GHC.Types.True
+                             -> case LRUCache.empty1 ret_ty (LRUCache.Cache k v) of {} } }
+                   GHC.Base.Just ipv
+                   -> case GHC.Prim.+# ww3 1# of wild1 {
+                        DEFAULT
+                        -> case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.># ww2 ww1) of wild2 {
+                             GHC.Types.False -> LRUCache.Cache @ k @ v ww1 ww2 wild1 ww7
+                             GHC.Types.True
+                             -> case case Data.HashPSQ.Internal.$wminView
+                                            @ k
+                                            @ LRUCache.Priority
+                                            @ v
+                                            w1
+                                            GHC.Int.$fOrdInt64
+                                            ww7 of wild3 {
+                                       GHC.Base.Nothing
+                                       -> ww7
+                                            `cast`
+                                          (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                               <k>_R <LRUCache.Priority>_R <v>_R)
+                                       GHC.Base.Just ds
+                                       -> case ds of wild4 { (,,,) ds1 ds2 ds3 t' ->
+                                          t'
+                                            `cast`
+                                          (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                               <k>_R
+                                               <LRUCache.Priority>_R
+                                               <v>_R) } } of nt { DEFAULT ->
+                                LRUCache.Cache
+                                  @ k
+                                  @ v
+                                  ww1
+                                  (GHC.Prim.-# ww2 1#)
+                                  wild1
+                                  nt
+                                    `cast`
+                                  (Sym (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                            <k>_R <LRUCache.Priority>_R <v>_R)) } }
+                        9223372036854775807#
+                        -> case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.<# ww1 1#) of wild2 {
+                             GHC.Types.False
+                             -> LRUCache.Cache
+                                  @ k
+                                  @ v
+                                  ww1
+                                  0#
+                                  0#
+                                  (Data.IntPSQ.Internal.Nil
+                                     @ LRUCache.Priority
+                                     @ (Data.HashPSQ.Internal.Bucket k LRUCache.Priority v))
+                                    `cast`
+                                  (Sym (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                            <k>_R <LRUCache.Priority>_R <v>_R))
+                             GHC.Types.True
+                             -> case LRUCache.empty1
+                                ret_ty (LRUCache.Cache k v)
+                                of {} } } } } }) -}
+a39716290317763e079a4659eda2c62f
+  ioinsert ::
+    (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
+    LRUCache.Handle k v -> k -> v -> GHC.Types.IO ()
+  {- Arity: 6,
+     Strictness: <L,U(A,C(U(U)))><L,U(U(U,U),C(C1(U)),C(C1(U)),C(C1(U)),A,A,A,A)><S(S),1*U(U)><L,U><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                LRUCache.ioinsert1
+                  `cast`
+                (forall (k :: <*>_N) (v :: <*>_N).
+                 <Data.Hashable.Class.Hashable k>_R
+                 ->_R <GHC.Classes.Ord k>_R
+                 ->_R <LRUCache.Handle k v>_R
+                 ->_R <k>_R
+                 ->_R <v>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+05c4167807cea3ed30ff7933ba02b6dc
+  ioinsert1 ::
+    (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
+    LRUCache.Handle k v
+    -> k
+    -> v
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 6,
+     Strictness: <L,U(A,C(U(U)))><L,U(U(U,U),C(C1(U)),C(C1(U)),C(C1(U)),A,A,A,A)><S(S),1*U(U)><L,U><L,U><S,U>,
+     Unfolding: InlineRule (6, True, False)
+                (\ @ k
+                   @ v
+                   ($dHashable :: Data.Hashable.Class.Hashable k)
+                   ($dOrd :: GHC.Classes.Ord k)
+                   (ds :: LRUCache.Handle k v)
+                   (k1 :: k)
+                   (v1 :: v)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case ds
+                        `cast`
+                      (Trans
+                           (LRUCache.N:Handle[0] <k>_R <v>_R)
+                           (GHC.IORef.N:IORef[0] <LRUCache.Cache
+                                                    k v>_N)) of wild { GHC.STRef.STRef r# ->
+                 case GHC.Prim.atomicModifyMutVar#
+                        @ GHC.Prim.RealWorld
+                        @ (LRUCache.Cache k v)
+                        @ (LRUCache.Cache k v, ())
+                        @ ()
+                        r#
+                        (\ (a1 :: LRUCache.Cache k v) ->
+                         case LRUCache.insert
+                                @ k
+                                @ v
+                                $dHashable
+                                $dOrd
+                                k1
+                                v1
+                                a1 of a'1 { LRUCache.Cache ipv ipv1 ipv2 ipv3 ->
+                         (a'1, GHC.Tuple.()) })
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of b1 { () -> (# ipv, GHC.Tuple.() #) } } }) -}
+30604c4e19eb0ae198668574f0509367
+  iolookup ::
+    (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
+    LRUCache.Handle k v -> k -> GHC.Types.IO (GHC.Base.Maybe v)
+  {- Arity: 5,
+     Strictness: <L,U(A,C(U(U)))><L,U(U(C(C1(U)),A),C(C1(U)),C(C1(U)),C(C1(U)),A,A,A,A)><S(S),1*U(U)><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                LRUCache.iolookup1
+                  `cast`
+                (forall (k :: <*>_N) (v :: <*>_N).
+                 <Data.Hashable.Class.Hashable k>_R
+                 ->_R <GHC.Classes.Ord k>_R
+                 ->_R <LRUCache.Handle k v>_R
+                 ->_R <k>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.Maybe v>_R)) -}
+dfd735f51da0429d7bf3bc023fa18d9c
+  iolookup1 ::
+    (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
+    LRUCache.Handle k v
+    -> k
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.Maybe v #)
+  {- Arity: 5,
+     Strictness: <L,U(A,C(U(U)))><L,U(U(C(C1(U)),A),C(C1(U)),C(C1(U)),C(C1(U)),A,A,A,A)><S(S),1*U(U)><L,U><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ k
+                   @ v
+                   (w :: Data.Hashable.Class.Hashable k)
+                   (w1 :: GHC.Classes.Ord k)
+                   (w2 :: LRUCache.Handle k v)
+                   (w3 :: k)
+                   (w4 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w2
+                        `cast`
+                      (Trans
+                           (LRUCache.N:Handle[0] <k>_R <v>_R)
+                           (GHC.IORef.N:IORef[0] <LRUCache.Cache
+                                                    k v>_N)) of ww { GHC.STRef.STRef ww1 ->
+                 LRUCache.$wiolookup @ k @ v w w1 ww1 w3 w4 }) -}
+f584daf7fa71bfad99b3bda7fb867b52
+  iolookup2 ::
+    (GHC.Base.Maybe v, GHC.Base.Maybe (LRUCache.Priority, v))
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (\ @ v ->
+                 (GHC.Base.Nothing @ v,
+                  GHC.Base.Nothing @ (LRUCache.Priority, v))) -}
+96a420ba892c6519daaeb6aab0ee4c16
+  lookup ::
+    (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
+    k -> LRUCache.Cache k v -> GHC.Base.Maybe (v, LRUCache.Cache k v)
+  {- Arity: 4,
+     Strictness: <L,1*U(A,1*C1(U(U)))><L,U(U(C(C1(U)),A),C(C1(U)),C(C1(U)),C(C1(U)),A,A,A,A)><L,U><S(LLLS),1*U(U,U,U,U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ k
+                   @ v
+                   (w :: Data.Hashable.Class.Hashable k)
+                   (w1 :: GHC.Classes.Ord k)
+                   (w2 :: k)
+                   (w3 :: LRUCache.Cache k v) ->
+                 case w3 of ww { LRUCache.Cache ww1 ww2 ww3 ww4 ->
+                 LRUCache.$wlookup @ k @ v w w1 w2 ww1 ww2 ww3 ww4 }) -}
+9fd5d4b54ef1a9bb57a029eb6942559d
+  newHandle :: GHC.Types.Int -> GHC.Types.IO (LRUCache.Handle k v)
+  {- Arity: 2, Strictness: <L,1*U(U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                LRUCache.newHandle1
+                  `cast`
+                (forall (k :: <*>_N) (v :: <*>_N).
+                 <GHC.Types.Int>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <LRUCache.Handle k v>_R)) -}
+0ea990110c60a7814d8884659a921bdd
+  newHandle1 ::
+    GHC.Types.Int
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, LRUCache.Handle k v #)
+  {- Arity: 2, Strictness: <L,1*U(U)><S,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ k
+                   @ v
+                   (capacity :: GHC.Types.Int)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newMutVar#
+                        @ (LRUCache.Cache k v)
+                        @ GHC.Prim.RealWorld
+                        (LRUCache.empty @ k @ v capacity)
+                        eta of ds { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    (GHC.STRef.STRef @ GHC.Prim.RealWorld @ (LRUCache.Cache k v) ipv1)
+                      `cast`
+                    (Trans
+                         (Sym (GHC.IORef.N:IORef[0]) <LRUCache.Cache k v>_N)
+                         (Sym (LRUCache.N:Handle[0] <k>_R <v>_R))) #) }) -}
+8f1dfb5f5c996b1762bee56963a3d316
+  trim ::
+    (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
+    LRUCache.Cache k v -> LRUCache.Cache k v
+  {- Arity: 3,
+     Strictness: <L,A><L,U(A,A,C(C1(U)),A,A,A,A,A)><S(SLSS),1*U(U,U,U,U)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ k
+                   @ v
+                   (w :: Data.Hashable.Class.Hashable k)
+                   (w1 :: GHC.Classes.Ord k)
+                   (w2 :: LRUCache.Cache k v) ->
+                 case w2 of ww { LRUCache.Cache ww1 ww2 ww3 ww4 ->
+                 case ww3 of wild {
+                   DEFAULT
+                   -> case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.># ww2 ww1) of wild1 {
+                        GHC.Types.False -> LRUCache.Cache @ k @ v ww1 ww2 wild ww4
+                        GHC.Types.True
+                        -> case case Data.HashPSQ.Internal.$wminView
+                                       @ k
+                                       @ LRUCache.Priority
+                                       @ v
+                                       w1
+                                       GHC.Int.$fOrdInt64
+                                       ww4 of wild2 {
+                                  GHC.Base.Nothing
+                                  -> ww4
+                                       `cast`
+                                     (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                          <k>_R <LRUCache.Priority>_R <v>_R)
+                                  GHC.Base.Just ds
+                                  -> case ds of wild3 { (,,,) ds1 ds2 ds3 t' ->
+                                     t'
+                                       `cast`
+                                     (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                          <k>_R <LRUCache.Priority>_R <v>_R) } } of nt { DEFAULT ->
+                           LRUCache.Cache
+                             @ k
+                             @ v
+                             ww1
+                             (GHC.Prim.-# ww2 1#)
+                             wild
+                             nt
+                               `cast`
+                             (Sym (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                       <k>_R <LRUCache.Priority>_R <v>_R)) } }
+                   9223372036854775807#
+                   -> case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.<# ww1 1#) of wild1 {
+                        GHC.Types.False
+                        -> LRUCache.Cache
+                             @ k
+                             @ v
+                             ww1
+                             0#
+                             0#
+                             (Data.IntPSQ.Internal.Nil
+                                @ LRUCache.Priority
+                                @ (Data.HashPSQ.Internal.Bucket k LRUCache.Priority v))
+                               `cast`
+                             (Sym (Data.HashPSQ.Internal.N:HashPSQ[0]
+                                       <k>_R <LRUCache.Priority>_R <v>_R))
+                        GHC.Types.True
+                        -> case LRUCache.empty1 ret_ty (LRUCache.Cache k v) of {} } } }) -}
+instance GHC.Classes.Eq [LRUCache.Cache] = LRUCache.$fEqCache
+instance GHC.Show.Show [LRUCache.Cache] = LRUCache.$fShowCache
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+
