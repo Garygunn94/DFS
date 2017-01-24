@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-31 18:27:53.87163 UTC
+2017-01-24 17:21:45.635037 UTC
 
 interface main@main:Main 8001
-  interface hash: 44b3bb139ee9396ed6b2d6a8ec992cb9
-  ABI hash: e30b5d89ca8baa6d4c6a63662a168410
-  export-list hash: 5ddb0fa2971b6a6e80ebfccd7e4e1e19
+  interface hash: a24e3699e74774126019866e5a031095
+  ABI hash: c85748e5de780724e62a0d305cdcb98a
+  export-list hash: d80710a18a332da127533e6d4a7937ae
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 263ead5ee59b2db21c35ad2445391f33
   sig of: Nothing
@@ -14,7 +14,8 @@ interface main@main:Main 8001
 exports:
   Main.main
 module dependencies:
-package dependencies: LockingService-0.1.0.0@LockingService-0.1.0.0-4WFufKZEePyAA91VpmgQYG
+package dependencies: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0
+                      LockingService-0.1.0.0@LockingService-0.1.0.0-7k0JqlEeWD7F2VFBzyPr5l
                       MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov
                       aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz
                       appar-0.1.4@appar-0.1.4-1in4Ewd8JBkAYDZSWXLSe0
@@ -115,7 +116,8 @@ package dependencies: LockingService-0.1.0.0@LockingService-0.1.0.0-4WFufKZEePyA
                       warp-3.2.9@warp-3.2.9-1srGDEsq7RWF9RsucFj6bw
                       word8-0.1.2@word8-0.1.2-2E1SgvvAV2fK8vZPDHbRan
                       zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV
-orphans: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.Monad.Random
+orphans: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources
+         MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.Monad.Random
          aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson.Types.Generic
          aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson.Types.Instances
          attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.ByteString.Char8
@@ -139,7 +141,7 @@ orphans: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.
          unix-time-0.3.7@unix-time-0.3.7-HcxGsrnTmTlC98pyanzoMW:Data.UnixTime.Diff
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Fusion.Bundle
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
-family instance modules: LockingService-0.1.0.0@LockingService-0.1.0.0-4WFufKZEePyAA91VpmgQYG:LockingService
+family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources
                          attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Internal.Types
                          base-4.9.0.0:Control.Applicative base-4.9.0.0:Data.Complex
                          base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Compose
@@ -192,8 +194,8 @@ family instance modules: LockingService-0.1.0.0@LockingService-0.1.0.0-4WFufKZEe
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  LockingService-0.1.0.0@LockingService-0.1.0.0-4WFufKZEePyAA91VpmgQYG:Lib abb29507c6e220368d3c3a0c98637723
-import  -/  LockingService-0.1.0.0@LockingService-0.1.0.0-4WFufKZEePyAA91VpmgQYG:LockingService 00e9bca8c9d5f4f5e10ad7e2e448b06f
+import  -/  LockingService-0.1.0.0@LockingService-0.1.0.0-7k0JqlEeWD7F2VFBzyPr5l:Lib 59c09e5b18d1dc294a38b8d595a24945
+import  -/  LockingService-0.1.0.0@LockingService-0.1.0.0-7k0JqlEeWD7F2VFBzyPr5l:LockingService 84f8ccf9a807ac4342a10ff2445921ad
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 d6831ef04cb9301b090dfae6f7bb7ec7
@@ -208,12 +210,12 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-5f4a8e0e72912b0542f898a0b602a778
+98ba81b0a168343a637f21acb871a24e
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 LockingService.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-6414c0f6fc4b18406913aa9927baae62
+f81ff8b59dd19acd82fa182a96260797
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

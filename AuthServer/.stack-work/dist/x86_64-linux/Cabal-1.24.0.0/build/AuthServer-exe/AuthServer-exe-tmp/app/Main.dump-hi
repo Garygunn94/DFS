@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-30 20:03:30.750624 UTC
+2017-01-24 16:51:53.056131 UTC
 
 interface main@main:Main 8001
-  interface hash: 6fc72d3c9cad71d560a17f6912fb4cad
-  ABI hash: 34fc6a66273e95abe272151e1661d9e6
-  export-list hash: e8565c5a40c0f32e8a6c2d379568862d
+  interface hash: c2b99b03e3218d6cee2897e2412ef8e7
+  ABI hash: 2348fab044ab1f4f36dbab6f318072a7
+  export-list hash: 85b2cdf95932fc05303992c67677c2e4
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: f64db973905fcdfcd6b56dd70b2818ea
   sig of: Nothing
@@ -14,7 +14,8 @@ interface main@main:Main 8001
 exports:
   Main.main
 module dependencies:
-package dependencies: AuthServer-0.1.0.0@AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl
+package dependencies: AuthServer-0.1.0.0@AuthServer-0.1.0.0-HUsbF5losB5ICY0RhRwEou
+                      CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0
                       MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov
                       aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz
                       appar-0.1.4@appar-0.1.4-1in4Ewd8JBkAYDZSWXLSe0
@@ -142,7 +143,7 @@ orphans: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.
          unix-time-0.3.7@unix-time-0.3.7-HcxGsrnTmTlC98pyanzoMW:Data.UnixTime.Diff
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Fusion.Bundle
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
-family instance modules: AuthServer-0.1.0.0@AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl:AuthServer
+family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources
                          attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Internal.Types
                          base-4.9.0.0:Control.Applicative base-4.9.0.0:Data.Complex
                          base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Compose
@@ -196,8 +197,8 @@ family instance modules: AuthServer-0.1.0.0@AuthServer-0.1.0.0-4BtoUs0xefd93VEME
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl:AuthServer a0cdee033aae348cfe270e7a5c90e0f1
-import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl:Lib fc6545111778842b40150f0da01b8f2e
+import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-HUsbF5losB5ICY0RhRwEou:AuthServer b3101314afd90ca59539cab9115524d7
+import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-HUsbF5losB5ICY0RhRwEou:Lib 39edb0ca936f464d92939d4d5a5f1092
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 d6831ef04cb9301b090dfae6f7bb7ec7
@@ -212,12 +213,12 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-d3941cff538646eb51fb0f946387f244
+e52edc0eb59ed5ee92824501b30edbd6
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 AuthServer.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-d3d5ec767f2510dadb43e3d4009ec9d5
+f33d5a2801bc950191c5adf21f991517
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

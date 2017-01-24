@@ -27,7 +27,7 @@ library
                      , transformers
                      , random
                      , wai-logger
-                    -- , mongoDB
+                     , CommonResources
                      , hslogger
                      , time
                      , bson-generic

@@ -1,14 +1,15 @@
+Configuring DirectoryServer-0.1.0.0...
 Preprocessing library DirectoryServer-0.1.0.0...
 [2 of 2] Compiling DirectoryServer  ( src/DirectoryServer.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/DirectoryServer.o )
 
 src/DirectoryServer.hs:29:18: warning: [-Wtabs]
-    Tab character found here, and in 31 further locations.
+    Tab character found here, and in 26 further locations.
     Please use spaces instead.
 Preprocessing executable 'DirectoryServer-exe' for DirectoryServer-0.1.0.0...
 [1 of 1] Compiling Main             ( app/Main.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/DirectoryServer-exe/DirectoryServer-exe-tmp/Main.o ) [DirectoryServer changed]
 Linking .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/DirectoryServer-exe/DirectoryServer-exe ...
 Installing library in
-/home/ggunn/DFS/DirectoryServer/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/lib/x86_64-linux-ghc-8.0.1/DirectoryServer-0.1.0.0-22zsnFlpHNOkYoICSShQs
+/home/ggunn/DFS/DirectoryServer/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/lib/x86_64-linux-ghc-8.0.1/DirectoryServer-0.1.0.0-5Rdnpo9PWE48EGpO8CFOTj
 Installing executable(s) in
 /home/ggunn/DFS/DirectoryServer/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/bin
 Registering DirectoryServer-0.1.0.0...

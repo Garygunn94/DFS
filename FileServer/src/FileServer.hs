@@ -21,52 +21,21 @@ import Network.HTTP.Client (newManager, defaultManagerSettings)
 --import           CommonServer
 --import           CommonServerApi
 --import           CommonServerApiClient
-data File = File { 
-    fileName :: FilePath, 
-    fileContent :: String 
-} deriving (Eq, Show, Generic)
-
-instance ToJSON File
-instance FromJSON File
-
-data Response = Response{
-  response :: String
-} deriving (Eq, Show, Generic)
-
-instance ToJSON Response
-instance FromJSON Response
-
-data FileServer = FileServer{
-    id :: String,
-    fsaddress :: String,
-    fsport :: String
-} deriving (Eq, Show, Generic)
-instance ToJSON FileServer
-instance FromJSON FileServer
+import CommonResources
 
 
 type ApiHandler = ExceptT ServantErr IO
 
-type FileApi = 
-    "files" :> Get '[JSON] [FilePath] :<|>
-    "download" :> Capture "fileName" String :> Get '[JSON] File :<|>
-    "upload" :> ReqBody '[JSON] File :> Post '[JSON] Response
-    -- :<|>
-type DirectoryApi = 
-    "join" :> ReqBody '[JSON] FileServer :> Post '[JSON] Response
-    
-serverport :: String
-serverport = "7007"
-
-serverhost :: String
-serverhost = "localhost"
 
 directoryApi :: Proxy DirectoryApi
 directoryApi = Proxy
 
 join :: FileServer -> ClientM Response
+open :: String -> ClientM File
+close :: File -> ClientM Response
+allfiles :: ClientM [String]
 
-join = client directoryApi
+join :<|> open :<|> close :<|> allfiles = client directoryApi
 
 joinQuery :: FileServer -> ClientM Response
 joinQuery fs = do
@@ -93,19 +62,19 @@ fileApp = serve fileApi server
 mkApp :: IO()
 mkApp = do
    -- fsToDsHandshake
-    createDirectoryIfMissing True ("fileserver" ++ serverhost ++ ":" ++ serverport ++ "/")
-    setCurrentDirectory ("fileserver" ++ serverhost ++ ":" ++ serverport ++ "/")
+    createDirectoryIfMissing True ("fileserver" ++ fsserverhost ++ ":" ++ fsserverport ++ "/")
+    setCurrentDirectory ("fileserver" ++ fsserverhost ++ ":" ++ fsserverport ++ "/")
     putStrLn $ "Attempting to join directory server"
     manager <- newManager defaultManagerSettings
-    let fs = (FileServer (serverhost++serverport) serverhost serverport)
-    res <- runClientM (joinQuery fs) (ClientEnv manager (BaseUrl Http serverhost (read("7008") :: Int) ""))
+    let fs = (FileServer (fsserverhost++fsserverport) fsserverhost fsserverport)
+    res <- runClientM (joinQuery fs) (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
     case res of
        Left err -> putStrLn $ "Error: " ++ show err
-       Right response -> run (read (serverport) ::Int) fileApp 
+       Right response -> run (read (fsserverport) ::Int) fileApp 
 
 getFiles :: ApiHandler [FilePath]
 getFiles =
-  liftIO(getDirectoryContents ("../fileserver" ++ serverhost ++ ":" ++ serverport ++ "/"))
+  liftIO(getDirectoryContents ("../fileserver" ++ fsserverhost ++ ":" ++ fsserverport ++ "/"))
 
 downloadFile :: FilePath -> ApiHandler File
 downloadFile f = do    

@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-30 19:42:12.28214 UTC
+2017-01-24 17:04:52.202352 UTC
 
 interface main@main:Main 8001
-  interface hash: 7da8c162fa82ea5bc37dc480cd763cf5
-  ABI hash: c935e1e776a544f37b91b5b64b754065
-  export-list hash: bdb0194746a906c356eddf877c411de9
+  interface hash: 4dccd253e5f445b3b48eda5d40e6c465
+  ABI hash: 2075a7fb796b3f0c014147b3f49a1326
+  export-list hash: a47ed4e8a84ea9768ec50730c59fa3ee
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: ff77ed83ade2bf643bf24a469b2a2c5c
   sig of: Nothing
@@ -14,7 +14,8 @@ interface main@main:Main 8001
 exports:
   Main.main
 module dependencies:
-package dependencies: DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-22zsnFlpHNOkYoICSShQs
+package dependencies: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0
+                      DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-5Rdnpo9PWE48EGpO8CFOTj
                       MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov
                       aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz
                       appar-0.1.4@appar-0.1.4-1in4Ewd8JBkAYDZSWXLSe0
@@ -115,7 +116,9 @@ package dependencies: DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-22zsnFlpHN
                       warp-3.2.9@warp-3.2.9-1srGDEsq7RWF9RsucFj6bw
                       word8-0.1.2@word8-0.1.2-2E1SgvvAV2fK8vZPDHbRan
                       zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV
-orphans: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.Monad.Random
+orphans: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources
+         DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-5Rdnpo9PWE48EGpO8CFOTj:DirectoryServer
+         MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.Monad.Random
          aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson.Types.Generic
          aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson.Types.Instances
          attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.ByteString.Char8
@@ -139,7 +142,7 @@ orphans: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.
          unix-time-0.3.7@unix-time-0.3.7-HcxGsrnTmTlC98pyanzoMW:Data.UnixTime.Diff
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Fusion.Bundle
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
-family instance modules: DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-22zsnFlpHNOkYoICSShQs:DirectoryServer
+family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources
                          attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Internal.Types
                          base-4.9.0.0:Control.Applicative base-4.9.0.0:Data.Complex
                          base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Compose
@@ -192,8 +195,8 @@ family instance modules: DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-22zsnFl
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-22zsnFlpHNOkYoICSShQs:DirectoryServer 1896f4ecb8eec1124a799fc1f8ef0daa
-import  -/  DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-22zsnFlpHNOkYoICSShQs:Lib 14750336d6c93bd6505b92e89e3771f2
+import  -/  DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-5Rdnpo9PWE48EGpO8CFOTj:DirectoryServer 15e1fe479eafd1706d498779d7bd14da
+import  -/  DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-5Rdnpo9PWE48EGpO8CFOTj:Lib a398bf28b1ae1bb6e869c384245eabbf
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 d6831ef04cb9301b090dfae6f7bb7ec7
@@ -208,12 +211,12 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-bbd2eb641f0993106d8574350987e8ba
+12b65a4633255ccb778394b263f81675
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 DirectoryServer.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-f0c0bf0596e58807435ec4f3ae00648e
+97922a25fb27d5830eb70064a5e7fa02
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

@@ -7,6 +7,13 @@
   (major1) == 0 && (major2) <  1 || \
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 
+/* package CommonResources-0.1.0.0 */
+#define VERSION_CommonResources "0.1.0.0"
+#define MIN_VERSION_CommonResources(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  1 || \
+  (major1) == 0 && (major2) == 1 && (minor) <= 0)
+
 /* package aeson-0.11.2.1 */
 #define VERSION_aeson "0.11.2.1"
 #define MIN_VERSION_aeson(major1,major2,minor) (\
@@ -238,7 +245,7 @@
   (major1) == 2 && (major2) <  26 || \
   (major1) == 2 && (major2) == 26 && (minor) <= 0)
 
-#define CURRENT_COMPONENT_ID "LockingService-0.1.0.0-4WFufKZEePyAA91VpmgQYG"
+#define CURRENT_COMPONENT_ID "LockingService-0.1.0.0-7k0JqlEeWD7F2VFBzyPr5l"
 
-#define CURRENT_PACKAGE_KEY "LockingService-0.1.0.0-4WFufKZEePyAA91VpmgQYG"
+#define CURRENT_PACKAGE_KEY "LockingService-0.1.0.0-7k0JqlEeWD7F2VFBzyPr5l"
 

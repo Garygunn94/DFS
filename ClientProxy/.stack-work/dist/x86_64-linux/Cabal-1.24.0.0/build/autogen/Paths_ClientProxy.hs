@@ -29,11 +29,11 @@ version :: Version
 version = Version [0,1,0,0] []
 bindir, libdir, datadir, libexecdir, sysconfdir :: FilePath
 
-bindir     = "/home/ggunn/DFS/ClientProxy/.stack-work/install/x86_64-linux/lts-7.14/8.0.1/bin"
-libdir     = "/home/ggunn/DFS/ClientProxy/.stack-work/install/x86_64-linux/lts-7.14/8.0.1/lib/x86_64-linux-ghc-8.0.1/ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV3mIo"
-datadir    = "/home/ggunn/DFS/ClientProxy/.stack-work/install/x86_64-linux/lts-7.14/8.0.1/share/x86_64-linux-ghc-8.0.1/ClientProxy-0.1.0.0"
-libexecdir = "/home/ggunn/DFS/ClientProxy/.stack-work/install/x86_64-linux/lts-7.14/8.0.1/libexec"
-sysconfdir = "/home/ggunn/DFS/ClientProxy/.stack-work/install/x86_64-linux/lts-7.14/8.0.1/etc"
+bindir     = "/home/ggunn/DFS/ClientProxy/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/bin"
+libdir     = "/home/ggunn/DFS/ClientProxy/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/lib/x86_64-linux-ghc-8.0.1/ClientProxy-0.1.0.0-9BMPHdvJGz0CItnFcEqFG3"
+datadir    = "/home/ggunn/DFS/ClientProxy/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/share/x86_64-linux-ghc-8.0.1/ClientProxy-0.1.0.0"
+libexecdir = "/home/ggunn/DFS/ClientProxy/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/libexec"
+sysconfdir = "/home/ggunn/DFS/ClientProxy/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/etc"
 
 getBinDir, getLibDir, getDataDir, getLibexecDir, getSysconfDir :: IO FilePath
 getBinDir = catchIO (getEnv "ClientProxy_bindir") (\_ -> return bindir)

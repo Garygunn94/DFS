@@ -21,6 +21,12 @@ library
                      , servant-server
                      , servant-client
                      , aeson
+                     , CommonResources
+                     , cipher-aes
+                     , HsOpenSSL
+                     , bcrypt
+                     , RSA
+                     , DRBG
                      , directory  
                      , warp
                      , wai

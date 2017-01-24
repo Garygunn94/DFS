@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-31 19:13:08.444691 UTC
+2017-01-24 16:50:36.309973 UTC
 
 interface main@main:Main 8001
-  interface hash: f6017ad3ab438e87c65757fb24690bfc
-  ABI hash: ba21234c15bb58fe2a3ce9fd341d2dff
-  export-list hash: 814fe95bda235e2685f85d8db4e80ade
+  interface hash: 5bccad29012b421c2c027c7f293f0d81
+  ABI hash: 785db3437d8243c35ffcce4e613f9b6f
+  export-list hash: 1276489fa34e9a090d0c5975c41ecc2f
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: b3b251e3c9b409ef7881af8545b4529a
   sig of: Nothing
@@ -14,8 +14,9 @@ interface main@main:Main 8001
 exports:
   Main.main
 module dependencies:
-package dependencies: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV3mIo
-                      aeson-1.0.2.1@aeson-1.0.2.1-B1H7uvY9HnXH2BYsViQp5P
+package dependencies: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-9BMPHdvJGz0CItnFcEqFG3
+                      CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0
+                      aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz
                       appar-0.1.4@appar-0.1.4-1in4Ewd8JBkAYDZSWXLSe0
                       array-0.5.1.1@array-0.5.1.1
                       async-2.1.1@async-2.1.1-xFiBzw9xoB8HPZAuxUY2o
@@ -28,12 +29,11 @@ package dependencies: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV
                       blaze-builder-0.4.0.2@blaze-builder-0.4.0.2-KWDLbdBYSBoALiMW0LHIz1
                       blaze-html-0.8.1.3@blaze-html-0.8.1.3-8MBPJsFNBtBBD2gWERenva
                       blaze-markup-0.7.1.1@blaze-markup-0.7.1.1-IE161DWDHNXF9O8bBguli5
-                      bson-0.1.7@bson-0.1.7-EfO3lqdNpyP7R8trpQ6nyr
-                      bson-generic-0.0.6@bson-generic-0.0.6-30eJELZ6Ijc3ZMPnC8RdU
+                      bson-0.3.2.3@bson-0.3.2.3-3QA3aP5EtCyCltXUzEKOsQ
+                      bson-generic-0.0.8@bson-generic-0.0.8-DtORpoUHwQhDReLJ5Keop0
                       byteorder-1.0.4@byteorder-1.0.4-BbL4c17EpZrL9PcZm0xys9
                       bytestring-0.10.8.1@bytestring-0.10.8.1
                       case-insensitive-1.2.0.7@case-insensitive-1.2.0.7-FlqweN7AuKj9EdU2arVEt4
-                      compact-string-fix-0.3.2@compact-string-fix-0.3.2-DndIO7hdLRnH1KEjhXPArZ
                       containers-0.5.7.1@containers-0.5.7.1
                       cookie-0.4.2.1@cookie-0.4.2.1-2a2c54yIyBn79Ul3iLWclJ
                       cryptohash-0.11.9@cryptohash-0.11.9-9KNu0EEbreBFrmNJAeHgYz
@@ -49,7 +49,7 @@ package dependencies: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV
                       ghc-boot-th-8.0.1@ghc-boot-th-8.0.1 ghc-prim-0.5.0.0
                       hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G
                       hslogger-1.2.10@hslogger-1.2.10-6Ih3VN3QBbAJ6pLH6h3KNu
-                      http-api-data-0.3.3@http-api-data-0.3.3-CeBY15DYJGS8anNt5LiYPY
+                      http-api-data-0.3.2@http-api-data-0.3.2-A22DPUhAmUlrIoBZ4qkGB
                       http-client-0.4.31.2@http-client-0.4.31.2-81NyMkNcWWADaJ0Cq5FYRE
                       http-date-0.0.6.1@http-date-0.0.6.1-150spKQYCuoIrltdbMmYGs
                       http-media-0.6.4@http-media-0.6.4-82jDVCpdN5H696EFF5l5I4
@@ -75,9 +75,9 @@ package dependencies: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV
                       resourcet-1.1.8.1@resourcet-1.1.8.1-1XWaZ7RmVde330DM5PRI3Z
                       safe-0.3.10@safe-0.3.10-1VyrsjWhmjvGnGud5lgW7f
                       scientific-0.3.4.9@scientific-0.3.4.9-6oTYuCcx6H5BsTGU7D2Gk3
-                      servant-0.9.1.1@servant-0.9.1.1-4LXo6hv7OEC5tIMss7W4mt
-                      servant-client-0.9.1.1@servant-client-0.9.1.1-DPCtnUPlB0g8CzCM1DsRrI
-                      servant-server-0.9.1.1@servant-server-0.9.1.1-7a0QcnFdJF6EUxVibfIoOY
+                      servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1
+                      servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3
+                      servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd
                       simple-sendfile-0.2.25@simple-sendfile-0.2.25-FZS0Stqtwd5AOyFRQgM4IV
                       stm-2.4.4.1@stm-2.4.4.1-4z2NRWnB0NIIUvSJsHW0kF
                       streaming-commons-0.1.16@streaming-commons-0.1.16-KtRawhq8O97EWCabefpk66
@@ -99,19 +99,19 @@ package dependencies: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV
                       vault-0.3.0.6@vault-0.3.0.6-CA9Xj82tAPe9nD32xVMgDG
                       vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6
                       wai-3.2.1.1@wai-3.2.1.1-f77bMYZGLQBAD3XJrvGiW
-                      wai-app-static-3.1.6.1@wai-app-static-3.1.6.1-GJax7hU5KdjEndoBw4qvRB
+                      wai-app-static-3.1.6.1@wai-app-static-3.1.6.1-Y5BgITaOwCDdLFeUawo4r
                       wai-logger-2.3.0@wai-logger-2.3.0-IfusT8I9ees2102USHAF8e
                       warp-3.2.9@warp-3.2.9-1srGDEsq7RWF9RsucFj6bw
                       word8-0.1.2@word8-0.1.2-2E1SgvvAV2fK8vZPDHbRan
                       zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV
-orphans: attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.ByteString.Char8
+orphans: aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson.Types.Generic
+         aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson.Types.Instances
+         attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.ByteString.Char8
          attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Text.Internal
          base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
          binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
-         bson-0.1.7@bson-0.1.7-EfO3lqdNpyP7R8trpQ6nyr:Data.UString
-         bson-generic-0.0.6@bson-generic-0.0.6-30eJELZ6Ijc3ZMPnC8RdU:Data.Bson.Generic
+         bson-generic-0.0.8@bson-generic-0.0.8-DtORpoUHwQhDReLJ5Keop0:Data.Bson.Generic
          bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
-         compact-string-fix-0.3.2@compact-string-fix-0.3.2-DndIO7hdLRnH1KEjhXPArZ:Data.CompactString
          hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G:Data.Hashable.Generic
          http-client-0.4.31.2@http-client-0.4.31.2-81NyMkNcWWADaJ0Cq5FYRE:Network.HTTP.Client.Request
          network-2.6.3.1@network-2.6.3.1-G4Up1CPKbp7DeFsnywOnGG:Network.Socket
@@ -126,18 +126,18 @@ orphans: attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Att
          unix-time-0.3.7@unix-time-0.3.7-HcxGsrnTmTlC98pyanzoMW:Data.UnixTime.Diff
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Fusion.Bundle
          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
-family instance modules: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV3mIo:ClientProxyApi
+family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources
                          attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Internal.Types
                          base-4.9.0.0:Control.Applicative base-4.9.0.0:Data.Complex
                          base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Compose
                          base-4.9.0.0:Data.Functor.Const base-4.9.0.0:Data.Functor.Identity
-                         base-4.9.0.0:Data.Functor.Product base-4.9.0.0:Data.Functor.Sum
-                         base-4.9.0.0:Data.List.NonEmpty base-4.9.0.0:Data.Monoid
-                         base-4.9.0.0:Data.Semigroup base-4.9.0.0:Data.Type.Equality
-                         base-4.9.0.0:Data.Version base-4.9.0.0:Data.Void
-                         base-4.9.0.0:GHC.Exts base-4.9.0.0:GHC.Generics
-                         base-4.9.0.0:GHC.IO.Exception base-4.9.0.0:GHC.TypeLits
-                         bson-generic-0.0.6@bson-generic-0.0.6-30eJELZ6Ijc3ZMPnC8RdU:Data.Bson.Generic
+                         base-4.9.0.0:Data.Functor.Product base-4.9.0.0:Data.List.NonEmpty
+                         base-4.9.0.0:Data.Monoid base-4.9.0.0:Data.Semigroup
+                         base-4.9.0.0:Data.Type.Equality base-4.9.0.0:Data.Version
+                         base-4.9.0.0:Data.Void base-4.9.0.0:GHC.Exts
+                         base-4.9.0.0:GHC.Generics base-4.9.0.0:GHC.IO.Exception
+                         base-4.9.0.0:GHC.TypeLits
+                         bson-generic-0.0.8@bson-generic-0.0.8-DtORpoUHwQhDReLJ5Keop0:Data.Bson.Generic
                          containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
                          containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
                          containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
@@ -145,7 +145,7 @@ family instance modules: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3U
                          containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
                          dlist-0.8.0.2@dlist-0.8.0.2-GWAMmbX9rLg3tqrbOizHGv:Data.DList
                          ghc-boot-th-8.0.1@ghc-boot-th-8.0.1:GHC.LanguageExtensions.Type
-                         http-api-data-0.3.3@http-api-data-0.3.3-CeBY15DYJGS8anNt5LiYPY:Web.Internal.FormUrlEncoded
+                         http-api-data-0.3.2@http-api-data-0.3.2-A22DPUhAmUlrIoBZ4qkGB:Web.Internal.FormUrlEncoded
                          http-client-0.4.31.2@http-client-0.4.31.2-81NyMkNcWWADaJ0Cq5FYRE:Network.HTTP.Client
                          iproute-1.7.1@iproute-1.7.1-9hsGfRvggCmFA0ueZi5Sd9:Data.IP.Addr
                          iproute-1.7.1@iproute-1.7.1-9hsGfRvggCmFA0ueZi5Sd9:Data.IP.Range
@@ -155,15 +155,15 @@ family instance modules: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3U
                          pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
                          primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa:Control.Monad.Primitive
                          resourcet-1.1.8.1@resourcet-1.1.8.1-1XWaZ7RmVde330DM5PRI3Z:Control.Monad.Trans.Resource.Internal
-                         servant-0.9.1.1@servant-0.9.1.1-4LXo6hv7OEC5tIMss7W4mt:Servant.API.ContentTypes
-                         servant-0.9.1.1@servant-0.9.1.1-4LXo6hv7OEC5tIMss7W4mt:Servant.API.IsSecure
-                         servant-0.9.1.1@servant-0.9.1.1-4LXo6hv7OEC5tIMss7W4mt:Servant.API.Verbs
-                         servant-0.9.1.1@servant-0.9.1.1-4LXo6hv7OEC5tIMss7W4mt:Servant.Utils.Links
-                         servant-client-0.9.1.1@servant-client-0.9.1.1-DPCtnUPlB0g8CzCM1DsRrI:Servant.Client
-                         servant-client-0.9.1.1@servant-client-0.9.1.1-DPCtnUPlB0g8CzCM1DsRrI:Servant.Common.BaseUrl
-                         servant-client-0.9.1.1@servant-client-0.9.1.1-DPCtnUPlB0g8CzCM1DsRrI:Servant.Common.Req
-                         servant-server-0.9.1.1@servant-server-0.9.1.1-7a0QcnFdJF6EUxVibfIoOY:Servant.Server.Internal
-                         servant-server-0.9.1.1@servant-server-0.9.1.1-7a0QcnFdJF6EUxVibfIoOY:Servant.Server.Internal.BasicAuth
+                         servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.ContentTypes
+                         servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.IsSecure
+                         servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.Verbs
+                         servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.Utils.Links
+                         servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3:Servant.Client
+                         servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3:Servant.Common.BaseUrl
+                         servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3:Servant.Common.Req
+                         servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd:Servant.Server.Internal
+                         servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd:Servant.Server.Internal.BasicAuth
                          tagged-0.8.5@tagged-0.8.5-CtgV6EcN0do8F92i1S6iYx:Data.Tagged
                          template-haskell-2.11.0.0:Language.Haskell.TH.Syntax
                          text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text
@@ -179,8 +179,8 @@ family instance modules: ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3U
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV3mIo:ClientProxyApi d21f3e6d271f9eafe486ce2cf655dd0c
-import  -/  ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-3QL8PIu2wS0IX3UFcV3mIo:Lib 0964792235d78821b060e37ba7cb595b
+import  -/  ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-9BMPHdvJGz0CItnFcEqFG3:ClientProxyApi fe669e3c714d2741fd27bf324ad391c6
+import  -/  ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-9BMPHdvJGz0CItnFcEqFG3:Lib be89e612f5ab2214befbf9bb2a9445ce
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 d6831ef04cb9301b090dfae6f7bb7ec7
@@ -195,14 +195,14 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-f8b53fa6c3b8a1cc6579687ddea71ef9
+d620f9eaf5d6dc8f53b251b18b0a64c0
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 ClientProxyApi.mainClient1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-9192682064ddde66084fb23998c9a13a
+10bcb3129392aa63fda9cf827ba3f653
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

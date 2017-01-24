@@ -30,7 +30,7 @@ version = Version [0,1,0,0] []
 bindir, libdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "/home/ggunn/DFS/LockingService/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/bin"
-libdir     = "/home/ggunn/DFS/LockingService/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/lib/x86_64-linux-ghc-8.0.1/LockingService-0.1.0.0-4WFufKZEePyAA91VpmgQYG"
+libdir     = "/home/ggunn/DFS/LockingService/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/lib/x86_64-linux-ghc-8.0.1/LockingService-0.1.0.0-7k0JqlEeWD7F2VFBzyPr5l"
 datadir    = "/home/ggunn/DFS/LockingService/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/share/x86_64-linux-ghc-8.0.1/LockingService-0.1.0.0"
 libexecdir = "/home/ggunn/DFS/LockingService/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/libexec"
 sysconfdir = "/home/ggunn/DFS/LockingService/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/etc"

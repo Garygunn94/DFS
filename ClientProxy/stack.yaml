@@ -2,14 +2,15 @@ flags: {}
 extra-package-dbs: []
 packages:
 - '.'
+- ./../CommonResources
+- location:
+    git: https://github.com/Palmik/bson-generic.git
+    commit: e078def65d0dee1ea7e3205f445e47d5937851f3
 extra-deps:
-- aeson-1.0.2.1
-- bson-0.1.7
-- bson-generic-0.0.6
+- bson-mapping-0.1.4.1
 - compact-string-fix-0.3.2
-- http-api-data-0.3.3
-- mongoDB-1.2.0
+- http-api-data-0.3.2
 - servant-0.9.1.1
 - servant-client-0.9.1.1
 - servant-server-0.9.1.1
-resolver: lts-7.14
+resolver: lts-7.13

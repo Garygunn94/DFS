@@ -7,6 +7,34 @@
   (major1) == 0 && (major2) <  1 || \
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 
+/* package CommonResources-0.1.0.0 */
+#define VERSION_CommonResources "0.1.0.0"
+#define MIN_VERSION_CommonResources(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  1 || \
+  (major1) == 0 && (major2) == 1 && (minor) <= 0)
+
+/* package DRBG-0.5.5 */
+#define VERSION_DRBG "0.5.5"
+#define MIN_VERSION_DRBG(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  5 || \
+  (major1) == 0 && (major2) == 5 && (minor) <= 5)
+
+/* package HsOpenSSL-0.11.3.2 */
+#define VERSION_HsOpenSSL "0.11.3.2"
+#define MIN_VERSION_HsOpenSSL(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  11 || \
+  (major1) == 0 && (major2) == 11 && (minor) <= 3)
+
+/* package RSA-2.2.0 */
+#define VERSION_RSA "2.2.0"
+#define MIN_VERSION_RSA(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  2 || \
+  (major1) == 2 && (major2) == 2 && (minor) <= 0)
+
 /* package aeson-0.11.2.1 */
 #define VERSION_aeson "0.11.2.1"
 #define MIN_VERSION_aeson(major1,major2,minor) (\
@@ -20,6 +48,13 @@
   (major1) <  4 || \
   (major1) == 4 && (major2) <  9 || \
   (major1) == 4 && (major2) == 9 && (minor) <= 0)
+
+/* package bcrypt-0.0.10 */
+#define VERSION_bcrypt "0.0.10"
+#define MIN_VERSION_bcrypt(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  0 || \
+  (major1) == 0 && (major2) == 0 && (minor) <= 10)
 
 /* package bson-0.3.2.3 */
 #define VERSION_bson "0.3.2.3"
@@ -41,6 +76,13 @@
   (major1) <  0 || \
   (major1) == 0 && (major2) <  10 || \
   (major1) == 0 && (major2) == 10 && (minor) <= 8)
+
+/* package cipher-aes-0.2.11 */
+#define VERSION_cipher_aes "0.2.11"
+#define MIN_VERSION_cipher_aes(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  2 || \
+  (major1) == 0 && (major2) == 2 && (minor) <= 11)
 
 /* package directory-1.2.6.2 */
 #define VERSION_directory "1.2.6.2"
@@ -259,7 +301,7 @@
   (major1) == 2 && (major2) <  26 || \
   (major1) == 2 && (major2) == 26 && (minor) <= 0)
 
-#define CURRENT_COMPONENT_ID "AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl"
+#define CURRENT_COMPONENT_ID "AuthServer-0.1.0.0-HUsbF5losB5ICY0RhRwEou"
 
-#define CURRENT_PACKAGE_KEY "AuthServer-0.1.0.0-4BtoUs0xefd93VEMEB71sl"
+#define CURRENT_PACKAGE_KEY "AuthServer-0.1.0.0-HUsbF5losB5ICY0RhRwEou"
 

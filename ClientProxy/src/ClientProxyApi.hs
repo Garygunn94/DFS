@@ -42,41 +42,8 @@ import              Control.Monad (when)
 import              Network.HTTP.Client (newManager, defaultManagerSettings)
 import              System.Process
 import              LRUCache as C
+import              CommonResources
 
-data File = File { 
-    fileName :: FilePath, 
-    fileContent :: String 
-} deriving (Eq, Show, Generic)
-
-instance ToJSON File
-instance FromJSON File
-
-data Response = Response{
-  response :: String
-} deriving (Eq, Show, Generic)
-
-instance ToJSON Response
-instance FromJSON Response
-
-data User = User{
-    uusername :: String,
-    upassword :: String,
-  timeout :: String,
-  token :: String
-} deriving (Eq, Show, Generic)
-instance ToJSON User
-instance FromJSON User
-instance ToBSON User
-instance FromBSON User
-
-data Signin = Signin{
-  susername :: String,
-  spassword :: String
-} deriving (Eq, Show, Generic)
-instance ToJSON Signin
-instance FromJSON Signin
-instance ToBSON Signin
-instance FromBSON Signin
 
 type ApiHandler = ExceptT ServantErr IO
 
@@ -86,11 +53,6 @@ serverport = "8080"
 serverhost :: String
 serverhost = "localhost"
 
-type AuthApi = 
-    "signin" :> ReqBody '[JSON] Signin :> Post '[JSON] User :<|>
-    "register" :> ReqBody '[JSON] Signin :> Post '[JSON] Response  :<|>
-    "isvalid" :> ReqBody '[JSON] User :> Post '[JSON] Response :<|>
-    "extend" :> ReqBody '[JSON] User :> Post '[JSON] Response
 
 authApi :: Proxy AuthApi
 authApi = Proxy
@@ -123,20 +85,15 @@ extendQuery extenddetails = do
   return extendquery
 
 
-type DirectoryApi = 
-    "open" :> Capture "fileName" String :> Get '[JSON] File :<|>
-    "close" :> ReqBody '[JSON] File :> Post '[JSON] Response :<|>
-    "allfiles" :> Get '[JSON] [String]
-
 directoryApi :: Proxy DirectoryApi
 directoryApi = Proxy
 
-
+join :: FileServer -> ClientM Response
 open :: String -> ClientM File
 close :: File -> ClientM Response
 allfiles :: ClientM [String]
 
-open :<|> close :<|> allfiles = client directoryApi
+join :<|> open :<|> close :<|> allfiles = client directoryApi
 
 openQuery:: String -> ClientM File
 openQuery filename = do
@@ -148,10 +105,6 @@ closeQuery file = do
 	closequery <- close file
 	return closequery
 
-type LockingApi = 
-    "lock" :> Capture "fileName" String :> Get '[JSON] Bool :<|>
-    "unlock" :> Capture "fileName" String :> Get '[JSON] Bool :<|>
-    "islocked" :> Capture "fileName" String :> Get '[JSON] Bool
 
 lockingApi :: Proxy LockingApi
 lockingApi = Proxy
@@ -199,7 +152,7 @@ authlogin = do
   password <- getLine
   let user = (Signin username password)
   manager <- newManager defaultManagerSettings
-  res <- runClientM (signinQuery user) (ClientEnv manager (BaseUrl Http "localhost" 8082 ""))
+  res <- runClientM (signinQuery user) (ClientEnv manager (BaseUrl Http authserverhost (read(authserverport) :: Int) ""))
   case res of
    Left err -> do putStrLn $ "Error: " ++ show err
                   authpart
@@ -215,7 +168,7 @@ authregister = do
   password <- getLine
   let user = (Signin username password)
   manager <- newManager defaultManagerSettings
-  res <- runClientM (registerQuery user) (ClientEnv manager (BaseUrl Http "localhost" 8082 ""))
+  res <- runClientM (registerQuery user) (ClientEnv manager (BaseUrl Http authserverhost (read(authserverport) :: Int) ""))
   case res of
    Left err -> do putStrLn $ "Error: " ++ show err
                   authpart
@@ -238,7 +191,7 @@ displayFiles user cache = do
   putStrLn "Fetching file list. Please wait."
   isTokenValid user
   manager <- newManager defaultManagerSettings
-  res <- runClientM allfiles (ClientEnv manager (BaseUrl Http "localhost" 7008 ""))
+  res <- runClientM allfiles (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
   case res of
    Left err -> putStrLn $ "Error: " ++ show err
    Right response -> do extendToken user
@@ -286,7 +239,7 @@ downloadFile user cache = do
 isTokenValid :: User -> IO()
 isTokenValid user = do
   manager <- newManager defaultManagerSettings
-  res <- runClientM (isvalidQuery user) (ClientEnv manager (BaseUrl Http "localhost" 8082 ""))
+  res <- runClientM (isvalidQuery user) (ClientEnv manager (BaseUrl Http authserverhost (read(authserverport) :: Int) ""))
   case res of
    Left err -> putStrLn $ "Error: " ++ show err
    Right responser -> do case (response responser) of
@@ -297,7 +250,7 @@ isTokenValid user = do
 extendToken :: User -> IO()
 extendToken user = do
   manager <- newManager defaultManagerSettings
-  res <- runClientM (extendQuery user) (ClientEnv manager (BaseUrl Http "localhost" 8082 ""))
+  res <- runClientM (extendQuery user) (ClientEnv manager (BaseUrl Http authserverhost (read(authserverport) :: Int) ""))
   case res of
    Left err -> putStrLn $ "Error: " ++ show err
    Right response -> return()
@@ -310,7 +263,7 @@ getFile filename user cache = do
   case locksuccess of
     True -> do
              manager <- newManager defaultManagerSettings
-             res <- runClientM (openQuery filename) (ClientEnv manager (BaseUrl Http "localhost" 7008 ""))
+             res <- runClientM (openQuery filename) (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
              case res of
               Left err -> putStrLn $ "Error: " ++ show err
                           
@@ -341,7 +294,7 @@ putFile file user cache = do
   locksuccess <- lockFile (fileName file)
   case locksuccess of
     True -> do manager <- newManager defaultManagerSettings
-               res <- runClientM (closeQuery file) (ClientEnv manager (BaseUrl Http "localhost" 7008 ""))
+               res <- runClientM (closeQuery file) (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
                case res of
                  Left err -> putStrLn $ "Error: " ++ show err
                           
@@ -361,14 +314,14 @@ putFile file user cache = do
 lockFile :: String -> IO Bool
 lockFile fName = do 
   manager <- newManager defaultManagerSettings
-  res <- runClientM (islockedQuery fName) (ClientEnv manager (BaseUrl Http "localhost" 8000 ""))
+  res <- runClientM (islockedQuery fName) (ClientEnv manager (BaseUrl Http lockserverhost (read(lockserverport) :: Int) ""))
   case res of
    Left err -> do putStrLn $ "Error: " ++ show err
                   return False
                           
    Right responser -> do case responser of
                            True -> return False
-                           False -> do res <- runClientM (lockQuery fName) (ClientEnv manager (BaseUrl Http "localhost" 8000 ""))
+                           False -> do res <- runClientM (lockQuery fName) (ClientEnv manager (BaseUrl Http lockserverhost (read(lockserverport) :: Int) ""))
                                        case res of
                                           Left err ->do putStrLn $ "Error: " ++ show err
                                                         return False
