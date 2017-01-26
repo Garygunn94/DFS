@@ -42,7 +42,7 @@ import              Control.Monad (when)
 import              Network.HTTP.Client (newManager, defaultManagerSettings)
 import              System.Process
 import              LRUCache as C
-import              CommonResources
+import CommonResources
 
 
 type ApiHandler = ExceptT ServantErr IO
@@ -57,14 +57,12 @@ serverhost = "localhost"
 authApi :: Proxy AuthApi
 authApi = Proxy
 
-signin :: Signin -> ClientM User
+signin :: Signin -> ClientM Session
 register :: Signin -> ClientM Response
-isvalid :: User -> ClientM Response
-extend :: User -> ClientM Response
 
-signin :<|> register :<|> isvalid :<|> extend = client authApi
+signin :<|> register = client authApi
 
-signinQuery :: Signin -> ClientM User
+signinQuery :: Signin -> ClientM Session
 signinQuery signindetails = do
   signinquery <- signin signindetails
   return signinquery
@@ -74,37 +72,20 @@ registerQuery registerdetails = do
   registerquery <- register registerdetails
   return registerquery
 
-isvalidQuery :: User -> ClientM Response
-isvalidQuery isvaliddetails = do
-  isvalidquery <- isvalid isvaliddetails
-  return isvalidquery
-
-extendQuery :: User -> ClientM Response
-extendQuery extenddetails = do
-  extendquery <- extend extenddetails
-  return extendquery
-
-
 directoryApi :: Proxy DirectoryApi
 directoryApi = Proxy
 
 join :: FileServer -> ClientM Response
-open :: String -> ClientM File
-close :: File -> ClientM Response
-allfiles :: ClientM [String]
+open :: FileName -> ClientM File
+close :: FileUpload -> ClientM Response
+allfiles :: Ticket -> ClientM [String]
 
 join :<|> open :<|> close :<|> allfiles = client directoryApi
 
-openQuery:: String -> ClientM File
+openQuery:: FileName -> ClientM File
 openQuery filename = do
 	openquery <- open filename
 	return openquery
-
-closeQuery:: File -> ClientM Response
-closeQuery file = do
-	closequery <- close file
-	return closequery
-
 
 lockingApi :: Proxy LockingApi
 lockingApi = Proxy
@@ -150,14 +131,25 @@ authlogin = do
   username <- getLine
   putStrLn $ "Enter your password"
   password <- getLine
-  let user = (Signin username password)
+  let encryptedUname = encryptDecrypt password username
+  let user = (Signin username encryptedUname)
   manager <- newManager defaultManagerSettings
   res <- runClientM (signinQuery user) (ClientEnv manager (BaseUrl Http authserverhost (read(authserverport) :: Int) ""))
   case res of
    Left err -> do putStrLn $ "Error: " ++ show err
                   authpart
-   Right response -> do cache <- C.newHandle 5 
-                        mainloop response cache
+   Right response -> do 
+    let (Session encryptedTicket encryptedSessionKey encryptedTimeout) = response
+    case encryptedTicket of
+      "Failed" -> do
+        logMessage True ("Could not login user")
+        authpart
+      _ -> do
+        logMessage True ("Client Login Successful")
+        let decryptedTicket = encryptDecrypt password encryptedTicket
+        let decryptedSessionKey = encryptDecrypt password encryptedSessionKey
+        cache <- C.newHandle 5 
+        mainloop (Session decryptedTicket decryptedSessionKey encryptedTimeout) cache
 
 authregister :: IO ()
 authregister = do
@@ -174,32 +166,32 @@ authregister = do
                   authpart
    Right response -> authpart
 
-mainloop :: User -> (C.Handle String String) -> IO()
-mainloop user cache = do
+mainloop :: Session -> (C.Handle String String) -> IO()
+mainloop session cache = do
     putStrLn $ "Enter one of the following commands: FILES/UPLOAD/DOWNLOAD/CLOSE"
     cmd <- getLine
     case cmd of
-        "FILES" -> displayFiles user cache
-        "UPLOAD" -> uploadFile user cache
-        "DOWNLOAD" -> downloadFile user cache
+        "FILES" -> displayFiles session cache
+        "UPLOAD" -> uploadFile session cache
+        "DOWNLOAD" -> downloadFile session cache
         "CLOSE" -> putStrLn $ "Closing service!"
         _ -> do putStrLn $ "Invalid Command. Try Again"
-                mainloop user cache
+                mainloop session cache
 
-displayFiles :: User -> (C.Handle String String) -> IO()
-displayFiles user cache = do
+displayFiles :: Session -> (C.Handle String String) -> IO()
+displayFiles session@(Session ticket sessionKey encryptedTimeout) cache = do
   putStrLn "Fetching file list. Please wait."
-  isTokenValid user
   manager <- newManager defaultManagerSettings
-  res <- runClientM allfiles (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
+  res <- runClientM (allfiles (Ticket ticket encryptedTimeout)) (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
   case res of
    Left err -> putStrLn $ "Error: " ++ show err
-   Right response -> do extendToken user
-                        mapM putStrLn response
-                        mainloop user cache
+   Right fileEncrypt -> do 
+    let decryptedFiles = encryptDecryptArray sessionKey fileEncrypt
+    mapM putStrLn decryptedFiles
+    mainloop session cache
 
-uploadFile :: User -> (C.Handle String String) -> IO()
-uploadFile user cache = do
+uploadFile :: Session -> (C.Handle String String) -> IO()
+uploadFile session@(Session ticket sessionKey encryptedTimeout) cache = do
     putStrLn "Please enter the name of the file to upload"
     fileName <- getLine
     let cmd = shell ("vim " ++ fileName)
@@ -207,19 +199,55 @@ uploadFile user cache = do
     putStrLn $ "Hit enter when youre finished"
     enter <- getLine
     fileContent <- readFile fileName
-    let file = File fileName fileContent
-    response <- putFile file user cache
-    putStrLn $  "Response: " ++ show response
-    mainloop user cache
+    let encryptedFN = encryptDecrypt sessionKey fileName
+    let encryptedFC = encryptDecrypt sessionKey fileContent
+    manager <- newManager defaultManagerSettings
+    res <- runClientM (close (FileUpload ticket encryptedTimeout (File encryptedFN encryptedFC))) (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
+    case res of
+      Left err -> putStrLn $ "Error: " ++ show err
+      Right (uploadResponse@(Response encryptedResponse)) -> do
+        C.ioinsert cache (fileName) (fileContent)
+        let decryptResponse = encryptDecrypt sessionKey encryptedResponse
+        putStrLn decryptResponse
+        mainloop session cache
 
 
-downloadFile :: User -> (C.Handle String String) -> IO()
-downloadFile user cache = do
+downloadFile :: Session -> (C.Handle String String) -> IO()
+downloadFile session@(Session ticket sessionKey encryptedTimeout) cache = do
   putStrLn "Please enter the name of the file to download"
   fileName <- getLine
   incache <- C.iolookup cache fileName
   case incache of
-    (Nothing) -> getFile fileName user cache
+    (Nothing) -> do
+      manager <- newManager defaultManagerSettings
+      res <- runClientM (openQuery (FileName ticket encryptedTimeout (encryptDecrypt sessionKey fileName))) (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
+      case res of
+        Left err -> putStrLn $ "Error: " ++ show err                 
+        Right response -> do 
+          let decryptedFC = encryptDecrypt sessionKey (fileContent response)
+          C.ioinsert cache fileName decryptedFC 
+          liftIO (writeFile fileName decryptedFC)
+          let cmd = shell ("vim " ++ fileName)
+          createProcess_ "vim" cmd
+          putStrLn $ "When finished please press Enter"
+          yesorno <- getLine
+          putStrLn $ "Would you like to upload your changes? y/n"
+          sure <- getLine
+          case sure of
+            ("y") -> do 
+              fileContent <- readFile fileName
+              let file = File (encryptDecrypt sessionKey fileName) (encryptDecrypt sessionKey fileContent)
+              manager <- newManager defaultManagerSettings
+              res <- runClientM (close (FileUpload ticket encryptedTimeout file)) (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
+              case res of
+                Left err -> putStrLn $ "Error: " ++ show err
+                Right (uploadResponse@(Response encryptedResponse)) -> do
+                  C.ioinsert cache (fileName) (fileContent)
+                  let decryptResponse = encryptDecrypt sessionKey encryptedResponse
+                  putStrLn decryptResponse
+                  mainloop session cache
+            (_) -> do 
+              mainloop session cache
     (Just v) -> do putStrLn $ "Cache hit"
                    liftIO (writeFile (fileName) v)
                    let cmd = shell ("vim " ++ fileName)
@@ -230,13 +258,21 @@ downloadFile user cache = do
                    sure <- getLine
                    fileContent <- readFile (fileName)
                    case sure of
-                     ("y") -> do let file = File fileName fileContent
-                                 putFile file user cache
-                                 mainloop user cache
-                     (_) -> mainloop user cache
-  mainloop user cache
+                    ("y") -> do
+                      let file = File (encryptDecrypt sessionKey fileName) (encryptDecrypt sessionKey fileContent)
+                      manager <- newManager defaultManagerSettings
+                      res <- runClientM (close (FileUpload ticket encryptedTimeout file)) (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
+                      case res of
+                        Left err -> putStrLn $ "Error: " ++ show err
+                        Right (uploadResponse@(Response encryptedResponse)) -> do
+                          C.ioinsert cache (fileName) (fileContent)
+                          let decryptResponse = encryptDecrypt sessionKey encryptedResponse
+                          putStrLn decryptResponse
+                          mainloop session cache
+                    (_) -> mainloop session cache
+  mainloop session cache
 
-isTokenValid :: User -> IO()
+{-isTokenValid :: User -> IO()
 isTokenValid user = do
   manager <- newManager defaultManagerSettings
   res <- runClientM (isvalidQuery user) (ClientEnv manager (BaseUrl Http authserverhost (read(authserverport) :: Int) ""))
@@ -254,10 +290,10 @@ extendToken user = do
   case res of
    Left err -> putStrLn $ "Error: " ++ show err
    Right response -> return()
+-}
 
-
-getFile:: String -> User -> (C.Handle String String) -> IO()
-getFile filename user cache = do
+{-getFile:: String -> Session -> (C.Handle String String) -> IO()
+getFile filename session cache = do
   isTokenValid user
   locksuccess <- lockFile filename
   case locksuccess of
@@ -286,9 +322,9 @@ getFile filename user cache = do
                                                     mainloop user cache
                                            
     False -> putStrLn $ "Unable to lock file " ++ filename ++ ". Perhaps another user is using it."
-
+-}
                                     
-putFile:: File -> User-> (C.Handle String String) -> IO ()
+{-putFile:: File -> User-> (C.Handle String String) -> IO ()
 putFile file user cache = do
   isTokenValid user
   locksuccess <- lockFile (fileName file)
@@ -310,7 +346,7 @@ putFile file user cache = do
 
     False -> putStrLn $ "Unable to lock file " ++ (fileName file) ++ ". Perhaps another user is using it."
 
-
+-}
 lockFile :: String -> IO Bool
 lockFile fName = do 
   manager <- newManager defaultManagerSettings

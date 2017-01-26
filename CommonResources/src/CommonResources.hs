@@ -44,20 +44,20 @@ lockserverhost = "localhost"
 
 type DirectoryApi = 
     "join" :> ReqBody '[JSON] FileServer :> Post '[JSON] Response :<|>
-    "open" :> Capture "fileName" String :> Get '[JSON] File :<|>
-    "close" :> ReqBody '[JSON] File :> Post '[JSON] Response :<|>
-    "allfiles" :> Get '[JSON] [String]
+    "open" :> ReqBody '[JSON] FileName :> Post '[JSON] File :<|>
+    "close" :> ReqBody '[JSON] FileUpload :> Post '[JSON] Response :<|>
+    "allfiles" :> ReqBody '[JSON] Ticket :> Post '[JSON] [String]
 
 type AuthApi = 
-    "signin" :> ReqBody '[JSON] Signin :> Post '[JSON] User :<|>
-    "register" :> ReqBody '[JSON] Signin :> Post '[JSON] Response  :<|>
-    "isvalid" :> ReqBody '[JSON] User :> Post '[JSON] Response :<|>
-    "extend" :> ReqBody '[JSON] User :> Post '[JSON] Response
+    "signin" :> ReqBody '[JSON] Signin :> Post '[JSON] Session :<|>
+    "register" :> ReqBody '[JSON] Signin :> Post '[JSON] Response
+   {-} "isvalid" :> ReqBody '[JSON] User :> Post '[JSON] Response :<|>
+    "extend" :> ReqBody '[JSON] User :> Post '[JSON] Response-}
 
 type FileApi = 
     "files" :> Get '[JSON] [FilePath] :<|>
-    "download" :> Capture "fileName" String :> Get '[JSON] File :<|>
-    "upload" :> ReqBody '[JSON] File :> Post '[JSON] Response
+    "download" :> ReqBody '[JSON] FileName :> Post '[JSON] File :<|>
+    "upload" :> ReqBody '[JSON] FileUpload :> Post '[JSON] Response
 
 type LockingApi = 
     "lock" :> Capture "fileName" String :> Get '[JSON] Bool :<|>
@@ -68,6 +68,18 @@ data File = File {
     fileName :: FilePath, 
     fileContent :: String 
 } deriving (Eq, Show, Generic, ToJSON, FromJSON)
+
+data FileUpload = FileUpload {
+ futicket :: String,
+ encTimeout :: String,
+ encryptedFile :: File
+} deriving (Show, Generic, FromJSON, ToJSON)
+
+data FileName = FileName {
+    fnticket :: String,
+    fnencryptedTimeout :: String,
+    encryptedFN :: String
+} deriving (Show, Generic, FromJSON, ToJSON)
 
 data Response = Response{
   response :: String
@@ -91,18 +103,26 @@ data Lock = Lock{
 	locked :: Bool
 } deriving(Eq, Show, Generic, ToBSON, FromBSON)
 
-data User = User{
-    uusername :: String,
-    upassword :: String,
-	timeout :: String,
-	token :: String
+data Account = Account{
+    username :: String,
+    password :: String
+} deriving (Show, Generic, FromJSON, ToJSON, FromBSON, ToBSON)
+
+data Session = Session{
+    encryptedTicket :: String,
+    encryptedSessionKey :: String,
+	encryptedTokenTimeout :: String
 } deriving (Eq, Show, Generic, ToJSON, FromJSON, ToBSON, FromBSON)
 
 data Signin = Signin{
 	susername :: String,
-	spassword :: String
+	sencryptedMsg :: String
 } deriving (Eq, Show, Generic, ToJSON, FromJSON, ToBSON, FromBSON)
 
+data Ticket = Ticket{
+    ticket :: String,
+    encryptedTimeout :: String
+} deriving (Eq, Show, Generic, ToJSON, FromJSON, ToBSON, FromBSON)
 deriving instance FromBSON String  -- we need these as BSON does not provide
 deriving instance ToBSON   String
 
@@ -134,3 +154,11 @@ encryptDecryptArray :: String -> [String] -> [String]
 encryptDecryptArray key array = do
   encryptedArray <- map (encryptDecrypt key) array
   return encryptedArray
+
+logMessage :: Bool -> String -> IO()
+logMessage logBool message = do
+  if(logBool) then putStrLn message
+  else return ()
+
+sharedSecret :: String
+sharedSecret = "Maybe I'll complete this project one day"

@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-24 17:19:50.580764 UTC
+2017-01-26 17:24:09.948205 UTC
 
 interface main@main:Main 8001
-  interface hash: 78380f40a23ed5a5a6f4a62e70af260f
-  ABI hash: 305f28994447ee0680c8a0262d008b26
-  export-list hash: df0f0497445189874ea1d98ed234d387
+  interface hash: e6851ba721f6b5f5cf11eb5798e5bc34
+  ABI hash: 8fdaeca0cecfd4c0f206fb9d73a8ebc8
+  export-list hash: 434c9335826588b199ec0c336b2b4250
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 843d1844531e2000602023ea0a6e6e2e
   sig of: Nothing
@@ -15,7 +15,7 @@ exports:
   Main.main
 module dependencies:
 package dependencies: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0
-                      FileServer-0.1.0.0@FileServer-0.1.0.0-8jV6BzPccPzFcim4wMuHP9
+                      FileServer-0.1.0.0@FileServer-0.1.0.0-2xQQWPr9p7nWBP1v47ULz
                       aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz
                       appar-0.1.4@appar-0.1.4-1in4Ewd8JBkAYDZSWXLSe0
                       array-0.5.1.1@array-0.5.1.1
@@ -164,7 +164,7 @@ family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  FileServer-0.1.0.0@FileServer-0.1.0.0-8jV6BzPccPzFcim4wMuHP9:FileServer b9af89a32df787f2a64ac895333ca69f
+import  -/  FileServer-0.1.0.0@FileServer-0.1.0.0-2xQQWPr9p7nWBP1v47ULz:FileServer 5739d0306708dda326a7ad02c1fc2e0c
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 d6831ef04cb9301b090dfae6f7bb7ec7
@@ -179,12 +179,12 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-ff8efdf1c19e1e9019366419dbde1515
+9a05db86ab77877bac9b89fbfaafdedc
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 FileServer.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-ee51edcfd56a6a75685335ef71af4406
+d317c1b42aeb18b30408a113ddeccb8c
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

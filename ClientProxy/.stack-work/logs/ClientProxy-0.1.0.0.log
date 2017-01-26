@@ -3,7 +3,7 @@ Preprocessing library ClientProxy-0.1.0.0...
 [3 of 3] Compiling ClientProxyApi   ( src/ClientProxyApi.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/ClientProxyApi.o )
 
 src/ClientProxyApi.hs:35:16: warning: [-Wtabs]
-    Tab character found here, and in 11 further locations.
+    Tab character found here, and in 7 further locations.
     Please use spaces instead.
 Preprocessing executable 'ClientProxy-exe' for ClientProxy-0.1.0.0...
 [1 of 1] Compiling Main             ( app/Main.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/ClientProxy-exe/ClientProxy-exe-tmp/Main.o ) [ClientProxyApi changed]

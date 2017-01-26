@@ -57,52 +57,54 @@ authApi = Proxy
 server :: Server AuthApi
 server = 
     login :<|>
-    newuser :<|>
-    checkToken :<|>
-    extendToken
+    newuser
 
 authApp :: Application
 authApp = serve authApi server
 
 mkApp :: IO()
 mkApp = do
+    logMessage True ("Authentication Server starting on port: " ++ authserverport)
     run (read (authserverport) ::Int) authApp 
 
-login :: Signin -> ApiHandler User
-login signin = liftIO $ do
-	let uname = susername signin
-	let psswrd = spassword signin
-	warnLog $ "Searching for value for key: " ++ uname ++ ", " ++ psswrd
+login :: Signin -> ApiHandler Session
+login (Signin uName encryptedMsg) = liftIO $ do
+	logMessage True ("Login request received...")
 	user <- withMongoDbConnection $ do 
-	    docs <- find (select ["_id" =: (uname++psswrd)] "USER_RECORD") >>= drainCursor
-            return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe Signin) docs
-        let thisuser = head $ user
-        putStrLn (show thisuser)
-        a <- nextUUID
-        let tokener = Data.UUID.toString $ fromJust a
-        currentTime <- getCurrentTime
-        currentZone <- getCurrentTimeZone
-        let fiveMinutes = 5 * 60
-        let newTime = addUTCTime fiveMinutes currentTime
-        let timeouter = utcToLocalTime currentZone newTime
-        let finaltimeout = show timeouter
-        warnLog $ "Storing Session key under key " ++ uname ++ "."
-        let session = (User (susername thisuser) (spassword thisuser) finaltimeout tokener)
-	withMongoDbConnection $ upsert (select ["_id" =: uname] "SESSION_RECORD") $ toBSON session
-        warnLog $ "Session Successfully Stored."
-	return (session)
+	    docs <- find (select ["username" =: uName] "USER_RECORD") >>= drainCursor
+            return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe Account) docs
+        case (length user) of
+          0 -> do
+            logMessage True ("Login Request Failed")
+            return (Session "Failed" "Username not found" "Failed")
+          _ -> do
+            let (Account _ password) = head $ user
+            logMessage True ("User has been found")
+            let decodedMsg = encryptDecrypt password encryptedMsg
+            if (decodedMsg == uName) then do
+              a <- nextUUID
+              let sessionKey = Data.UUID.toString $ fromJust a
+              let encryptedSeshkey = encryptDecrypt password sessionKey
+              let ticket = encryptDecrypt password sharedSecret
+              let encryptedTicket = encryptDecrypt password ticket
+              currentTime <- getCurrentTime
+              let halfHour = 30 * 60
+              let tokenTimeout = addUTCTime halfHour currentTime
+              let encryptedTimeout = encryptTime sharedSecret tokenTimeout
+              return (Session encryptedTicket encryptedSeshkey encryptedTimeout)
+            else do
+              logMessage True ("Login request failed")
+              return (Session "Failed" "Password incorrect" "Failed")
 
 
 newuser :: Signin -> ApiHandler Response
-newuser signin = liftIO $ do
-  let uname = susername signin
-  let psswrd = spassword signin
-  warnLog $ "Storing value under key: " ++ uname
-  let user = (Signin uname psswrd)
-  withMongoDbConnection $ upsert (select ["_id" =: (uname++psswrd)] "USER_RECORD") $ toBSON user
+newuser (Signin uName password) = liftIO $ do
+  logMessage True ("Storing new User")
+  let user = (Account uName password)
+  withMongoDbConnection $ upsert (select ["username" =: uName] "USER_RECORD") $ toBSON user
   return (Response "Success")
 
-checkToken :: User -> ApiHandler Response
+{-checkToken :: User -> ApiHandler Response
 checkToken user = liftIO $ do
   let uname = uusername user
   let tokener = token user
@@ -176,4 +178,4 @@ withLogging act = withStdoutLogger $ \aplogger -> do
                                   "WARNING" -> WARNING
                                   "ERROR"   -> ERROR
                                   _         -> DEBUG)
-  act aplogger
+  act aplogger-}

@@ -1,8 +1,13 @@
-{-# LANGUAGE DataKinds     #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase    #-}
-{-# LANGUAGE TypeOperators #-}
+{-# LANGUAGE DataKinds            #-}
 {-# LANGUAGE DeriveAnyClass       #-}
+{-# LANGUAGE DeriveGeneric        #-}
+{-# LANGUAGE FlexibleContexts     #-}
+{-# LANGUAGE FlexibleInstances    #-}
+{-# LANGUAGE OverloadedStrings    #-}
+{-# LANGUAGE StandaloneDeriving   #-}
+{-# LANGUAGE TemplateHaskell      #-}
+{-# LANGUAGE TypeOperators        #-}
+{-# LANGUAGE TypeSynonymInstances #-}
 
 module FileServer where
 
@@ -17,11 +22,9 @@ import           Servant.API
 import           Servant.Client
 import           System.IO
 import           System.Directory
-import Network.HTTP.Client (newManager, defaultManagerSettings)
---import           CommonServer
---import           CommonServerApi
---import           CommonServerApiClient
-import CommonResources
+import           Network.HTTP.Client (newManager, defaultManagerSettings)
+import           CommonResources
+import           Data.Time
 
 
 type ApiHandler = ExceptT ServantErr IO
@@ -31,9 +34,9 @@ directoryApi :: Proxy DirectoryApi
 directoryApi = Proxy
 
 join :: FileServer -> ClientM Response
-open :: String -> ClientM File
-close :: File -> ClientM Response
-allfiles :: ClientM [String]
+open :: FileName -> ClientM File
+close :: FileUpload -> ClientM Response
+allfiles :: Ticket -> ClientM [String]
 
 join :<|> open :<|> close :<|> allfiles = client directoryApi
 
@@ -45,11 +48,6 @@ joinQuery fs = do
 fileApi :: Proxy FileApi
 fileApi = Proxy
 
-files:: ClientM [FilePath]
-download :: String -> ClientM File
-upload :: File -> ClientM Response
-
-files :<|> download :<|> upload = client fileApi
 server :: Server FileApi
 server = 
     getFiles :<|>
@@ -76,13 +74,37 @@ getFiles :: ApiHandler [FilePath]
 getFiles =
   liftIO(getDirectoryContents ("../fileserver" ++ fsserverhost ++ ":" ++ fsserverport ++ "/"))
 
-downloadFile :: FilePath -> ApiHandler File
-downloadFile f = do    
-    content <- liftIO (readFile f)
-    return (File f content)
+downloadFile :: FileName -> ApiHandler File
+downloadFile (FileName ticket encryptedTimeout encryptedFN) = do
+  let decryptedTimeout = decryptTime sharedSecret encryptedTimeout
+  let sessionKey = encryptDecrypt sharedSecret ticket
+  let decryptedFN = encryptDecrypt sessionKey encryptedFN  
 
-uploadFile :: File -> ApiHandler Response
-uploadFile (File f c) = do    
-    liftIO (writeFile f c)
-    return (Response "Success")
+  currentTime <- liftIO $ getCurrentTime
+  if (currentTime > decryptedTimeout) then do
+    liftIO $ logMessage True ("Client ticket timeout")
+    let encryptedResponse = encryptDecrypt sessionKey ("Session Timeout")
+    return (File encryptedFN encryptedResponse)
+  else do
+    liftIO $ logMessage True "Fetching File Contents"
+    content <- liftIO (readFile decryptedFN)
+    return (File decryptedFN (encryptDecrypt sessionKey content))
+
+uploadFile :: FileUpload -> ApiHandler Response
+uploadFile (FileUpload ticket encryptTimeout (File encryptedFN encryptedFC)) = do
+  let decryptedTimeout = decryptTime sharedSecret encryptTimeout
+  let sessionKey = encryptDecrypt sharedSecret ticket
+  let decryptedFN = encryptDecrypt sessionKey encryptedFN
+
+  currentTime <- liftIO $ getCurrentTime
+  if (currentTime > decryptedTimeout) then do
+    liftIO $ logMessage True ("Client ticket timeout")
+    let encryptedResponse = encryptDecrypt sessionKey ("SessionTimeout")
+    return (Response encryptedResponse)
+  else do
+    let decryptedFC = encryptDecrypt sessionKey encryptedFC
+    liftIO $ logMessage True ("Storing File")
+    liftIO (writeFile decryptedFN decryptedFC)
+    let encryptedResponse = encryptDecrypt sessionKey "Success"
+    return (Response encryptedResponse)
 

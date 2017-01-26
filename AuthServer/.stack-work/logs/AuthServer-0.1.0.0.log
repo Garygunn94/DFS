@@ -1,10 +1,9 @@
 Configuring AuthServer-0.1.0.0...
 Preprocessing library AuthServer-0.1.0.0...
-[1 of 2] Compiling Lib              ( src/Lib.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Lib.o )
 [2 of 2] Compiling AuthServer       ( src/AuthServer.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/AuthServer.o )
 
 src/AuthServer.hs:30:18: warning: [-Wtabs]
-    Tab character found here, and in 19 further locations.
+    Tab character found here, and in 15 further locations.
     Please use spaces instead.
 Preprocessing executable 'AuthServer-exe' for AuthServer-0.1.0.0...
 [1 of 1] Compiling Main             ( app/Main.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/AuthServer-exe/AuthServer-exe-tmp/Main.o ) [AuthServer changed]

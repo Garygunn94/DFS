@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-24 16:51:53.056131 UTC
+2017-01-26 14:02:18.033518 UTC
 
 interface main@main:Main 8001
-  interface hash: c2b99b03e3218d6cee2897e2412ef8e7
-  ABI hash: 2348fab044ab1f4f36dbab6f318072a7
+  interface hash: 5ec92846432f22b9cb4f3eb451acbd65
+  ABI hash: 1e78a0715c5f927eb951b50f029a89b2
   export-list hash: 85b2cdf95932fc05303992c67677c2e4
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: f64db973905fcdfcd6b56dd70b2818ea
@@ -119,7 +119,8 @@ package dependencies: AuthServer-0.1.0.0@AuthServer-0.1.0.0-HUsbF5losB5ICY0RhRwE
                       warp-3.2.9@warp-3.2.9-1srGDEsq7RWF9RsucFj6bw
                       word8-0.1.2@word8-0.1.2-2E1SgvvAV2fK8vZPDHbRan
                       zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV
-orphans: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.Monad.Random
+orphans: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources
+         MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.Monad.Random
          aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson.Types.Generic
          aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson.Types.Instances
          attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.ByteString.Char8
@@ -197,7 +198,7 @@ family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-HUsbF5losB5ICY0RhRwEou:AuthServer b3101314afd90ca59539cab9115524d7
+import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-HUsbF5losB5ICY0RhRwEou:AuthServer 041fbe7fa2b14bbeffaeb12695d84358
 import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-HUsbF5losB5ICY0RhRwEou:Lib 39edb0ca936f464d92939d4d5a5f1092
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
@@ -213,12 +214,12 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-e52edc0eb59ed5ee92824501b30edbd6
+6bf98512c87603b9339822b1d29cb8bd
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 AuthServer.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-f33d5a2801bc950191c5adf21f991517
+3289e64cd00ad8e83fa92dd60bc41971
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
