@@ -149,7 +149,9 @@ openFile :: FileName -> ApiHandler File
 openFile fileName@(FileName ticket encryptedTimeout encryptedFN) = liftIO $ do
           let decryptedTimeout = decryptTime sharedSecret encryptedTimeout
           let sessionKey = encryptDecrypt sharedSecret ticket
+          putStrLn encryptedFN
           let decryptedFN = encryptDecrypt sessionKey encryptedFN
+          putStrLn decryptedFN
 
           logMessage True ("Checking client timeout")
 
@@ -162,7 +164,7 @@ openFile fileName@(FileName ticket encryptedTimeout encryptedFN) = liftIO $ do
               docs <- find (select [] "FILESERVER_RECORD") >>= drainCursor
               return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileServer) docs
             mapM getStoreFm fileServers
-	    fm <- searchFileMappings encryptedFN
+	    fm <- searchFileMappings decryptedFN
 	    file <- openFileQuery fileName fm
             return file
 

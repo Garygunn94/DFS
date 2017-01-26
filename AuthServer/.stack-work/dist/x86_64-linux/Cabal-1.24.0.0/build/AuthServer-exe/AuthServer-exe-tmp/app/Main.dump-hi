@@ -1,9 +1,9 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-26 14:02:18.033518 UTC
+2017-01-26 19:05:33.5443 UTC
 
 interface main@main:Main 8001
-  interface hash: 5ec92846432f22b9cb4f3eb451acbd65
+  interface hash: d27d912d28e462cbcc2e747da44e138c
   ABI hash: 1e78a0715c5f927eb951b50f029a89b2
   export-list hash: 85b2cdf95932fc05303992c67677c2e4
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
@@ -198,7 +198,7 @@ family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-HUsbF5losB5ICY0RhRwEou:AuthServer 041fbe7fa2b14bbeffaeb12695d84358
+import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-HUsbF5losB5ICY0RhRwEou:AuthServer 07a3b289f5a04fc6c2e84fdbaf5b93fd
 import  -/  AuthServer-0.1.0.0@AuthServer-0.1.0.0-HUsbF5losB5ICY0RhRwEou:Lib 39edb0ca936f464d92939d4d5a5f1092
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c

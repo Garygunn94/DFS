@@ -220,7 +220,8 @@ downloadFile session@(Session ticket sessionKey encryptedTimeout) cache = do
   case incache of
     (Nothing) -> do
       manager <- newManager defaultManagerSettings
-      res <- runClientM (openQuery (FileName ticket encryptedTimeout (encryptDecrypt sessionKey fileName))) (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
+      let encryptedFN = encryptDecrypt sessionKey fileName
+      res <- runClientM (openQuery (FileName ticket encryptedTimeout encryptedFN)) (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
       case res of
         Left err -> putStrLn $ "Error: " ++ show err                 
         Right response -> do 

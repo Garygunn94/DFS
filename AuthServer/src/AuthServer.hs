@@ -40,7 +40,7 @@ import           	Data.Text                    (pack, unpack)
 import           	Data.Time.Clock              (UTCTime, getCurrentTime)
 import           	Data.Time.Format             (defaultTimeLocale, formatTime)
 import           	Database.MongoDB 
-import Control.Monad (when)
+import Control.Monad (when, liftM)
 import Network.HTTP.Client (newManager, defaultManagerSettings)
 import Data.UUID.V1
 import Data.UUID hiding (null)
@@ -82,10 +82,9 @@ login (Signin uName encryptedMsg) = liftIO $ do
             logMessage True ("User has been found")
             let decodedMsg = encryptDecrypt password encryptedMsg
             if (decodedMsg == uName) then do
-              a <- nextUUID
-              let sessionKey = Data.UUID.toString $ fromJust a
+              sessionKey <- liftIO $ generateRandomString
               let encryptedSeshkey = encryptDecrypt password sessionKey
-              let ticket = encryptDecrypt password sharedSecret
+              let ticket = encryptDecrypt sharedSecret sessionKey
               let encryptedTicket = encryptDecrypt password ticket
               currentTime <- getCurrentTime
               let halfHour = 30 * 60
@@ -103,6 +102,9 @@ newuser (Signin uName password) = liftIO $ do
   let user = (Account uName password)
   withMongoDbConnection $ upsert (select ["username" =: uName] "USER_RECORD") $ toBSON user
   return (Response "Success")
+
+generateRandomString :: IO String
+generateRandomString = liftM (take 10 . randomRs ('a','z')) newStdGen
 
 {-checkToken :: User -> ApiHandler Response
 checkToken user = liftIO $ do
