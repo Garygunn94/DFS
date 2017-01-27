@@ -224,12 +224,12 @@
   (major1) == 0 && (major2) <  68 || \
   (major1) == 0 && (major2) == 68 && (minor) <= 0)
 
-/* tool hscolour-1.22 */
-#define TOOL_VERSION_hscolour "1.22"
+/* tool hscolour-1.24 */
+#define TOOL_VERSION_hscolour "1.24"
 #define MIN_TOOL_VERSION_hscolour(major1,major2,minor) (\
   (major1) <  1 || \
-  (major1) == 1 && (major2) <  22 || \
-  (major1) == 1 && (major2) == 22 && (minor) <= 0)
+  (major1) == 1 && (major2) <  24 || \
+  (major1) == 1 && (major2) == 24 && (minor) <= 0)
 
 /* tool pkg-config-0.29.1 */
 #define TOOL_VERSION_pkg_config "0.29.1"

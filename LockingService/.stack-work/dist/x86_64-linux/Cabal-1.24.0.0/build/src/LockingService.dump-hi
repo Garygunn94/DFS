@@ -1,31 +1,24 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-24 17:21:43.414141 UTC
+2017-01-27 16:07:07.38504 UTC
 
 interface LockingService-0.1.0.0-7k0JqlEeWD7F2VFBzyPr5l:LockingService 8001
-  interface hash: eb598a93ebed8007a7ee5cadc8568ab8
-  ABI hash: 84f8ccf9a807ac4342a10ff2445921ad
-  export-list hash: 35cae6d0e983a3c197c7e3c96da88ff6
-  orphan hash: fda161a82b59aae1fe0d759c08514fae
+  interface hash: 16ff7633462fe4128354d69f9a37b889
+  ABI hash: 47d7fafa44ea54a0400f9c4177490763
+  export-list hash: 61d12afab2d3407260bf76e93f092652
+  orphan hash: b8e7447f1aeab68df907853fddee533a
   flag hash: 232b91cb96073461cf6c3dcd6a42e778
   sig of: Nothing
   used TH splices: False
   where
 exports:
-  LockingService.debugLog
-  LockingService.doLog
-  LockingService.errorLog
   LockingService.isFileLocked
-  LockingService.iso8601
   LockingService.lockFile
   LockingService.lockingApi
   LockingService.lockingApp
   LockingService.mkApp
-  LockingService.noticeLog
   LockingService.server
   LockingService.unlockFile
-  LockingService.warnLog
-  LockingService.withLogging
   LockingService.ApiHandler
 module dependencies:
 package dependencies: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0
@@ -207,7 +200,7 @@ family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources b0b8389e9d0d05e21a0b6da0835d99a2
+import  -/  CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources 6ed7d9d56712425cd04881aea6b921ba
 import  -/  CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:MongodbHelpers f6dde8f3c354dde042a2d52c41b8d6f2
 import  -/  aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson 94b59824488f369f190c261b6e39e7ba
 import  -/  aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson.TH 869262ef224a0287f5d5fc093506acd2
@@ -225,8 +218,8 @@ import  -/  base-4.9.0.0:Text.Read 9c1be14f7e5eac8b18bcb566c5763677
 import  -/  bson-0.3.2.3@bson-0.3.2.3-3QA3aP5EtCyCltXUzEKOsQ:Data.Bson 609b35b07f554dfa69c4b31dfeed380e
 import  -/  bson-generic-0.0.8@bson-generic-0.0.8-DtORpoUHwQhDReLJ5Keop0:Data.Bson.Generic 8688e6671f6f36dd3a9c6c1c23977c50
 import  -/  directory-1.2.6.2@directory-1.2.6.2:System.Directory f7c57c4a392d1767b38addc37d00ceed
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
-import  -/  hslogger-1.2.10@hslogger-1.2.10-6Ih3VN3QBbAJ6pLH6h3KNu:System.Log 790c0a151b8dc8bc2abb323772b7a315
 import  -/  hslogger-1.2.10@hslogger-1.2.10-6Ih3VN3QBbAJ6pLH6h3KNu:System.Log.Formatter d9070a840f59099321614c8f0ef2e6e9
 import  -/  hslogger-1.2.10@hslogger-1.2.10-6Ih3VN3QBbAJ6pLH6h3KNu:System.Log.Handler 8f3ebc04d50e3ae880e55bca06cd601c
 import  -/  hslogger-1.2.10@hslogger-1.2.10-6Ih3VN3QBbAJ6pLH6h3KNu:System.Log.Handler.Simple 13b7c2ecdca1ccb8efd90dd72aa60b1f
@@ -247,26 +240,24 @@ import  -/  servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd
 import  -/  text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text 6515f3179e27a91345842b6e634f584c
 import  -/  time-1.6.0.1@time-1.6.0.1:Data.Time.Clock b91051c7767d1f23314064be1d4311d7
 import  -/  time-1.6.0.1@time-1.6.0.1:Data.Time.Clock.POSIX a0c5708011f4e3cb1d85608a99ae773a
-import  -/  time-1.6.0.1@time-1.6.0.1:Data.Time.Clock.UTC fd9f3bc9549d9de1cb313e496610c238
 import  -/  time-1.6.0.1@time-1.6.0.1:Data.Time.Format b6d4cc5df3f9159b1156baa52a254cf6
-import  -/  time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Locale 2ce8413933ae0199a4bf6c15ee5db27c
 import  -/  transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Except 71b1d86204f6908788cb5223e3c73193
 import  -/  wai-3.2.1.1@wai-3.2.1.1-f77bMYZGLQBAD3XJrvGiW:Network.Wai f10fb472d685284a8637bf34e58bc7f2
 import  -/  wai-logger-2.3.0@wai-logger-2.3.0-IfusT8I9ees2102USHAF8e:Network.Wai.Logger 676219d60f680a2e3b4c9a3bb9537896
 import  -/  warp-3.2.9@warp-3.2.9-1srGDEsq7RWF9RsucFj6bw:Network.Wai.Handler.Warp 3da15d24b266d35965cd5350be944ee3
 import  -/  warp-3.2.9@warp-3.2.9-1srGDEsq7RWF9RsucFj6bw:Network.Wai.Handler.Warp.Run ef3cbc0ed9598c9652e6b6b9671eb6f3
-a435b9afbf42735263bd44d0cb10e819
+5adbce96353d2e711ba0d08b33aae30d
   $s$fAllCTRender:a ::
     Servant.API.ContentTypes.AllCTRender
-      '[Servant.API.ContentTypes.JSON] GHC.Types.Bool
+      '[Servant.API.ContentTypes.JSON] CommonResources.Response
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
      Unfolding: DFun:.
                   @ '[Servant.API.ContentTypes.JSON]
-                  @ GHC.Types.Bool
+                  @ CommonResources.Response
                   (Servant.API.ContentTypes.$fAllCTRender:a_$cp1AllCTRender
                      @ Servant.API.ContentTypes.JSON
                      @ '[]
-                     @ GHC.Types.Bool
+                     @ CommonResources.Response
                      Servant.API.ContentTypes.$fAcceptTYPEJSON_$ccontentType
                        `cast`
                      (Sym (Servant.API.ContentTypes.N:Accept[0]
@@ -278,7 +269,7 @@ a435b9afbf42735263bd44d0cb10e819
                   (Servant.API.ContentTypes.$fAllCTRender:a_$chandleAcceptH
                      @ Servant.API.ContentTypes.JSON
                      @ '[]
-                     @ GHC.Types.Bool
+                     @ CommonResources.Response
                      Servant.API.ContentTypes.$fAcceptTYPEJSON_$ccontentType
                        `cast`
                      (Sym (Servant.API.ContentTypes.N:Accept[0]
@@ -287,85 +278,285 @@ a435b9afbf42735263bd44d0cb10e819
                        `cast`
                      (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
                      LockingService.$s$fAllCTRender:a1) -}
-fff3318ec492ed345de3eed76d13d0d2
+dc021b2f8035622cc35e19d9659551c7
   $s$fAllCTRender:a1 ::
     Servant.API.ContentTypes.AllMimeRender
-      '[Servant.API.ContentTypes.JSON] GHC.Types.Bool
+      '[Servant.API.ContentTypes.JSON] CommonResources.Response
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
                 LockingService.$s$fAllCTRender:a_$s$fAllMimeRender:a0 -}
-72fbd79ab85f6f13bb7c71750422bbe2
+986eef64952f24254d4eebe433f371d2
   $s$fAllCTRender:a2 ::
-    Servant.API.ContentTypes.MimeRender
-      Servant.API.ContentTypes.JSON GHC.Types.Bool
-  {- Strictness: m,
-     Unfolding: InlineRule (0, True, True)
-                LockingService.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa -}
-824eb7760c3fc40ee2015b58fc7e3752
-  $s$fAllCTRender:a_$s$fAllMimeRender:a0 ::
-    Servant.API.ContentTypes.AllMimeRender
-      '[Servant.API.ContentTypes.JSON] GHC.Types.Bool
-  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
-     Unfolding: DFun:.
-                  @ '[Servant.API.ContentTypes.JSON]
-                  @ GHC.Types.Bool
-                  (Servant.API.ContentTypes.$fAllMimeRender:a0_$cp1AllMimeRender
-                     @ Servant.API.ContentTypes.JSON
-                     @ GHC.Types.Bool
-                     LockingService.$s$fAllCTRender:a2)
-                  LockingService.$s$fAllCTRender:a_$s$fAllMimeRender:a0_$callMimeRender -}
-d07454166b1602a2d5f72375666845a0
-  $s$fAllCTRender:a_$s$fAllMimeRender:a0_$callMimeRender ::
     Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
-    -> GHC.Types.Bool
+    -> CommonResources.Response
     -> [(Network.HTTP.Media.MediaType.Internal.MediaType,
          Data.ByteString.Lazy.Internal.ByteString)]
-  {- Arity: 2, Strictness: <L,A><L,U>m2,
+  {- Arity: 2, Strictness: <L,A><L,1*U(1*U)>m2,
      Unfolding: InlineRule (2, True, False)
                 (\ (eta :: Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON])
-                   (eta1 :: GHC.Types.Bool) ->
+                   (eta1 :: CommonResources.Response) ->
                  GHC.Types.:
                    @ (Network.HTTP.Media.MediaType.Internal.MediaType,
                       Data.ByteString.Lazy.Internal.ByteString)
-                   ((Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cp1MimeRender
-                       @ GHC.Types.Bool
-                       Data.Aeson.Types.Instances.$fToJSONBool)
-                      `cast`
-                    (Servant.API.ContentTypes.N:Accept[0]
-                         <GHC.Types.*>_N <Servant.API.ContentTypes.JSON>_N)
-                      (Data.Proxy.Proxy @ GHC.Types.* @ Servant.API.ContentTypes.JSON),
-                    LockingService.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender
-                      (Data.Proxy.Proxy @ GHC.Types.* @ Servant.API.ContentTypes.JSON)
-                      eta1)
+                   (Servant.API.ContentTypes.$fAcceptTYPEJSON1,
+                    Data.ByteString.Builder.toLazyByteString
+                      (Data.Aeson.Encode.Builder.encodeToBuilder
+                         (CommonResources.$fToJSONResponse1 eta1)
+                           `cast`
+                         (Data.Aeson.Types.Generic.N:Tagged[0]
+                              <Data.Aeson.Types.Generic.True>_P
+                              <Data.Aeson.Types.Internal.Value>_R)))
                    (GHC.Types.[]
                       @ (Network.HTTP.Media.MediaType.Internal.MediaType,
                          Data.ByteString.Lazy.Internal.ByteString))) -}
-628a2bf0e6e5b9ed550e773e94058bda
+5d69c3a49d2bec88c4ef3569c860d126
+  $s$fAllCTRender:a3 ::
+    Servant.API.ContentTypes.MimeRender
+      Servant.API.ContentTypes.JSON CommonResources.Response
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                LockingService.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa -}
+82be5d6ddc51735af6783e3edc3b84e2
+  $s$fAllCTRender:a_$s$fAllMimeRender:a0 ::
+    Servant.API.ContentTypes.AllMimeRender
+      '[Servant.API.ContentTypes.JSON] CommonResources.Response
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ CommonResources.Response
+                  (Servant.API.ContentTypes.$fAllMimeRender:a0_$cp1AllMimeRender
+                     @ Servant.API.ContentTypes.JSON
+                     @ CommonResources.Response
+                     LockingService.$s$fAllCTRender:a3)
+                  LockingService.$s$fAllCTRender:a2 -}
+add7f6e47a47de2532d9fb9a179eee29
   $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa ::
     Servant.API.ContentTypes.MimeRender
-      Servant.API.ContentTypes.JSON GHC.Types.Bool
+      Servant.API.ContentTypes.JSON CommonResources.Response
   {- Strictness: m, Inline: [ALWAYS] CONLIKE,
      Unfolding: DFun:.
                   @ *
                   @ Servant.API.ContentTypes.JSON
-                  @ GHC.Types.Bool
+                  @ CommonResources.Response
                   (Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cp1MimeRender
-                     @ GHC.Types.Bool
-                     Data.Aeson.Types.Instances.$fToJSONBool)
+                     @ CommonResources.Response
+                     CommonResources.$fToJSONResponse)
                   LockingService.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender -}
-689e85f4c6156826ca76050d023dc7f9
+517352ab826896322634e8d8c61a894a
   $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender ::
     Data.Proxy.Proxy Servant.API.ContentTypes.JSON
-    -> GHC.Types.Bool -> Data.ByteString.Lazy.Internal.ByteString
-  {- Arity: 2, Strictness: <L,A><L,U>,
+    -> CommonResources.Response
+    -> Data.ByteString.Lazy.Internal.ByteString
+  {- Arity: 2, Strictness: <L,A><L,1*U(1*U)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
-                   (eta :: GHC.Types.Bool) ->
+                   (eta :: CommonResources.Response) ->
                  Data.ByteString.Builder.toLazyByteString
                    (Data.Aeson.Types.Internal.fromEncoding
-                      (Data.Aeson.Encode.Builder.bool eta)
+                      (Data.Aeson.Encode.Builder.encodeToBuilder
+                         (CommonResources.$fToJSONResponse_$ctoJSON eta))
                         `cast`
                       (Sym (Data.Aeson.Types.Internal.N:Encoding[0])))) -}
+723f8f3f68ab5cb1e48c86228dc9ab92
+  $s$fAllMimeUnrender:a ::
+    Servant.API.ContentTypes.AllMimeUnrender
+      '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ CommonResources.FileName
+                  (Servant.API.ContentTypes.$fAllMimeUnrender:a_$cp1AllMimeUnrender
+                     @ Servant.API.ContentTypes.JSON
+                     @ CommonResources.FileName
+                     @ '[]
+                     LockingService.$s$fAllMimeUnrender:a1
+                     (Servant.API.ContentTypes.$fAllMimeUnrender[]a
+                        @ CommonResources.FileName))
+                  (Servant.API.ContentTypes.$fAllMimeUnrender:a_$callMimeUnrender
+                     @ Servant.API.ContentTypes.JSON
+                     @ CommonResources.FileName
+                     @ '[]
+                     LockingService.$s$fAllMimeUnrender:a1
+                     (Servant.API.ContentTypes.$fAllMimeUnrender[]a
+                        @ CommonResources.FileName)) -}
+92786eac8066674f0ba1d30b0619d145
+  $s$fAllMimeUnrender:a1 ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON CommonResources.FileName
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                LockingService.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa -}
+3d15d27809e6ba56d6cad1fc673a6c73
+  $s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON CommonResources.FileName
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ CommonResources.FileName
+                  (Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cp1MimeUnrender
+                     @ CommonResources.FileName
+                     CommonResources.$fFromJSONFileName_$cparseJSON
+                       `cast`
+                     (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                               <CommonResources.FileName>_N)))
+                  LockingService.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender -}
+511d4dd5f88bd05ef3a57c7b04018afc
+  $s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.Either.Either GHC.Base.String CommonResources.FileName
+  {- Arity: 2, Strictness: <L,A><S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
+                   (eta :: Data.ByteString.Lazy.Internal.ByteString) ->
+                 Servant.API.ContentTypes.eitherDecodeLenient
+                   @ CommonResources.FileName
+                   CommonResources.$fFromJSONFileName_$cparseJSON
+                     `cast`
+                   (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                             <CommonResources.FileName>_N))
+                   eta) -}
+c1e260da9cca417a3fb7fefe9df79608
+  $sserve10 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "lock"#) -}
+7d7d20f505224db49a341c7a4373957a
+  $sserve2 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 1,
+     Unfolding: (\ (s1 :: GHC.Prim.State#
+                            GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newByteArray#
+                        @ GHC.Prim.RealWorld
+                        8#
+                        s1 of ds1 { (#,#) ipv ipv1 ->
+                 Servant.Server.Internal.$wouter
+                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                   Servant.Server.Internal.$fHasServerTYPE:>context20
+                   LockingService.$sserve3
+                   0#
+                   ipv }) -}
+ed796ff78f25c37f1f2dbad490a7f819
+  $sserve3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "islocked"#) -}
+e712f96ae25f504c47813282f340d7e3
+  $sserve4 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 1,
+     Unfolding: (\ (s1 :: GHC.Prim.State#
+                            GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newByteArray#
+                        @ GHC.Prim.RealWorld
+                        8#
+                        s1 of ds1 { (#,#) ipv ipv1 ->
+                 Servant.Server.Internal.$wouter
+                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                   Servant.Server.Internal.$fHasServerTYPE:>context20
+                   LockingService.$sserve5
+                   0#
+                   ipv }) -}
+c2c76bfdec5af24b97f3cc13a7420aee
+  $sserve5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "unlock"#) -}
+04ae04e5e7444e9023d589ef60964b91
+  $sserve6 ::
+    Data.Proxy.Proxy
+      (Servant.API.Verbs.Verb
+         'Network.HTTP.Types.Method.POST
+         200
+         '[Servant.API.ContentTypes.JSON]
+         CommonResources.Response)
+    -> Servant.Server.Internal.Context.Context '[]
+    -> Servant.Server.Internal.RoutingApplication.Delayed
+         env
+         (Servant.Server.Internal.Server
+            (Servant.API.Verbs.Verb
+               'Network.HTTP.Types.Method.POST
+               200
+               '[Servant.API.ContentTypes.JSON]
+               CommonResources.Response))
+    -> Servant.Server.Internal.Router.Router env
+  {- Arity: 2, Strictness: <S,1*H><L,A>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ env
+                   (w3 :: Data.Proxy.Proxy
+                            (Servant.API.Verbs.Verb
+                               'Network.HTTP.Types.Method.POST
+                               200
+                               '[Servant.API.ContentTypes.JSON]
+                               CommonResources.Response))
+                   (w4 :: Servant.Server.Internal.Context.Context '[]) ->
+                 case w3 of w5 { Data.Proxy.Proxy ->
+                 Servant.Server.Internal.$w$croute8
+                   @ Network.HTTP.Types.Method.StdMethod
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ CommonResources.Response
+                   @ 'Network.HTTP.Types.Method.POST
+                   @ 200
+                   @ '[]
+                   LockingService.$s$fAllCTRender:a
+                   Servant.API.Verbs.$fReflectMethodStdMethodPOST_$creflectMethod
+                     `cast`
+                   (Sym (Servant.API.Verbs.N:ReflectMethod[0]
+                             <Network.HTTP.Types.Method.StdMethod>_N
+                             <'Network.HTTP.Types.Method.POST>_N))
+                   LockingService.$sserve7
+                     `cast`
+                   (Trans
+                        (Sym (GHC.TypeLits.N:SNat[0] <200>_P))
+                        (Sym (GHC.TypeLits.N:KnownNat[0]) <200>_N))
+                   @ env
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.Verbs.Verb
+                           'Network.HTTP.Types.Method.POST
+                           200
+                           '[Servant.API.ContentTypes.JSON]
+                           CommonResources.Response)) }) -}
+99910e95f4105d948be524e7af5ef510
+  $sserve7 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (200) -}
+23ab052aac49dde7c8b9e71a7af411d6
+  $sserve8 ::
+    Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> GHC.Base.Maybe
+         (Data.Either.Either GHC.Base.String CommonResources.FileName)
+  {- Arity: 3, Strictness: <L,A><L,1*U><L,U>,
+     Unfolding: InlineRule (3, True, True)
+                (\ (w1 :: Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON])
+                   (w2 :: Data.ByteString.Lazy.Internal.ByteString)
+                   (w3 :: Data.ByteString.Lazy.Internal.ByteString) ->
+                 Servant.API.ContentTypes.$w$chandleCTypeH
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ CommonResources.FileName
+                   LockingService.$s$fAllMimeUnrender:a
+                   w2
+                   w3) -}
+e735c828f627590aced955617fb81aff
+  $sserve9 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 1,
+     Unfolding: (\ (s1 :: GHC.Prim.State#
+                            GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newByteArray#
+                        @ GHC.Prim.RealWorld
+                        8#
+                        s1 of ds1 { (#,#) ipv ipv1 ->
+                 Servant.Server.Internal.$wouter
+                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                   Servant.Server.Internal.$fHasServerTYPE:>context20
+                   LockingService.$sserve10
+                   0#
+                   ipv }) -}
 8b7b7ace509a5ca5b3c6087d25750466
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
@@ -381,280 +572,121 @@ d07454166b1602a2d5f72375666845a0
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
                    "LockingService-0.1.0.0-7k0JqlEeWD7F2VFBzyPr5l"#) -}
+5ab10c304e8dc4229f89bb703a83d50c
+  $wisFileLocked ::
+    GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either
+            Servant.Server.Internal.ServantErr.ServantErr
+            CommonResources.Response #)
+  {- Arity: 4, Strictness: <L,1*U><L,1*U><L,1*U><S,U>, Inline: [0] -}
+7b84d6e8d887564892bd9fdb5bdd67ce
+  $wlockFile ::
+    GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either
+            Servant.Server.Internal.ServantErr.ServantErr
+            CommonResources.Response #)
+  {- Arity: 4, Strictness: <L,1*U><L,1*U><L,1*U><S,U>, Inline: [0] -}
+93a531b7c8383b65507d95c06b7052cb
+  $wunlockFile ::
+    GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either
+            Servant.Server.Internal.ServantErr.ServantErr
+            CommonResources.Response #)
+  {- Arity: 4, Strictness: <L,1*U><L,1*U><L,1*U><S,U>, Inline: [0] -}
 bcde34968848173d0d3edcc584d783de
   type ApiHandler =
     Control.Monad.Trans.Except.ExceptT
       Servant.Server.Internal.ServantErr.ServantErr GHC.Types.IO
     :: * -> *
-c6c112f1c2b85aa60f8919075b6d291e
-  debugLog :: GHC.Base.String -> GHC.Types.IO ()
-  {- Arity: 2,
-     Unfolding: InlineRule (0, True, True)
-                LockingService.debugLog1
-                  `cast`
-                (<[GHC.Types.Char]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-243d0eea3420688a6211a7043f5b7726
-  debugLog1 ::
-    [GHC.Types.Char]
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2,
-     Unfolding: (LockingService.debugLog2
-                   @ ()
-                   System.Log.Logger.debugM1
-                     `cast`
-                   (<GHC.Base.String>_R
-                    ->_R <GHC.Base.String>_R
-                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))) -}
-8d5545ca50cab8de1cd10ecbac7b9b40
-  debugLog2 ::
-    (GHC.Base.String -> [GHC.Types.Char] -> GHC.Types.IO b)
-    -> [GHC.Types.Char]
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, b #)
-  {- Arity: 3, Strictness: <L,1*C1(C1(C1(U(U,U))))><L,U><S,U>,
-     Unfolding: (\ @ b
-                   (f :: GHC.Base.String -> [GHC.Types.Char] -> GHC.Types.IO b)
-                   (s :: [GHC.Types.Char])
-                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case System.Environment.getProgName1 eta of ds1 { (#,#) ipv ipv1 ->
-                 case Data.Time.Clock.CTimeval.getCTimeval1
-                        ipv of ds { (#,#) ipv2 ipv3 ->
-                 (f ipv1
-                    (GHC.Base.++
-                       @ GHC.Types.Char
-                       (Data.Time.Format.formatTime
-                          @ Data.Time.Clock.UTC.UTCTime
-                          Data.Time.Format.$fFormatTimeUTCTime_$cformatCharacter
-                            `cast`
-                          (Sym (Data.Time.Format.N:FormatTime[0]
-                                    <Data.Time.Clock.UTC.UTCTime>_N))
-                          Data.Time.Format.Locale.defaultTimeLocale
-                          LockingService.debugLog3
-                          (case Data.Time.Clock.POSIX.$wposixSecondsToUTCTime
-                                  (Data.Time.Clock.POSIX.getCurrentTime2
-                                     ipv3) of ww { (#,#) ww1 ww2 ->
-                           Data.Time.Clock.UTC.UTCTime ww1 ww2 }))
-                       (GHC.CString.unpackAppendCString# " "# s)))
-                   `cast`
-                 (GHC.Types.N:IO[0] <b>_R)
-                   ipv2 } }) -}
-f6e54cb5e352c3e1b33a47052e0faf95
-  debugLog3 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "%FT%T%q%z"#) -}
-9699f7d50c92dc8c3e2dc16dccaf4af1
-  doLog ::
-    (GHC.Base.String -> [GHC.Types.Char] -> GHC.Types.IO b)
-    -> [GHC.Types.Char] -> GHC.Types.IO b
-  {- Arity: 3, Strictness: <L,1*C1(C1(C1(U(U,U))))><L,U><S,U>,
-     Unfolding: InlineRule (0, True, True)
-                LockingService.debugLog2
-                  `cast`
-                (forall (b :: <*>_N).
-                 <GHC.Base.String -> [GHC.Types.Char] -> GHC.Types.IO b>_R
-                 ->_R <[GHC.Types.Char]>_R
-                 ->_R Sym (GHC.Types.N:IO[0] <b>_R)) -}
-b49fe3603867efdcc5bf2e8fce039e98
-  errorLog :: GHC.Base.String -> GHC.Types.IO ()
-  {- Arity: 2,
-     Unfolding: InlineRule (0, True, True)
-                LockingService.errorLog1
-                  `cast`
-                (<[GHC.Types.Char]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-cd4b5206bc78b8a9a4cd84bee6ecc78d
-  errorLog1 ::
-    [GHC.Types.Char]
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2,
-     Unfolding: (LockingService.debugLog2
-                   @ ()
-                   System.Log.Logger.errorM1
-                     `cast`
-                   (<GHC.Base.String>_R
-                    ->_R <GHC.Base.String>_R
-                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))) -}
-bef2ca904bf7220ab866de557de84c3d
+b24d042787e1096c1f37261f8a1f9984
   isFileLocked ::
-    GHC.Base.String -> LockingService.ApiHandler GHC.Types.Bool
-  {- Arity: 2, Strictness: <L,U><S,U>,
+    CommonResources.FileName
+    -> LockingService.ApiHandler CommonResources.Response
+  {- Arity: 2, Strictness: <S,1*U(1*U,1*U,1*U)><S,U>,
      Unfolding: InlineRule (0, True, True)
                 LockingService.isFileLocked1
                   `cast`
-                (<GHC.Base.String>_R
+                (<CommonResources.FileName>_R
                  ->_R Trans
                           (Sym (GHC.Types.N:IO[0]
                                     <Data.Either.Either
                                        Servant.Server.Internal.ServantErr.ServantErr
-                                       GHC.Types.Bool>_R))
+                                       CommonResources.Response>_R))
                           (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
                                     <Servant.Server.Internal.ServantErr.ServantErr>_N
                                     <GHC.Types.IO>_R
-                                    <GHC.Types.Bool>_N))) -}
-6e20f61960a8c33e7b67f9e3e2420785
+                                    <CommonResources.Response>_N))) -}
+c904b3402c9e17d647fbb68c15516faf
   isFileLocked1 ::
-    GHC.Base.String
+    CommonResources.FileName
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
           Data.Either.Either
-            Servant.Server.Internal.ServantErr.ServantErr GHC.Types.Bool #)
-  {- Arity: 2, Strictness: <L,U><S,U>,
-     Unfolding: (\ (fName :: GHC.Base.String)
-                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case LockingService.debugLog2
-                        @ ()
-                        System.Log.Logger.warningM1
-                          `cast`
-                        (<GHC.Base.String>_R
-                         ->_R <GHC.Base.String>_R
-                         ->_R Sym (GHC.Types.N:IO[0] <()>_R))
-                        (GHC.CString.unpackAppendCString#
-                           "Checking is file"#
-                           (GHC.Base.++ @ GHC.Types.Char fName LockingService.isFileLocked6))
-                        s of ds1 { (#,#) ipv ipv1 ->
-                 case MongodbHelpers.withMongoDbConnection1
-                        @ [CommonResources.Lock]
-                        (\ (r1 :: Database.MongoDB.Query.MongoContext)[OneShot]
-                           (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                         case (Database.MongoDB.Query.$wfind
-                                 @ GHC.Types.IO
-                                 Control.Monad.IO.Class.$fMonadIOIO
-                                 Control.Monad.Trans.Control.$fMonadBaseControlIOIO
-                                 (GHC.Types.[] @ Database.MongoDB.Internal.Protocol.QueryOption)
-                                 (Database.MongoDB.Query.Select
-                                    (GHC.Types.:
-                                       @ Data.Bson.Field
-                                       (case LockingService.isFileLocked5 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
-                                        Data.Bson.:= dt (Data.Bson.$fValChar_$cvalList fName) })
-                                       (GHC.Types.[] @ Data.Bson.Field))
-                                    LockingService.isFileLocked4)
-                                 (GHC.Types.[] @ Data.Bson.Field)
-                                 Database.MongoDB.Query.$fSelectQuery1
-                                 Database.MongoDB.Query.$fSelectQuery1
-                                 (GHC.Types.[] @ Data.Bson.Field)
-                                 GHC.Types.False
-                                 Database.MongoDB.Query.$fSelectQuery1
-                                 (GHC.Types.[] @ Data.Bson.Field)
-                                 r1)
-                                `cast`
-                              (GHC.Types.N:IO[0] <Database.MongoDB.Query.Cursor>_R)
-                                s1 of ds2 { (#,#) ipv2 ipv3 ->
-                         case ((MongodbHelpers.drainCursor_drainCursor'
-                                  ipv3
-                                  (GHC.Types.[] @ Data.Bson.Document))
-                                 `cast`
-                               (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                    <*>_N
-                                    <Database.MongoDB.Query.MongoContext>_R
-                                    <GHC.Types.IO>_R
-                                    <[Data.Bson.Document]>_N)
-                                 r1)
-                                `cast`
-                              (GHC.Types.N:IO[0] <[Data.Bson.Document]>_R)
-                                ipv2 of ds3 { (#,#) ipv4 ipv5 ->
-                         (# ipv4,
-                            Data.Maybe.catMaybes1
-                              @ CommonResources.Lock
-                              (GHC.Base.map
-                                 @ [Data.Bson.Field]
-                                 @ (GHC.Base.Maybe CommonResources.Lock)
-                                 CommonResources.$fFromBSONLock_$cfromBSON
-                                 ipv5) #) } })
-                          `cast`
-                        (Trans
-                             (<Database.MongoDB.Query.MongoContext>_R
-                              ->_R Sym (GHC.Types.N:IO[0] <[CommonResources.Lock]>_R))
-                             (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                       <*>_N
-                                       <Database.MongoDB.Query.MongoContext>_R
-                                       <GHC.Types.IO>_R
-                                       <[CommonResources.Lock]>_N)))
-                        ipv of ds2 { (#,#) ipv2 ipv3 ->
-                 case ipv3 of wild {
-                   [] -> (# ipv2, LockingService.isFileLocked3 #)
-                   : ds ds3
-                   -> case ds of wild1 { CommonResources.Lock ds4 ds5 ->
-                      case ds5 of wild2 {
-                        GHC.Types.False -> (# ipv2, LockingService.isFileLocked3 #)
-                        GHC.Types.True
-                        -> case ds3 of wild3 {
-                             [] -> (# ipv2, LockingService.isFileLocked2 #)
-                             : ipv4 ipv5
-                             -> (# ipv2, LockingService.isFileLocked3 #) } } } } } }) -}
-e5fa3f540d47b202e640b8d524511ed0
-  isFileLocked2 ::
-    Data.Either.Either
-      Servant.Server.Internal.ServantErr.ServantErr GHC.Types.Bool
-  {- HasNoCafRefs,
-     Unfolding: (Data.Either.Right
-                   @ Servant.Server.Internal.ServantErr.ServantErr
-                   @ GHC.Types.Bool
-                   GHC.Types.True) -}
-b5429058c6cb4228d20f3eac125ba463
-  isFileLocked3 ::
-    Data.Either.Either
-      Servant.Server.Internal.ServantErr.ServantErr GHC.Types.Bool
-  {- HasNoCafRefs,
-     Unfolding: (Data.Either.Right
-                   @ Servant.Server.Internal.ServantErr.ServantErr
-                   @ GHC.Types.Bool
-                   GHC.Types.False) -}
-d8036014af2be6e37c0c7e665e6e4bca
-  isFileLocked4 :: Database.MongoDB.Query.Collection
-  {- Unfolding: (Data.Text.Show.unpackCString# "LOCK_RECORD"#) -}
-844d98103cde5881e3688170b187ea4b
-  isFileLocked5 :: Data.Bson.Label
-  {- Unfolding: (Data.Text.Show.unpackCString# "_id"#) -}
-7844b61d33284906d4f721a8f50a40f3
-  isFileLocked6 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "is locked"#) -}
-92402564a1a8657aa907c8ee121038d1
-  iso8601 :: Data.Time.Clock.UTC.UTCTime -> GHC.Base.String
-  {- Arity: 1,
-     Unfolding: (Data.Time.Format.formatTime
-                   @ Data.Time.Clock.UTC.UTCTime
-                   Data.Time.Format.$fFormatTimeUTCTime_$cformatCharacter
-                     `cast`
-                   (Sym (Data.Time.Format.N:FormatTime[0]
-                             <Data.Time.Clock.UTC.UTCTime>_N))
-                   Data.Time.Format.Locale.defaultTimeLocale
-                   LockingService.debugLog3) -}
-3829656be1e277f99b8da4b3ed2b7afa
+            Servant.Server.Internal.ServantErr.ServantErr
+            CommonResources.Response #)
+  {- Arity: 2, Strictness: <S,1*U(1*U,1*U,1*U)><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: CommonResources.FileName)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w of ww { CommonResources.FileName ww1 ww2 ww3 ->
+                 LockingService.$wisFileLocked ww1 ww2 ww3 w1 }) -}
+8f1bd12fc248f5663c1153dd11b0d8d2
   lockFile ::
-    GHC.Base.String -> LockingService.ApiHandler GHC.Types.Bool
-  {- Arity: 2, Strictness: <L,U><S,U>,
+    CommonResources.FileName
+    -> LockingService.ApiHandler CommonResources.Response
+  {- Arity: 2, Strictness: <S,1*U(1*U,1*U,1*U)><S,U>,
      Unfolding: InlineRule (0, True, True)
                 LockingService.lockFile1
                   `cast`
-                (<GHC.Base.String>_R
+                (<CommonResources.FileName>_R
                  ->_R Trans
                           (Sym (GHC.Types.N:IO[0]
                                     <Data.Either.Either
                                        Servant.Server.Internal.ServantErr.ServantErr
-                                       GHC.Types.Bool>_R))
+                                       CommonResources.Response>_R))
                           (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
                                     <Servant.Server.Internal.ServantErr.ServantErr>_N
                                     <GHC.Types.IO>_R
-                                    <GHC.Types.Bool>_N))) -}
-84577a0f7271eb96d5458da033fc3e10
+                                    <CommonResources.Response>_N))) -}
+a9b123ee708862d28478bc85898acc6d
   lockFile1 ::
-    GHC.Base.String
+    CommonResources.FileName
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
           Data.Either.Either
-            Servant.Server.Internal.ServantErr.ServantErr GHC.Types.Bool #)
-  {- Arity: 2, Strictness: <L,U><S,U> -}
-a5fc709d590f273795ea14ff8ea9becb
+            Servant.Server.Internal.ServantErr.ServantErr
+            CommonResources.Response #)
+  {- Arity: 2, Strictness: <S,1*U(1*U,1*U,1*U)><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: CommonResources.FileName)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w of ww { CommonResources.FileName ww1 ww2 ww3 ->
+                 LockingService.$wlockFile ww1 ww2 ww3 w1 }) -}
+1c38b0cdb6c530500cb472e4e6e28f70
   lockingApi :: Data.Proxy.Proxy CommonResources.LockingApi
   {- HasNoCafRefs,
      Unfolding: InlineRule (0, True, True)
                 (Data.Proxy.Proxy @ * @ CommonResources.LockingApi) -}
-d9ffb27744bc27a84b63d2c2778419c2
+3f6cc09e7208897fdd6f8066a258b0e0
   lockingApp :: Network.Wai.Application
   {- Arity: 2,
      Unfolding: (Servant.Server.Internal.RoutingApplication.toApplication
                    LockingService.lockingApp1) -}
-063506c7d91793ae7cc456f1d388dcfc
+7b6d0449ca4c0d21077ff232f667edd8
   lockingApp1 ::
     Network.Wai.Internal.Request
     -> (Servant.Server.Internal.RoutingApplication.RouteResult
@@ -674,146 +706,8 @@ d9ffb27744bc27a84b63d2c2778419c2
                    GHC.Tuple.()
                    eta
                    eta1) -}
-12d67c859b849a9508bac46eb8374132
+e0247b3a44a17e148120ab7c53f13676
   lockingApp10 ::
-    Servant.Server.Internal.RoutingApplication.RouteResult
-      (Servant.Server.Internal.Server
-         ("islocked"
-          Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                "fileName" GHC.Base.String
-                              Servant.API.Sub.:> Servant.API.Verbs.Get
-                                                   '[Servant.API.ContentTypes.JSON]
-                                                   GHC.Types.Bool)))
-  {- Unfolding: (Servant.Server.Internal.RoutingApplication.Route
-                   @ (Servant.Server.Internal.Server
-                        ("islocked"
-                         Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                               "fileName" GHC.Base.String
-                                             Servant.API.Sub.:> Servant.API.Verbs.Get
-                                                                  '[Servant.API.ContentTypes.JSON]
-                                                                  GHC.Types.Bool)))
-                   LockingService.isFileLocked1
-                     `cast`
-                   (Trans
-                        (<[GHC.Types.Char]>_R
-                         ->_R Trans
-                                  (Sym (GHC.Types.N:IO[0]
-                                            <Data.Either.Either
-                                               Servant.Server.Internal.ServantErr.ServantErr
-                                               GHC.Types.Bool>_R))
-                                  (Trans
-                                       (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
-                                                 <Servant.Server.Internal.ServantErr.ServantErr>_N
-                                                 <GHC.Types.IO>_R
-                                                 <GHC.Types.Bool>_N))
-                                       (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
-                                                      <Network.HTTP.Types.Method.StdMethod>_N
-                                                      <'[Servant.API.ContentTypes.JSON]>_N
-                                                      <GHC.Types.Bool>_N
-                                                      <'Network.HTTP.Types.Method.GET>_N
-                                                      <200>_N
-                                                      <Control.Monad.Trans.Except.ExceptT
-                                                         Servant.Server.Internal.ServantErr.ServantErr
-                                                         GHC.Types.IO>_N)))))
-                        (Trans
-                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m11[0]
-                                            <*>_N
-                                            <"fileName">_N
-                                            <[GHC.Types.Char]>_N
-                                            <Servant.API.Verbs.Verb
-                                               'Network.HTTP.Types.Method.GET
-                                               200
-                                               '[Servant.API.ContentTypes.JSON]
-                                               GHC.Types.Bool>_N
-                                            <Control.Monad.Trans.Except.ExceptT
-                                               Servant.Server.Internal.ServantErr.ServantErr
-                                               GHC.Types.IO>_N)))
-                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
-                                            <*>_N
-                                            <"islocked">_N
-                                            <Servant.API.Capture.Capture "fileName" GHC.Base.String
-                                             Servant.API.Sub.:> Servant.API.Verbs.Get
-                                                                  '[Servant.API.ContentTypes.JSON]
-                                                                  GHC.Types.Bool>_N
-                                            <Control.Monad.Trans.Except.ExceptT
-                                               Servant.Server.Internal.ServantErr.ServantErr
-                                               GHC.Types.IO>_N)))))) -}
-35ef740a8d9af69e168c9dfedadd7720
-  lockingApp11 ::
-    Servant.Server.Internal.RoutingApplication.Delayed
-      (Data.Text.Internal.Text, env)
-      (Servant.Server.Internal.Server
-         (Servant.API.Verbs.Verb
-            'Network.HTTP.Types.Method.GET
-            200
-            '[Servant.API.ContentTypes.JSON]
-            GHC.Types.Bool))
-    -> Servant.Server.Internal.Router.Router
-         (Data.Text.Internal.Text, env)
-  {- Unfolding: (\ @ env ->
-                 Servant.Server.Internal.$w$croute8
-                   @ Network.HTTP.Types.Method.StdMethod
-                   @ '[Servant.API.ContentTypes.JSON]
-                   @ GHC.Types.Bool
-                   @ 'Network.HTTP.Types.Method.GET
-                   @ 200
-                   @ '[]
-                   LockingService.$s$fAllCTRender:a
-                   Servant.API.Verbs.$fReflectMethodStdMethodGET_$creflectMethod
-                     `cast`
-                   (Sym (Servant.API.Verbs.N:ReflectMethod[0]
-                             <Network.HTTP.Types.Method.StdMethod>_N
-                             <'Network.HTTP.Types.Method.GET>_N))
-                   LockingService.lockingApp12
-                     `cast`
-                   (Trans
-                        (Sym (GHC.TypeLits.N:SNat[0] <200>_P))
-                        (Sym (GHC.TypeLits.N:KnownNat[0]) <200>_N))
-                   @ (Data.Text.Internal.Text, env)
-                   (Data.Proxy.Proxy
-                      @ *
-                      @ (Servant.API.Verbs.Verb
-                           'Network.HTTP.Types.Method.GET
-                           200
-                           '[Servant.API.ContentTypes.JSON]
-                           GHC.Types.Bool))) -}
-221c6dabd35312a8b2467c55b872de33
-  lockingApp12 :: GHC.Integer.Type.Integer
-  {- HasNoCafRefs, Unfolding: (200) -}
-aad26a28d174443874554c65593ec470
-  lockingApp13 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          Data.Text.Internal.Text #)
-  {- Arity: 1,
-     Unfolding: (\ (s1 :: GHC.Prim.State#
-                            GHC.Prim.RealWorld)[OneShot] ->
-                 case GHC.Prim.newByteArray#
-                        @ GHC.Prim.RealWorld
-                        8#
-                        s1 of ds1 { (#,#) ipv ipv1 ->
-                 Servant.Server.Internal.$wouter
-                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
-                   Servant.Server.Internal.$fHasServerTYPE:>context20
-                   LockingService.lockingApp14
-                   0#
-                   ipv }) -}
-5358ece00d6bc06f32c610266b0958ab
-  lockingApp14 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "islocked"#) -}
-19750965c5a68c5db8dd8b693633807b
-  lockingApp15 ::
-    Servant.Server.Internal.Router.Router'
-      () Servant.Server.Internal.RoutingApplication.RoutingApplication
-  {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
-                   @ ()
-                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   LockingService.lockingApp16
-                   (GHC.Types.[]
-                      @ (()
-                         -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
-9404c7ac1ca80ee54bf8ef53ffe949f7
-  lockingApp16 ::
     Data.Map.Base.Map
       Data.Text.Internal.Text
       (Servant.Server.Internal.Router.Router'
@@ -821,7 +715,7 @@ aad26a28d174443874554c65593ec470
   {- Unfolding: (case GHC.Magic.runRW#
                         @ 'GHC.Types.PtrRepLifted
                         @ Data.Text.Internal.Text
-                        LockingService.lockingApp23 of ds1 { (#,#) ipv ipv1 ->
+                        LockingService.$sserve4 of ds1 { (#,#) ipv ipv1 ->
                  case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
                  Data.Map.Base.Bin
                    @ Data.Text.Internal.Text
@@ -829,7 +723,7 @@ aad26a28d174443874554c65593ec470
                         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
                    1#
                    dt
-                   LockingService.lockingApp17
+                   LockingService.lockingApp11
                    (Data.Map.Base.Tip
                       @ Data.Text.Internal.Text
                       @ (Servant.Server.Internal.Router.Router'
@@ -839,77 +733,333 @@ aad26a28d174443874554c65593ec470
                       @ (Servant.Server.Internal.Router.Router'
                            ()
                            Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
-20a6b16e24dba3075d43d7d216297261
-  lockingApp17 ::
-    Servant.Server.Internal.Router.Router'
-      () Servant.Server.Internal.RoutingApplication.RoutingApplication
-  {- Unfolding: (Servant.Server.Internal.Router.CaptureRouter
+af495dd0d640fb36ddc127ab42abe096
+  lockingApp11 :: Servant.Server.Internal.Router.Router ()
+  {- Unfolding: (Servant.Server.Internal.$w$croute2
+                   @ *
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ CommonResources.FileName
+                   @ (Servant.API.Verbs.Verb
+                        'Network.HTTP.Types.Method.POST
+                        200
+                        '[Servant.API.ContentTypes.JSON]
+                        CommonResources.Response)
+                   @ '[]
+                   LockingService.$sserve8
+                     `cast`
+                   (Sym (Servant.API.ContentTypes.N:AllCTUnrender[0]
+                             <'[Servant.API.ContentTypes.JSON]>_N <CommonResources.FileName>_N))
+                   LockingService.$sserve6
+                     `cast`
+                   (Sym (Servant.Server.Internal.N:HasServer[0]
+                             <*>_N
+                             <Servant.API.Verbs.Verb
+                                'Network.HTTP.Types.Method.POST
+                                200
+                                '[Servant.API.ContentTypes.JSON]
+                                CommonResources.Response>_N
+                             <'[]>_N))
                    @ ()
-                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   LockingService.lockingApp18) -}
-2d31095f52ebb922a2296fe7b059c30e
-  lockingApp18 ::
-    Servant.Server.Internal.Router.Router (Data.Text.Internal.Text, ())
-  {- Unfolding: (LockingService.lockingApp11
-                   @ ()
-                   (Servant.Server.Internal.RoutingApplication.addCapture
-                      @ ()
-                      @ [GHC.Types.Char]
-                      @ (Servant.Server.Internal.Server
-                           (Servant.API.Verbs.Verb
-                              'Network.HTTP.Types.Method.GET
-                              200
-                              '[Servant.API.ContentTypes.JSON]
-                              GHC.Types.Bool))
-                      @ Data.Text.Internal.Text
-                      LockingService.lockingApp19
-                        `cast`
-                      (Servant.Server.Internal.RoutingApplication.Delayed
-                         <()>_R
-                         (Trans
-                              (Sub (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
-                                        <*>_N
-                                        <"unlock">_N
-                                        <Servant.API.Capture.Capture "fileName" GHC.Base.String
-                                         Servant.API.Sub.:> Servant.API.Verbs.Get
-                                                              '[Servant.API.ContentTypes.JSON]
-                                                              GHC.Types.Bool>_N
-                                        <Control.Monad.Trans.Except.ExceptT
-                                           Servant.Server.Internal.ServantErr.ServantErr
-                                           GHC.Types.IO>_N))
-                              (Sub (Servant.Server.Internal.D:R:ServerTTYPE:>m11[0]
-                                        <*>_N
-                                        <"fileName">_N
-                                        <[GHC.Types.Char]>_N
-                                        <Servant.API.Verbs.Verb
-                                           'Network.HTTP.Types.Method.GET
-                                           200
-                                           '[Servant.API.ContentTypes.JSON]
-                                           GHC.Types.Bool>_N
-                                        <Control.Monad.Trans.Except.ExceptT
-                                           Servant.Server.Internal.ServantErr.ServantErr
-                                           GHC.Types.IO>_N))))_R
-                      LockingService.lockingApp7)) -}
-cb09761ddacb6cc8215c0dec209e37f6
-  lockingApp19 ::
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.ReqBody.ReqBody
+                           '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                         Servant.API.Sub.:> Servant.API.Verbs.Verb
+                                              'Network.HTTP.Types.Method.POST
+                                              200
+                                              '[Servant.API.ContentTypes.JSON]
+                                              CommonResources.Response))
+                   Servant.Server.Internal.Context.$WEmptyContext
+                   LockingService.lockingApp12
+                     `cast`
+                   (Servant.Server.Internal.RoutingApplication.Delayed
+                      <()>_R
+                      (Sub (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                <*>_N
+                                <"unlock">_N
+                                <Servant.API.ReqBody.ReqBody
+                                   '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                                 Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                      '[Servant.API.ContentTypes.JSON]
+                                                      CommonResources.Response>_N
+                                <Control.Monad.Trans.Except.ExceptT
+                                   Servant.Server.Internal.ServantErr.ServantErr
+                                   GHC.Types.IO>_N)))_R) -}
+4a957d18eb1ecaace71efcd60c3f12cc
+  lockingApp12 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       ()
       (Servant.Server.Internal.Server
          ("unlock"
-          Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                "fileName" GHC.Base.String
-                              Servant.API.Sub.:> Servant.API.Verbs.Get
+          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                              Servant.API.Sub.:> Servant.API.Verbs.Post
                                                    '[Servant.API.ContentTypes.JSON]
-                                                   GHC.Types.Bool)))
+                                                   CommonResources.Response)))
   {- Unfolding: (Servant.Server.Internal.RoutingApplication.Delayed
                    @ ()
                    @ (Servant.Server.Internal.Server
                         ("unlock"
-                         Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                               "fileName" GHC.Base.String
-                                             Servant.API.Sub.:> Servant.API.Verbs.Get
+                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                   '[Servant.API.ContentTypes.JSON]
-                                                                  GHC.Types.Bool)))
+                                                                  CommonResources.Response)))
+                   @ ()
+                   @ ()
+                   @ ()
+                   (Servant.Server.Internal.RoutingApplication.emptyDelayed2 @ ())
+                     `cast`
+                   (<()>_R
+                    ->_R Trans
+                             (<Network.Wai.Internal.Request>_R
+                              ->_R Sym (GHC.Types.N:IO[0]
+                                            <Servant.Server.Internal.RoutingApplication.RouteResult
+                                               ()>_R))
+                             (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                       <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   LockingService.lockingApp13) -}
+6406dc2bcf78cf6d2acee2e6a0790d58
+  lockingApp13 ::
+    ()
+    -> ()
+    -> ()
+    -> Network.Wai.Internal.Request
+    -> Servant.Server.Internal.RoutingApplication.RouteResult
+         (Servant.Server.Internal.Server
+            ("unlock"
+             Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                   '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                                 Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                      '[Servant.API.ContentTypes.JSON]
+                                                      CommonResources.Response)))
+  {- Arity: 4,
+     Unfolding: (\ (c :: ())
+                   (a1 :: ())
+                   (b1 :: ())
+                   (req :: Network.Wai.Internal.Request) ->
+                 LockingService.lockingApp14) -}
+c1176e2af777ce6c3aced3a8db765619
+  lockingApp14 ::
+    Servant.Server.Internal.RoutingApplication.RouteResult
+      (Servant.Server.Internal.Server
+         ("unlock"
+          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                   '[Servant.API.ContentTypes.JSON]
+                                                   CommonResources.Response)))
+  {- Unfolding: (Servant.Server.Internal.RoutingApplication.Route
+                   @ (Servant.Server.Internal.Server
+                        ("unlock"
+                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.Response)))
+                   LockingService.lockingApp15
+                     `cast`
+                   (Trans
+                        (<CommonResources.FileName>_R
+                         ->_R Trans
+                                  (Sym (GHC.Types.N:IO[0]
+                                            <Data.Either.Either
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               CommonResources.Response>_R))
+                                  (Trans
+                                       (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                                 <Servant.Server.Internal.ServantErr.ServantErr>_N
+                                                 <GHC.Types.IO>_R
+                                                 <CommonResources.Response>_N))
+                                       (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
+                                                      <Network.HTTP.Types.Method.StdMethod>_N
+                                                      <'[Servant.API.ContentTypes.JSON]>_N
+                                                      <CommonResources.Response>_N
+                                                      <'Network.HTTP.Types.Method.POST>_N
+                                                      <200>_N
+                                                      <Control.Monad.Trans.Except.ExceptT
+                                                         Servant.Server.Internal.ServantErr.ServantErr
+                                                         GHC.Types.IO>_N)))))
+                        (Trans
+                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
+                                            <*>_N
+                                            <'[Servant.API.ContentTypes.JSON]>_N
+                                            <CommonResources.FileName>_N
+                                            <Servant.API.Verbs.Verb
+                                               'Network.HTTP.Types.Method.POST
+                                               200
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.Response>_N
+                                            <Control.Monad.Trans.Except.ExceptT
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               GHC.Types.IO>_N)))
+                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                            <*>_N
+                                            <"unlock">_N
+                                            <Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.Response>_N
+                                            <Control.Monad.Trans.Except.ExceptT
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               GHC.Types.IO>_N)))))) -}
+10a6c0c8a3bb92001e3ee35c7305ea0a
+  lockingApp15 ::
+    CommonResources.FileName
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either
+            Servant.Server.Internal.ServantErr.ServantErr
+            CommonResources.Response #)
+  {- Arity: 2, Strictness: <S,1*U(1*U,1*U,1*U)><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: CommonResources.FileName)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w of ww { CommonResources.FileName ww1 ww2 ww3 ->
+                 LockingService.$wunlockFile ww1 ww2 ww3 w1 }) -}
+fb362a67ecc8ef32484d34cc6958bd06
+  lockingApp16 ::
+    Servant.Server.Internal.Router.Router'
+      () Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
+                   @ ()
+                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
+                   LockingService.lockingApp17
+                   (GHC.Types.[]
+                      @ (()
+                         -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
+bcdd8cc9f4ce27f9d3f2e2b8092a146b
+  lockingApp17 ::
+    Data.Map.Base.Map
+      Data.Text.Internal.Text
+      (Servant.Server.Internal.Router.Router'
+         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
+  {- Unfolding: (case GHC.Magic.runRW#
+                        @ 'GHC.Types.PtrRepLifted
+                        @ Data.Text.Internal.Text
+                        LockingService.$sserve9 of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
+                 Data.Map.Base.Bin
+                   @ Data.Text.Internal.Text
+                   @ (Servant.Server.Internal.Router.Router'
+                        () Servant.Server.Internal.RoutingApplication.RoutingApplication)
+                   1#
+                   dt
+                   LockingService.lockingApp18
+                   (Data.Map.Base.Tip
+                      @ Data.Text.Internal.Text
+                      @ (Servant.Server.Internal.Router.Router'
+                           () Servant.Server.Internal.RoutingApplication.RoutingApplication))
+                   (Data.Map.Base.Tip
+                      @ Data.Text.Internal.Text
+                      @ (Servant.Server.Internal.Router.Router'
+                           ()
+                           Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
+b4d1f7b77d37044a9984dc88087f6e38
+  lockingApp18 :: Servant.Server.Internal.Router.Router ()
+  {- Unfolding: (Servant.Server.Internal.$w$croute2
+                   @ *
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ CommonResources.FileName
+                   @ (Servant.API.Verbs.Verb
+                        'Network.HTTP.Types.Method.POST
+                        200
+                        '[Servant.API.ContentTypes.JSON]
+                        CommonResources.Response)
+                   @ '[]
+                   LockingService.$sserve8
+                     `cast`
+                   (Sym (Servant.API.ContentTypes.N:AllCTUnrender[0]
+                             <'[Servant.API.ContentTypes.JSON]>_N <CommonResources.FileName>_N))
+                   LockingService.$sserve6
+                     `cast`
+                   (Sym (Servant.Server.Internal.N:HasServer[0]
+                             <*>_N
+                             <Servant.API.Verbs.Verb
+                                'Network.HTTP.Types.Method.POST
+                                200
+                                '[Servant.API.ContentTypes.JSON]
+                                CommonResources.Response>_N
+                             <'[]>_N))
+                   @ ()
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.ReqBody.ReqBody
+                           '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                         Servant.API.Sub.:> Servant.API.Verbs.Verb
+                                              'Network.HTTP.Types.Method.POST
+                                              200
+                                              '[Servant.API.ContentTypes.JSON]
+                                              CommonResources.Response))
+                   Servant.Server.Internal.Context.$WEmptyContext
+                   LockingService.lockingApp19
+                     `cast`
+                   (Servant.Server.Internal.RoutingApplication.Delayed
+                      <()>_R
+                      (Sub (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                <*>_N
+                                <"lock">_N
+                                <Servant.API.ReqBody.ReqBody
+                                   '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                                 Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                      '[Servant.API.ContentTypes.JSON]
+                                                      CommonResources.Response>_N
+                                <Control.Monad.Trans.Except.ExceptT
+                                   Servant.Server.Internal.ServantErr.ServantErr
+                                   GHC.Types.IO>_N)))_R) -}
+7bc0a878e14174768beeb69346d7dd75
+  lockingApp19 ::
+    Servant.Server.Internal.RoutingApplication.Delayed
+      ()
+      (Servant.Server.Internal.Server
+         ("lock"
+          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                   '[Servant.API.ContentTypes.JSON]
+                                                   CommonResources.Response)))
+  {- Unfolding: (Servant.Server.Internal.RoutingApplication.Delayed
+                   @ ()
+                   @ (Servant.Server.Internal.Server
+                        ("lock"
+                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.Response)))
                    @ ()
                    @ ()
                    @ ()
@@ -951,16 +1101,16 @@ cb09761ddacb6cc8215c0dec209e37f6
                         (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
                                   <()>_R)))
                    LockingService.lockingApp20) -}
-b21fd9c2451e8eb70a067cccbfdd3857
+dca3f3b4b76a2fc97e3cef6f1d61d201
   lockingApp2 ::
     Servant.Server.Internal.Router.Router'
       () Servant.Server.Internal.RoutingApplication.RoutingApplication
   {- Unfolding: (Servant.Server.Internal.Router.choice
                    @ ()
                    @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   LockingService.lockingApp15
+                   LockingService.lockingApp9
                    LockingService.lockingApp3) -}
-63575e29059003471bcfe063061286a9
+ca8e6f2befc50fde6e5cba3170a32542
   lockingApp20 ::
     ()
     -> ()
@@ -968,262 +1118,86 @@ b21fd9c2451e8eb70a067cccbfdd3857
     -> Network.Wai.Internal.Request
     -> Servant.Server.Internal.RoutingApplication.RouteResult
          (Servant.Server.Internal.Server
-            ("unlock"
-             Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                   "fileName" GHC.Base.String
-                                 Servant.API.Sub.:> Servant.API.Verbs.Get
+            ("lock"
+             Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                   '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                                 Servant.API.Sub.:> Servant.API.Verbs.Post
                                                       '[Servant.API.ContentTypes.JSON]
-                                                      GHC.Types.Bool)))
+                                                      CommonResources.Response)))
   {- Arity: 4,
      Unfolding: (\ (c :: ())
                    (a1 :: ())
                    (b1 :: ())
                    (req :: Network.Wai.Internal.Request) ->
                  LockingService.lockingApp21) -}
-d8e6bdfca85146b64af63682af1f28a0
+10ec7c37bd039516e8efd10a1375092e
   lockingApp21 ::
     Servant.Server.Internal.RoutingApplication.RouteResult
       (Servant.Server.Internal.Server
-         ("unlock"
-          Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                "fileName" GHC.Base.String
-                              Servant.API.Sub.:> Servant.API.Verbs.Get
+         ("lock"
+          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                              Servant.API.Sub.:> Servant.API.Verbs.Post
                                                    '[Servant.API.ContentTypes.JSON]
-                                                   GHC.Types.Bool)))
+                                                   CommonResources.Response)))
   {- Unfolding: (Servant.Server.Internal.RoutingApplication.Route
                    @ (Servant.Server.Internal.Server
-                        ("unlock"
-                         Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                               "fileName" GHC.Base.String
-                                             Servant.API.Sub.:> Servant.API.Verbs.Get
+                        ("lock"
+                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                   '[Servant.API.ContentTypes.JSON]
-                                                                  GHC.Types.Bool)))
-                   LockingService.lockingApp22
+                                                                  CommonResources.Response)))
+                   LockingService.lockFile1
                      `cast`
                    (Trans
-                        (<[GHC.Types.Char]>_R
+                        (<CommonResources.FileName>_R
                          ->_R Trans
                                   (Sym (GHC.Types.N:IO[0]
                                             <Data.Either.Either
                                                Servant.Server.Internal.ServantErr.ServantErr
-                                               GHC.Types.Bool>_R))
+                                               CommonResources.Response>_R))
                                   (Trans
                                        (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
                                                  <Servant.Server.Internal.ServantErr.ServantErr>_N
                                                  <GHC.Types.IO>_R
-                                                 <GHC.Types.Bool>_N))
+                                                 <CommonResources.Response>_N))
                                        (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
                                                       <Network.HTTP.Types.Method.StdMethod>_N
                                                       <'[Servant.API.ContentTypes.JSON]>_N
-                                                      <GHC.Types.Bool>_N
-                                                      <'Network.HTTP.Types.Method.GET>_N
+                                                      <CommonResources.Response>_N
+                                                      <'Network.HTTP.Types.Method.POST>_N
                                                       <200>_N
                                                       <Control.Monad.Trans.Except.ExceptT
                                                          Servant.Server.Internal.ServantErr.ServantErr
                                                          GHC.Types.IO>_N)))))
                         (Trans
-                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m11[0]
+                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
                                             <*>_N
-                                            <"fileName">_N
-                                            <[GHC.Types.Char]>_N
+                                            <'[Servant.API.ContentTypes.JSON]>_N
+                                            <CommonResources.FileName>_N
                                             <Servant.API.Verbs.Verb
-                                               'Network.HTTP.Types.Method.GET
+                                               'Network.HTTP.Types.Method.POST
                                                200
                                                '[Servant.API.ContentTypes.JSON]
-                                               GHC.Types.Bool>_N
+                                               CommonResources.Response>_N
                                             <Control.Monad.Trans.Except.ExceptT
                                                Servant.Server.Internal.ServantErr.ServantErr
                                                GHC.Types.IO>_N)))
                              (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
                                             <*>_N
-                                            <"unlock">_N
-                                            <Servant.API.Capture.Capture "fileName" GHC.Base.String
-                                             Servant.API.Sub.:> Servant.API.Verbs.Get
+                                            <"lock">_N
+                                            <Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                   '[Servant.API.ContentTypes.JSON]
-                                                                  GHC.Types.Bool>_N
+                                                                  CommonResources.Response>_N
                                             <Control.Monad.Trans.Except.ExceptT
                                                Servant.Server.Internal.ServantErr.ServantErr
                                                GHC.Types.IO>_N)))))) -}
-86b8e18bba18b51745b1c731c2c1672a
-  lockingApp22 ::
-    GHC.Base.String
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          Data.Either.Either
-            Servant.Server.Internal.ServantErr.ServantErr GHC.Types.Bool #)
-  {- Arity: 2, Strictness: <L,U><S,U> -}
-96692d9b534ef73c505c7ce5caa9f158
-  lockingApp23 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          Data.Text.Internal.Text #)
-  {- Arity: 1,
-     Unfolding: (\ (s1 :: GHC.Prim.State#
-                            GHC.Prim.RealWorld)[OneShot] ->
-                 case GHC.Prim.newByteArray#
-                        @ GHC.Prim.RealWorld
-                        8#
-                        s1 of ds1 { (#,#) ipv ipv1 ->
-                 Servant.Server.Internal.$wouter
-                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
-                   Servant.Server.Internal.$fHasServerTYPE:>context20
-                   LockingService.lockingApp24
-                   0#
-                   ipv }) -}
-0892dd68abf55beeba2e0d679c17857b
-  lockingApp24 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "unlock"#) -}
-c607b29e62538dfcd5e24332333df7da
-  lockingApp25 ::
-    Servant.Server.Internal.Router.Router'
-      () Servant.Server.Internal.RoutingApplication.RoutingApplication
-  {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
-                   @ ()
-                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   LockingService.lockingApp26
-                   (GHC.Types.[]
-                      @ (()
-                         -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
-8225f3487968700b391caca8bc617e1e
-  lockingApp26 ::
-    Data.Map.Base.Map
-      Data.Text.Internal.Text
-      (Servant.Server.Internal.Router.Router'
-         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
-  {- Unfolding: (case GHC.Magic.runRW#
-                        @ 'GHC.Types.PtrRepLifted
-                        @ Data.Text.Internal.Text
-                        LockingService.lockingApp32 of ds1 { (#,#) ipv ipv1 ->
-                 case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
-                 Data.Map.Base.Bin
-                   @ Data.Text.Internal.Text
-                   @ (Servant.Server.Internal.Router.Router'
-                        () Servant.Server.Internal.RoutingApplication.RoutingApplication)
-                   1#
-                   dt
-                   LockingService.lockingApp27
-                   (Data.Map.Base.Tip
-                      @ Data.Text.Internal.Text
-                      @ (Servant.Server.Internal.Router.Router'
-                           () Servant.Server.Internal.RoutingApplication.RoutingApplication))
-                   (Data.Map.Base.Tip
-                      @ Data.Text.Internal.Text
-                      @ (Servant.Server.Internal.Router.Router'
-                           ()
-                           Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
-a7169d5e355b85887d60675ca53e374d
-  lockingApp27 ::
-    Servant.Server.Internal.Router.Router'
-      () Servant.Server.Internal.RoutingApplication.RoutingApplication
-  {- Unfolding: (Servant.Server.Internal.Router.CaptureRouter
-                   @ ()
-                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   LockingService.lockingApp28) -}
-96854a860ec9da98791433cce82851bb
-  lockingApp28 ::
-    Servant.Server.Internal.Router.Router (Data.Text.Internal.Text, ())
-  {- Unfolding: (LockingService.lockingApp11
-                   @ ()
-                   (Servant.Server.Internal.RoutingApplication.addCapture
-                      @ ()
-                      @ [GHC.Types.Char]
-                      @ (Servant.Server.Internal.Server
-                           (Servant.API.Verbs.Verb
-                              'Network.HTTP.Types.Method.GET
-                              200
-                              '[Servant.API.ContentTypes.JSON]
-                              GHC.Types.Bool))
-                      @ Data.Text.Internal.Text
-                      LockingService.lockingApp29
-                        `cast`
-                      (Servant.Server.Internal.RoutingApplication.Delayed
-                         <()>_R
-                         (Trans
-                              (Sub (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
-                                        <*>_N
-                                        <"lock">_N
-                                        <Servant.API.Capture.Capture "fileName" GHC.Base.String
-                                         Servant.API.Sub.:> Servant.API.Verbs.Get
-                                                              '[Servant.API.ContentTypes.JSON]
-                                                              GHC.Types.Bool>_N
-                                        <Control.Monad.Trans.Except.ExceptT
-                                           Servant.Server.Internal.ServantErr.ServantErr
-                                           GHC.Types.IO>_N))
-                              (Sub (Servant.Server.Internal.D:R:ServerTTYPE:>m11[0]
-                                        <*>_N
-                                        <"fileName">_N
-                                        <[GHC.Types.Char]>_N
-                                        <Servant.API.Verbs.Verb
-                                           'Network.HTTP.Types.Method.GET
-                                           200
-                                           '[Servant.API.ContentTypes.JSON]
-                                           GHC.Types.Bool>_N
-                                        <Control.Monad.Trans.Except.ExceptT
-                                           Servant.Server.Internal.ServantErr.ServantErr
-                                           GHC.Types.IO>_N))))_R
-                      LockingService.lockingApp7)) -}
-dc775c4d3f51adc5228738dd877cc198
-  lockingApp29 ::
-    Servant.Server.Internal.RoutingApplication.Delayed
-      ()
-      (Servant.Server.Internal.Server
-         ("lock"
-          Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                "fileName" GHC.Base.String
-                              Servant.API.Sub.:> Servant.API.Verbs.Get
-                                                   '[Servant.API.ContentTypes.JSON]
-                                                   GHC.Types.Bool)))
-  {- Unfolding: (Servant.Server.Internal.RoutingApplication.Delayed
-                   @ ()
-                   @ (Servant.Server.Internal.Server
-                        ("lock"
-                         Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                               "fileName" GHC.Base.String
-                                             Servant.API.Sub.:> Servant.API.Verbs.Get
-                                                                  '[Servant.API.ContentTypes.JSON]
-                                                                  GHC.Types.Bool)))
-                   @ ()
-                   @ ()
-                   @ ()
-                   (Servant.Server.Internal.RoutingApplication.emptyDelayed2 @ ())
-                     `cast`
-                   (<()>_R
-                    ->_R Trans
-                             (<Network.Wai.Internal.Request>_R
-                              ->_R Sym (GHC.Types.N:IO[0]
-                                            <Servant.Server.Internal.RoutingApplication.RouteResult
-                                               ()>_R))
-                             (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
-                                       <()>_R)))
-                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
-                     `cast`
-                   (Trans
-                        (<Network.Wai.Internal.Request>_R
-                         ->_R Sym (GHC.Types.N:IO[0]
-                                       <Servant.Server.Internal.RoutingApplication.RouteResult
-                                          ()>_R))
-                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
-                                  <()>_R)))
-                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
-                     `cast`
-                   (Trans
-                        (<Network.Wai.Internal.Request>_R
-                         ->_R Sym (GHC.Types.N:IO[0]
-                                       <Servant.Server.Internal.RoutingApplication.RouteResult
-                                          ()>_R))
-                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
-                                  <()>_R)))
-                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
-                     `cast`
-                   (Trans
-                        (<Network.Wai.Internal.Request>_R
-                         ->_R Sym (GHC.Types.N:IO[0]
-                                       <Servant.Server.Internal.RoutingApplication.RouteResult
-                                          ()>_R))
-                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
-                                  <()>_R)))
-                   LockingService.lockingApp30) -}
-a84653e05d1138ec02bc1403f6685b56
+549ed76518c45800d7fd0d59ff2cc1d2
   lockingApp3 ::
     Servant.Server.Internal.Router.Router'
       () Servant.Server.Internal.RoutingApplication.RoutingApplication
@@ -1234,112 +1208,7 @@ a84653e05d1138ec02bc1403f6685b56
                    (GHC.Types.[]
                       @ (()
                          -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
-d3075a8a71010f45e5ed18d1db6b333f
-  lockingApp30 ::
-    ()
-    -> ()
-    -> ()
-    -> Network.Wai.Internal.Request
-    -> Servant.Server.Internal.RoutingApplication.RouteResult
-         (Servant.Server.Internal.Server
-            ("lock"
-             Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                   "fileName" GHC.Base.String
-                                 Servant.API.Sub.:> Servant.API.Verbs.Get
-                                                      '[Servant.API.ContentTypes.JSON]
-                                                      GHC.Types.Bool)))
-  {- Arity: 4,
-     Unfolding: (\ (c :: ())
-                   (a1 :: ())
-                   (b1 :: ())
-                   (req :: Network.Wai.Internal.Request) ->
-                 LockingService.lockingApp31) -}
-8eb7db4fc6148819c666f0fa7879454d
-  lockingApp31 ::
-    Servant.Server.Internal.RoutingApplication.RouteResult
-      (Servant.Server.Internal.Server
-         ("lock"
-          Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                "fileName" GHC.Base.String
-                              Servant.API.Sub.:> Servant.API.Verbs.Get
-                                                   '[Servant.API.ContentTypes.JSON]
-                                                   GHC.Types.Bool)))
-  {- Unfolding: (Servant.Server.Internal.RoutingApplication.Route
-                   @ (Servant.Server.Internal.Server
-                        ("lock"
-                         Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                               "fileName" GHC.Base.String
-                                             Servant.API.Sub.:> Servant.API.Verbs.Get
-                                                                  '[Servant.API.ContentTypes.JSON]
-                                                                  GHC.Types.Bool)))
-                   LockingService.lockFile1
-                     `cast`
-                   (Trans
-                        (<[GHC.Types.Char]>_R
-                         ->_R Trans
-                                  (Sym (GHC.Types.N:IO[0]
-                                            <Data.Either.Either
-                                               Servant.Server.Internal.ServantErr.ServantErr
-                                               GHC.Types.Bool>_R))
-                                  (Trans
-                                       (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
-                                                 <Servant.Server.Internal.ServantErr.ServantErr>_N
-                                                 <GHC.Types.IO>_R
-                                                 <GHC.Types.Bool>_N))
-                                       (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
-                                                      <Network.HTTP.Types.Method.StdMethod>_N
-                                                      <'[Servant.API.ContentTypes.JSON]>_N
-                                                      <GHC.Types.Bool>_N
-                                                      <'Network.HTTP.Types.Method.GET>_N
-                                                      <200>_N
-                                                      <Control.Monad.Trans.Except.ExceptT
-                                                         Servant.Server.Internal.ServantErr.ServantErr
-                                                         GHC.Types.IO>_N)))))
-                        (Trans
-                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m11[0]
-                                            <*>_N
-                                            <"fileName">_N
-                                            <[GHC.Types.Char]>_N
-                                            <Servant.API.Verbs.Verb
-                                               'Network.HTTP.Types.Method.GET
-                                               200
-                                               '[Servant.API.ContentTypes.JSON]
-                                               GHC.Types.Bool>_N
-                                            <Control.Monad.Trans.Except.ExceptT
-                                               Servant.Server.Internal.ServantErr.ServantErr
-                                               GHC.Types.IO>_N)))
-                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
-                                            <*>_N
-                                            <"lock">_N
-                                            <Servant.API.Capture.Capture "fileName" GHC.Base.String
-                                             Servant.API.Sub.:> Servant.API.Verbs.Get
-                                                                  '[Servant.API.ContentTypes.JSON]
-                                                                  GHC.Types.Bool>_N
-                                            <Control.Monad.Trans.Except.ExceptT
-                                               Servant.Server.Internal.ServantErr.ServantErr
-                                               GHC.Types.IO>_N)))))) -}
-b66e54dadbc93ae9b1a32c38a355a7fd
-  lockingApp32 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          Data.Text.Internal.Text #)
-  {- Arity: 1,
-     Unfolding: (\ (s1 :: GHC.Prim.State#
-                            GHC.Prim.RealWorld)[OneShot] ->
-                 case GHC.Prim.newByteArray#
-                        @ GHC.Prim.RealWorld
-                        8#
-                        s1 of ds1 { (#,#) ipv ipv1 ->
-                 Servant.Server.Internal.$wouter
-                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
-                   Servant.Server.Internal.$fHasServerTYPE:>context20
-                   LockingService.lockingApp33
-                   0#
-                   ipv }) -}
-0fb2e02002c7336c477e76932cc92f50
-  lockingApp33 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "lock"#) -}
-a93b83d48aa40e978560daf4bc21dc51
+d787a8f35cfa192058aeab2f56bd4b47
   lockingApp4 ::
     Data.Map.Base.Map
       Data.Text.Internal.Text
@@ -1348,7 +1217,7 @@ a93b83d48aa40e978560daf4bc21dc51
   {- Unfolding: (case GHC.Magic.runRW#
                         @ 'GHC.Types.PtrRepLifted
                         @ Data.Text.Internal.Text
-                        LockingService.lockingApp13 of ds1 { (#,#) ipv ipv1 ->
+                        LockingService.$sserve2 of ds1 { (#,#) ipv ipv1 ->
                  case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
                  Data.Map.Base.Bin
                    @ Data.Text.Internal.Text
@@ -1366,97 +1235,79 @@ a93b83d48aa40e978560daf4bc21dc51
                       @ (Servant.Server.Internal.Router.Router'
                            ()
                            Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
-3e35f3b84ef6e32709cd6746f10c8b42
-  lockingApp5 ::
-    Servant.Server.Internal.Router.Router'
-      () Servant.Server.Internal.RoutingApplication.RoutingApplication
-  {- Unfolding: (Servant.Server.Internal.Router.CaptureRouter
+4ce9c7db2ee98b65fc4e2435a1cbf6d5
+  lockingApp5 :: Servant.Server.Internal.Router.Router ()
+  {- Unfolding: (Servant.Server.Internal.$w$croute2
+                   @ *
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ CommonResources.FileName
+                   @ (Servant.API.Verbs.Verb
+                        'Network.HTTP.Types.Method.POST
+                        200
+                        '[Servant.API.ContentTypes.JSON]
+                        CommonResources.Response)
+                   @ '[]
+                   LockingService.$sserve8
+                     `cast`
+                   (Sym (Servant.API.ContentTypes.N:AllCTUnrender[0]
+                             <'[Servant.API.ContentTypes.JSON]>_N <CommonResources.FileName>_N))
+                   LockingService.$sserve6
+                     `cast`
+                   (Sym (Servant.Server.Internal.N:HasServer[0]
+                             <*>_N
+                             <Servant.API.Verbs.Verb
+                                'Network.HTTP.Types.Method.POST
+                                200
+                                '[Servant.API.ContentTypes.JSON]
+                                CommonResources.Response>_N
+                             <'[]>_N))
                    @ ()
-                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   LockingService.lockingApp6) -}
-7b0bcfec9c030cf38478a83199591f51
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.ReqBody.ReqBody
+                           '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                         Servant.API.Sub.:> Servant.API.Verbs.Verb
+                                              'Network.HTTP.Types.Method.POST
+                                              200
+                                              '[Servant.API.ContentTypes.JSON]
+                                              CommonResources.Response))
+                   Servant.Server.Internal.Context.$WEmptyContext
+                   LockingService.lockingApp6
+                     `cast`
+                   (Servant.Server.Internal.RoutingApplication.Delayed
+                      <()>_R
+                      (Sub (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                <*>_N
+                                <"islocked">_N
+                                <Servant.API.ReqBody.ReqBody
+                                   '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                                 Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                      '[Servant.API.ContentTypes.JSON]
+                                                      CommonResources.Response>_N
+                                <Control.Monad.Trans.Except.ExceptT
+                                   Servant.Server.Internal.ServantErr.ServantErr
+                                   GHC.Types.IO>_N)))_R) -}
+3bbf5a33b9186e4a1bef0bbbf4be952a
   lockingApp6 ::
-    Servant.Server.Internal.Router.Router (Data.Text.Internal.Text, ())
-  {- Unfolding: (LockingService.lockingApp11
-                   @ ()
-                   (Servant.Server.Internal.RoutingApplication.addCapture
-                      @ ()
-                      @ [GHC.Types.Char]
-                      @ (Servant.Server.Internal.Server
-                           (Servant.API.Verbs.Verb
-                              'Network.HTTP.Types.Method.GET
-                              200
-                              '[Servant.API.ContentTypes.JSON]
-                              GHC.Types.Bool))
-                      @ Data.Text.Internal.Text
-                      LockingService.lockingApp8
-                        `cast`
-                      (Servant.Server.Internal.RoutingApplication.Delayed
-                         <()>_R
-                         (Trans
-                              (Sub (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
-                                        <*>_N
-                                        <"islocked">_N
-                                        <Servant.API.Capture.Capture "fileName" GHC.Base.String
-                                         Servant.API.Sub.:> Servant.API.Verbs.Get
-                                                              '[Servant.API.ContentTypes.JSON]
-                                                              GHC.Types.Bool>_N
-                                        <Control.Monad.Trans.Except.ExceptT
-                                           Servant.Server.Internal.ServantErr.ServantErr
-                                           GHC.Types.IO>_N))
-                              (Sub (Servant.Server.Internal.D:R:ServerTTYPE:>m11[0]
-                                        <*>_N
-                                        <"fileName">_N
-                                        <[GHC.Types.Char]>_N
-                                        <Servant.API.Verbs.Verb
-                                           'Network.HTTP.Types.Method.GET
-                                           200
-                                           '[Servant.API.ContentTypes.JSON]
-                                           GHC.Types.Bool>_N
-                                        <Control.Monad.Trans.Except.ExceptT
-                                           Servant.Server.Internal.ServantErr.ServantErr
-                                           GHC.Types.IO>_N))))_R
-                      LockingService.lockingApp7)) -}
-f97f99ca309b8d67a7a91400bea0834a
-  lockingApp7 ::
-    Data.Text.Internal.Text
-    -> Servant.Server.Internal.RoutingApplication.DelayedIO
-         [GHC.Types.Char]
-  {- Arity: 1, HasNoCafRefs,
-     Unfolding: (\ (txt :: Data.Text.Internal.Text) ->
-                 case Web.Internal.HttpApiData.$w$cparseUrlPiece3
-                        txt of ww { Unit# ww1 ->
-                 (Servant.Server.Internal.RoutingApplication.$fApplicativeDelayedIO5
-                    @ [GHC.Types.Char]
-                    ww1)
-                   `cast`
-                 (Trans
-                      (<Network.Wai.Internal.Request>_R
-                       ->_R Sym (GHC.Types.N:IO[0]
-                                     <Servant.Server.Internal.RoutingApplication.RouteResult
-                                        [GHC.Types.Char]>_R))
-                      (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
-                                <[GHC.Types.Char]>_R))) }) -}
-08e6534437baacacf1af7ba40ee7b111
-  lockingApp8 ::
     Servant.Server.Internal.RoutingApplication.Delayed
       ()
       (Servant.Server.Internal.Server
          ("islocked"
-          Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                "fileName" GHC.Base.String
-                              Servant.API.Sub.:> Servant.API.Verbs.Get
+          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                              Servant.API.Sub.:> Servant.API.Verbs.Post
                                                    '[Servant.API.ContentTypes.JSON]
-                                                   GHC.Types.Bool)))
+                                                   CommonResources.Response)))
   {- Unfolding: (Servant.Server.Internal.RoutingApplication.Delayed
                    @ ()
                    @ (Servant.Server.Internal.Server
                         ("islocked"
-                         Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                               "fileName" GHC.Base.String
-                                             Servant.API.Sub.:> Servant.API.Verbs.Get
+                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                   '[Servant.API.ContentTypes.JSON]
-                                                                  GHC.Types.Bool)))
+                                                                  CommonResources.Response)))
                    @ ()
                    @ ()
                    @ ()
@@ -1497,9 +1348,9 @@ f97f99ca309b8d67a7a91400bea0834a
                                           ()>_R))
                         (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
                                   <()>_R)))
-                   LockingService.lockingApp9) -}
-85dc5d0bcfadeaf996caf455a108bcba
-  lockingApp9 ::
+                   LockingService.lockingApp7) -}
+2ef3745be5540665fa8f670204aad9da
+  lockingApp7 ::
     ()
     -> ()
     -> ()
@@ -1507,36 +1358,118 @@ f97f99ca309b8d67a7a91400bea0834a
     -> Servant.Server.Internal.RoutingApplication.RouteResult
          (Servant.Server.Internal.Server
             ("islocked"
-             Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                   "fileName" GHC.Base.String
-                                 Servant.API.Sub.:> Servant.API.Verbs.Get
+             Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                   '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                                 Servant.API.Sub.:> Servant.API.Verbs.Post
                                                       '[Servant.API.ContentTypes.JSON]
-                                                      GHC.Types.Bool)))
+                                                      CommonResources.Response)))
   {- Arity: 4,
      Unfolding: (\ (c :: ())
                    (a1 :: ())
                    (b1 :: ())
                    (req :: Network.Wai.Internal.Request) ->
-                 LockingService.lockingApp10) -}
-bc1da474ee53c3c9988e2c15ea0af9e0
+                 LockingService.lockingApp8) -}
+8cc120776996226b23651947d4c984e1
+  lockingApp8 ::
+    Servant.Server.Internal.RoutingApplication.RouteResult
+      (Servant.Server.Internal.Server
+         ("islocked"
+          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                   '[Servant.API.ContentTypes.JSON]
+                                                   CommonResources.Response)))
+  {- Unfolding: (Servant.Server.Internal.RoutingApplication.Route
+                   @ (Servant.Server.Internal.Server
+                        ("islocked"
+                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.Response)))
+                   LockingService.isFileLocked1
+                     `cast`
+                   (Trans
+                        (<CommonResources.FileName>_R
+                         ->_R Trans
+                                  (Sym (GHC.Types.N:IO[0]
+                                            <Data.Either.Either
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               CommonResources.Response>_R))
+                                  (Trans
+                                       (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                                 <Servant.Server.Internal.ServantErr.ServantErr>_N
+                                                 <GHC.Types.IO>_R
+                                                 <CommonResources.Response>_N))
+                                       (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
+                                                      <Network.HTTP.Types.Method.StdMethod>_N
+                                                      <'[Servant.API.ContentTypes.JSON]>_N
+                                                      <CommonResources.Response>_N
+                                                      <'Network.HTTP.Types.Method.POST>_N
+                                                      <200>_N
+                                                      <Control.Monad.Trans.Except.ExceptT
+                                                         Servant.Server.Internal.ServantErr.ServantErr
+                                                         GHC.Types.IO>_N)))))
+                        (Trans
+                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
+                                            <*>_N
+                                            <'[Servant.API.ContentTypes.JSON]>_N
+                                            <CommonResources.FileName>_N
+                                            <Servant.API.Verbs.Verb
+                                               'Network.HTTP.Types.Method.POST
+                                               200
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.Response>_N
+                                            <Control.Monad.Trans.Except.ExceptT
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               GHC.Types.IO>_N)))
+                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                            <*>_N
+                                            <"islocked">_N
+                                            <Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.Response>_N
+                                            <Control.Monad.Trans.Except.ExceptT
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               GHC.Types.IO>_N)))))) -}
+bbec605bd8e8dfd7302cdeb856ccf1f9
+  lockingApp9 ::
+    Servant.Server.Internal.Router.Router'
+      () Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
+                   @ ()
+                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
+                   LockingService.lockingApp10
+                   (GHC.Types.[]
+                      @ (()
+                         -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
+ede518983d4e90ee187229d0d66b5b14
   lockingApp_r :: Servant.Server.Internal.Router.Router ()
   {- Unfolding: (Servant.Server.Internal.Router.choice
                    @ ()
                    @ Servant.Server.Internal.RoutingApplication.RoutingApplication
-                   LockingService.lockingApp25
+                   LockingService.lockingApp16
                    LockingService.lockingApp2) -}
-0c8a1e658536322bc61d43baf6ec717f
+76c9ab2c1042d0e89b7486192723cb8c
   mkApp :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 LockingService.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-a7489a91ebfddc2bad62c642bde0ea8a
+5670c33e7ee08f57d8f32ad4a8a58d28
   mkApp1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1, Strictness: <S,U>,
-     Unfolding: (\ (eta1 :: GHC.Prim.State#
-                              GHC.Prim.RealWorld)[OneShot] ->
+     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        LockingService.mkApp5
+                        GHC.Types.True
+                        s of ds1 { (#,#) ipv ipv1 ->
                  Network.Wai.Handler.Warp.Run.$wrunSettings
                    LockingService.mkApp2
                    Network.Wai.Handler.Warp.Settings.defaultSettings16
@@ -1589,7 +1522,7 @@ a7489a91ebfddc2bad62c642bde0ea8a
                     ->_R Sym (GHC.Types.N:IO[0] <()>_R))
                    (GHC.Base.Nothing @ GHC.Types.Int)
                    LockingService.lockingApp
-                   eta1) -}
+                   ipv }) -}
 43e32b9dbe75c84965c1c0d05336961e
   mkApp2 :: Network.Wai.Handler.Warp.Types.Port
   {- Unfolding: (case Text.Read.readEither6
@@ -1631,27 +1564,12 @@ a284a697b031b76ef965cd77f79a5d93
                  (Text.ParserCombinators.ReadP.N:ReadP[0] <GHC.Types.Int>_R)
                    @ GHC.Types.Int
                    (Text.Read.readEither5 @ GHC.Types.Int)) -}
-adde563d9997314158b9e1d225f563cb
-  noticeLog :: [GHC.Types.Char] -> GHC.Types.IO ()
-  {- Arity: 2,
-     Unfolding: InlineRule (0, True, True)
-                LockingService.noticeLog1
-                  `cast`
-                (<[GHC.Types.Char]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-d37a529f7aea72e72a574b07d67f8b69
-  noticeLog1 ::
-    [GHC.Types.Char]
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2,
-     Unfolding: (LockingService.debugLog2
-                   @ ()
-                   System.Log.Logger.noticeM1
-                     `cast`
-                   (<GHC.Base.String>_R
-                    ->_R <GHC.Base.String>_R
-                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))) -}
-38bdc9bde0e436dc5f812b5b8e0cc184
+0a5f5176ba5efd7f946fb3b696498656
+  mkApp5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "Starting Lock Service on port: "#
+                   CommonResources.lockserverport) -}
+ad9ead63b9db0522f94f754f57c589f5
   server :: Servant.Server.Internal.Server CommonResources.LockingApi
   {- Strictness: m,
      Unfolding: InlineRule (0, True, True)
@@ -1659,383 +1577,295 @@ d37a529f7aea72e72a574b07d67f8b69
                   `cast`
                 (Trans
                      (Trans
-                          (<[GHC.Types.Char]>_R
+                          (<CommonResources.FileName>_R
                            ->_R Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
                                               <Network.HTTP.Types.Method.StdMethod>_N
                                               <'[Servant.API.ContentTypes.JSON]>_N
-                                              <GHC.Types.Bool>_N
-                                              <'Network.HTTP.Types.Method.GET>_N
+                                              <CommonResources.Response>_N
+                                              <'Network.HTTP.Types.Method.POST>_N
                                               <200>_N
                                               <Control.Monad.Trans.Except.ExceptT
                                                  Servant.Server.Internal.ServantErr.ServantErr
                                                  GHC.Types.IO>_N)))
                           (Trans
-                               (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m11[0]
+                               (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
                                               <*>_N
-                                              <"fileName">_N
-                                              <[GHC.Types.Char]>_N
+                                              <'[Servant.API.ContentTypes.JSON]>_N
+                                              <CommonResources.FileName>_N
                                               <Servant.API.Verbs.Verb
-                                                 'Network.HTTP.Types.Method.GET
+                                                 'Network.HTTP.Types.Method.POST
                                                  200
                                                  '[Servant.API.ContentTypes.JSON]
-                                                 GHC.Types.Bool>_N
+                                                 CommonResources.Response>_N
                                               <Control.Monad.Trans.Except.ExceptT
                                                  Servant.Server.Internal.ServantErr.ServantErr
                                                  GHC.Types.IO>_N)))
                                (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
                                               <*>_N
                                               <"lock">_N
-                                              <Servant.API.Capture.Capture
-                                                 "fileName" GHC.Base.String
-                                               Servant.API.Sub.:> Servant.API.Verbs.Get
+                                              <Servant.API.ReqBody.ReqBody
+                                                 '[Servant.API.ContentTypes.JSON]
+                                                 CommonResources.FileName
+                                               Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                     '[Servant.API.ContentTypes.JSON]
-                                                                    GHC.Types.Bool>_N
+                                                                    CommonResources.Response>_N
                                               <Control.Monad.Trans.Except.ExceptT
                                                  Servant.Server.Internal.ServantErr.ServantErr
                                                  GHC.Types.IO>_N))))
                       Servant.API.Alternative.:<|> Trans
                                                        (Trans
-                                                            (<[GHC.Types.Char]>_R
+                                                            (<CommonResources.FileName>_R
                                                              ->_R Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
                                                                                 <Network.HTTP.Types.Method.StdMethod>_N
                                                                                 <'[Servant.API.ContentTypes.JSON]>_N
-                                                                                <GHC.Types.Bool>_N
-                                                                                <'Network.HTTP.Types.Method.GET>_N
+                                                                                <CommonResources.Response>_N
+                                                                                <'Network.HTTP.Types.Method.POST>_N
                                                                                 <200>_N
                                                                                 <Control.Monad.Trans.Except.ExceptT
                                                                                    Servant.Server.Internal.ServantErr.ServantErr
                                                                                    GHC.Types.IO>_N)))
                                                             (Trans
-                                                                 (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m11[0]
+                                                                 (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
                                                                                 <*>_N
-                                                                                <"fileName">_N
-                                                                                <[GHC.Types.Char]>_N
+                                                                                <'[Servant.API.ContentTypes.JSON]>_N
+                                                                                <CommonResources.FileName>_N
                                                                                 <Servant.API.Verbs.Verb
-                                                                                   'Network.HTTP.Types.Method.GET
+                                                                                   'Network.HTTP.Types.Method.POST
                                                                                    200
                                                                                    '[Servant.API.ContentTypes.JSON]
-                                                                                   GHC.Types.Bool>_N
+                                                                                   CommonResources.Response>_N
                                                                                 <Control.Monad.Trans.Except.ExceptT
                                                                                    Servant.Server.Internal.ServantErr.ServantErr
                                                                                    GHC.Types.IO>_N)))
                                                                  (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
                                                                                 <*>_N
                                                                                 <"unlock">_N
-                                                                                <Servant.API.Capture.Capture
-                                                                                   "fileName"
-                                                                                   GHC.Base.String
-                                                                                 Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                                                <Servant.API.ReqBody.ReqBody
+                                                                                   '[Servant.API.ContentTypes.JSON]
+                                                                                   CommonResources.FileName
+                                                                                 Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                       '[Servant.API.ContentTypes.JSON]
-                                                                                                      GHC.Types.Bool>_N
+                                                                                                      CommonResources.Response>_N
                                                                                 <Control.Monad.Trans.Except.ExceptT
                                                                                    Servant.Server.Internal.ServantErr.ServantErr
                                                                                    GHC.Types.IO>_N))))
                                                         Servant.API.Alternative.:<|> Trans
-                                                                                         (<[GHC.Types.Char]>_R
+                                                                                         (<CommonResources.FileName>_R
                                                                                           ->_R Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
                                                                                                              <Network.HTTP.Types.Method.StdMethod>_N
                                                                                                              <'[Servant.API.ContentTypes.JSON]>_N
-                                                                                                             <GHC.Types.Bool>_N
-                                                                                                             <'Network.HTTP.Types.Method.GET>_N
+                                                                                                             <CommonResources.Response>_N
+                                                                                                             <'Network.HTTP.Types.Method.POST>_N
                                                                                                              <200>_N
                                                                                                              <Control.Monad.Trans.Except.ExceptT
                                                                                                                 Servant.Server.Internal.ServantErr.ServantErr
                                                                                                                 GHC.Types.IO>_N)))
                                                                                          (Trans
-                                                                                              (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m11[0]
+                                                                                              (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
                                                                                                              <*>_N
-                                                                                                             <"fileName">_N
-                                                                                                             <[GHC.Types.Char]>_N
+                                                                                                             <'[Servant.API.ContentTypes.JSON]>_N
+                                                                                                             <CommonResources.FileName>_N
                                                                                                              <Servant.API.Verbs.Verb
-                                                                                                                'Network.HTTP.Types.Method.GET
+                                                                                                                'Network.HTTP.Types.Method.POST
                                                                                                                 200
                                                                                                                 '[Servant.API.ContentTypes.JSON]
-                                                                                                                GHC.Types.Bool>_N
+                                                                                                                CommonResources.Response>_N
                                                                                                              <Control.Monad.Trans.Except.ExceptT
                                                                                                                 Servant.Server.Internal.ServantErr.ServantErr
                                                                                                                 GHC.Types.IO>_N)))
                                                                                               (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
                                                                                                              <*>_N
                                                                                                              <"islocked">_N
-                                                                                                             <Servant.API.Capture.Capture
-                                                                                                                "fileName"
-                                                                                                                GHC.Base.String
-                                                                                                              Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                                                                             <Servant.API.ReqBody.ReqBody
+                                                                                                                '[Servant.API.ContentTypes.JSON]
+                                                                                                                CommonResources.FileName
+                                                                                                              Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                                                    '[Servant.API.ContentTypes.JSON]
-                                                                                                                                   GHC.Types.Bool>_N
+                                                                                                                                   CommonResources.Response>_N
                                                                                                              <Control.Monad.Trans.Except.ExceptT
                                                                                                                 Servant.Server.Internal.ServantErr.ServantErr
                                                                                                                 GHC.Types.IO>_N)))))_R
                                                        (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:<|>m[0]
                                                                       <"unlock"
-                                                                       Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                                                                             "fileName"
-                                                                                             GHC.Base.String
-                                                                                           Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                                       Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                             '[Servant.API.ContentTypes.JSON]
+                                                                                             CommonResources.FileName
+                                                                                           Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                                 '[Servant.API.ContentTypes.JSON]
-                                                                                                                GHC.Types.Bool)>_N
+                                                                                                                CommonResources.Response)>_N
                                                                       <"islocked"
-                                                                       Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                                                                             "fileName"
-                                                                                             GHC.Base.String
-                                                                                           Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                                       Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                             '[Servant.API.ContentTypes.JSON]
+                                                                                             CommonResources.FileName
+                                                                                           Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                                 '[Servant.API.ContentTypes.JSON]
-                                                                                                                GHC.Types.Bool)>_N
+                                                                                                                CommonResources.Response)>_N
                                                                       <Control.Monad.Trans.Except.ExceptT
                                                                          Servant.Server.Internal.ServantErr.ServantErr
                                                                          GHC.Types.IO>_N))))_R
                      (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:<|>m[0]
                                     <"lock"
-                                     Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                                           "fileName" GHC.Base.String
-                                                         Servant.API.Sub.:> Servant.API.Verbs.Get
+                                     Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                           '[Servant.API.ContentTypes.JSON]
+                                                           CommonResources.FileName
+                                                         Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                               '[Servant.API.ContentTypes.JSON]
-                                                                              GHC.Types.Bool)>_N
+                                                                              CommonResources.Response)>_N
                                     <("unlock"
-                                      Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                                            "fileName" GHC.Base.String
-                                                          Servant.API.Sub.:> Servant.API.Verbs.Get
+                                      Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                            '[Servant.API.ContentTypes.JSON]
+                                                            CommonResources.FileName
+                                                          Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                '[Servant.API.ContentTypes.JSON]
-                                                                               GHC.Types.Bool))
+                                                                               CommonResources.Response))
                                      Servant.API.Alternative.:<|> ("islocked"
-                                                                   Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                                                                         "fileName"
-                                                                                         GHC.Base.String
-                                                                                       Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                                   Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                         '[Servant.API.ContentTypes.JSON]
+                                                                                         CommonResources.FileName
+                                                                                       Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                             '[Servant.API.ContentTypes.JSON]
-                                                                                                            GHC.Types.Bool))>_N
+                                                                                                            CommonResources.Response))>_N
                                     <Control.Monad.Trans.Except.ExceptT
                                        Servant.Server.Internal.ServantErr.ServantErr
                                        GHC.Types.IO>_N)))) -}
-a5a5cf654e34ae162b454edf51de1514
+7495cc204f524258c1b52071ed5f5b4c
   server1 ::
-    (GHC.Base.String -> LockingService.ApiHandler GHC.Types.Bool)
-    Servant.API.Alternative.:<|> ((GHC.Base.String
-                                   -> LockingService.ApiHandler GHC.Types.Bool)
-                                  Servant.API.Alternative.:<|> (GHC.Base.String
+    (CommonResources.FileName
+     -> LockingService.ApiHandler CommonResources.Response)
+    Servant.API.Alternative.:<|> ((CommonResources.FileName
+                                   -> LockingService.ApiHandler CommonResources.Response)
+                                  Servant.API.Alternative.:<|> (CommonResources.FileName
                                                                 -> LockingService.ApiHandler
-                                                                     GHC.Types.Bool))
+                                                                     CommonResources.Response))
   {- Strictness: m,
      Unfolding: (Servant.API.Alternative.:<|>
-                   @ (GHC.Base.String -> LockingService.ApiHandler GHC.Types.Bool)
-                   @ ((GHC.Base.String -> LockingService.ApiHandler GHC.Types.Bool)
-                      Servant.API.Alternative.:<|> (GHC.Base.String
-                                                    -> LockingService.ApiHandler GHC.Types.Bool))
+                   @ (CommonResources.FileName
+                      -> LockingService.ApiHandler CommonResources.Response)
+                   @ ((CommonResources.FileName
+                       -> LockingService.ApiHandler CommonResources.Response)
+                      Servant.API.Alternative.:<|> (CommonResources.FileName
+                                                    -> LockingService.ApiHandler
+                                                         CommonResources.Response))
                    LockingService.lockFile1
                      `cast`
-                   (<GHC.Base.String>_R
+                   (<CommonResources.FileName>_R
                     ->_R Trans
                              (Sym (GHC.Types.N:IO[0]
                                        <Data.Either.Either
                                           Servant.Server.Internal.ServantErr.ServantErr
-                                          GHC.Types.Bool>_R))
+                                          CommonResources.Response>_R))
                              (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
                                        <Servant.Server.Internal.ServantErr.ServantErr>_N
                                        <GHC.Types.IO>_R
-                                       <GHC.Types.Bool>_N)))
+                                       <CommonResources.Response>_N)))
                    LockingService.server2) -}
-a689573cddbfab77cf10dbf8ee71624a
+220a6527116f6f67f062137a1dfdb10a
   server2 ::
-    (GHC.Base.String -> LockingService.ApiHandler GHC.Types.Bool)
-    Servant.API.Alternative.:<|> (GHC.Base.String
-                                  -> LockingService.ApiHandler GHC.Types.Bool)
+    (CommonResources.FileName
+     -> LockingService.ApiHandler CommonResources.Response)
+    Servant.API.Alternative.:<|> (CommonResources.FileName
+                                  -> LockingService.ApiHandler CommonResources.Response)
   {- Strictness: m,
      Unfolding: (Servant.API.Alternative.:<|>
-                   @ (GHC.Base.String -> LockingService.ApiHandler GHC.Types.Bool)
-                   @ (GHC.Base.String -> LockingService.ApiHandler GHC.Types.Bool)
-                   LockingService.lockingApp22
+                   @ (CommonResources.FileName
+                      -> LockingService.ApiHandler CommonResources.Response)
+                   @ (CommonResources.FileName
+                      -> LockingService.ApiHandler CommonResources.Response)
+                   LockingService.lockingApp15
                      `cast`
-                   (<GHC.Base.String>_R
+                   (<CommonResources.FileName>_R
                     ->_R Trans
                              (Sym (GHC.Types.N:IO[0]
                                        <Data.Either.Either
                                           Servant.Server.Internal.ServantErr.ServantErr
-                                          GHC.Types.Bool>_R))
+                                          CommonResources.Response>_R))
                              (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
                                        <Servant.Server.Internal.ServantErr.ServantErr>_N
                                        <GHC.Types.IO>_R
-                                       <GHC.Types.Bool>_N)))
+                                       <CommonResources.Response>_N)))
                    LockingService.isFileLocked1
                      `cast`
-                   (<GHC.Base.String>_R
+                   (<CommonResources.FileName>_R
                     ->_R Trans
                              (Sym (GHC.Types.N:IO[0]
                                        <Data.Either.Either
                                           Servant.Server.Internal.ServantErr.ServantErr
-                                          GHC.Types.Bool>_R))
+                                          CommonResources.Response>_R))
                              (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
                                        <Servant.Server.Internal.ServantErr.ServantErr>_N
                                        <GHC.Types.IO>_R
-                                       <GHC.Types.Bool>_N)))) -}
-3c128894e4bce5bc1329079c4f5b6901
+                                       <CommonResources.Response>_N)))) -}
+9ce3cb0ac4d580207516bb9282e66f19
   unlockFile ::
-    GHC.Base.String -> LockingService.ApiHandler GHC.Types.Bool
-  {- Arity: 2, Strictness: <L,U><S,U>,
+    CommonResources.FileName
+    -> LockingService.ApiHandler CommonResources.Response
+  {- Arity: 2, Strictness: <S,1*U(1*U,1*U,1*U)><S,U>,
      Unfolding: InlineRule (0, True, True)
-                LockingService.lockingApp22
+                LockingService.lockingApp15
                   `cast`
-                (<GHC.Base.String>_R
+                (<CommonResources.FileName>_R
                  ->_R Trans
                           (Sym (GHC.Types.N:IO[0]
                                     <Data.Either.Either
                                        Servant.Server.Internal.ServantErr.ServantErr
-                                       GHC.Types.Bool>_R))
+                                       CommonResources.Response>_R))
                           (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
                                     <Servant.Server.Internal.ServantErr.ServantErr>_N
                                     <GHC.Types.IO>_R
-                                    <GHC.Types.Bool>_N))) -}
-37eaeaf102632358af63c17a33f7f502
-  warnLog :: GHC.Base.String -> GHC.Types.IO ()
-  {- Arity: 2,
-     Unfolding: InlineRule (0, True, True)
-                LockingService.warnLog1
-                  `cast`
-                (<[GHC.Types.Char]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-3249ed1c998daf6e32a5199dd2691b51
-  warnLog1 ::
-    [GHC.Types.Char]
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2,
-     Unfolding: (LockingService.debugLog2
-                   @ ()
-                   System.Log.Logger.warningM1
-                     `cast`
-                   (<GHC.Base.String>_R
-                    ->_R <GHC.Base.String>_R
-                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))) -}
-da5a04881bd4ea2b5172a2ac0e85bf6a
-  withLogging ::
-    (Network.Wai.Logger.ApacheLogger -> GHC.Types.IO a)
-    -> GHC.Types.IO a
-  {- Arity: 2, Strictness: <L,C(C1(U(U,U)))><S,U>,
-     Unfolding: InlineRule (0, True, True)
-                LockingService.withLogging1
-                  `cast`
-                (forall (a :: <*>_N).
-                 <Network.Wai.Logger.ApacheLogger -> GHC.Types.IO a>_R
-                 ->_R Sym (GHC.Types.N:IO[0] <a>_R)) -}
-60a557bf27bb91afc12eb33bf1b3bddf
-  withLogging1 ::
-    (Network.Wai.Logger.ApacheLogger -> GHC.Types.IO a)
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, a #)
-  {- Arity: 2, Strictness: <L,C(C1(U(U,U)))><S,U>,
-     Unfolding: (\ @ a
-                   (act :: Network.Wai.Logger.ApacheLogger -> GHC.Types.IO a)
-                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 Control.Exception.Base.bracket1
-                   @ (Network.Wai.Logger.ApacheLogger, GHC.Types.IO ())
-                   @ ()
-                   @ a
-                   Network.Wai.Logger.withStdoutLogger3
-                     `cast`
-                   (Sym (GHC.Types.N:IO[0]
-                             <(Network.Wai.Logger.ApacheLogger, GHC.Types.IO ())>_R))
-                   Network.Wai.Logger.withStdoutLogger2
-                     `cast`
-                   (<(Network.Wai.Logger.ApacheLogger, GHC.Types.IO ())>_R
-                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))
-                   (\ (ds :: (Network.Wai.Logger.ApacheLogger,
-                              GHC.Types.IO ()))[OneShot]
-                      (eta1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                    case ds of wild { (,) aplogger ds1 ->
-                    case System.Environment.getProgName1
-                           eta1 of ds2 { (#,#) ipv ipv1 ->
-                    case GHC.IO.Encoding.getForeignEncoding1 of wild1 { (,) getForeignEncoding5 setForeignEncoding1 ->
-                    case getForeignEncoding5
-                           `cast`
-                         (GHC.Types.N:IO[0] <GHC.IO.Encoding.Types.TextEncoding>_R)
-                           ipv of ds3 { (#,#) ipv2 ipv3 ->
-                    case GHC.Foreign.charIsRepresentable3
-                           @ (GHC.Base.Maybe GHC.Base.String)
-                           ipv3
-                           MongodbHelpers.logLevel3
-                           System.Environment.getEnv4
-                             `cast`
-                           (<Foreign.C.String.CString>_R
-                            ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.Maybe GHC.Base.String>_R))
-                           ipv2 of ds4 { (#,#) ipv4 ipv5 ->
-                    let {
-                      $j :: GHC.Prim.State# GHC.Prim.RealWorld
-                            -> GHC.Base.String -> (# GHC.Prim.State# GHC.Prim.RealWorld, a #)
-                        {- Arity: 2, Strictness: <S,U><L,U> -}
-                      = \ (ipv6 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot]
-                          (ipv7 :: GHC.Base.String)[OneShot] ->
-                        case System.Log.Logger.alertM4
-                               ipv1
-                               ipv6 of ds5 { (#,#) ipv8 ipv9 ->
-                        case System.Log.Logger.saveGlobalLogger1
-                               (case ipv9 of wild2 { System.Log.Logger.Logger ds6 ds7 ds8 ->
-                                System.Log.Logger.Logger
-                                  (GHC.Base.Just
-                                     @ System.Log.Priority
-                                     (case GHC.Base.eqString
-                                             ipv7
-                                             LockingService.withLogging3 of wild3 {
-                                        GHC.Types.False
-                                        -> case GHC.Base.eqString
-                                                  ipv7
-                                                  LockingService.withLogging2 of wild4 {
-                                             GHC.Types.False -> System.Log.DEBUG
-                                             GHC.Types.True -> System.Log.WARNING }
-                                        GHC.Types.True -> System.Log.ERROR }))
-                                  ds7
-                                  ds8 })
-                               ipv8 of ds6 { (#,#) ipv10 ipv11 ->
-                        (act aplogger) `cast` (GHC.Types.N:IO[0] <a>_R) ipv10 } }
-                    } in
-                    case ipv5 of wild2 {
-                      GHC.Base.Nothing -> $j ipv4 MongodbHelpers.logLevel2
-                      GHC.Base.Just s -> $j ipv4 s } } } } } })
-                     `cast`
-                   (<(Network.Wai.Logger.ApacheLogger, GHC.Types.IO ())>_R
-                    ->_R Sym (GHC.Types.N:IO[0] <a>_R))
-                   eta) -}
-e8f66ece50a782ce907ca411da1fe413
-  withLogging2 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "WARNING"#) -}
-e0c9ae5ce3157f5f6be01f818b5cf9dc
-  withLogging3 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "ERROR"#) -}
-"SPEC/LockingService $fAllCTRender:a @ JSON @ '[] @ Bool" [ALWAYS] forall ($dAccept :: Servant.API.ContentTypes.Accept
-                                                                                         Servant.API.ContentTypes.JSON)
-                                                                          ($dAllMime :: Servant.API.ContentTypes.AllMime
-                                                                                          '[])
-                                                                          ($dAllMimeRender :: Servant.API.ContentTypes.AllMimeRender
-                                                                                                '[Servant.API.ContentTypes.JSON]
-                                                                                                GHC.Types.Bool)
+                                    <CommonResources.Response>_N))) -}
+"SPEC/LockingService $fAllCTRender:a @ JSON @ '[] @ Response" [ALWAYS] forall ($dAccept :: Servant.API.ContentTypes.Accept
+                                                                                             Servant.API.ContentTypes.JSON)
+                                                                              ($dAllMime :: Servant.API.ContentTypes.AllMime
+                                                                                              '[])
+                                                                              ($dAllMimeRender :: Servant.API.ContentTypes.AllMimeRender
+                                                                                                    '[Servant.API.ContentTypes.JSON]
+                                                                                                    CommonResources.Response)
   Servant.API.ContentTypes.$fAllCTRender:a @ Servant.API.ContentTypes.JSON
                                            @ '[]
-                                           @ GHC.Types.Bool
+                                           @ CommonResources.Response
                                            $dAccept
                                            $dAllMime
                                            $dAllMimeRender
   = LockingService.$s$fAllCTRender:a
-"SPEC/LockingService $fAllMimeRender:a0 @ JSON @ Bool" [ALWAYS] forall ($dMimeRender :: Servant.API.ContentTypes.MimeRender
-                                                                                          Servant.API.ContentTypes.JSON
-                                                                                          GHC.Types.Bool)
+"SPEC/LockingService $fAllMimeRender:a0 @ JSON @ Response" [ALWAYS] forall ($dMimeRender :: Servant.API.ContentTypes.MimeRender
+                                                                                              Servant.API.ContentTypes.JSON
+                                                                                              CommonResources.Response)
   Servant.API.ContentTypes.$fAllMimeRender:a0 @ Servant.API.ContentTypes.JSON
-                                              @ GHC.Types.Bool
+                                              @ CommonResources.Response
                                               $dMimeRender
   = LockingService.$s$fAllCTRender:a_$s$fAllMimeRender:a0
-"SPEC/LockingService $fAllMimeRender:a0_$callMimeRender @ JSON @ Bool" [ALWAYS] forall ($dMimeRender :: Servant.API.ContentTypes.MimeRender
-                                                                                                          Servant.API.ContentTypes.JSON
-                                                                                                          GHC.Types.Bool)
-  Servant.API.ContentTypes.$fAllMimeRender:a0_$callMimeRender @ Servant.API.ContentTypes.JSON
-                                                              @ GHC.Types.Bool
-                                                              $dMimeRender
-  = LockingService.$s$fAllCTRender:a_$s$fAllMimeRender:a0_$callMimeRender
-"SPEC/LockingService $fMimeRenderTYPEJSONa @ Bool" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
-                                                                                  GHC.Types.Bool)
-  Servant.API.ContentTypes.$fMimeRenderTYPEJSONa @ GHC.Types.Bool
+"SPEC/LockingService $fAllMimeUnrender:a @ JSON @ FileName @ '[]" [ALWAYS] forall ($dMimeUnrender :: Servant.API.ContentTypes.MimeUnrender
+                                                                                                       Servant.API.ContentTypes.JSON
+                                                                                                       CommonResources.FileName)
+                                                                                  ($dAllMimeUnrender :: Servant.API.ContentTypes.AllMimeUnrender
+                                                                                                          '[]
+                                                                                                          CommonResources.FileName)
+  Servant.API.ContentTypes.$fAllMimeUnrender:a @ Servant.API.ContentTypes.JSON
+                                               @ CommonResources.FileName
+                                               @ '[]
+                                               $dMimeUnrender
+                                               $dAllMimeUnrender
+  = LockingService.$s$fAllMimeUnrender:a
+"SPEC/LockingService $fMimeRenderTYPEJSONa @ Response" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
+                                                                                      CommonResources.Response)
+  Servant.API.ContentTypes.$fMimeRenderTYPEJSONa @ CommonResources.Response
                                                  $dToJSON
   = LockingService.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa
-"SPEC/LockingService $fMimeRenderTYPEJSONa_$cmimeRender @ Bool" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
-                                                                                               GHC.Types.Bool)
-  Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cmimeRender @ GHC.Types.Bool
+"SPEC/LockingService $fMimeRenderTYPEJSONa_$cmimeRender @ Response" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
+                                                                                                   CommonResources.Response)
+  Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cmimeRender @ CommonResources.Response
                                                               $dToJSON
   = LockingService.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender
+"SPEC/LockingService $fMimeUnrenderTYPEJSONa @ FileName" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
+                                                                                          CommonResources.FileName)
+  Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa @ CommonResources.FileName
+                                                   $dFromJSON
+  = LockingService.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa
+"SPEC/LockingService $fMimeUnrenderTYPEJSONa_$cmimeUnrender @ FileName" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
+                                                                                                         CommonResources.FileName)
+  Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cmimeUnrender @ CommonResources.FileName
+                                                                  $dFromJSON
+  = LockingService.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-26 16:53:22.768777 UTC
+2017-01-27 15:21:38.338462 UTC
 
 interface CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources [orphan module] [family instance module] 8001
-  interface hash: 546c144c281052e7b995d5e80f6513c8
-  ABI hash: 353ec5cbc1261cda83993d0c505fe147
-  export-list hash: 160e78b6a41760d09a36f57043857921
+  interface hash: d6b49e7d4e498b651518417bb5132ff7
+  ABI hash: 6ed7d9d56712425cd04881aea6b921ba
+  export-list hash: 3c1f6e5197c049fef36fe9ac805f60a1
   orphan hash: eb80c5784ee5e9871273fa34a24134c6
   flag hash: b0e3f8b573d72bae0f984477a0acb626
   sig of: Nothing
@@ -28,7 +28,6 @@ exports:
   CommonResources.lockserverport
   CommonResources.logMessage
   CommonResources.sharedSecret
-  CommonResources.sharedServerSecret
   CommonResources.Account{CommonResources.Account password username}
   CommonResources.AuthApi
   CommonResources.DirectoryApi
@@ -184,7 +183,6 @@ import  -/  bson-generic-0.0.8@bson-generic-0.0.8-DtORpoUHwQhDReLJ5Keop0:Data.Bs
 import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 import  -/  servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.Alternative 7d4e73ce01670cd8a85baa5f3ddc5484
-import  -/  servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.Capture f0f1e06a7ff8a4139e4956133dc06f4a
 import  -/  servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.ContentTypes 81b7e28437c5e1561fbd94f754f2e8b3
 import  -/  servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.ReqBody 9b669e986805c4d58685dc061d1faa2f
 import  -/  servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.Sub 8cde68da5a80a5af4f64bff49421dffb
@@ -23675,26 +23673,28 @@ a6d18682acfc3b48eb7f3a80dfb38c61
 9367e99942f77c027a3316ecb53767dc
   data Lock
     = Lock {lockfileName :: GHC.Base.String, locked :: GHC.Types.Bool}
-6087d0acdda104734e62a21cc8aeece0
+ec68b8705059bc3efd8adc3a974351eb
   type LockingApi =
     ("lock"
-     Servant.API.Sub.:> (Servant.API.Capture.Capture
-                           "fileName" GHC.Base.String
-                         Servant.API.Sub.:> Servant.API.Verbs.Get
-                                              '[Servant.API.ContentTypes.JSON] GHC.Types.Bool))
+     Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                           '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                         Servant.API.Sub.:> Servant.API.Verbs.Post
+                                              '[Servant.API.ContentTypes.JSON]
+                                              CommonResources.Response))
     Servant.API.Alternative.:<|> (("unlock"
-                                   Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                                         "fileName" GHC.Base.String
-                                                       Servant.API.Sub.:> Servant.API.Verbs.Get
+                                   Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                         '[Servant.API.ContentTypes.JSON]
+                                                         CommonResources.FileName
+                                                       Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                             '[Servant.API.ContentTypes.JSON]
-                                                                            GHC.Types.Bool))
+                                                                            CommonResources.Response))
                                   Servant.API.Alternative.:<|> ("islocked"
-                                                                Servant.API.Sub.:> (Servant.API.Capture.Capture
-                                                                                      "fileName"
-                                                                                      GHC.Base.String
-                                                                                    Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                                Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                      '[Servant.API.ContentTypes.JSON]
+                                                                                      CommonResources.FileName
+                                                                                    Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                          '[Servant.API.ContentTypes.JSON]
-                                                                                                         GHC.Types.Bool)))
+                                                                                                         CommonResources.Response)))
 d2b7012d9c2b53315f0b4752e37be1c9
   axiom Rep_Account::
       GHC.Generics.Rep CommonResources.Account
@@ -24431,10 +24431,6 @@ f25b73e152cc00a612d3332ab8438ec2
   sharedSecret :: GHC.Base.String
   {- Unfolding: (GHC.CString.unpackCString#
                    "Maybe I'll complete this project one day"#) -}
-eed96af8a9458d1d59dfee6942fcf637
-  sharedServerSecret :: GHC.Base.String
-  {- Unfolding: (GHC.CString.unpackCString#
-                   "This is the shared server secret."#) -}
 8d8560ab616a050ca7918536b55e31d0
   susername :: CommonResources.Signin -> GHC.Base.String
   RecSel Left CommonResources.Signin

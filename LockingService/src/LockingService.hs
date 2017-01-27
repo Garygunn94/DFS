@@ -61,69 +61,81 @@ lockingApp = serve lockingApi server
 
 mkApp :: IO()
 mkApp = do
-    run (read (lockserverport) ::Int) lockingApp
+  putStrLn ("Starting Lock Service on port: " ++ lockserverport)
+  run (read (lockserverport) ::Int) lockingApp
 
 
-lockFile :: String -> ApiHandler Bool
-lockFile fName = liftIO $ do
-	warnLog $ "Locking File" ++ fName
-	locks <- withMongoDbConnection $ do
-            docs <- find (select ["_id" =: fName] "LOCK_RECORD") >>= drainCursor
-            return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe Lock) docs
+lockFile :: FileName -> ApiHandler Response
+lockFile (FileName ticket encryptedTimeout encryptedFN) = liftIO $ do
+  let decryptedTimeout = decryptTime sharedSecret encryptedTimeout
+  let sessionKey = encryptDecrypt sharedSecret ticket
+  let decryptedFN = encryptDecrypt sessionKey encryptedFN
+
+  putStrLn ("Checking Client Credentials...")
+
+  currentTime <- getCurrentTime
+
+  if (currentTime > decryptedTimeout) then do
+    putStrLn "Client session timeout"
+    return (Response (encryptDecrypt sessionKey "Failed"))
+
+  else do
+  	putStrLn ("Locking File " ++ decryptedFN)
+  	locks <- withMongoDbConnection $ do
+          docs <- find (select ["_id" =: decryptedFN] "LOCK_RECORD") >>= drainCursor
+          return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe Lock) docs
         case locks of
-            [(Lock _ True)] -> return False
-            [(Lock _ False)] -> liftIO $ do withMongoDbConnection $ upsert (select ["_id" =: fName] "LOCK_RECORD") $ toBSON $ (Lock fName True)
-                                            return True
-            [] -> liftIO $ do withMongoDbConnection $ upsert (select ["_id" =: fName] "LOCK_RECORD") $ toBSON $ (Lock fName True)
-                              return True
+          [(Lock _ True)] -> return (Response (encryptDecrypt sessionKey "Failed"))
+          [(Lock _ False)] -> liftIO $ do withMongoDbConnection $ upsert (select ["_id" =: decryptedFN] "LOCK_RECORD") $ toBSON $ (Lock decryptedFN True)
+                                          return (Response (encryptDecrypt sessionKey "Successful"))
+          [] -> liftIO $ do withMongoDbConnection $ upsert (select ["_id" =: decryptedFN] "LOCK_RECORD") $ toBSON $ (Lock decryptedFN True)
+                            return (Response (encryptDecrypt sessionKey "Successful"))
 
-unlockFile :: String -> ApiHandler Bool
-unlockFile fName = liftIO $ do
-	warnLog $ "Unlocking File" ++ fName
-	locks <- liftIO $ withMongoDbConnection $ do
-                docs <- find (select ["_id" =: fName] "LOCK_RECORD") >>= drainCursor
-                return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe Lock) docs
+unlockFile :: FileName -> ApiHandler Response
+unlockFile (FileName ticket encryptedTimeout encryptedFN) = liftIO $ do
+  let decryptedTimeout = decryptTime sharedSecret encryptedTimeout
+  let sessionKey = encryptDecrypt sharedSecret ticket
+  let decryptedFN = encryptDecrypt sessionKey encryptedFN
+
+  putStrLn ("Checking Client Credentials...")
+
+  currentTime <- getCurrentTime
+
+  if (currentTime > decryptedTimeout) then do
+    putStrLn "Client session timeout"
+    return (Response (encryptDecrypt sessionKey "SessionTimeout"))
+
+  else do
+  	putStrLn ("Unlocking File" ++ decryptedFN)
+  	locks <- liftIO $ withMongoDbConnection $ do
+          docs <- find (select ["_id" =: decryptedFN] "LOCK_RECORD") >>= drainCursor
+          return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe Lock) docs
         case locks of
-           [(Lock _ False)] -> return False
-           [(Lock _ True)] -> liftIO $ do withMongoDbConnection $ upsert (select ["_id" =: fName] "LOCK_RECORD") $ toBSON $ (Lock fName False)
-                                          return True
-           [] -> liftIO $ do withMongoDbConnection $ upsert (select ["_id" =: fName] "LOCK_RECORD") $ toBSON $ (Lock fName False)
-                             return True
+          [(Lock _ False)] -> return (Response (encryptDecrypt sessionKey "Failed"))
+          [(Lock _ True)] -> liftIO $ do withMongoDbConnection $ upsert (select ["_id" =: decryptedFN] "LOCK_RECORD") $ toBSON $ (Lock decryptedFN False)
+                                         return (Response (encryptDecrypt sessionKey "Successful"))
+          [] -> liftIO $ do withMongoDbConnection $ upsert (select ["_id" =: decryptedFN] "LOCK_RECORD") $ toBSON $ (Lock decryptedFN False)
+                            return (Response (encryptDecrypt sessionKey "Successful"))
 
-isFileLocked :: String -> ApiHandler Bool
-isFileLocked fName = liftIO $ do
-	warnLog $ "Checking is file" ++ fName ++ "is locked"
-	locks <- liftIO $ withMongoDbConnection $ do
-            docs <- find (select ["_id" =: fName] "LOCK_RECORD") >>= drainCursor
-            return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe Lock) docs
+isFileLocked :: FileName -> ApiHandler Response
+isFileLocked (FileName ticket encryptedTimeout encryptedFN) = liftIO $ do
+  let decryptedTimeout = decryptTime sharedSecret encryptedTimeout
+  let sessionKey = encryptDecrypt sharedSecret ticket
+  let decryptedFN = encryptDecrypt sessionKey encryptedFN
+
+  putStrLn ("Checking Client Credentials...")
+
+  currentTime <- getCurrentTime
+
+  if (currentTime > decryptedTimeout) then do
+    putStrLn "Client session timeout"
+    return (Response (encryptDecrypt sessionKey "Failed"))
+
+  else do
+  	putStrLn ("Checking is file" ++ decryptedFN ++ "is locked")
+  	locks <- liftIO $ withMongoDbConnection $ do
+          docs <- find (select ["_id" =: decryptedFN] "LOCK_RECORD") >>= drainCursor
+          return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe Lock) docs
         case locks of
-           [(Lock _ True)] -> return True
-           _ -> return False
-
-
- -- | Logging stuff
-iso8601 :: UTCTime -> String
-iso8601 = formatTime defaultTimeLocale "%FT%T%q%z"
-
--- global loggin functions
-debugLog, warnLog, errorLog :: String -> IO ()
-debugLog = doLog debugM
-warnLog  = doLog warningM
-errorLog = doLog errorM
-noticeLog = doLog noticeM
-
-doLog f s = getProgName >>= \ p -> do
-                t <- getCurrentTime
-                f p $ (iso8601 t) ++ " " ++ s
-
-withLogging act = withStdoutLogger $ \aplogger -> do
-
-  lname  <- getProgName
-  llevel <- logLevel
-  updateGlobalLogger lname
-                     (setLevel $ case llevel of
-                                  "WARNING" -> WARNING
-                                  "ERROR"   -> ERROR
-                                  _         -> DEBUG)
-  act aplogger
-
+          [(Lock _ True)] -> return (Response (encryptDecrypt sessionKey "Locked"))
+          _ -> return (Response (encryptDecrypt sessionKey "Unlocked"))

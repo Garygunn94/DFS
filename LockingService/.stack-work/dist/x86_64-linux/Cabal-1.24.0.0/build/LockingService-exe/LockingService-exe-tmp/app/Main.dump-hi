@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-24 17:21:45.635037 UTC
+2017-01-27 15:33:37.205536 UTC
 
 interface main@main:Main 8001
-  interface hash: a24e3699e74774126019866e5a031095
-  ABI hash: c85748e5de780724e62a0d305cdcb98a
+  interface hash: 20c7fd7a08b46d8f1eb56b1290f6a23a
+  ABI hash: 944d92ef071cf8eb068cf21c0a438569
   export-list hash: d80710a18a332da127533e6d4a7937ae
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 263ead5ee59b2db21c35ad2445391f33
@@ -195,7 +195,7 @@ family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
 import  -/  LockingService-0.1.0.0@LockingService-0.1.0.0-7k0JqlEeWD7F2VFBzyPr5l:Lib 59c09e5b18d1dc294a38b8d595a24945
-import  -/  LockingService-0.1.0.0@LockingService-0.1.0.0-7k0JqlEeWD7F2VFBzyPr5l:LockingService 84f8ccf9a807ac4342a10ff2445921ad
+import  -/  LockingService-0.1.0.0@LockingService-0.1.0.0-7k0JqlEeWD7F2VFBzyPr5l:LockingService 47d7fafa44ea54a0400f9c4177490763
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 d6831ef04cb9301b090dfae6f7bb7ec7
@@ -210,12 +210,12 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-98ba81b0a168343a637f21acb871a24e
+c476ed42a1c52935a104bbc08965defb
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 LockingService.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-f81ff8b59dd19acd82fa182a96260797
+6d07de256403a5687efa97ccd8b07bf4
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

@@ -60,9 +60,9 @@ type FileApi =
     "upload" :> ReqBody '[JSON] FileUpload :> Post '[JSON] Response
 
 type LockingApi = 
-    "lock" :> Capture "fileName" String :> Get '[JSON] Bool :<|>
-    "unlock" :> Capture "fileName" String :> Get '[JSON] Bool :<|>
-    "islocked" :> Capture "fileName" String :> Get '[JSON] Bool
+    "lock" :> ReqBody '[JSON] FileName :> Post '[JSON] Response :<|>
+    "unlock" :> ReqBody '[JSON] FileName :> Post '[JSON] Response :<|>
+    "islocked" :> ReqBody '[JSON] FileName :> Post '[JSON] Response
 
 data File = File { 
     fileName :: FilePath, 
@@ -128,11 +128,6 @@ deriving instance ToBSON   String
 
 deriving instance FromBSON Bool  -- we need these as BSON does not provide
 deriving instance ToBSON Bool
-
--- | Encryption Variable and Functions
-
-sharedServerSecret :: String
-sharedServerSecret = "This is the shared server secret."
 
 encryptDecrypt :: String -> String -> String
 encryptDecrypt key text = zipWith (\a b -> chr $ xor (ord a) (ord b)) (cycle key) text
