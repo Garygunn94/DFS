@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-26 18:52:07.215741 UTC
+2017-01-28 17:48:14.757779 UTC
 
 interface main@main:Main 8001
-  interface hash: 5bde2416994eedb69c636379ce4683c0
-  ABI hash: a0c076e3360159da7310eb4651dccabd
+  interface hash: b06ea12f3870de692b11a8699349a185
+  ABI hash: 87c62f901f1f4718d9201fbaa2527c67
   export-list hash: a47ed4e8a84ea9768ec50730c59fa3ee
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: ff77ed83ade2bf643bf24a469b2a2c5c
@@ -195,7 +195,7 @@ family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-5Rdnpo9PWE48EGpO8CFOTj:DirectoryServer 09f8d138eac86a2cc525fa3be9672846
+import  -/  DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-5Rdnpo9PWE48EGpO8CFOTj:DirectoryServer a9d5576d4718000cb2d02e8c358e26de
 import  -/  DirectoryServer-0.1.0.0@DirectoryServer-0.1.0.0-5Rdnpo9PWE48EGpO8CFOTj:Lib a398bf28b1ae1bb6e869c384245eabbf
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
@@ -211,12 +211,12 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-556225162b97ffcad81b9eb74b3a329a
+f0046d39e5afb183559a874770a834ca
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 DirectoryServer.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-fc2a673a38bb3c9eca591144785659e3
+af0a947834652e05f6812470729071a9
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

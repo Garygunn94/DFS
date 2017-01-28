@@ -1,12 +1,12 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-27 15:21:38.338462 UTC
+2017-01-28 18:09:43.169271 UTC
 
 interface CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources [orphan module] [family instance module] 8001
-  interface hash: d6b49e7d4e498b651518417bb5132ff7
-  ABI hash: 6ed7d9d56712425cd04881aea6b921ba
-  export-list hash: 3c1f6e5197c049fef36fe9ac805f60a1
-  orphan hash: eb80c5784ee5e9871273fa34a24134c6
+  interface hash: 7b713d28dbf82f914d06840665562de5
+  ABI hash: 4ffe98351fae513bc2a6c99bc4c2c796
+  export-list hash: d9c927a615c31d5ceb999a8f019cf4aa
+  orphan hash: 4050fccf16e19a1f3bbcd04fd3d8f2a3
   flag hash: b0e3f8b573d72bae0f984477a0acb626
   sig of: Nothing
   used TH splices: False
@@ -28,6 +28,8 @@ exports:
   CommonResources.lockserverport
   CommonResources.logMessage
   CommonResources.sharedSecret
+  CommonResources.transserverhost
+  CommonResources.transserverport
   CommonResources.Account{CommonResources.Account password username}
   CommonResources.AuthApi
   CommonResources.DirectoryApi
@@ -43,6 +45,8 @@ exports:
   CommonResources.Session{CommonResources.Session encryptedSessionKey encryptedTicket encryptedTokenTimeout}
   CommonResources.Signin{CommonResources.Signin sencryptedMsg susername}
   CommonResources.Ticket{CommonResources.Ticket encryptedTimeout ticket}
+  CommonResources.TransactionApi
+  CommonResources.TransactionFile{CommonResources.TransactionFile transFileName userID}
 module dependencies:
 package dependencies: aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz
                       array-0.5.1.1@array-0.5.1.1
@@ -442,6 +446,41 @@ c71337a23ee77066cf484e99108fda8e
                  case w of ww { CommonResources.Ticket ww1 ww2 ->
                  case w1 of ww3 { CommonResources.Ticket ww4 ww5 ->
                  CommonResources.$w$c==6 ww1 ww2 ww4 ww5 } }) -}
+f760516df7ebc068b473a59b5a70a314
+  $fEqTransactionFile ::
+    GHC.Classes.Eq CommonResources.TransactionFile
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ CommonResources.TransactionFile
+                  CommonResources.$fEqTransactionFile_$c==
+                  CommonResources.$fEqTransactionFile_$c/= -}
+f760516df7ebc068b473a59b5a70a314
+  $fEqTransactionFile_$c/= ::
+    CommonResources.TransactionFile
+    -> CommonResources.TransactionFile -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SL),1*U(1*U,1*U)><S(SL),1*U(1*U,1*U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: CommonResources.TransactionFile)
+                   (w1 :: CommonResources.TransactionFile) ->
+                 case w of ww { CommonResources.TransactionFile ww1 ww2 ->
+                 case w1 of ww3 { CommonResources.TransactionFile ww4 ww5 ->
+                 CommonResources.$w$c/=4 ww1 ww2 ww4 ww5 } }) -}
+f760516df7ebc068b473a59b5a70a314
+  $fEqTransactionFile_$c== ::
+    CommonResources.TransactionFile
+    -> CommonResources.TransactionFile -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SL),1*U(1*U,1*U)><S(SL),1*U(1*U,1*U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: CommonResources.TransactionFile)
+                   (w1 :: CommonResources.TransactionFile) ->
+                 case w of ww { CommonResources.TransactionFile ww1 ww2 ->
+                 case w1 of ww3 { CommonResources.TransactionFile ww4 ww5 ->
+                 CommonResources.$w$c==7 ww1 ww2 ww4 ww5 } }) -}
 d2b7012d9c2b53315f0b4752e37be1c9
   $fFromBSONAccount ::
     Data.Bson.Generic.FromBSON CommonResources.Account
@@ -3160,6 +3199,329 @@ d3942bf155d7f2c04b03ee89e8f1b16d
                                 'GHC.Generics.NoSourceStrictness
                                 'GHC.Generics.DecidedLazy) f a) ->
                  CommonResources.$fFromBSONTicket8) -}
+f760516df7ebc068b473a59b5a70a314
+  $fFromBSONTransactionFile ::
+    Data.Bson.Generic.FromBSON CommonResources.TransactionFile
+  DFunId
+  {- Arity: 1, Strictness: <S,U>, Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                CommonResources.$fFromBSONTransactionFile_$cfromBSON
+                  `cast`
+                (Sym (Data.Bson.Generic.N:FromBSON[0]
+                          <CommonResources.TransactionFile>_N)) -}
+6eafe9e4e850bcb7d58b0bc762038419
+  $fFromBSONTransactionFile1 ::
+    GHC.Generics.SingI ('GHC.Base.Just "userID")
+  {- Unfolding: InlineRule (0, True, True)
+                CommonResources.$fFromBSONTransactionFile2
+                  `cast`
+                (Trans
+                     (Sym (GHC.Generics.D:R:SingMaybeb0[0] <GHC.Types.Symbol>_N))
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Base.Maybe
+                                                       GHC.Types.Symbol>_N) <'GHC.Base.Just
+                                                                               "userID">_N) -}
+4ff8baec9a5e19fe3caa14015f23f359
+  $fFromBSONTransactionFile2 ::
+    GHC.Generics.R:SingMaybeb
+      GHC.Types.Symbol ('GHC.Base.Just "userID")
+  {- Unfolding: (GHC.Generics.SJust
+                   @ GHC.Types.Symbol
+                   @ ('GHC.Base.Just "userID")
+                   @ "userID"
+                   @~ <'GHC.Base.Just "userID">_N
+                   CommonResources.$fFromBSONTransactionFile3
+                     `cast`
+                   (Sym (GHC.Generics.D:R:SingSymbols0[0]) <"userID">_N)) -}
+dcc9457bea7e7bdae98199043827bc98
+  $fFromBSONTransactionFile3 :: GHC.Generics.R:SingSymbols "userID"
+  {- Strictness: m,
+     Unfolding: (GHC.Generics.SSym
+                   @ "userID"
+                   CommonResources.$fFromBSONTransactionFile4
+                     `cast`
+                   (Trans
+                        (Sym (GHC.TypeLits.N:SSymbol[0] <"userID">_P))
+                        (Sym (GHC.TypeLits.N:KnownSymbol[0]) <"userID">_N))) -}
+317f20921c50902f4c161684e28657c7
+  $fFromBSONTransactionFile4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "userID"#) -}
+4274147871e9bbb4fc1c265af8fffc43
+  $fFromBSONTransactionFile5 ::
+    GHC.Generics.SingI ('GHC.Base.Just "transFileName")
+  {- Unfolding: InlineRule (0, True, True)
+                CommonResources.$fFromBSONTransactionFile6
+                  `cast`
+                (Trans
+                     (Sym (GHC.Generics.D:R:SingMaybeb0[0] <GHC.Types.Symbol>_N))
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Base.Maybe
+                                                       GHC.Types.Symbol>_N) <'GHC.Base.Just
+                                                                               "transFileName">_N) -}
+7c85c3b7fa0829af80c8028bb6c7bf66
+  $fFromBSONTransactionFile6 ::
+    GHC.Generics.R:SingMaybeb
+      GHC.Types.Symbol ('GHC.Base.Just "transFileName")
+  {- Unfolding: (GHC.Generics.SJust
+                   @ GHC.Types.Symbol
+                   @ ('GHC.Base.Just "transFileName")
+                   @ "transFileName"
+                   @~ <'GHC.Base.Just "transFileName">_N
+                   CommonResources.$fFromBSONTransactionFile7
+                     `cast`
+                   (Sym (GHC.Generics.D:R:SingSymbols0[0]) <"transFileName">_N)) -}
+2704521e4b68cb2b4de92d4972685ce5
+  $fFromBSONTransactionFile7 ::
+    GHC.Generics.R:SingSymbols "transFileName"
+  {- Strictness: m,
+     Unfolding: (GHC.Generics.SSym
+                   @ "transFileName"
+                   CommonResources.$fFromBSONTransactionFile8
+                     `cast`
+                   (Trans
+                        (Sym (GHC.TypeLits.N:SSymbol[0] <"transFileName">_P))
+                        (Sym (GHC.TypeLits.N:KnownSymbol[0]) <"transFileName">_N))) -}
+6f2db5b725f122b576127eda8947d9d5
+  $fFromBSONTransactionFile8 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "transFileName"#) -}
+f760516df7ebc068b473a59b5a70a314
+  $fFromBSONTransactionFile_$cfromBSON ::
+    Data.Bson.Document
+    -> GHC.Base.Maybe CommonResources.TransactionFile
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (doc :: Data.Bson.Document) ->
+                 case Data.Bson.Generic.$w$cgenericFromBSON
+                        @ [GHC.Types.Char]
+                        @ ('GHC.Generics.MetaSel
+                             ('GHC.Base.Just "transFileName")
+                             'GHC.Generics.NoSourceUnpackedness
+                             'GHC.Generics.NoSourceStrictness
+                             'GHC.Generics.DecidedLazy)
+                        @ GHC.Generics.R
+                        Data.Bson.Generic.$fGFromBSONM12_$s$fVal[]
+                        CommonResources.$fFromBSONTransactionFile_$s$fSelectorMetaMetaSel1
+                        @ GHC.Prim.Any
+                        doc of wild {
+                   GHC.Base.Nothing
+                   -> GHC.Base.Nothing @ CommonResources.TransactionFile
+                   GHC.Base.Just x
+                   -> case Data.Bson.Generic.$w$cgenericFromBSON
+                             @ [GHC.Types.Char]
+                             @ ('GHC.Generics.MetaSel
+                                  ('GHC.Base.Just "userID")
+                                  'GHC.Generics.NoSourceUnpackedness
+                                  'GHC.Generics.NoSourceStrictness
+                                  'GHC.Generics.DecidedLazy)
+                             @ GHC.Generics.R
+                             Data.Bson.Generic.$fGFromBSONM12_$s$fVal[]
+                             CommonResources.$fFromBSONTransactionFile_$s$fSelectorMetaMetaSel
+                             @ GHC.Prim.Any
+                             doc of wild1 {
+                        GHC.Base.Nothing
+                        -> GHC.Base.Nothing @ CommonResources.TransactionFile
+                        GHC.Base.Just x1
+                        -> GHC.Base.Just
+                             @ CommonResources.TransactionFile
+                             (CommonResources.TransactionFile
+                                x `cast`
+                                (Trans
+                                     (GHC.Generics.N:M1[0]
+                                          <GHC.Generics.S>_P
+                                          <'GHC.Generics.MetaSel
+                                             ('GHC.Base.Just "transFileName")
+                                             'GHC.Generics.NoSourceUnpackedness
+                                             'GHC.Generics.NoSourceStrictness
+                                             'GHC.Generics.DecidedLazy>_P
+                                          <GHC.Generics.K1
+                                             GHC.Generics.R GHC.Base.String>_R <GHC.Prim.Any>_N)
+                                     (GHC.Generics.N:K1[0]
+                                          <GHC.Generics.R>_P <GHC.Base.String>_R <GHC.Prim.Any>_P))
+                                x1
+                                  `cast`
+                                (Trans
+                                     (GHC.Generics.N:M1[0]
+                                          <GHC.Generics.S>_P
+                                          <'GHC.Generics.MetaSel
+                                             ('GHC.Base.Just "userID")
+                                             'GHC.Generics.NoSourceUnpackedness
+                                             'GHC.Generics.NoSourceStrictness
+                                             'GHC.Generics.DecidedLazy>_P
+                                          <GHC.Generics.K1
+                                             GHC.Generics.R GHC.Base.String>_R <GHC.Prim.Any>_N)
+                                     (GHC.Generics.N:K1[0]
+                                          <GHC.Generics.R>_P
+                                          <GHC.Base.String>_R
+                                          <GHC.Prim.Any>_P))) } }) -}
+4dddbc5e8f7f1a5b99f263017494eea3
+  $fFromBSONTransactionFile_$s$fSelectorMetaMetaSel ::
+    GHC.Generics.Selector
+      ('GHC.Generics.MetaSel
+         ('GHC.Base.Just "userID")
+         'GHC.Generics.NoSourceUnpackedness
+         'GHC.Generics.NoSourceStrictness
+         'GHC.Generics.DecidedLazy)
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ GHC.Generics.Meta
+                  @ ('GHC.Generics.MetaSel
+                       ('GHC.Base.Just "userID")
+                       'GHC.Generics.NoSourceUnpackedness
+                       'GHC.Generics.NoSourceStrictness
+                       'GHC.Generics.DecidedLazy)
+                  CommonResources.$fFromBSONTransactionFile_$s$fSelectorMetaMetaSel_$cselName
+                  (GHC.Generics.$fSelectorMetaMetaSel_$cselSourceUnpackedness
+                     @ ('GHC.Base.Just "userID")
+                     @ 'GHC.Generics.NoSourceUnpackedness
+                     @ 'GHC.Generics.NoSourceStrictness
+                     @ 'GHC.Generics.DecidedLazy
+                     CommonResources.$fFromBSONTransactionFile1
+                     GHC.Generics.$WSNoSourceUnpackedness
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.SourceUnpackedness>_N <'GHC.Generics.NoSourceUnpackedness>_N)
+                     GHC.Generics.$WSNoSourceStrictness
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.SourceStrictness>_N <'GHC.Generics.NoSourceStrictness>_N)
+                     GHC.Generics.$WSDecidedLazy
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.DecidedStrictness>_N <'GHC.Generics.DecidedLazy>_N))
+                  (GHC.Generics.$fSelectorMetaMetaSel_$cselSourceStrictness
+                     @ ('GHC.Base.Just "userID")
+                     @ 'GHC.Generics.NoSourceUnpackedness
+                     @ 'GHC.Generics.NoSourceStrictness
+                     @ 'GHC.Generics.DecidedLazy
+                     CommonResources.$fFromBSONTransactionFile1
+                     GHC.Generics.$WSNoSourceUnpackedness
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.SourceUnpackedness>_N <'GHC.Generics.NoSourceUnpackedness>_N)
+                     GHC.Generics.$WSNoSourceStrictness
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.SourceStrictness>_N <'GHC.Generics.NoSourceStrictness>_N)
+                     GHC.Generics.$WSDecidedLazy
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.DecidedStrictness>_N <'GHC.Generics.DecidedLazy>_N))
+                  (GHC.Generics.$fSelectorMetaMetaSel_$cselDecidedStrictness
+                     @ ('GHC.Base.Just "userID")
+                     @ 'GHC.Generics.NoSourceUnpackedness
+                     @ 'GHC.Generics.NoSourceStrictness
+                     @ 'GHC.Generics.DecidedLazy
+                     CommonResources.$fFromBSONTransactionFile1
+                     GHC.Generics.$WSNoSourceUnpackedness
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.SourceUnpackedness>_N <'GHC.Generics.NoSourceUnpackedness>_N)
+                     GHC.Generics.$WSNoSourceStrictness
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.SourceStrictness>_N <'GHC.Generics.NoSourceStrictness>_N)
+                     GHC.Generics.$WSDecidedLazy
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.DecidedStrictness>_N <'GHC.Generics.DecidedLazy>_N)) -}
+9e38f11035146e8d0dd1e64472fdffd6
+  $fFromBSONTransactionFile_$s$fSelectorMetaMetaSel1 ::
+    GHC.Generics.Selector
+      ('GHC.Generics.MetaSel
+         ('GHC.Base.Just "transFileName")
+         'GHC.Generics.NoSourceUnpackedness
+         'GHC.Generics.NoSourceStrictness
+         'GHC.Generics.DecidedLazy)
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ GHC.Generics.Meta
+                  @ ('GHC.Generics.MetaSel
+                       ('GHC.Base.Just "transFileName")
+                       'GHC.Generics.NoSourceUnpackedness
+                       'GHC.Generics.NoSourceStrictness
+                       'GHC.Generics.DecidedLazy)
+                  CommonResources.$fFromBSONTransactionFile_$s$fSelectorMetaMetaSel_$cselName1
+                  (GHC.Generics.$fSelectorMetaMetaSel_$cselSourceUnpackedness
+                     @ ('GHC.Base.Just "transFileName")
+                     @ 'GHC.Generics.NoSourceUnpackedness
+                     @ 'GHC.Generics.NoSourceStrictness
+                     @ 'GHC.Generics.DecidedLazy
+                     CommonResources.$fFromBSONTransactionFile5
+                     GHC.Generics.$WSNoSourceUnpackedness
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.SourceUnpackedness>_N <'GHC.Generics.NoSourceUnpackedness>_N)
+                     GHC.Generics.$WSNoSourceStrictness
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.SourceStrictness>_N <'GHC.Generics.NoSourceStrictness>_N)
+                     GHC.Generics.$WSDecidedLazy
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.DecidedStrictness>_N <'GHC.Generics.DecidedLazy>_N))
+                  (GHC.Generics.$fSelectorMetaMetaSel_$cselSourceStrictness
+                     @ ('GHC.Base.Just "transFileName")
+                     @ 'GHC.Generics.NoSourceUnpackedness
+                     @ 'GHC.Generics.NoSourceStrictness
+                     @ 'GHC.Generics.DecidedLazy
+                     CommonResources.$fFromBSONTransactionFile5
+                     GHC.Generics.$WSNoSourceUnpackedness
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.SourceUnpackedness>_N <'GHC.Generics.NoSourceUnpackedness>_N)
+                     GHC.Generics.$WSNoSourceStrictness
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.SourceStrictness>_N <'GHC.Generics.NoSourceStrictness>_N)
+                     GHC.Generics.$WSDecidedLazy
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.DecidedStrictness>_N <'GHC.Generics.DecidedLazy>_N))
+                  (GHC.Generics.$fSelectorMetaMetaSel_$cselDecidedStrictness
+                     @ ('GHC.Base.Just "transFileName")
+                     @ 'GHC.Generics.NoSourceUnpackedness
+                     @ 'GHC.Generics.NoSourceStrictness
+                     @ 'GHC.Generics.DecidedLazy
+                     CommonResources.$fFromBSONTransactionFile5
+                     GHC.Generics.$WSNoSourceUnpackedness
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.SourceUnpackedness>_N <'GHC.Generics.NoSourceUnpackedness>_N)
+                     GHC.Generics.$WSNoSourceStrictness
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.SourceStrictness>_N <'GHC.Generics.NoSourceStrictness>_N)
+                     GHC.Generics.$WSDecidedLazy
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.DecidedStrictness>_N <'GHC.Generics.DecidedLazy>_N)) -}
+77c86a3fad25a6b566ad1e98d6e68fb8
+  $fFromBSONTransactionFile_$s$fSelectorMetaMetaSel_$cselName ::
+    forall k (t :: GHC.Generics.Meta
+                   -> (GHC.Types.* -> GHC.Types.*) -> k -> *) (f :: GHC.Types.*
+                                                                    -> GHC.Types.*) (a :: k).
+    t ('GHC.Generics.MetaSel
+         ('GHC.Base.Just "userID")
+         'GHC.Generics.NoSourceUnpackedness
+         'GHC.Generics.NoSourceStrictness
+         'GHC.Generics.DecidedLazy) f a
+    -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <L,A>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ k
+                   @ (t :: GHC.Generics.Meta
+                           -> (GHC.Types.* -> GHC.Types.*) -> k -> *)
+                   @ (f :: GHC.Types.* -> GHC.Types.*)
+                   @ (a :: k)
+                   (ds1 :: t ('GHC.Generics.MetaSel
+                                ('GHC.Base.Just "userID")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.NoSourceStrictness
+                                'GHC.Generics.DecidedLazy) f a) ->
+                 CommonResources.$fFromBSONTransactionFile4) -}
+b6acf8b6ec16dae433c3fda9040cc77e
+  $fFromBSONTransactionFile_$s$fSelectorMetaMetaSel_$cselName1 ::
+    forall k (t :: GHC.Generics.Meta
+                   -> (GHC.Types.* -> GHC.Types.*) -> k -> *) (f :: GHC.Types.*
+                                                                    -> GHC.Types.*) (a :: k).
+    t ('GHC.Generics.MetaSel
+         ('GHC.Base.Just "transFileName")
+         'GHC.Generics.NoSourceUnpackedness
+         'GHC.Generics.NoSourceStrictness
+         'GHC.Generics.DecidedLazy) f a
+    -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <L,A>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ k
+                   @ (t :: GHC.Generics.Meta
+                           -> (GHC.Types.* -> GHC.Types.*) -> k -> *)
+                   @ (f :: GHC.Types.* -> GHC.Types.*)
+                   @ (a :: k)
+                   (ds1 :: t ('GHC.Generics.MetaSel
+                                ('GHC.Base.Just "transFileName")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.NoSourceStrictness
+                                'GHC.Generics.DecidedLazy) f a) ->
+                 CommonResources.$fFromBSONTransactionFile8) -}
 ca1c84ae8c2ebf7806f4cfaec64a3ec3
   $fFromBSON[] :: Data.Bson.Generic.FromBSON [GHC.Types.Char]
   DFunId
@@ -8402,6 +8764,263 @@ c71337a23ee77066cf484e99108fda8e
                    `cast`
                  (Sym (Data.Aeson.Types.Internal.N:Parser[0]
                            <CommonResources.Ticket>_R))) -}
+f760516df7ebc068b473a59b5a70a314
+  $fFromJSONTransactionFile ::
+    Data.Aeson.Types.Class.FromJSON CommonResources.TransactionFile
+  DFunId
+  {- Arity: 1, Strictness: <L,U>, Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                CommonResources.$fFromJSONTransactionFile_$cparseJSON
+                  `cast`
+                (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                          <CommonResources.TransactionFile>_N)) -}
+e760612ac1f92a424f7360520d5a3444
+  $fFromJSONTransactionFile1 ::
+    Data.Aeson.Types.Internal.Options
+    -> GHC.Base.Maybe Data.Text.Internal.Text
+    -> Data.Aeson.Types.Internal.Value
+    -> Data.Aeson.Types.Generic.Tagged
+         Data.Aeson.Types.Generic.True
+         (Data.Aeson.Types.Internal.Parser
+            ((GHC.Generics.:*:)
+               (GHC.Generics.S1
+                  ('GHC.Generics.MetaSel
+                     ('GHC.Base.Just "transFileName")
+                     'GHC.Generics.NoSourceUnpackedness
+                     'GHC.Generics.NoSourceStrictness
+                     'GHC.Generics.DecidedLazy)
+                  (GHC.Generics.Rec0 GHC.Base.String))
+               (GHC.Generics.S1
+                  ('GHC.Generics.MetaSel
+                     ('GHC.Base.Just "userID")
+                     'GHC.Generics.NoSourceUnpackedness
+                     'GHC.Generics.NoSourceStrictness
+                     'GHC.Generics.DecidedLazy)
+                  (GHC.Generics.Rec0 GHC.Base.String))
+               a))
+  {- Arity: 3, Strictness: <L,U(U,U,U,U,U,U)><L,A><S,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, True)
+                (\ @ a
+                   (w :: Data.Aeson.Types.Internal.Options)
+                   (w1 :: GHC.Base.Maybe Data.Text.Internal.Text)
+                   (w2 :: Data.Aeson.Types.Internal.Value) ->
+                 CommonResources.$w$dConsFromJSON'9 @ a w w2) -}
+cfd4684709cb49170f1bc669aabf1e01
+  $fFromJSONTransactionFile2 ::
+    Data.Aeson.Types.Internal.Options
+    -> Data.Aeson.Types.Internal.Value
+    -> Data.Aeson.Types.Internal.Parser
+         (GHC.Generics.K1 GHC.Generics.R [GHC.Types.Char] a1)
+  {- Arity: 2, Strictness: <L,A><L,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, True)
+                (\ @ a1
+                   (w :: Data.Aeson.Types.Internal.Options)
+                   (w1 :: Data.Aeson.Types.Internal.Value) ->
+                 CommonResources.$w$dGFromJSON11 @ a1 w1) -}
+c40ac921412424a3df145b1101d040eb
+  $fFromJSONTransactionFile3 ::
+    (GHC.Generics.:*:)
+      (GHC.Generics.M1
+         GHC.Generics.S
+         ('GHC.Generics.MetaSel
+            ('GHC.Base.Just "transFileName")
+            'GHC.Generics.NoSourceUnpackedness
+            'GHC.Generics.NoSourceStrictness
+            'GHC.Generics.DecidedLazy)
+         (GHC.Generics.Rec0 GHC.Base.String))
+      (GHC.Generics.M1
+         GHC.Generics.S
+         ('GHC.Generics.MetaSel
+            ('GHC.Base.Just "userID")
+            'GHC.Generics.NoSourceUnpackedness
+            'GHC.Generics.NoSourceStrictness
+            'GHC.Generics.DecidedLazy)
+         (GHC.Generics.Rec0 GHC.Base.String))
+      a
+    -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,A>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ a
+                   (eta :: (GHC.Generics.:*:)
+                             (GHC.Generics.M1
+                                GHC.Generics.S
+                                ('GHC.Generics.MetaSel
+                                   ('GHC.Base.Just "transFileName")
+                                   'GHC.Generics.NoSourceUnpackedness
+                                   'GHC.Generics.NoSourceStrictness
+                                   'GHC.Generics.DecidedLazy)
+                                (GHC.Generics.Rec0 GHC.Base.String))
+                             (GHC.Generics.M1
+                                GHC.Generics.S
+                                ('GHC.Generics.MetaSel
+                                   ('GHC.Base.Just "userID")
+                                   'GHC.Generics.NoSourceUnpackedness
+                                   'GHC.Generics.NoSourceStrictness
+                                   'GHC.Generics.DecidedLazy)
+                                (GHC.Generics.Rec0 GHC.Base.String))
+                             a) ->
+                 GHC.Types.False) -}
+f760516df7ebc068b473a59b5a70a314
+  $fFromJSONTransactionFile_$cparseJSON ::
+    Data.Aeson.Types.Internal.Value
+    -> Data.Aeson.Types.Internal.Parser CommonResources.TransactionFile
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ (x :: Data.Aeson.Types.Internal.Value) ->
+                 let {
+                   m :: Data.Aeson.Types.Internal.Parser
+                          ((GHC.Generics.:*:)
+                             (GHC.Generics.S1
+                                ('GHC.Generics.MetaSel
+                                   ('GHC.Base.Just "transFileName")
+                                   'GHC.Generics.NoSourceUnpackedness
+                                   'GHC.Generics.NoSourceStrictness
+                                   'GHC.Generics.DecidedLazy)
+                                (GHC.Generics.Rec0 GHC.Base.String))
+                             (GHC.Generics.S1
+                                ('GHC.Generics.MetaSel
+                                   ('GHC.Base.Just "userID")
+                                   'GHC.Generics.NoSourceUnpackedness
+                                   'GHC.Generics.NoSourceStrictness
+                                   'GHC.Generics.DecidedLazy)
+                                (GHC.Generics.Rec0 GHC.Base.String))
+                             GHC.Prim.Any)
+                   = Data.Aeson.Types.Generic.$fConsFromJSONf_$cconsParseJSON
+                       @ (GHC.Generics.S1
+                            ('GHC.Generics.MetaSel
+                               ('GHC.Base.Just "transFileName")
+                               'GHC.Generics.NoSourceUnpackedness
+                               'GHC.Generics.NoSourceStrictness
+                               'GHC.Generics.DecidedLazy)
+                            (GHC.Generics.Rec0 GHC.Base.String)
+                          GHC.Generics.:*: GHC.Generics.S1
+                                             ('GHC.Generics.MetaSel
+                                                ('GHC.Base.Just "userID")
+                                                'GHC.Generics.NoSourceUnpackedness
+                                                'GHC.Generics.NoSourceStrictness
+                                                'GHC.Generics.DecidedLazy)
+                                             (GHC.Generics.Rec0 GHC.Base.String))
+                       @ Data.Aeson.Types.Generic.True
+                       CommonResources.$fFromJSONTransactionFile3
+                         `cast`
+                       (Sym (Data.Aeson.Types.Generic.N:IsRecord[0]
+                                 <GHC.Generics.M1
+                                    GHC.Generics.S
+                                    ('GHC.Generics.MetaSel
+                                       ('GHC.Base.Just "transFileName")
+                                       'GHC.Generics.NoSourceUnpackedness
+                                       'GHC.Generics.NoSourceStrictness
+                                       'GHC.Generics.DecidedLazy)
+                                    (GHC.Generics.Rec0 GHC.Base.String)
+                                  GHC.Generics.:*: GHC.Generics.M1
+                                                     GHC.Generics.S
+                                                     ('GHC.Generics.MetaSel
+                                                        ('GHC.Base.Just "userID")
+                                                        'GHC.Generics.NoSourceUnpackedness
+                                                        'GHC.Generics.NoSourceStrictness
+                                                        'GHC.Generics.DecidedLazy)
+                                                     (GHC.Generics.Rec0 GHC.Base.String)>_N
+                                 <Data.Aeson.Types.Generic.True>_N))
+                       CommonResources.$fFromJSONTransactionFile1
+                         `cast`
+                       (Sym (Data.Aeson.Types.Generic.N:ConsFromJSON'[0]
+                                 <GHC.Generics.S1
+                                    ('GHC.Generics.MetaSel
+                                       ('GHC.Base.Just "transFileName")
+                                       'GHC.Generics.NoSourceUnpackedness
+                                       'GHC.Generics.NoSourceStrictness
+                                       'GHC.Generics.DecidedLazy)
+                                    (GHC.Generics.Rec0 GHC.Base.String)
+                                  GHC.Generics.:*: GHC.Generics.S1
+                                                     ('GHC.Generics.MetaSel
+                                                        ('GHC.Base.Just "userID")
+                                                        'GHC.Generics.NoSourceUnpackedness
+                                                        'GHC.Generics.NoSourceStrictness
+                                                        'GHC.Generics.DecidedLazy)
+                                                     (GHC.Generics.Rec0 GHC.Base.String)>_N
+                                 <Data.Aeson.Types.Generic.True>_N))
+                       @ GHC.Prim.Any
+                       Data.Aeson.Types.Internal.defaultOptions
+                       x
+                 } in
+                 (\ @ (f1 :: * -> *)
+                    @ r
+                    (path :: Data.Aeson.Types.Internal.JSONPath)
+                    (kf :: Data.Aeson.Types.Internal.Failure f1 r)
+                    (ks :: Data.Aeson.Types.Internal.Success
+                             CommonResources.TransactionFile f1 r) ->
+                  m `cast`
+                  (Data.Aeson.Types.Internal.N:Parser[0]
+                       <(GHC.Generics.:*:)
+                          (GHC.Generics.S1
+                             ('GHC.Generics.MetaSel
+                                ('GHC.Base.Just "transFileName")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.NoSourceStrictness
+                                'GHC.Generics.DecidedLazy)
+                             (GHC.Generics.Rec0 GHC.Base.String))
+                          (GHC.Generics.S1
+                             ('GHC.Generics.MetaSel
+                                ('GHC.Base.Just "userID")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.NoSourceStrictness
+                                'GHC.Generics.DecidedLazy)
+                             (GHC.Generics.Rec0 GHC.Base.String))
+                          GHC.Prim.Any>_R)
+                    @ f1
+                    @ r
+                    path
+                    kf
+                    (\ (a2 :: (GHC.Generics.:*:)
+                                (GHC.Generics.S1
+                                   ('GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "transFileName")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.NoSourceStrictness
+                                      'GHC.Generics.DecidedLazy)
+                                   (GHC.Generics.Rec0 GHC.Base.String))
+                                (GHC.Generics.S1
+                                   ('GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "userID")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.NoSourceStrictness
+                                      'GHC.Generics.DecidedLazy)
+                                   (GHC.Generics.Rec0 GHC.Base.String))
+                                GHC.Prim.Any) ->
+                     ks
+                       (case a2 of wild { GHC.Generics.:*: ds ds1 ->
+                        CommonResources.TransactionFile
+                          ds
+                            `cast`
+                          (Trans
+                               (GHC.Generics.N:M1[0]
+                                    <GHC.Generics.S>_P
+                                    <'GHC.Generics.MetaSel
+                                       ('GHC.Base.Just "transFileName")
+                                       'GHC.Generics.NoSourceUnpackedness
+                                       'GHC.Generics.NoSourceStrictness
+                                       'GHC.Generics.DecidedLazy>_P
+                                    <GHC.Generics.K1
+                                       GHC.Generics.R GHC.Base.String>_R <GHC.Prim.Any>_N)
+                               (GHC.Generics.N:K1[0]
+                                    <GHC.Generics.R>_P <GHC.Base.String>_R <GHC.Prim.Any>_P))
+                          ds1
+                            `cast`
+                          (Trans
+                               (GHC.Generics.N:M1[0]
+                                    <GHC.Generics.S>_P
+                                    <'GHC.Generics.MetaSel
+                                       ('GHC.Base.Just "userID")
+                                       'GHC.Generics.NoSourceUnpackedness
+                                       'GHC.Generics.NoSourceStrictness
+                                       'GHC.Generics.DecidedLazy>_P
+                                    <GHC.Generics.K1
+                                       GHC.Generics.R GHC.Base.String>_R <GHC.Prim.Any>_N)
+                               (GHC.Generics.N:K1[0]
+                                    <GHC.Generics.R>_P <GHC.Base.String>_R <GHC.Prim.Any>_P)) })))
+                   `cast`
+                 (Sym (Data.Aeson.Types.Internal.N:Parser[0]
+                           <CommonResources.TransactionFile>_R))) -}
 d2b7012d9c2b53315f0b4752e37be1c9
   $fGenericAccount :: GHC.Generics.Generic CommonResources.Account
   DFunId
@@ -10402,6 +11021,210 @@ c71337a23ee77066cf484e99108fda8e
                              <GHC.Generics.K1 GHC.Generics.R GHC.Base.String>_R <x>_N)
                         (GHC.Generics.N:K1[0]
                              <GHC.Generics.R>_P <GHC.Base.String>_R <x>_P)) }) -}
+f760516df7ebc068b473a59b5a70a314
+  $fGenericTransactionFile ::
+    GHC.Generics.Generic CommonResources.TransactionFile
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ CommonResources.TransactionFile
+                  CommonResources.$fGenericTransactionFile_$cfrom
+                  CommonResources.$fGenericTransactionFile_$cto -}
+f760516df7ebc068b473a59b5a70a314
+  $fGenericTransactionFile_$cfrom ::
+    CommonResources.TransactionFile
+    -> GHC.Generics.Rep CommonResources.TransactionFile x
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(U,U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ x (ds :: CommonResources.TransactionFile) ->
+                 case ds of wild { CommonResources.TransactionFile g1 g2 ->
+                 (GHC.Generics.:*:
+                    @ (GHC.Generics.M1
+                         GHC.Generics.S
+                         ('GHC.Generics.MetaSel
+                            ('GHC.Base.Just "transFileName")
+                            'GHC.Generics.NoSourceUnpackedness
+                            'GHC.Generics.NoSourceStrictness
+                            'GHC.Generics.DecidedLazy)
+                         (GHC.Generics.K1 GHC.Generics.R GHC.Base.String))
+                    @ (GHC.Generics.M1
+                         GHC.Generics.S
+                         ('GHC.Generics.MetaSel
+                            ('GHC.Base.Just "userID")
+                            'GHC.Generics.NoSourceUnpackedness
+                            'GHC.Generics.NoSourceStrictness
+                            'GHC.Generics.DecidedLazy)
+                         (GHC.Generics.K1 GHC.Generics.R GHC.Base.String))
+                    @ x
+                    g1
+                      `cast`
+                    (Trans
+                         (Sym (GHC.Generics.N:K1[0]
+                                   <GHC.Generics.R>_P <GHC.Base.String>_R <x>_P))
+                         (Sym (GHC.Generics.N:M1[0]
+                                   <GHC.Generics.S>_P
+                                   <'GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "transFileName")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.NoSourceStrictness
+                                      'GHC.Generics.DecidedLazy>_P
+                                   <GHC.Generics.K1 GHC.Generics.R GHC.Base.String>_R) <x>_N))
+                    g2
+                      `cast`
+                    (Trans
+                         (Sym (GHC.Generics.N:K1[0]
+                                   <GHC.Generics.R>_P <GHC.Base.String>_R <x>_P))
+                         (Sym (GHC.Generics.N:M1[0]
+                                   <GHC.Generics.S>_P
+                                   <'GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "userID")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.NoSourceStrictness
+                                      'GHC.Generics.DecidedLazy>_P
+                                   <GHC.Generics.K1 GHC.Generics.R GHC.Base.String>_R) <x>_N)))
+                   `cast`
+                 (Trans
+                      (Sym (GHC.Generics.N:M1[0]
+                                <GHC.Generics.C>_P
+                                <'GHC.Generics.MetaCons
+                                   "TransactionFile" 'GHC.Generics.PrefixI 'GHC.Types.True>_P
+                                <GHC.Generics.M1
+                                   GHC.Generics.S
+                                   ('GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "transFileName")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.NoSourceStrictness
+                                      'GHC.Generics.DecidedLazy)
+                                   (GHC.Generics.K1 GHC.Generics.R GHC.Base.String)
+                                 GHC.Generics.:*: GHC.Generics.M1
+                                                    GHC.Generics.S
+                                                    ('GHC.Generics.MetaSel
+                                                       ('GHC.Base.Just "userID")
+                                                       'GHC.Generics.NoSourceUnpackedness
+                                                       'GHC.Generics.NoSourceStrictness
+                                                       'GHC.Generics.DecidedLazy)
+                                                    (GHC.Generics.K1
+                                                       GHC.Generics.R GHC.Base.String)>_R))
+                      (Trans
+                           (Sym (GHC.Generics.N:M1[0]
+                                     <GHC.Generics.D>_P
+                                     <'GHC.Generics.MetaData
+                                        "TransactionFile"
+                                        "CommonResources"
+                                        "CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0"
+                                        'GHC.Types.False>_P
+                                     <GHC.Generics.M1
+                                        GHC.Generics.C
+                                        ('GHC.Generics.MetaCons
+                                           "TransactionFile" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                                        (GHC.Generics.M1
+                                           GHC.Generics.S
+                                           ('GHC.Generics.MetaSel
+                                              ('GHC.Base.Just "transFileName")
+                                              'GHC.Generics.NoSourceUnpackedness
+                                              'GHC.Generics.NoSourceStrictness
+                                              'GHC.Generics.DecidedLazy)
+                                           (GHC.Generics.K1 GHC.Generics.R GHC.Base.String)
+                                         GHC.Generics.:*: GHC.Generics.M1
+                                                            GHC.Generics.S
+                                                            ('GHC.Generics.MetaSel
+                                                               ('GHC.Base.Just "userID")
+                                                               'GHC.Generics.NoSourceUnpackedness
+                                                               'GHC.Generics.NoSourceStrictness
+                                                               'GHC.Generics.DecidedLazy)
+                                                            (GHC.Generics.K1
+                                                               GHC.Generics.R GHC.Base.String))>_R))
+                           (Sub (Sym (CommonResources.Rep_TransactionFile[0])))) <x>_N) }) -}
+f760516df7ebc068b473a59b5a70a314
+  $fGenericTransactionFile_$cto ::
+    GHC.Generics.Rep CommonResources.TransactionFile x
+    -> CommonResources.TransactionFile
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(U,U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ x
+                   (ds :: GHC.Generics.Rep CommonResources.TransactionFile x) ->
+                 case ds
+                        `cast`
+                      (Trans
+                           (Sub (CommonResources.Rep_TransactionFile[0]))
+                           (Trans
+                                (GHC.Generics.N:M1[0]
+                                     <GHC.Generics.D>_P
+                                     <'GHC.Generics.MetaData
+                                        "TransactionFile"
+                                        "CommonResources"
+                                        "CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0"
+                                        'GHC.Types.False>_P
+                                     <GHC.Generics.M1
+                                        GHC.Generics.C
+                                        ('GHC.Generics.MetaCons
+                                           "TransactionFile" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                                        (GHC.Generics.M1
+                                           GHC.Generics.S
+                                           ('GHC.Generics.MetaSel
+                                              ('GHC.Base.Just "transFileName")
+                                              'GHC.Generics.NoSourceUnpackedness
+                                              'GHC.Generics.NoSourceStrictness
+                                              'GHC.Generics.DecidedLazy)
+                                           (GHC.Generics.K1 GHC.Generics.R GHC.Base.String)
+                                         GHC.Generics.:*: GHC.Generics.M1
+                                                            GHC.Generics.S
+                                                            ('GHC.Generics.MetaSel
+                                                               ('GHC.Base.Just "userID")
+                                                               'GHC.Generics.NoSourceUnpackedness
+                                                               'GHC.Generics.NoSourceStrictness
+                                                               'GHC.Generics.DecidedLazy)
+                                                            (GHC.Generics.K1
+                                                               GHC.Generics.R GHC.Base.String))>_R)
+                                (GHC.Generics.N:M1[0]
+                                     <GHC.Generics.C>_P
+                                     <'GHC.Generics.MetaCons
+                                        "TransactionFile" 'GHC.Generics.PrefixI 'GHC.Types.True>_P
+                                     <GHC.Generics.M1
+                                        GHC.Generics.S
+                                        ('GHC.Generics.MetaSel
+                                           ('GHC.Base.Just "transFileName")
+                                           'GHC.Generics.NoSourceUnpackedness
+                                           'GHC.Generics.NoSourceStrictness
+                                           'GHC.Generics.DecidedLazy)
+                                        (GHC.Generics.K1 GHC.Generics.R GHC.Base.String)
+                                      GHC.Generics.:*: GHC.Generics.M1
+                                                         GHC.Generics.S
+                                                         ('GHC.Generics.MetaSel
+                                                            ('GHC.Base.Just "userID")
+                                                            'GHC.Generics.NoSourceUnpackedness
+                                                            'GHC.Generics.NoSourceStrictness
+                                                            'GHC.Generics.DecidedLazy)
+                                                         (GHC.Generics.K1
+                                                            GHC.Generics.R
+                                                            GHC.Base.String)>_R)) <x>_N) of wild { GHC.Generics.:*: ds1 ds2 ->
+                 CommonResources.TransactionFile
+                   ds1
+                     `cast`
+                   (Trans
+                        (GHC.Generics.N:M1[0]
+                             <GHC.Generics.S>_P
+                             <'GHC.Generics.MetaSel
+                                ('GHC.Base.Just "transFileName")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.NoSourceStrictness
+                                'GHC.Generics.DecidedLazy>_P
+                             <GHC.Generics.K1 GHC.Generics.R GHC.Base.String>_R <x>_N)
+                        (GHC.Generics.N:K1[0]
+                             <GHC.Generics.R>_P <GHC.Base.String>_R <x>_P))
+                   ds2
+                     `cast`
+                   (Trans
+                        (GHC.Generics.N:M1[0]
+                             <GHC.Generics.S>_P
+                             <'GHC.Generics.MetaSel
+                                ('GHC.Base.Just "userID")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.NoSourceStrictness
+                                'GHC.Generics.DecidedLazy>_P
+                             <GHC.Generics.K1 GHC.Generics.R GHC.Base.String>_R <x>_N)
+                        (GHC.Generics.N:K1[0]
+                             <GHC.Generics.R>_P <GHC.Base.String>_R <x>_P)) }) -}
 d2b7012d9c2b53315f0b4752e37be1c9
   $fShowAccount :: GHC.Show.Show CommonResources.Account
   DFunId
@@ -11011,6 +11834,62 @@ c71337a23ee77066cf484e99108fda8e
                  case w of ww { GHC.Types.I# ww1 ->
                  case w1 of ww2 { CommonResources.Ticket ww3 ww4 ->
                  CommonResources.$w$cshowsPrec10 ww1 ww3 ww4 w2 } }) -}
+f760516df7ebc068b473a59b5a70a314
+  $fShowTransactionFile ::
+    GHC.Show.Show CommonResources.TransactionFile
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ CommonResources.TransactionFile
+                  CommonResources.$fShowTransactionFile_$cshowsPrec
+                  CommonResources.$fShowTransactionFile_$cshow
+                  CommonResources.$fShowTransactionFile_$cshowList -}
+f760516df7ebc068b473a59b5a70a314
+  $fShowTransactionFile1 ::
+    CommonResources.TransactionFile -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ (w :: CommonResources.TransactionFile)
+                   (w1 :: GHC.Base.String) ->
+                 case w of ww { CommonResources.TransactionFile ww1 ww2 ->
+                 CommonResources.$w$cshowsPrec11 0# ww1 ww2 w1 }) -}
+1e08d6d5c21a3fbf951e49c7a1090801
+  $fShowTransactionFile2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "userID = "#) -}
+3a298f4d5d4a6c6d3bd4e5d1a7bee083
+  $fShowTransactionFile3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "transFileName = "#) -}
+70b0bee6eac9f66b61d8bfe11919e6eb
+  $fShowTransactionFile4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "TransactionFile {"#) -}
+f760516df7ebc068b473a59b5a70a314
+  $fShowTransactionFile_$cshow ::
+    CommonResources.TransactionFile -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: CommonResources.TransactionFile) ->
+                 CommonResources.$fShowTransactionFile_$cshowsPrec
+                   GHC.Show.shows22
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+f760516df7ebc068b473a59b5a70a314
+  $fShowTransactionFile_$cshowList ::
+    [CommonResources.TransactionFile] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ CommonResources.TransactionFile
+                   CommonResources.$fShowTransactionFile1) -}
+f760516df7ebc068b473a59b5a70a314
+  $fShowTransactionFile_$cshowsPrec ::
+    GHC.Types.Int -> CommonResources.TransactionFile -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <S(S),1*U(U)><S,1*U(1*U,1*U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ (w :: GHC.Types.Int)
+                   (w1 :: CommonResources.TransactionFile)
+                   (w2 :: GHC.Base.String) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w1 of ww2 { CommonResources.TransactionFile ww3 ww4 ->
+                 CommonResources.$w$cshowsPrec11 ww1 ww3 ww4 w2 } }) -}
 d2b7012d9c2b53315f0b4752e37be1c9
   $fToBSONAccount :: Data.Bson.Generic.ToBSON CommonResources.Account
   DFunId
@@ -13541,7 +14420,272 @@ c71337a23ee77066cf484e99108fda8e
                      GHC.Generics.$WSTrue
                        `cast`
                      (Sym (GHC.Generics.N:SingI[0]) <GHC.Types.Bool>_N <'GHC.Types.True>_N)) -}
-9fbc5334ddf3634d7fe0f877d26b0042
+f760516df7ebc068b473a59b5a70a314
+  $fToBSONTransactionFile ::
+    Data.Bson.Generic.ToBSON CommonResources.TransactionFile
+  DFunId
+  {- Arity: 1, Strictness: <L,1*U(U,U)>, Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                CommonResources.$fToBSONTransactionFile_$ctoBSON
+                  `cast`
+                (Sym (Data.Bson.Generic.N:ToBSON[0]
+                          <CommonResources.TransactionFile>_N)) -}
+0c5a9f0297ed81fdbdaae2a783e29d3a
+  $fToBSONTransactionFile1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "TransactionFile"#) -}
+2c8e1b531c9de786f5d0ad12d56e9599
+  $fToBSONTransactionFile2 ::
+    GHC.Types.Int
+    -> (GHC.Generics.:*:)
+         (GHC.Generics.M1
+            GHC.Generics.S
+            ('GHC.Generics.MetaSel
+               ('GHC.Base.Just "transFileName")
+               'GHC.Generics.NoSourceUnpackedness
+               'GHC.Generics.NoSourceStrictness
+               'GHC.Generics.DecidedLazy)
+            (GHC.Generics.Rec0 GHC.Base.String))
+         (GHC.Generics.M1
+            GHC.Generics.S
+            ('GHC.Generics.MetaSel
+               ('GHC.Base.Just "userID")
+               'GHC.Generics.NoSourceUnpackedness
+               'GHC.Generics.NoSourceStrictness
+               'GHC.Generics.DecidedLazy)
+            (GHC.Generics.Rec0 GHC.Base.String))
+         a1
+    -> [Data.Bson.Field]
+  {- Arity: 2, Strictness: <L,A><S,1*U(1*U,1*U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a1
+                   (w :: GHC.Types.Int)
+                   (w1 :: (GHC.Generics.:*:)
+                            (GHC.Generics.M1
+                               GHC.Generics.S
+                               ('GHC.Generics.MetaSel
+                                  ('GHC.Base.Just "transFileName")
+                                  'GHC.Generics.NoSourceUnpackedness
+                                  'GHC.Generics.NoSourceStrictness
+                                  'GHC.Generics.DecidedLazy)
+                               (GHC.Generics.Rec0 GHC.Base.String))
+                            (GHC.Generics.M1
+                               GHC.Generics.S
+                               ('GHC.Generics.MetaSel
+                                  ('GHC.Base.Just "userID")
+                                  'GHC.Generics.NoSourceUnpackedness
+                                  'GHC.Generics.NoSourceStrictness
+                                  'GHC.Generics.DecidedLazy)
+                               (GHC.Generics.Rec0 GHC.Base.String))
+                            a1) ->
+                 case w1 of ww { GHC.Generics.:*: ww1 ww2 ->
+                 CommonResources.$w$dGToBSON7 @ a1 ww1 ww2 }) -}
+2698388910f8e2d91075553987b96f24
+  $fToBSONTransactionFile3 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 1,
+     Unfolding: (\ (s1 :: GHC.Prim.State#
+                            GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newByteArray#
+                        @ GHC.Prim.RealWorld
+                        8#
+                        s1 of ds1 { (#,#) ipv ipv1 ->
+                 Data.Bson.Generic.$wouter2
+                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                   Data.Bson.Generic.$fFromBSONObjectKey5
+                   CommonResources.$fFromBSONTransactionFile4
+                   0#
+                   ipv }) -}
+961a03a7066182ad689871446c449f7c
+  $fToBSONTransactionFile4 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 1,
+     Unfolding: (\ (s1 :: GHC.Prim.State#
+                            GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newByteArray#
+                        @ GHC.Prim.RealWorld
+                        8#
+                        s1 of ds1 { (#,#) ipv ipv1 ->
+                 Data.Bson.Generic.$wouter2
+                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                   Data.Bson.Generic.$fFromBSONObjectKey5
+                   CommonResources.$fFromBSONTransactionFile8
+                   0#
+                   ipv }) -}
+f760516df7ebc068b473a59b5a70a314
+  $fToBSONTransactionFile_$ctoBSON ::
+    CommonResources.TransactionFile -> Data.Bson.Document
+  {- Arity: 1, Strictness: <L,1*U(U,U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (a1 :: CommonResources.TransactionFile) ->
+                 Data.Bson.Generic.$w$cgenericToBSON1
+                   @ (GHC.Generics.S1
+                        ('GHC.Generics.MetaSel
+                           ('GHC.Base.Just "transFileName")
+                           'GHC.Generics.NoSourceUnpackedness
+                           'GHC.Generics.NoSourceStrictness
+                           'GHC.Generics.DecidedLazy)
+                        (GHC.Generics.Rec0 GHC.Base.String)
+                      GHC.Generics.:*: GHC.Generics.S1
+                                         ('GHC.Generics.MetaSel
+                                            ('GHC.Base.Just "userID")
+                                            'GHC.Generics.NoSourceUnpackedness
+                                            'GHC.Generics.NoSourceStrictness
+                                            'GHC.Generics.DecidedLazy)
+                                         (GHC.Generics.Rec0 GHC.Base.String))
+                   @ ('GHC.Generics.MetaCons
+                        "TransactionFile" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                   CommonResources.$fToBSONTransactionFile2
+                     `cast`
+                   (Sym (Data.Bson.Generic.N:GToBSON[0]
+                             <GHC.Generics.M1
+                                GHC.Generics.S
+                                ('GHC.Generics.MetaSel
+                                   ('GHC.Base.Just "transFileName")
+                                   'GHC.Generics.NoSourceUnpackedness
+                                   'GHC.Generics.NoSourceStrictness
+                                   'GHC.Generics.DecidedLazy)
+                                (GHC.Generics.Rec0 GHC.Base.String)
+                              GHC.Generics.:*: GHC.Generics.M1
+                                                 GHC.Generics.S
+                                                 ('GHC.Generics.MetaSel
+                                                    ('GHC.Base.Just "userID")
+                                                    'GHC.Generics.NoSourceUnpackedness
+                                                    'GHC.Generics.NoSourceStrictness
+                                                    'GHC.Generics.DecidedLazy)
+                                                 (GHC.Generics.Rec0 GHC.Base.String)>_N))
+                   CommonResources.$fToBSONTransactionFile_$s$fConstructorMetaMetaCons
+                   @ GHC.Prim.Any
+                   1#
+                   (case a1 of wild { CommonResources.TransactionFile g1 g2 ->
+                    (GHC.Generics.:*:
+                       @ (GHC.Generics.M1
+                            GHC.Generics.S
+                            ('GHC.Generics.MetaSel
+                               ('GHC.Base.Just "transFileName")
+                               'GHC.Generics.NoSourceUnpackedness
+                               'GHC.Generics.NoSourceStrictness
+                               'GHC.Generics.DecidedLazy)
+                            (GHC.Generics.K1 GHC.Generics.R GHC.Base.String))
+                       @ (GHC.Generics.M1
+                            GHC.Generics.S
+                            ('GHC.Generics.MetaSel
+                               ('GHC.Base.Just "userID")
+                               'GHC.Generics.NoSourceUnpackedness
+                               'GHC.Generics.NoSourceStrictness
+                               'GHC.Generics.DecidedLazy)
+                            (GHC.Generics.K1 GHC.Generics.R GHC.Base.String))
+                       @ GHC.Prim.Any
+                       g1
+                         `cast`
+                       (Trans
+                            (Sym (GHC.Generics.N:K1[0]
+                                      <GHC.Generics.R>_P <GHC.Base.String>_R <GHC.Prim.Any>_P))
+                            (Sym (GHC.Generics.N:M1[0]
+                                      <GHC.Generics.S>_P
+                                      <'GHC.Generics.MetaSel
+                                         ('GHC.Base.Just "transFileName")
+                                         'GHC.Generics.NoSourceUnpackedness
+                                         'GHC.Generics.NoSourceStrictness
+                                         'GHC.Generics.DecidedLazy>_P
+                                      <GHC.Generics.K1
+                                         GHC.Generics.R GHC.Base.String>_R) <GHC.Prim.Any>_N))
+                       g2
+                         `cast`
+                       (Trans
+                            (Sym (GHC.Generics.N:K1[0]
+                                      <GHC.Generics.R>_P <GHC.Base.String>_R <GHC.Prim.Any>_P))
+                            (Sym (GHC.Generics.N:M1[0]
+                                      <GHC.Generics.S>_P
+                                      <'GHC.Generics.MetaSel
+                                         ('GHC.Base.Just "userID")
+                                         'GHC.Generics.NoSourceUnpackedness
+                                         'GHC.Generics.NoSourceStrictness
+                                         'GHC.Generics.DecidedLazy>_P
+                                      <GHC.Generics.K1
+                                         GHC.Generics.R GHC.Base.String>_R) <GHC.Prim.Any>_N)))
+                      `cast`
+                    (Sym (GHC.Generics.N:M1[0]
+                              <GHC.Generics.C>_P
+                              <'GHC.Generics.MetaCons
+                                 "TransactionFile" 'GHC.Generics.PrefixI 'GHC.Types.True>_P
+                              <GHC.Generics.M1
+                                 GHC.Generics.S
+                                 ('GHC.Generics.MetaSel
+                                    ('GHC.Base.Just "transFileName")
+                                    'GHC.Generics.NoSourceUnpackedness
+                                    'GHC.Generics.NoSourceStrictness
+                                    'GHC.Generics.DecidedLazy)
+                                 (GHC.Generics.K1 GHC.Generics.R GHC.Base.String)
+                               GHC.Generics.:*: GHC.Generics.M1
+                                                  GHC.Generics.S
+                                                  ('GHC.Generics.MetaSel
+                                                     ('GHC.Base.Just "userID")
+                                                     'GHC.Generics.NoSourceUnpackedness
+                                                     'GHC.Generics.NoSourceStrictness
+                                                     'GHC.Generics.DecidedLazy)
+                                                  (GHC.Generics.K1
+                                                     GHC.Generics.R
+                                                     GHC.Base.String)>_R) <GHC.Prim.Any>_N) })) -}
+7054ad1306556dff401695c257e59f15
+  $fToBSONTransactionFile_$s$fConstructorMetaMetaCons ::
+    GHC.Generics.Constructor
+      ('GHC.Generics.MetaCons
+         "TransactionFile" 'GHC.Generics.PrefixI 'GHC.Types.True)
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ GHC.Generics.Meta
+                  @ ('GHC.Generics.MetaCons
+                       "TransactionFile" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                  (GHC.Generics.$fConstructorMetaMetaCons_$cconName
+                     @ "TransactionFile"
+                     @ 'GHC.Generics.PrefixI
+                     @ 'GHC.Types.True
+                     CommonResources.$fToBSONTransactionFile1
+                       `cast`
+                     (Trans
+                          (Sym (GHC.TypeLits.N:SSymbol[0] <"TransactionFile">_P))
+                          (Sym (GHC.TypeLits.N:KnownSymbol[0]) <"TransactionFile">_N))
+                     GHC.Generics.$WSPrefix
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.FixityI>_N <'GHC.Generics.PrefixI>_N)
+                     GHC.Generics.$WSTrue
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Types.Bool>_N <'GHC.Types.True>_N))
+                  (GHC.Generics.$fConstructorMetaMetaCons_$cconFixity
+                     @ "TransactionFile"
+                     @ 'GHC.Generics.PrefixI
+                     @ 'GHC.Types.True
+                     CommonResources.$fToBSONTransactionFile1
+                       `cast`
+                     (Trans
+                          (Sym (GHC.TypeLits.N:SSymbol[0] <"TransactionFile">_P))
+                          (Sym (GHC.TypeLits.N:KnownSymbol[0]) <"TransactionFile">_N))
+                     GHC.Generics.$WSPrefix
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.FixityI>_N <'GHC.Generics.PrefixI>_N)
+                     GHC.Generics.$WSTrue
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Types.Bool>_N <'GHC.Types.True>_N))
+                  (GHC.Generics.$fConstructorMetaMetaCons_$cconIsRecord
+                     @ "TransactionFile"
+                     @ 'GHC.Generics.PrefixI
+                     @ 'GHC.Types.True
+                     CommonResources.$fToBSONTransactionFile1
+                       `cast`
+                     (Trans
+                          (Sym (GHC.TypeLits.N:SSymbol[0] <"TransactionFile">_P))
+                          (Sym (GHC.TypeLits.N:KnownSymbol[0]) <"TransactionFile">_N))
+                     GHC.Generics.$WSPrefix
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Generics.FixityI>_N <'GHC.Generics.PrefixI>_N)
+                     GHC.Generics.$WSTrue
+                       `cast`
+                     (Sym (GHC.Generics.N:SingI[0]) <GHC.Types.Bool>_N <'GHC.Types.True>_N)) -}
+48310fe287f6db46d2a47cbd4f6f8fd4
   $fToBSON[] :: Data.Bson.Generic.ToBSON [GHC.Types.Char]
   DFunId
   {- Arity: 1, Strictness: <S,1*U>, Inline: INLINE (sat-args=0),
@@ -13704,7 +14848,7 @@ c71337a23ee77066cf484e99108fda8e
                                                    (GHC.Generics.Rec0 [GHC.Types.Char])))
                             a1) ->
                  CommonResources.$fFromBSONBool_lvl47) -}
-91f71feb192e88726a9c0298d98c37ab
+78757804d7da1caf09b014b007aa52f6
   $fToBSON[]3 ::
     Data.Bson.Generic.GToBSON
       (GHC.Generics.D1
@@ -13799,7 +14943,7 @@ c71337a23ee77066cf484e99108fda8e
                                                                              'GHC.Generics.DecidedLazy)
                                                                           (GHC.Generics.Rec0
                                                                              [GHC.Types.Char])))>_N))) -}
-b541dddca3194a3106a9333e1e7505fa
+2d9287f2c9690435ddbc022a95332248
   $fToBSON[]4 ::
     GHC.Types.Int
     -> (GHC.Generics.:+:)
@@ -13862,7 +15006,7 @@ b541dddca3194a3106a9333e1e7505fa
                                                    (GHC.Generics.Rec0 [GHC.Types.Char])))
                             a1) ->
                  case w of ww { GHC.Types.I# ww1 ->
-                 CommonResources.$w$dGToBSON7 @ a1 ww1 w1 }) -}
+                 CommonResources.$w$dGToBSON8 @ a1 ww1 w1 }) -}
 3d186b474d0f7d0d7945520a95672075
   $fToBSON[]5 ::
     GHC.Generics.SingI
@@ -13890,7 +15034,7 @@ b541dddca3194a3106a9333e1e7505fa
 cbb19c766692d3582e3968e8b833bec3
   $fToBSON[]7 :: GHC.Integer.Type.Integer
   {- HasNoCafRefs, Unfolding: (9) -}
-4878dd13b448e3629079938bd8d71f97
+c3f1c7f720de1cc3b652646095823171
   $fToBSON[]8 ::
     GHC.Types.Int
     -> (GHC.Generics.:*:)
@@ -13936,7 +15080,7 @@ cbb19c766692d3582e3968e8b833bec3
                                (GHC.Generics.Rec0 [GHC.Types.Char]))
                             a1) ->
                  case w1 of ww { GHC.Generics.:*: ww1 ww2 ->
-                 CommonResources.$w$dGToBSON8 @ a1 ww1 ww2 }) -}
+                 CommonResources.$w$dGToBSON9 @ a1 ww1 ww2 }) -}
 c95537e899aa857f66816c69d9e404d7
   $fToBSON[]9 ::
     GHC.Prim.State# GHC.Prim.RealWorld
@@ -13955,7 +15099,7 @@ c95537e899aa857f66816c69d9e404d7
                    (GHC.Types.[] @ GHC.Types.Char)
                    0#
                    ipv }) -}
-a49693ab4825040addb91b8761e73c3a
+f61d32faede5bfdf4dc66fce0cca97af
   $fToBSON[]_$s$dmtoBSON :: [GHC.Types.Char] -> Data.Bson.Document
   {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: InlineRule (-4, True, False)
@@ -15281,6 +16425,104 @@ c71337a23ee77066cf484e99108fda8e
                  ->_R Data.Aeson.Types.Generic.N:Tagged[0]
                           <Data.Aeson.Types.Generic.True>_P
                           <Data.Aeson.Types.Internal.Value>_R) -}
+f760516df7ebc068b473a59b5a70a314
+  $fToJSONTransactionFile ::
+    Data.Aeson.Types.Class.ToJSON CommonResources.TransactionFile
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ CommonResources.TransactionFile
+                  CommonResources.$fToJSONTransactionFile_$ctoJSON
+                  CommonResources.$fToJSONTransactionFile_$ctoEncoding -}
+f760516df7ebc068b473a59b5a70a314
+  $fToJSONTransactionFile1 ::
+    CommonResources.TransactionFile
+    -> Data.Aeson.Types.Generic.Tagged
+         Data.Aeson.Types.Generic.True Data.Aeson.Types.Internal.Value
+  {- Arity: 1, Strictness: <S,1*U(1*U,1*U)>m1, Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: CommonResources.TransactionFile) ->
+                 case w of ww { CommonResources.TransactionFile ww1 ww2 ->
+                 case CommonResources.$w$ctoJSON4 ww1 ww2 of ww3 { Unit# ww4 ->
+                 (Data.Aeson.Types.Internal.Object ww4)
+                   `cast`
+                 (Sym (Data.Aeson.Types.Generic.N:Tagged[0]
+                           <Data.Aeson.Types.Generic.True>_P
+                           <Data.Aeson.Types.Internal.Value>_R)) } }) -}
+7fde336d252a95ce3fb453de165be0a5
+  $fToJSONTransactionFile2 :: Data.Text.Internal.Text
+  {- Unfolding: (case GHC.Magic.runRW#
+                        @ 'GHC.Types.PtrRepLifted
+                        @ Data.Text.Internal.Text
+                        CommonResources.$fToJSONTransactionFile3 of ds7 { (#,#) ipv ipv1 ->
+                 ipv1 }) -}
+6bccace7042dc58996872b558fce4bd6
+  $fToJSONTransactionFile3 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 1,
+     Unfolding: (\ (s1 :: GHC.Prim.State#
+                            GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newByteArray#
+                        @ GHC.Prim.RealWorld
+                        8#
+                        s1 of ds7 { (#,#) ipv ipv1 ->
+                 Data.Aeson.Types.Generic.$wouter6
+                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                   Data.Aeson.Types.Generic.$fFromPairM2
+                   CommonResources.$fFromBSONTransactionFile4
+                   0#
+                   ipv }) -}
+c3e648f8fad4af4edc3bd388d1b033bd
+  $fToJSONTransactionFile4 :: Data.Text.Internal.Text
+  {- Unfolding: (case GHC.Magic.runRW#
+                        @ 'GHC.Types.PtrRepLifted
+                        @ Data.Text.Internal.Text
+                        CommonResources.$fToJSONTransactionFile5 of ds7 { (#,#) ipv ipv1 ->
+                 ipv1 }) -}
+dd0b41ef632b908bb3a59e2221799ab9
+  $fToJSONTransactionFile5 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 1,
+     Unfolding: (\ (s1 :: GHC.Prim.State#
+                            GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newByteArray#
+                        @ GHC.Prim.RealWorld
+                        8#
+                        s1 of ds7 { (#,#) ipv ipv1 ->
+                 Data.Aeson.Types.Generic.$wouter6
+                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                   Data.Aeson.Types.Generic.$fFromPairM2
+                   CommonResources.$fFromBSONTransactionFile8
+                   0#
+                   ipv }) -}
+f760516df7ebc068b473a59b5a70a314
+  $fToJSONTransactionFile_$ctoEncoding ::
+    CommonResources.TransactionFile
+    -> Data.Aeson.Types.Internal.Encoding
+  {- Arity: 1, Strictness: <S,1*U(1*U,1*U)>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, False)
+                (\ (eta :: CommonResources.TransactionFile) ->
+                 Data.Aeson.Encode.Builder.encodeToBuilder
+                   (CommonResources.$fToJSONTransactionFile_$ctoJSON eta))
+                  `cast`
+                (<CommonResources.TransactionFile>_R
+                 ->_R Sym (Data.Aeson.Types.Internal.N:Encoding[0])) -}
+f760516df7ebc068b473a59b5a70a314
+  $fToJSONTransactionFile_$ctoJSON ::
+    CommonResources.TransactionFile -> Data.Aeson.Types.Internal.Value
+  {- Arity: 1, Strictness: <S,1*U(1*U,1*U)>m1,
+     Unfolding: InlineRule (0, True, True)
+                CommonResources.$fToJSONTransactionFile1
+                  `cast`
+                (<CommonResources.TransactionFile>_R
+                 ->_R Data.Aeson.Types.Generic.N:Tagged[0]
+                          <Data.Aeson.Types.Generic.True>_P
+                          <Data.Aeson.Types.Internal.Value>_R) -}
 9486303470dbd79599df81728ab6d54a
   $tc'Account :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -15413,6 +16655,18 @@ edebf47f21c814d3d75e365fa886a73c
   $tc'Ticket1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Ticket"#) -}
+d0f11013adf989b05a4236aff959794b
+  $tc'TransactionFile :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   5288085363214964109##
+                   12166499352573939316##
+                   CommonResources.$trModule
+                   CommonResources.$tc'TransactionFile1) -}
+e8e12f2eab33124d8ed6c4b133fa4c7b
+  $tc'TransactionFile1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'TransactionFile"#) -}
 5ec45048267dcc6f2990aa875f2e2786
   $tcAccount :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -15545,6 +16799,18 @@ cb7fca4cc455ca1334c6959c94457b7c
   $tcTicket1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Ticket"#) -}
+007af36916bc3db0379f550722c79a1a
+  $tcTransactionFile :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   1640056092473842163##
+                   2725810910951831856##
+                   CommonResources.$trModule
+                   CommonResources.$tcTransactionFile1) -}
+4d3f7e314cabae53bc12a6869d171cc5
+  $tcTransactionFile1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "TransactionFile"#) -}
 a89271a7802ac35539886f350eddda1c
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
@@ -15622,6 +16888,25 @@ b79f98edc8fcc3cc6bd1960acd3e5556
                         GHC.Types.True -> GHC.Types.False } }) -}
 be5a3c081b73d9213d85072323b7335f
   $w$c/=3 ::
+    GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S,1*U><L,1*U><S,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String)
+                   (ww1 :: GHC.Base.String)
+                   (ww2 :: GHC.Base.String)
+                   (ww3 :: GHC.Base.String) ->
+                 case GHC.Base.eqString ww ww2 of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True
+                   -> case GHC.Base.eqString ww1 ww3 of wild1 {
+                        GHC.Types.False -> GHC.Types.True
+                        GHC.Types.True -> GHC.Types.False } }) -}
+258107f4ae7cd10fb3f851ff2a98d3ec
+  $w$c/=4 ::
     GHC.Base.String
     -> GHC.Base.String
     -> GHC.Base.String
@@ -15761,6 +17046,22 @@ d0a1d0e2e24a064be2684332c39a0733
                    GHC.Types.True -> GHC.Base.eqString ww1 ww3 }) -}
 ce1d01b4f171bab70afc45fccfd1839d
   $w$c==6 ::
+    GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S,1*U><L,1*U><S,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String)
+                   (ww1 :: GHC.Base.String)
+                   (ww2 :: GHC.Base.String)
+                   (ww3 :: GHC.Base.String) ->
+                 case GHC.Base.eqString ww ww2 of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True -> GHC.Base.eqString ww1 ww3 }) -}
+e12b40410ece5f70cf249b02cb00737c
+  $w$c==7 ::
     GHC.Base.String
     -> GHC.Base.String
     -> GHC.Base.String
@@ -15924,6 +17225,63 @@ ce1d01b4f171bab70afc45fccfd1839d
                                       (GHC.Base.++
                                          @ GHC.Types.Char
                                          CommonResources.$fShowTicket2
+                                         (GHC.Types.:
+                                            @ GHC.Types.Char
+                                            GHC.Show.shows8
+                                            (GHC.Show.showLitString
+                                               ww2
+                                               (GHC.Types.:
+                                                  @ GHC.Types.Char
+                                                  GHC.Show.shows8
+                                                  (GHC.Base.++
+                                                     @ GHC.Types.Char
+                                                     CommonResources.$fShowAccount2
+                                                     x))))))))))
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11#) of wild {
+                   GHC.Types.False -> p w
+                   GHC.Types.True
+                   -> GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (p (GHC.Types.: @ GHC.Types.Char GHC.Show.shows6 w)) }) -}
+3a4ab11280905d572d69aca617203ad7
+  $w$cshowsPrec11 ::
+    GHC.Prim.Int#
+    -> GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Base.String
+  {- Arity: 4, Strictness: <S,U><L,1*U><L,1*U><L,U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Prim.Int#)
+                   (ww1 :: GHC.Base.String)
+                   (ww2 :: GHC.Base.String)
+                   (w :: GHC.Base.String) ->
+                 let {
+                   p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,1*U> -}
+                   = \ (x :: GHC.Base.String)[OneShot] ->
+                     GHC.Base.++
+                       @ GHC.Types.Char
+                       CommonResources.$fShowTransactionFile4
+                       (GHC.Base.++
+                          @ GHC.Types.Char
+                          CommonResources.$fShowTransactionFile3
+                          (GHC.Types.:
+                             @ GHC.Types.Char
+                             GHC.Show.shows8
+                             (GHC.Show.showLitString
+                                ww1
+                                (GHC.Types.:
+                                   @ GHC.Types.Char
+                                   GHC.Show.shows8
+                                   (GHC.Base.++
+                                      @ GHC.Types.Char
+                                      CommonResources.$fShowAccount4
+                                      (GHC.Base.++
+                                         @ GHC.Types.Char
+                                         CommonResources.$fShowTransactionFile2
                                          (GHC.Types.:
                                             @ GHC.Types.Char
                                             GHC.Show.shows8
@@ -16606,6 +17964,43 @@ eaf944377750dbb18e428ef6d39f7594
                               @ (Data.Text.Internal.Text, Data.Aeson.Types.Internal.Value)
                               (CommonResources.$fToJSONTicket2,
                                case CommonResources.$w$dGToJSON9
+                                      @ GHC.Prim.Any
+                                      ww1
+                                        `cast`
+                                      (Sym (GHC.Generics.N:K1[0]
+                                                <GHC.Generics.R>_P
+                                                <GHC.Base.String>_R
+                                                <GHC.Prim.Any>_P)) of ww2 { Unit# ww3 ->
+                               Data.Aeson.Types.Internal.String ww3 })
+                              (GHC.Types.[] @ Data.Aeson.Types.Internal.Pair)))
+                        (Data.HashMap.Base.Empty
+                           @ Data.Text.Internal.Text
+                           @ Data.Aeson.Types.Internal.Value) of dt { DEFAULT ->
+                 (# dt #) }) -}
+9a083b55d3d1aa28d8ac8ca4fa1e8ad2
+  $w$ctoJSON4 ::
+    GHC.Base.String
+    -> GHC.Base.String -> (# Data.Aeson.Types.Internal.Object #)
+  {- Arity: 2, Strictness: <L,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String) (ww1 :: GHC.Base.String) ->
+                 case Data.Aeson.Types.Internal.$sfromList1
+                        @ Data.Aeson.Types.Internal.Value
+                        (GHC.Types.:
+                           @ (Data.Text.Internal.Text, Data.Aeson.Types.Internal.Value)
+                           (CommonResources.$fToJSONTransactionFile4,
+                            case CommonResources.$w$dGToJSON10
+                                   @ GHC.Prim.Any
+                                   ww
+                                     `cast`
+                                   (Sym (GHC.Generics.N:K1[0]
+                                             <GHC.Generics.R>_P
+                                             <GHC.Base.String>_R
+                                             <GHC.Prim.Any>_P)) of ww2 { Unit# ww3 ->
+                            Data.Aeson.Types.Internal.String ww3 })
+                           (GHC.Types.:
+                              @ (Data.Text.Internal.Text, Data.Aeson.Types.Internal.Value)
+                              (CommonResources.$fToJSONTransactionFile2,
+                               case CommonResources.$w$dGToJSON10
                                       @ GHC.Prim.Any
                                       ww1
                                         `cast`
@@ -19546,6 +20941,265 @@ ab5aca2dae4a3755f73539e4be8422b1
                                                  'GHC.Generics.DecidedLazy)
                                               (GHC.Generics.Rec0 GHC.Base.String))
                                            a)>_R))) }) -}
+6080ead36491246b32a76deea57dd4fa
+  $w$dConsFromJSON'9 ::
+    Data.Aeson.Types.Internal.Options
+    -> Data.Aeson.Types.Internal.Value
+    -> Data.Aeson.Types.Generic.Tagged
+         Data.Aeson.Types.Generic.True
+         (Data.Aeson.Types.Internal.Parser
+            ((GHC.Generics.:*:)
+               (GHC.Generics.S1
+                  ('GHC.Generics.MetaSel
+                     ('GHC.Base.Just "transFileName")
+                     'GHC.Generics.NoSourceUnpackedness
+                     'GHC.Generics.NoSourceStrictness
+                     'GHC.Generics.DecidedLazy)
+                  (GHC.Generics.Rec0 GHC.Base.String))
+               (GHC.Generics.S1
+                  ('GHC.Generics.MetaSel
+                     ('GHC.Base.Just "userID")
+                     'GHC.Generics.NoSourceUnpackedness
+                     'GHC.Generics.NoSourceStrictness
+                     'GHC.Generics.DecidedLazy)
+                  (GHC.Generics.Rec0 GHC.Base.String))
+               a))
+  {- Arity: 2, Strictness: <L,U(U,U,U,U,U,U)><S,1*U>, Inline: [0],
+     Unfolding: (\ @ a
+                   (w :: Data.Aeson.Types.Internal.Options)
+                   (w1 :: Data.Aeson.Types.Internal.Value) ->
+                 case w1 of wild {
+                   DEFAULT
+                   -> (Data.Aeson.Types.Class.typeMismatch
+                         @ ((GHC.Generics.:*:)
+                              (GHC.Generics.S1
+                                 ('GHC.Generics.MetaSel
+                                    ('GHC.Base.Just "transFileName")
+                                    'GHC.Generics.NoSourceUnpackedness
+                                    'GHC.Generics.NoSourceStrictness
+                                    'GHC.Generics.DecidedLazy)
+                                 (GHC.Generics.Rec0 GHC.Base.String))
+                              (GHC.Generics.S1
+                                 ('GHC.Generics.MetaSel
+                                    ('GHC.Base.Just "userID")
+                                    'GHC.Generics.NoSourceUnpackedness
+                                    'GHC.Generics.NoSourceStrictness
+                                    'GHC.Generics.DecidedLazy)
+                                 (GHC.Generics.Rec0 GHC.Base.String))
+                              a)
+                         Data.Aeson.Types.Generic.$fConsFromJSON'fTrue1
+                         wild)
+                        `cast`
+                      (Sym (Data.Aeson.Types.Generic.N:Tagged[0]
+                                <Data.Aeson.Types.Generic.True>_P
+                                <Data.Aeson.Types.Internal.Parser
+                                   ((GHC.Generics.:*:)
+                                      (GHC.Generics.S1
+                                         ('GHC.Generics.MetaSel
+                                            ('GHC.Base.Just "transFileName")
+                                            'GHC.Generics.NoSourceUnpackedness
+                                            'GHC.Generics.NoSourceStrictness
+                                            'GHC.Generics.DecidedLazy)
+                                         (GHC.Generics.Rec0 GHC.Base.String))
+                                      (GHC.Generics.S1
+                                         ('GHC.Generics.MetaSel
+                                            ('GHC.Base.Just "userID")
+                                            'GHC.Generics.NoSourceUnpackedness
+                                            'GHC.Generics.NoSourceStrictness
+                                            'GHC.Generics.DecidedLazy)
+                                         (GHC.Generics.Rec0 GHC.Base.String))
+                                      a)>_R))
+                   Data.Aeson.Types.Internal.Object obj
+                   -> let {
+                        e :: Data.Aeson.Types.Internal.Parser
+                               (GHC.Generics.M1
+                                  GHC.Generics.S
+                                  ('GHC.Generics.MetaSel
+                                     ('GHC.Base.Just "userID")
+                                     'GHC.Generics.NoSourceUnpackedness
+                                     'GHC.Generics.NoSourceStrictness
+                                     'GHC.Generics.DecidedLazy)
+                                  (GHC.Generics.Rec0 GHC.Base.String)
+                                  a)
+                        = Data.Aeson.Types.Generic.$fFromRecordM10_$cparseRecord
+                            @ ('GHC.Generics.MetaSel
+                                 ('GHC.Base.Just "userID")
+                                 'GHC.Generics.NoSourceUnpackedness
+                                 'GHC.Generics.NoSourceStrictness
+                                 'GHC.Generics.DecidedLazy)
+                            @ (GHC.Generics.K1 GHC.Generics.R GHC.Base.String)
+                            CommonResources.$fFromBSONTransactionFile_$s$fSelectorMetaMetaSel
+                            CommonResources.$fFromJSONTransactionFile2
+                              `cast`
+                            (Sym (Data.Aeson.Types.Class.N:GFromJSON[0]
+                                      <GHC.Generics.K1 GHC.Generics.R [GHC.Types.Char]>_N))
+                            @ a
+                            w
+                            (GHC.Base.Nothing @ Data.Text.Internal.Text)
+                            obj
+                      } in
+                      let {
+                        m :: Data.Aeson.Types.Internal.Parser
+                               (GHC.Generics.M1
+                                  GHC.Generics.S
+                                  ('GHC.Generics.MetaSel
+                                     ('GHC.Base.Just "transFileName")
+                                     'GHC.Generics.NoSourceUnpackedness
+                                     'GHC.Generics.NoSourceStrictness
+                                     'GHC.Generics.DecidedLazy)
+                                  (GHC.Generics.Rec0 GHC.Base.String)
+                                  a)
+                        = Data.Aeson.Types.Generic.$fFromRecordM10_$cparseRecord
+                            @ ('GHC.Generics.MetaSel
+                                 ('GHC.Base.Just "transFileName")
+                                 'GHC.Generics.NoSourceUnpackedness
+                                 'GHC.Generics.NoSourceStrictness
+                                 'GHC.Generics.DecidedLazy)
+                            @ (GHC.Generics.K1 GHC.Generics.R GHC.Base.String)
+                            CommonResources.$fFromBSONTransactionFile_$s$fSelectorMetaMetaSel1
+                            CommonResources.$fFromJSONTransactionFile2
+                              `cast`
+                            (Sym (Data.Aeson.Types.Class.N:GFromJSON[0]
+                                      <GHC.Generics.K1 GHC.Generics.R [GHC.Types.Char]>_N))
+                            @ a
+                            w
+                            (GHC.Base.Nothing @ Data.Text.Internal.Text)
+                            obj
+                      } in
+                      (\ @ (f :: * -> *)
+                         @ r
+                         (path :: Data.Aeson.Types.Internal.JSONPath)
+                         (kf :: Data.Aeson.Types.Internal.Failure f r)
+                         (ks :: Data.Aeson.Types.Internal.Success
+                                  ((GHC.Generics.:*:)
+                                     (GHC.Generics.M1
+                                        GHC.Generics.S
+                                        ('GHC.Generics.MetaSel
+                                           ('GHC.Base.Just "transFileName")
+                                           'GHC.Generics.NoSourceUnpackedness
+                                           'GHC.Generics.NoSourceStrictness
+                                           'GHC.Generics.DecidedLazy)
+                                        (GHC.Generics.Rec0 GHC.Base.String))
+                                     (GHC.Generics.M1
+                                        GHC.Generics.S
+                                        ('GHC.Generics.MetaSel
+                                           ('GHC.Base.Just "userID")
+                                           'GHC.Generics.NoSourceUnpackedness
+                                           'GHC.Generics.NoSourceStrictness
+                                           'GHC.Generics.DecidedLazy)
+                                        (GHC.Generics.Rec0 GHC.Base.String))
+                                     a)
+                                  f
+                                  r) ->
+                       m `cast`
+                       (Data.Aeson.Types.Internal.N:Parser[0]
+                            <GHC.Generics.M1
+                               GHC.Generics.S
+                               ('GHC.Generics.MetaSel
+                                  ('GHC.Base.Just "transFileName")
+                                  'GHC.Generics.NoSourceUnpackedness
+                                  'GHC.Generics.NoSourceStrictness
+                                  'GHC.Generics.DecidedLazy)
+                               (GHC.Generics.Rec0 GHC.Base.String)
+                               a>_R)
+                         @ f
+                         @ r
+                         path
+                         kf
+                         (\ (a2 :: GHC.Generics.M1
+                                     GHC.Generics.S
+                                     ('GHC.Generics.MetaSel
+                                        ('GHC.Base.Just "transFileName")
+                                        'GHC.Generics.NoSourceUnpackedness
+                                        'GHC.Generics.NoSourceStrictness
+                                        'GHC.Generics.DecidedLazy)
+                                     (GHC.Generics.Rec0 GHC.Base.String)
+                                     a) ->
+                          e `cast`
+                          (Data.Aeson.Types.Internal.N:Parser[0]
+                               <GHC.Generics.M1
+                                  GHC.Generics.S
+                                  ('GHC.Generics.MetaSel
+                                     ('GHC.Base.Just "userID")
+                                     'GHC.Generics.NoSourceUnpackedness
+                                     'GHC.Generics.NoSourceStrictness
+                                     'GHC.Generics.DecidedLazy)
+                                  (GHC.Generics.Rec0 GHC.Base.String)
+                                  a>_R)
+                            @ f
+                            @ r
+                            path
+                            kf
+                            (\ (a3 :: GHC.Generics.M1
+                                        GHC.Generics.S
+                                        ('GHC.Generics.MetaSel
+                                           ('GHC.Base.Just "userID")
+                                           'GHC.Generics.NoSourceUnpackedness
+                                           'GHC.Generics.NoSourceStrictness
+                                           'GHC.Generics.DecidedLazy)
+                                        (GHC.Generics.Rec0 GHC.Base.String)
+                                        a) ->
+                             ks
+                               (GHC.Generics.:*:
+                                  @ (GHC.Generics.M1
+                                       GHC.Generics.S
+                                       ('GHC.Generics.MetaSel
+                                          ('GHC.Base.Just "transFileName")
+                                          'GHC.Generics.NoSourceUnpackedness
+                                          'GHC.Generics.NoSourceStrictness
+                                          'GHC.Generics.DecidedLazy)
+                                       (GHC.Generics.Rec0 GHC.Base.String))
+                                  @ (GHC.Generics.M1
+                                       GHC.Generics.S
+                                       ('GHC.Generics.MetaSel
+                                          ('GHC.Base.Just "userID")
+                                          'GHC.Generics.NoSourceUnpackedness
+                                          'GHC.Generics.NoSourceStrictness
+                                          'GHC.Generics.DecidedLazy)
+                                       (GHC.Generics.Rec0 GHC.Base.String))
+                                  @ a
+                                  a2
+                                  a3))))
+                        `cast`
+                      (Trans
+                           (Sym (Data.Aeson.Types.Internal.N:Parser[0]
+                                     <(GHC.Generics.:*:)
+                                        (GHC.Generics.M1
+                                           GHC.Generics.S
+                                           ('GHC.Generics.MetaSel
+                                              ('GHC.Base.Just "transFileName")
+                                              'GHC.Generics.NoSourceUnpackedness
+                                              'GHC.Generics.NoSourceStrictness
+                                              'GHC.Generics.DecidedLazy)
+                                           (GHC.Generics.Rec0 GHC.Base.String))
+                                        (GHC.Generics.M1
+                                           GHC.Generics.S
+                                           ('GHC.Generics.MetaSel
+                                              ('GHC.Base.Just "userID")
+                                              'GHC.Generics.NoSourceUnpackedness
+                                              'GHC.Generics.NoSourceStrictness
+                                              'GHC.Generics.DecidedLazy)
+                                           (GHC.Generics.Rec0 GHC.Base.String))
+                                        a>_R))
+                           (Sym (Data.Aeson.Types.Generic.N:Tagged[0]
+                                     <Data.Aeson.Types.Generic.True>_P
+                                     <Data.Aeson.Types.Internal.Parser
+                                        ((GHC.Generics.:*:)
+                                           (GHC.Generics.S1
+                                              ('GHC.Generics.MetaSel
+                                                 ('GHC.Base.Just "transFileName")
+                                                 'GHC.Generics.NoSourceUnpackedness
+                                                 'GHC.Generics.NoSourceStrictness
+                                                 'GHC.Generics.DecidedLazy)
+                                              (GHC.Generics.Rec0 GHC.Base.String))
+                                           (GHC.Generics.S1
+                                              ('GHC.Generics.MetaSel
+                                                 ('GHC.Base.Just "userID")
+                                                 'GHC.Generics.NoSourceUnpackedness
+                                                 'GHC.Generics.NoSourceStrictness
+                                                 'GHC.Generics.DecidedLazy)
+                                              (GHC.Generics.Rec0 GHC.Base.String))
+                                           a)>_R))) }) -}
 d337698d22dd252954d7ea7a9789765d
   $w$dGFromBSON ::
     GHC.Prim.Int#
@@ -20711,6 +22365,110 @@ ab71bcdbaad6564b922f254816de509e
                            <GHC.Generics.K1 GHC.Generics.R [GHC.Types.Char] a1>_R))) -}
 7f2be7645d8b3aadb235b683e52f60a8
   $w$dGFromJSON10 ::
+    Data.Aeson.Types.Internal.Value
+    -> Data.Aeson.Types.Internal.Parser
+         (GHC.Generics.K1 GHC.Generics.R [GHC.Types.Char] a1)
+  {- Arity: 1, Strictness: <L,1*U>, Inline: [0],
+     Unfolding: (\ @ a1 (w :: Data.Aeson.Types.Internal.Value) ->
+                 let {
+                   m :: Data.Aeson.Types.Internal.Parser [GHC.Types.Char]
+                   = case w of wild {
+                       DEFAULT
+                       -> Data.Aeson.Types.Class.typeMismatch
+                            @ [GHC.Types.Char]
+                            CommonResources.$fFromJSONAccount3
+                            wild
+                       Data.Aeson.Types.Internal.String txt
+                       -> case txt of wild1 { Data.Text.Internal.Text dt dt1 dt2 ->
+                          let {
+                            a2 :: [GHC.Types.Char]
+                            = let {
+                                end :: GHC.Prim.Int# = GHC.Prim.+# dt1 dt2
+                              } in
+                              letrec {
+                                $wunfold :: GHC.Prim.Int# -> [GHC.Types.Char]
+                                  {- Arity: 1, Strictness: <S,U>, Inline: [0] -}
+                                = \ (ww :: GHC.Prim.Int#) ->
+                                  case GHC.Prim.tagToEnum#
+                                         @ GHC.Types.Bool
+                                         (GHC.Prim.>=# ww end) of wild2 {
+                                    GHC.Types.False
+                                    -> case GHC.Prim.indexWord16Array# dt ww of r# { DEFAULT ->
+                                       case GHC.Prim.tagToEnum#
+                                              @ GHC.Types.Bool
+                                              (GHC.Prim.geWord# r# 55296##) of wild3 {
+                                         GHC.Types.False
+                                         -> GHC.Types.:
+                                              @ GHC.Types.Char
+                                              (GHC.Types.C# (GHC.Prim.chr# (GHC.Prim.word2Int# r#)))
+                                              ($wunfold (GHC.Prim.+# ww 1#))
+                                         GHC.Types.True
+                                         -> case GHC.Prim.tagToEnum#
+                                                   @ GHC.Types.Bool
+                                                   (GHC.Prim.leWord# r# 56319##) of wild4 {
+                                              GHC.Types.False
+                                              -> GHC.Types.:
+                                                   @ GHC.Types.Char
+                                                   (GHC.Types.C#
+                                                      (GHC.Prim.chr# (GHC.Prim.word2Int# r#)))
+                                                   ($wunfold (GHC.Prim.+# ww 1#))
+                                              GHC.Types.True
+                                              -> case GHC.Prim.indexWord16Array#
+                                                        dt
+                                                        (GHC.Prim.+# ww 1#) of r#1 { DEFAULT ->
+                                                 GHC.Types.:
+                                                   @ GHC.Types.Char
+                                                   (GHC.Types.C#
+                                                      (GHC.Prim.chr#
+                                                         (GHC.Prim.+#
+                                                            (GHC.Prim.+#
+                                                               (GHC.Prim.uncheckedIShiftL#
+                                                                  (GHC.Prim.-#
+                                                                     (GHC.Prim.word2Int# r#)
+                                                                     55296#)
+                                                                  10#)
+                                                               (GHC.Prim.-#
+                                                                  (GHC.Prim.word2Int# r#1)
+                                                                  56320#))
+                                                            65536#)))
+                                                   ($wunfold (GHC.Prim.+# ww 2#)) } } } }
+                                    GHC.Types.True -> GHC.Types.[] @ GHC.Types.Char }
+                              } in
+                              $wunfold dt1
+                          } in
+                          (\ @ (f1 :: * -> *)
+                             @ r
+                             (_path :: Data.Aeson.Types.Internal.JSONPath)
+                             (_kf :: Data.Aeson.Types.Internal.Failure f1 r)
+                             (ks :: Data.Aeson.Types.Internal.Success [GHC.Types.Char] f1 r) ->
+                           ks a2)
+                            `cast`
+                          (Sym (Data.Aeson.Types.Internal.N:Parser[0]
+                                    <[GHC.Types.Char]>_R)) } }
+                 } in
+                 (\ @ (f1 :: * -> *)
+                    @ r
+                    (path :: Data.Aeson.Types.Internal.JSONPath)
+                    (kf :: Data.Aeson.Types.Internal.Failure f1 r)
+                    (ks :: Data.Aeson.Types.Internal.Success
+                             (GHC.Generics.K1 GHC.Generics.R [GHC.Types.Char] a1) f1 r) ->
+                  m `cast`
+                  (Data.Aeson.Types.Internal.N:Parser[0] <[GHC.Types.Char]>_R)
+                    @ f1
+                    @ r
+                    path
+                    kf
+                    (\ (a2 :: [GHC.Types.Char]) ->
+                     ks
+                       a2
+                         `cast`
+                       (Sym (GHC.Generics.N:K1[0]
+                                 <GHC.Generics.R>_P <[GHC.Types.Char]>_R <a1>_P))))
+                   `cast`
+                 (Sym (Data.Aeson.Types.Internal.N:Parser[0]
+                           <GHC.Generics.K1 GHC.Generics.R [GHC.Types.Char] a1>_R))) -}
+4537ff5fe38b8ebea1f613b4f1a6a37c
+  $w$dGFromJSON11 ::
     Data.Aeson.Types.Internal.Value
     -> Data.Aeson.Types.Internal.Parser
          (GHC.Generics.K1 GHC.Generics.R [GHC.Types.Char] a1)
@@ -22448,8 +24206,129 @@ ab71bcdbaad6564b922f254816de509e
                                        ipv7 }) of ds2 { (#,#) ipv7 ipv8 ->
                              ipv8 })) } })
                       (GHC.Types.[] @ Data.Bson.Field))) -}
-bb2f33aa910bc35734751db73d2314d7
+72e1f526c2bc26bbe604e2c391c8958a
   $w$dGToBSON7 ::
+    GHC.Generics.M1
+      GHC.Generics.S
+      ('GHC.Generics.MetaSel
+         ('GHC.Base.Just "transFileName")
+         'GHC.Generics.NoSourceUnpackedness
+         'GHC.Generics.NoSourceStrictness
+         'GHC.Generics.DecidedLazy)
+      (GHC.Generics.Rec0 GHC.Base.String)
+      a1
+    -> GHC.Generics.M1
+         GHC.Generics.S
+         ('GHC.Generics.MetaSel
+            ('GHC.Base.Just "userID")
+            'GHC.Generics.NoSourceUnpackedness
+            'GHC.Generics.NoSourceStrictness
+            'GHC.Generics.DecidedLazy)
+         (GHC.Generics.Rec0 GHC.Base.String)
+         a1
+    -> [Data.Bson.Field]
+  {- Arity: 2, Strictness: <L,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ @ a1
+                   (ww :: GHC.Generics.M1
+                            GHC.Generics.S
+                            ('GHC.Generics.MetaSel
+                               ('GHC.Base.Just "transFileName")
+                               'GHC.Generics.NoSourceUnpackedness
+                               'GHC.Generics.NoSourceStrictness
+                               'GHC.Generics.DecidedLazy)
+                            (GHC.Generics.Rec0 GHC.Base.String)
+                            a1)
+                   (ww1 :: GHC.Generics.M1
+                             GHC.Generics.S
+                             ('GHC.Generics.MetaSel
+                                ('GHC.Base.Just "userID")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.NoSourceStrictness
+                                'GHC.Generics.DecidedLazy)
+                             (GHC.Generics.Rec0 GHC.Base.String)
+                             a1) ->
+                 GHC.Base.++
+                   @ Data.Bson.Field
+                   (GHC.Types.:
+                      @ Data.Bson.Field
+                      (case GHC.Magic.runRW#
+                              @ 'GHC.Types.PtrRepLifted
+                              @ Data.Text.Internal.Text
+                              CommonResources.$fToBSONTransactionFile4 of ds1 { (#,#) ipv ipv1 ->
+                       case ipv1 of dt1 { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
+                       Data.Bson.:=
+                         dt1
+                         (Data.Bson.String
+                            (case GHC.Magic.runRW#
+                                    @ 'GHC.Types.PtrRepLifted
+                                    @ Data.Text.Internal.Text
+                                    (\ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                                     case GHC.Prim.newByteArray#
+                                            @ GHC.Prim.RealWorld
+                                            8#
+                                            s1 of ds2 { (#,#) ipv7 ipv8 ->
+                                     Data.Bson.$wouter
+                                       (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv8)
+                                       Data.Bson.$fValChar2
+                                       ww
+                                         `cast`
+                                       (Trans
+                                            (GHC.Generics.N:M1[0]
+                                                 <GHC.Generics.S>_P
+                                                 <'GHC.Generics.MetaSel
+                                                    ('GHC.Base.Just "transFileName")
+                                                    'GHC.Generics.NoSourceUnpackedness
+                                                    'GHC.Generics.NoSourceStrictness
+                                                    'GHC.Generics.DecidedLazy>_P
+                                                 <GHC.Generics.K1
+                                                    GHC.Generics.R [GHC.Types.Char]>_R <a1>_N)
+                                            (GHC.Generics.N:K1[0]
+                                                 <GHC.Generics.R>_P <[GHC.Types.Char]>_R <a1>_P))
+                                       0#
+                                       ipv7 }) of ds2 { (#,#) ipv7 ipv8 ->
+                             ipv8 })) } })
+                      (GHC.Types.[] @ Data.Bson.Field))
+                   (GHC.Types.:
+                      @ Data.Bson.Field
+                      (case GHC.Magic.runRW#
+                              @ 'GHC.Types.PtrRepLifted
+                              @ Data.Text.Internal.Text
+                              CommonResources.$fToBSONTransactionFile3 of ds1 { (#,#) ipv ipv1 ->
+                       case ipv1 of dt1 { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
+                       Data.Bson.:=
+                         dt1
+                         (Data.Bson.String
+                            (case GHC.Magic.runRW#
+                                    @ 'GHC.Types.PtrRepLifted
+                                    @ Data.Text.Internal.Text
+                                    (\ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                                     case GHC.Prim.newByteArray#
+                                            @ GHC.Prim.RealWorld
+                                            8#
+                                            s1 of ds2 { (#,#) ipv7 ipv8 ->
+                                     Data.Bson.$wouter
+                                       (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv8)
+                                       Data.Bson.$fValChar2
+                                       ww1
+                                         `cast`
+                                       (Trans
+                                            (GHC.Generics.N:M1[0]
+                                                 <GHC.Generics.S>_P
+                                                 <'GHC.Generics.MetaSel
+                                                    ('GHC.Base.Just "userID")
+                                                    'GHC.Generics.NoSourceUnpackedness
+                                                    'GHC.Generics.NoSourceStrictness
+                                                    'GHC.Generics.DecidedLazy>_P
+                                                 <GHC.Generics.K1
+                                                    GHC.Generics.R [GHC.Types.Char]>_R <a1>_N)
+                                            (GHC.Generics.N:K1[0]
+                                                 <GHC.Generics.R>_P <[GHC.Types.Char]>_R <a1>_P))
+                                       0#
+                                       ipv7 }) of ds2 { (#,#) ipv7 ipv8 ->
+                             ipv8 })) } })
+                      (GHC.Types.[] @ Data.Bson.Field))) -}
+6f10fff9d4dc4eaaf2201b8d71281a5f
+  $w$dGToBSON8 ::
     GHC.Prim.Int#
     -> (GHC.Generics.:+:)
          (GHC.Generics.M1
@@ -22565,8 +24444,8 @@ bb2f33aa910bc35734751db73d2314d7
                         @ a1
                         ww
                         x }) -}
-7f0f31236172e660e9fdcce604bf6870
-  $w$dGToBSON8 ::
+20eae6efa3a013ca363dcef4e1bf8940
+  $w$dGToBSON9 ::
     GHC.Generics.M1
       GHC.Generics.S
       ('GHC.Generics.MetaSel
@@ -22713,6 +24592,31 @@ bb2f33aa910bc35734751db73d2314d7
                                 8#
                                 s1 of ds1 { (#,#) ipv ipv1 ->
                          CommonResources.$wouter1
+                           (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                           CommonResources.$fToJSONAccount4
+                           w `cast`
+                           (GHC.Generics.N:K1[0]
+                                <GHC.Generics.R>_P <[GHC.Types.Char]>_R <a1>_P)
+                           0#
+                           ipv }) of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
+                 (# dt #) } }) -}
+4c1e531dce47a5fdc159469081d2df3a
+  $w$dGToJSON10 ::
+    GHC.Generics.K1 GHC.Generics.R [GHC.Types.Char] a1
+    -> (# Data.Text.Internal.Text #)
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0],
+     Unfolding: (\ @ a1
+                   (w :: GHC.Generics.K1 GHC.Generics.R [GHC.Types.Char] a1) ->
+                 case GHC.Magic.runRW#
+                        @ 'GHC.Types.PtrRepLifted
+                        @ Data.Text.Internal.Text
+                        (\ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                         case GHC.Prim.newByteArray#
+                                @ GHC.Prim.RealWorld
+                                8#
+                                s1 of ds1 { (#,#) ipv ipv1 ->
+                         CommonResources.$wouter10
                            (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
                            CommonResources.$fToJSONAccount4
                            w `cast`
@@ -23491,6 +25395,17 @@ e3dbd207d4e6ccbdecf441494f412788
           Data.Text.Internal.Text #)
   {- Arity: 5, Strictness: <L,U(U)><L,U(U)><S,1*U><S,U><S,U>,
      Inline: [0] -}
+f492fe7df3d52d4abbd35b888a9dbff7
+  $wouter10 ::
+    Data.Text.Array.MArray GHC.Prim.RealWorld
+    -> GHC.Types.Int
+    -> [GHC.Types.Char]
+    -> GHC.Prim.Int#
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 5, Strictness: <L,U(U)><L,U(U)><S,1*U><S,U><S,U>,
+     Inline: [0] -}
 51f3b914fccf76cfb48eca2cd9686362
   $wouter2 ::
     Data.Text.Array.MArray GHC.Prim.RealWorld
@@ -23598,7 +25513,7 @@ ba865e59082d7a9873e540ad48ebb112
                                                       Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                            '[Servant.API.ContentTypes.JSON]
                                                                            CommonResources.Response))
-09b82711c01cbc302fdec5f05a7ff407
+8e22357eeb7b963f024252bfa18112e6
   type DirectoryApi =
     ("join"
      Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
@@ -23620,18 +25535,25 @@ ba865e59082d7a9873e540ad48ebb112
                                                                                      Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                                                           '[Servant.API.ContentTypes.JSON]
                                                                                                           CommonResources.Response))
-                                                                Servant.API.Alternative.:<|> ("allfiles"
-                                                                                              Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
-                                                                                                                    '[Servant.API.ContentTypes.JSON]
-                                                                                                                    CommonResources.Ticket
-                                                                                                                  Servant.API.Sub.:> Servant.API.Verbs.Post
-                                                                                                                                       '[Servant.API.ContentTypes.JSON]
-                                                                                                                                       [GHC.Base.String]))))
+                                                                Servant.API.Alternative.:<|> (("allfiles"
+                                                                                               Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                     '[Servant.API.ContentTypes.JSON]
+                                                                                                                     CommonResources.Ticket
+                                                                                                                   Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                        '[Servant.API.ContentTypes.JSON]
+                                                                                                                                        [GHC.Base.String]))
+                                                                                              Servant.API.Alternative.:<|> ("remove"
+                                                                                                                            Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                  CommonResources.FileName
+                                                                                                                                                Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                                                     '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                                     CommonResources.Response)))))
 9f6a742e3fb0f439505eae33a216d6d4
   data File
     = File {fileName :: GHC.IO.FilePath,
             fileContent :: GHC.Base.String}
-471b4d3da9d7cbf8e109a8c7617c00ed
+894dd66a67d4537653b4f554e5de4ba0
   type FileApi =
     ("files"
      Servant.API.Sub.:> Servant.API.Verbs.Get
@@ -23643,13 +25565,20 @@ ba865e59082d7a9873e540ad48ebb112
                                                        Servant.API.Sub.:> Servant.API.Verbs.Post
                                                                             '[Servant.API.ContentTypes.JSON]
                                                                             CommonResources.File))
-                                  Servant.API.Alternative.:<|> ("upload"
-                                                                Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
-                                                                                      '[Servant.API.ContentTypes.JSON]
-                                                                                      CommonResources.FileUpload
-                                                                                    Servant.API.Sub.:> Servant.API.Verbs.Post
-                                                                                                         '[Servant.API.ContentTypes.JSON]
-                                                                                                         CommonResources.Response)))
+                                  Servant.API.Alternative.:<|> (("upload"
+                                                                 Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                       '[Servant.API.ContentTypes.JSON]
+                                                                                       CommonResources.FileUpload
+                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                          '[Servant.API.ContentTypes.JSON]
+                                                                                                          CommonResources.Response))
+                                                                Servant.API.Alternative.:<|> ("delete"
+                                                                                              Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                    '[Servant.API.ContentTypes.JSON]
+                                                                                                                    CommonResources.FileName
+                                                                                                                  Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                       '[Servant.API.ContentTypes.JSON]
+                                                                                                                                       CommonResources.Response))))
 27aff1e15492ec9009b9a84e8f881bf9
   data FileMapping
     = FileMapping {fmfileName :: GHC.Base.String,
@@ -24009,6 +25938,32 @@ c71337a23ee77066cf484e99108fda8e
                                       'GHC.Generics.NoSourceStrictness
                                       'GHC.Generics.DecidedLazy)
                                    (GHC.Generics.Rec0 GHC.Base.String)))
+f760516df7ebc068b473a59b5a70a314
+  axiom Rep_TransactionFile::
+      GHC.Generics.Rep CommonResources.TransactionFile
+        = GHC.Generics.D1
+            ('GHC.Generics.MetaData
+               "TransactionFile"
+               "CommonResources"
+               "CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0"
+               'GHC.Types.False)
+            (GHC.Generics.C1
+               ('GHC.Generics.MetaCons
+                  "TransactionFile" 'GHC.Generics.PrefixI 'GHC.Types.True)
+               (GHC.Generics.S1
+                  ('GHC.Generics.MetaSel
+                     ('GHC.Base.Just "transFileName")
+                     'GHC.Generics.NoSourceUnpackedness
+                     'GHC.Generics.NoSourceStrictness
+                     'GHC.Generics.DecidedLazy)
+                  (GHC.Generics.Rec0 GHC.Base.String)
+                GHC.Generics.:*: GHC.Generics.S1
+                                   ('GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "userID")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.NoSourceStrictness
+                                      'GHC.Generics.DecidedLazy)
+                                   (GHC.Generics.Rec0 GHC.Base.String)))
 ea9e78c6960c722f3dd8dd166462f439
   data Response = Response {response :: GHC.Base.String}
 926a82bba3e31dc36428e9a7e740fa00
@@ -24024,9 +25979,42 @@ c71337a23ee77066cf484e99108fda8e
   data Ticket
     = Ticket {ticket :: GHC.Base.String,
               encryptedTimeout :: GHC.Base.String}
-916f9f26b8e3cde5e8e99c6d95e41eba
+084ddc8bc6979fbe5331d932d3842e41
+  type TransactionApi =
+    ("begin"
+     Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                           '[Servant.API.ContentTypes.JSON] CommonResources.Ticket
+                         Servant.API.Sub.:> Servant.API.Verbs.Post
+                                              '[Servant.API.ContentTypes.JSON]
+                                              CommonResources.Response))
+    Servant.API.Alternative.:<|> (("transDownload"
+                                   Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                         '[Servant.API.ContentTypes.JSON]
+                                                         CommonResources.FileName
+                                                       Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                            '[Servant.API.ContentTypes.JSON]
+                                                                            CommonResources.File))
+                                  Servant.API.Alternative.:<|> (("transUpload"
+                                                                 Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                       '[Servant.API.ContentTypes.JSON]
+                                                                                       CommonResources.FileUpload
+                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                          '[Servant.API.ContentTypes.JSON]
+                                                                                                          CommonResources.Response))
+                                                                Servant.API.Alternative.:<|> ("transcommit"
+                                                                                              Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                    '[Servant.API.ContentTypes.JSON]
+                                                                                                                    CommonResources.Ticket
+                                                                                                                  Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                       '[Servant.API.ContentTypes.JSON]
+                                                                                                                                       CommonResources.Response))))
+f760516df7ebc068b473a59b5a70a314
+  data TransactionFile
+    = TransactionFile {transFileName :: GHC.Base.String,
+                       userID :: GHC.Base.String}
+62693b68226f9a935f544e6306163390
   authserverhost :: GHC.Base.String
-  {- Unfolding: (CommonResources.lockserverhost) -}
+  {- Unfolding: (CommonResources.transserverhost) -}
 29361a8f5e4837968100f57beb776eb0
   authserverport :: GHC.Base.String
   {- Unfolding: (GHC.CString.unpackCString# "8082"#) -}
@@ -24105,9 +26093,9 @@ ea882440d741669257f13cbd59dae5e2
     [(Data.Time.Clock.UTC.UTCTime, GHC.Base.String)]
     -> [(Data.Time.Clock.UTC.UTCTime, GHC.Base.String)]
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
-67e8d1e93611863c43258daf1e445ac1
+113fc6aa749421e820e1c5cb472f1320
   dirserverhost :: GHC.Base.String
-  {- Unfolding: (CommonResources.lockserverhost) -}
+  {- Unfolding: (CommonResources.transserverhost) -}
 8dfb2afc661ede88072570510f942f99
   dirserverport :: GHC.Base.String
   {- Unfolding: (GHC.CString.unpackCString# "7008"#) -}
@@ -24336,9 +26324,9 @@ e4c937b90bc52b858e91ed6d68bbb180
                 (\ (ds :: CommonResources.FileServer) ->
                  case ds of wild { CommonResources.FileServer ds1 ds2 ds3 ->
                  ds3 }) -}
-b8ee7d0d06606d1f1c5713339116843d
+2268c777747a1544d0131787654ec356
   fsserverhost :: GHC.Base.String
-  {- Unfolding: (CommonResources.lockserverhost) -}
+  {- Unfolding: (CommonResources.transserverhost) -}
 6a7c9373eeee1c43909e3e6c8f835a79
   fsserverport :: GHC.Base.String
   {- Unfolding: (GHC.CString.unpackCString# "7007"#) -}
@@ -24372,9 +26360,9 @@ cbc0243b7f3e9f26e444f33eaea6a414
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: CommonResources.Lock) ->
                  case ds of wild { CommonResources.Lock ds1 ds2 -> ds1 }) -}
-822c10b8da78c744b91f9a6c9dfb3daf
+9bb18cc6bd5356146c7d8c26cccad83f
   lockserverhost :: GHC.Base.String
-  {- Unfolding: (GHC.CString.unpackCString# "localhost"#) -}
+  {- Unfolding: (CommonResources.transserverhost) -}
 38b6563c7962f4ac53ce1a1d3f166d3d
   lockserverport :: GHC.Base.String
   {- Unfolding: (GHC.CString.unpackCString# "8000"#) -}
@@ -24445,6 +26433,28 @@ dc92647d1b2b616f277dfa722552f298
      Unfolding: InlineRule (1, True, False)
                 (\ (ds :: CommonResources.Ticket) ->
                  case ds of wild { CommonResources.Ticket ds1 ds2 -> ds1 }) -}
+64abdb437f18b04d1bc804032c2286ce
+  transFileName :: CommonResources.TransactionFile -> GHC.Base.String
+  RecSel Left CommonResources.TransactionFile
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: CommonResources.TransactionFile) ->
+                 case ds of wild { CommonResources.TransactionFile ds1 ds2 ->
+                 ds1 }) -}
+14b421058dc7e734256dfad23731af34
+  transserverhost :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString# "localhost"#) -}
+bd530d0cc9bc2778903d6bcf8f84bf5c
+  transserverport :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString# "8888"#) -}
+5f5c14ef446a6389b74ba3f3c862f5bc
+  userID :: CommonResources.TransactionFile -> GHC.Base.String
+  RecSel Left CommonResources.TransactionFile
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: CommonResources.TransactionFile) ->
+                 case ds of wild { CommonResources.TransactionFile ds1 ds2 ->
+                 ds2 }) -}
 263fa0c6c563e03901ebc4401ff78b26
   username :: CommonResources.Account -> GHC.Base.String
   RecSel Left CommonResources.Account
@@ -24468,6 +26478,8 @@ instance GHC.Classes.Eq [CommonResources.Signin]
   = CommonResources.$fEqSignin
 instance GHC.Classes.Eq [CommonResources.Ticket]
   = CommonResources.$fEqTicket
+instance GHC.Classes.Eq [CommonResources.TransactionFile]
+  = CommonResources.$fEqTransactionFile
 instance Data.Bson.Generic.FromBSON [CommonResources.Account]
   = CommonResources.$fFromBSONAccount
 instance Data.Bson.Generic.FromBSON [GHC.Types.Bool]
@@ -24482,6 +26494,8 @@ instance Data.Bson.Generic.FromBSON [CommonResources.Signin]
   = CommonResources.$fFromBSONSignin
 instance Data.Bson.Generic.FromBSON [CommonResources.Ticket]
   = CommonResources.$fFromBSONTicket
+instance Data.Bson.Generic.FromBSON [CommonResources.TransactionFile]
+  = CommonResources.$fFromBSONTransactionFile
 instance Data.Bson.Generic.FromBSON [[]]
   = CommonResources.$fFromBSON[]
 instance Data.Aeson.Types.Class.FromJSON [CommonResources.Account]
@@ -24504,6 +26518,8 @@ instance Data.Aeson.Types.Class.FromJSON [CommonResources.Signin]
   = CommonResources.$fFromJSONSignin
 instance Data.Aeson.Types.Class.FromJSON [CommonResources.Ticket]
   = CommonResources.$fFromJSONTicket
+instance Data.Aeson.Types.Class.FromJSON [CommonResources.TransactionFile]
+  = CommonResources.$fFromJSONTransactionFile
 instance GHC.Generics.Generic [CommonResources.Account]
   = CommonResources.$fGenericAccount
 instance GHC.Generics.Generic [CommonResources.File]
@@ -24526,6 +26542,8 @@ instance GHC.Generics.Generic [CommonResources.Signin]
   = CommonResources.$fGenericSignin
 instance GHC.Generics.Generic [CommonResources.Ticket]
   = CommonResources.$fGenericTicket
+instance GHC.Generics.Generic [CommonResources.TransactionFile]
+  = CommonResources.$fGenericTransactionFile
 instance GHC.Show.Show [CommonResources.Account]
   = CommonResources.$fShowAccount
 instance GHC.Show.Show [CommonResources.File]
@@ -24548,6 +26566,8 @@ instance GHC.Show.Show [CommonResources.Signin]
   = CommonResources.$fShowSignin
 instance GHC.Show.Show [CommonResources.Ticket]
   = CommonResources.$fShowTicket
+instance GHC.Show.Show [CommonResources.TransactionFile]
+  = CommonResources.$fShowTransactionFile
 instance Data.Bson.Generic.ToBSON [CommonResources.Account]
   = CommonResources.$fToBSONAccount
 instance Data.Bson.Generic.ToBSON [GHC.Types.Bool]
@@ -24562,6 +26582,8 @@ instance Data.Bson.Generic.ToBSON [CommonResources.Signin]
   = CommonResources.$fToBSONSignin
 instance Data.Bson.Generic.ToBSON [CommonResources.Ticket]
   = CommonResources.$fToBSONTicket
+instance Data.Bson.Generic.ToBSON [CommonResources.TransactionFile]
+  = CommonResources.$fToBSONTransactionFile
 instance Data.Bson.Generic.ToBSON [[]] = CommonResources.$fToBSON[]
 instance Data.Aeson.Types.Class.ToJSON [CommonResources.Account]
   = CommonResources.$fToJSONAccount
@@ -24583,6 +26605,10 @@ instance Data.Aeson.Types.Class.ToJSON [CommonResources.Signin]
   = CommonResources.$fToJSONSignin
 instance Data.Aeson.Types.Class.ToJSON [CommonResources.Ticket]
   = CommonResources.$fToJSONTicket
+instance Data.Aeson.Types.Class.ToJSON [CommonResources.TransactionFile]
+  = CommonResources.$fToJSONTransactionFile
+family instance GHC.Generics.Rep [CommonResources.TransactionFile]
+  = CommonResources.Rep_TransactionFile
 family instance GHC.Generics.Rep [CommonResources.Ticket]
   = CommonResources.Rep_Ticket
 family instance GHC.Generics.Rep [CommonResources.Signin]
@@ -24776,6 +26802,19 @@ family instance GHC.Generics.Rep [CommonResources.File]
                                          $dSingI
                                          $dSingI1
   = CommonResources.$fToBSONTicket_$s$fConstructorMetaMetaCons
+"SPEC/CommonResources $fConstructorMetaMetaCons @ "TransactionFile" @ 'PrefixI @ 'True" [ALWAYS] forall ($dKnownSymbol :: GHC.TypeLits.KnownSymbol
+                                                                                                                            "TransactionFile")
+                                                                                                        ($dSingI :: GHC.Generics.SingI
+                                                                                                                      'GHC.Generics.PrefixI)
+                                                                                                        ($dSingI1 :: GHC.Generics.SingI
+                                                                                                                       'GHC.Types.True)
+  GHC.Generics.$fConstructorMetaMetaCons @ "TransactionFile"
+                                         @ 'GHC.Generics.PrefixI
+                                         @ 'GHC.Types.True
+                                         $dKnownSymbol
+                                         $dSingI
+                                         $dSingI1
+  = CommonResources.$fToBSONTransactionFile_$s$fConstructorMetaMetaCons
 "SPEC/CommonResources $fConstructorMetaMetaCons @ "True" @ 'PrefixI @ 'False" [ALWAYS] forall ($dKnownSymbol :: GHC.TypeLits.KnownSymbol
                                                                                                                   "True")
                                                                                               ($dSingI :: GHC.Generics.SingI
@@ -25302,6 +27341,45 @@ family instance GHC.Generics.Rep [CommonResources.File]
                                      $dSingI2
                                      $dSingI3
   = CommonResources.$fFromBSONTicket_$s$fSelectorMetaMetaSel1
+"SPEC/CommonResources $fSelectorMetaMetaSel @ ('Just
+                                                "transFileName") @ 'NoSourceUnpackedness @ 'NoSourceStrictness @ 'DecidedLazy" [ALWAYS] forall ($dSingI :: GHC.Generics.SingI
+                                                                                                                                                                                                                  ('GHC.Base.Just
+                                                                                                                                                                                                                     "transFileName"))
+                                                                                                                                                                                                    ($dSingI1 :: GHC.Generics.SingI
+                                                                                                                                                                                                                   'GHC.Generics.NoSourceUnpackedness)
+                                                                                                                                                                                                    ($dSingI2 :: GHC.Generics.SingI
+                                                                                                                                                                                                                   'GHC.Generics.NoSourceStrictness)
+                                                                                                                                                                                                    ($dSingI3 :: GHC.Generics.SingI
+                                                                                                                                                                                                                   'GHC.Generics.DecidedLazy)
+  GHC.Generics.$fSelectorMetaMetaSel @ ('GHC.Base.Just
+                                          "transFileName")
+                                     @ 'GHC.Generics.NoSourceUnpackedness
+                                     @ 'GHC.Generics.NoSourceStrictness
+                                     @ 'GHC.Generics.DecidedLazy
+                                     $dSingI
+                                     $dSingI1
+                                     $dSingI2
+                                     $dSingI3
+  = CommonResources.$fFromBSONTransactionFile_$s$fSelectorMetaMetaSel1
+"SPEC/CommonResources $fSelectorMetaMetaSel @ ('Just
+                                                "userID") @ 'NoSourceUnpackedness @ 'NoSourceStrictness @ 'DecidedLazy" [ALWAYS] forall ($dSingI :: GHC.Generics.SingI
+                                                                                                                                                                                                           ('GHC.Base.Just
+                                                                                                                                                                                                              "userID"))
+                                                                                                                                                                                             ($dSingI1 :: GHC.Generics.SingI
+                                                                                                                                                                                                            'GHC.Generics.NoSourceUnpackedness)
+                                                                                                                                                                                             ($dSingI2 :: GHC.Generics.SingI
+                                                                                                                                                                                                            'GHC.Generics.NoSourceStrictness)
+                                                                                                                                                                                             ($dSingI3 :: GHC.Generics.SingI
+                                                                                                                                                                                                            'GHC.Generics.DecidedLazy)
+  GHC.Generics.$fSelectorMetaMetaSel @ ('GHC.Base.Just "userID")
+                                     @ 'GHC.Generics.NoSourceUnpackedness
+                                     @ 'GHC.Generics.NoSourceStrictness
+                                     @ 'GHC.Generics.DecidedLazy
+                                     $dSingI
+                                     $dSingI1
+                                     $dSingI2
+                                     $dSingI3
+  = CommonResources.$fFromBSONTransactionFile_$s$fSelectorMetaMetaSel
 "SPEC/CommonResources $fSelectorMetaMetaSel @ ('Just
                                                 "username") @ 'NoSourceUnpackedness @ 'NoSourceStrictness @ 'DecidedLazy" [ALWAYS] forall ($dSingI :: GHC.Generics.SingI
                                                                                                                                                                                                              ('GHC.Base.Just
@@ -25838,6 +27916,46 @@ family instance GHC.Generics.Rep [CommonResources.File]
                                                $dSingI2
                                                $dSingI3
   = CommonResources.$fFromBSONTicket_$s$fSelectorMetaMetaSel_$cselName1
+"SPEC/CommonResources $fSelectorMetaMetaSel_$cselName @ ('Just
+                                                          "transFileName") @ 'NoSourceUnpackedness @ 'NoSourceStrictness @ 'DecidedLazy" [ALWAYS] forall ($dSingI :: GHC.Generics.SingI
+                                                                                                                                                                                                                                      ('GHC.Base.Just
+                                                                                                                                                                                                                                         "transFileName"))
+                                                                                                                                                                                                                        ($dSingI1 :: GHC.Generics.SingI
+                                                                                                                                                                                                                                       'GHC.Generics.NoSourceUnpackedness)
+                                                                                                                                                                                                                        ($dSingI2 :: GHC.Generics.SingI
+                                                                                                                                                                                                                                       'GHC.Generics.NoSourceStrictness)
+                                                                                                                                                                                                                        ($dSingI3 :: GHC.Generics.SingI
+                                                                                                                                                                                                                                       'GHC.Generics.DecidedLazy)
+  GHC.Generics.$fSelectorMetaMetaSel_$cselName @ ('GHC.Base.Just
+                                                    "transFileName")
+                                               @ 'GHC.Generics.NoSourceUnpackedness
+                                               @ 'GHC.Generics.NoSourceStrictness
+                                               @ 'GHC.Generics.DecidedLazy
+                                               $dSingI
+                                               $dSingI1
+                                               $dSingI2
+                                               $dSingI3
+  = CommonResources.$fFromBSONTransactionFile_$s$fSelectorMetaMetaSel_$cselName1
+"SPEC/CommonResources $fSelectorMetaMetaSel_$cselName @ ('Just
+                                                          "userID") @ 'NoSourceUnpackedness @ 'NoSourceStrictness @ 'DecidedLazy" [ALWAYS] forall ($dSingI :: GHC.Generics.SingI
+                                                                                                                                                                                                                               ('GHC.Base.Just
+                                                                                                                                                                                                                                  "userID"))
+                                                                                                                                                                                                                 ($dSingI1 :: GHC.Generics.SingI
+                                                                                                                                                                                                                                'GHC.Generics.NoSourceUnpackedness)
+                                                                                                                                                                                                                 ($dSingI2 :: GHC.Generics.SingI
+                                                                                                                                                                                                                                'GHC.Generics.NoSourceStrictness)
+                                                                                                                                                                                                                 ($dSingI3 :: GHC.Generics.SingI
+                                                                                                                                                                                                                                'GHC.Generics.DecidedLazy)
+  GHC.Generics.$fSelectorMetaMetaSel_$cselName @ ('GHC.Base.Just
+                                                    "userID")
+                                               @ 'GHC.Generics.NoSourceUnpackedness
+                                               @ 'GHC.Generics.NoSourceStrictness
+                                               @ 'GHC.Generics.DecidedLazy
+                                               $dSingI
+                                               $dSingI1
+                                               $dSingI2
+                                               $dSingI3
+  = CommonResources.$fFromBSONTransactionFile_$s$fSelectorMetaMetaSel_$cselName
 "SPEC/CommonResources $fSelectorMetaMetaSel_$cselName @ ('Just
                                                           "username") @ 'NoSourceUnpackedness @ 'NoSourceStrictness @ 'DecidedLazy" [ALWAYS] forall ($dSingI :: GHC.Generics.SingI
                                                                                                                                                                                                                                  ('GHC.Base.Just

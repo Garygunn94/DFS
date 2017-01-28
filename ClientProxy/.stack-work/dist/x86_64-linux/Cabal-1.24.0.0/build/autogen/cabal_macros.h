@@ -133,6 +133,13 @@
   (major1) == 0 && (major2) <  9 || \
   (major1) == 0 && (major2) == 9 && (minor) <= 1)
 
+/* package split-0.2.3.1 */
+#define VERSION_split "0.2.3.1"
+#define MIN_VERSION_split(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  2 || \
+  (major1) == 0 && (major2) == 2 && (minor) <= 3)
+
 /* package text-1.2.2.1 */
 #define VERSION_text "1.2.2.1"
 #define MIN_VERSION_text(major1,major2,minor) (\
@@ -245,12 +252,12 @@
   (major1) == 0 && (major2) <  68 || \
   (major1) == 0 && (major2) == 68 && (minor) <= 0)
 
-/* tool hscolour-1.24 */
-#define TOOL_VERSION_hscolour "1.24"
+/* tool hscolour-1.22 */
+#define TOOL_VERSION_hscolour "1.22"
 #define MIN_TOOL_VERSION_hscolour(major1,major2,minor) (\
   (major1) <  1 || \
-  (major1) == 1 && (major2) <  24 || \
-  (major1) == 1 && (major2) == 24 && (minor) <= 0)
+  (major1) == 1 && (major2) <  22 || \
+  (major1) == 1 && (major2) == 22 && (minor) <= 0)
 
 /* tool pkg-config-0.29.1 */
 #define TOOL_VERSION_pkg_config "0.29.1"
@@ -266,7 +273,7 @@
   (major1) == 2 && (major2) <  26 || \
   (major1) == 2 && (major2) == 26 && (minor) <= 0)
 
-#define CURRENT_COMPONENT_ID "ClientProxy-0.1.0.0-9BMPHdvJGz0CItnFcEqFG3"
+#define CURRENT_COMPONENT_ID "ClientProxy-0.1.0.0-IdLS6IwgFz3D4JMQYl8KuJ"
 
-#define CURRENT_PACKAGE_KEY "ClientProxy-0.1.0.0-9BMPHdvJGz0CItnFcEqFG3"
+#define CURRENT_PACKAGE_KEY "ClientProxy-0.1.0.0-IdLS6IwgFz3D4JMQYl8KuJ"
 

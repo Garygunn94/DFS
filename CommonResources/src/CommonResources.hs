@@ -42,11 +42,18 @@ lockserverport = "8000"
 lockserverhost :: String
 lockserverhost = "localhost"
 
+transserverhost :: String
+transserverhost = "localhost"
+
+transserverport :: String
+transserverport = "8888"
+
 type DirectoryApi = 
     "join" :> ReqBody '[JSON] FileServer :> Post '[JSON] Response :<|>
     "open" :> ReqBody '[JSON] FileName :> Post '[JSON] File :<|>
     "close" :> ReqBody '[JSON] FileUpload :> Post '[JSON] Response :<|>
-    "allfiles" :> ReqBody '[JSON] Ticket :> Post '[JSON] [String]
+    "allfiles" :> ReqBody '[JSON] Ticket :> Post '[JSON] [String] :<|>
+    "remove" :> ReqBody '[JSON] FileName :> Post '[JSON] Response
 
 type AuthApi = 
     "signin" :> ReqBody '[JSON] Signin :> Post '[JSON] Session :<|>
@@ -57,12 +64,19 @@ type AuthApi =
 type FileApi = 
     "files" :> Get '[JSON] [FilePath] :<|>
     "download" :> ReqBody '[JSON] FileName :> Post '[JSON] File :<|>
-    "upload" :> ReqBody '[JSON] FileUpload :> Post '[JSON] Response
+    "upload" :> ReqBody '[JSON] FileUpload :> Post '[JSON] Response :<|>
+    "delete" :> ReqBody '[JSON] FileName :> Post '[JSON] Response
 
 type LockingApi = 
     "lock" :> ReqBody '[JSON] FileName :> Post '[JSON] Response :<|>
     "unlock" :> ReqBody '[JSON] FileName :> Post '[JSON] Response :<|>
     "islocked" :> ReqBody '[JSON] FileName :> Post '[JSON] Response
+
+type TransactionApi = 
+    "begin" :> ReqBody '[JSON] Ticket :> Post '[JSON] Response :<|>
+    "transDownload" :> ReqBody '[JSON] FileName :> Post '[JSON] File :<|>
+    "transUpload" :> ReqBody '[JSON] FileUpload :> Post '[JSON] Response :<|>
+    "transcommit" :> ReqBody '[JSON] Ticket :> Post '[JSON] Response
 
 data File = File { 
     fileName :: FilePath, 
@@ -122,6 +136,11 @@ data Signin = Signin{
 data Ticket = Ticket{
     ticket :: String,
     encryptedTimeout :: String
+} deriving (Eq, Show, Generic, ToJSON, FromJSON, ToBSON, FromBSON)
+
+data TransactionFile = TransactionFile{
+    transFileName :: String,
+    userID :: String
 } deriving (Eq, Show, Generic, ToJSON, FromJSON, ToBSON, FromBSON)
 deriving instance FromBSON String  -- we need these as BSON does not provide
 deriving instance ToBSON   String

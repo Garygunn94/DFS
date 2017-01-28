@@ -26,6 +26,7 @@ library
                      , wai
                      , transformers
                      , random
+                     , split
                      , wai-logger
                      , CommonResources
                      , hslogger

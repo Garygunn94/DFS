@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-24 16:47:25.918868 UTC
+2017-01-28 19:43:44.876871 UTC
 
-interface ClientProxy-0.1.0.0-9BMPHdvJGz0CItnFcEqFG3:LRUCache 8001
-  interface hash: 537c00a3f8aabb8913b39a6093ed3189
-  ABI hash: 6af6d5271b7ff6646017b10a73fabcec
-  export-list hash: f412eced55f1815b1d8967d8b54e9a3f
+interface ClientProxy-0.1.0.0-IdLS6IwgFz3D4JMQYl8KuJ:LRUCache 8001
+  interface hash: b274d04c634f961529f3f5c2d2b82c3b
+  ABI hash: b8ad186e258e1802101df524b6701cf6
+  export-list hash: 6f95d9c3bdedb311ffed3bb4fce6a051
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: d016f4f4e235848b6a91adfad17364ec
   sig of: Nothing
@@ -81,7 +81,7 @@ import  -/  hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G:Data.Hashab
 import  -/  psqueues-0.2.2.3@psqueues-0.2.2.3-YN2xKllZOMJLtAgRHlkEw:Data.HashPSQ 562d754d1256acbd53fc246a9051e01e
 import  -/  psqueues-0.2.2.3@psqueues-0.2.2.3-YN2xKllZOMJLtAgRHlkEw:Data.HashPSQ.Internal cb658eb8f29e0da883bce89f50ec5c23
 import  -/  vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector a0e152223d52c96cfbb5eb3d4ec6499a
-7ee8008648035b910ad371413c7210cb
+345b5ebf6adef97de25566bc895559c0
   $fEqCache ::
     (GHC.Classes.Eq v, GHC.Classes.Ord k,
      Data.Hashable.Class.Hashable k) =>
@@ -98,7 +98,7 @@ import  -/  vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector a
                   @ (LRUCache.Cache k v)
                   (LRUCache.$fEqCache_$c== @ k @ v $dEq $dOrd $dHashable)
                   (LRUCache.$fEqCache_$c/= @ k @ v $dEq $dOrd $dHashable) -}
-7ee8008648035b910ad371413c7210cb
+345b5ebf6adef97de25566bc895559c0
   $fEqCache_$c/= ::
     (GHC.Classes.Eq v, GHC.Classes.Ord k,
      Data.Hashable.Class.Hashable k) =>
@@ -123,7 +123,7 @@ import  -/  vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector a
                         b of wild {
                    GHC.Types.False -> GHC.Types.True
                    GHC.Types.True -> GHC.Types.False }) -}
-7ee8008648035b910ad371413c7210cb
+345b5ebf6adef97de25566bc895559c0
   $fEqCache_$c== ::
     (GHC.Classes.Eq v, GHC.Classes.Ord k,
      Data.Hashable.Class.Hashable k) =>
@@ -167,7 +167,7 @@ import  -/  vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector a
                                   GHC.Int.$fOrdInt64
                                   ww4
                                   ww9 } } } } }) -}
-7ee8008648035b910ad371413c7210cb
+345b5ebf6adef97de25566bc895559c0
   $fShowCache ::
     (GHC.Show.Show k, GHC.Show.Show v) =>
     GHC.Show.Show (LRUCache.Cache k v)
@@ -182,31 +182,31 @@ import  -/  vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector a
                   (LRUCache.$fShowCache_$cshowsPrec @ k @ v $dShow $dShow1)
                   (LRUCache.$fShowCache_$cshow @ k @ v $dShow $dShow1)
                   (LRUCache.$fShowCache_$cshowList @ k @ v $dShow $dShow1) -}
-5611e9ae526ab39edefe1b724f5b2b5b
+0ebca272124a65de7ae11de457acc862
   $fShowCache1 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
-a4f0dd0a2b2270631c82cf9ba85c7142
+098e41f0ec6351c52e5478a769368094
   $fShowCache2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "}"#) -}
-a75d87b10b400ea035e5f501eeead3de
+01184bccad35b34f39d15e509123471e
   $fShowCache3 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "cQueue = "#) -}
-711543ba015c4232ead9c4e131766fd0
+7fd1ba95e40d907ba0d3f6b6a3f687dc
   $fShowCache4 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "cTick = "#) -}
-e2d9673016dc7b0da515bb452be0b3ba
+d0bb45ac0ba96795c503f75978e8f302
   $fShowCache5 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "cSize = "#) -}
-f6fe5736f34c87b52de478c95beb6688
+cee14958ced08e58fb2a758bdfe3dd42
   $fShowCache6 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# ", "#) -}
-864bed009720aa90f0e477ca7e799fa4
+1c86685711ba18ee742013f4cd35740d
   $fShowCache7 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "cCapacity = "#) -}
-0dbae46b3e5cfd8508730b3078bbbbdc
+4f5b9d9d75f6757da805f6345a3c4f95
   $fShowCache8 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "Cache {"#) -}
-7ee8008648035b910ad371413c7210cb
+345b5ebf6adef97de25566bc895559c0
   $fShowCache_$cshow ::
     (GHC.Show.Show k, GHC.Show.Show v) =>
     LRUCache.Cache k v -> GHC.Base.String
@@ -226,7 +226,7 @@ f6fe5736f34c87b52de478c95beb6688
                    GHC.Show.shows22
                    x
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-7ee8008648035b910ad371413c7210cb
+345b5ebf6adef97de25566bc895559c0
   $fShowCache_$cshowList ::
     (GHC.Show.Show k, GHC.Show.Show v) =>
     [LRUCache.Cache k v] -> GHC.Show.ShowS
@@ -249,7 +249,7 @@ f6fe5736f34c87b52de478c95beb6688
                       LRUCache.$fShowCache1)
                    eta
                    eta1) -}
-7ee8008648035b910ad371413c7210cb
+345b5ebf6adef97de25566bc895559c0
   $fShowCache_$cshowsPrec ::
     (GHC.Show.Show k, GHC.Show.Show v) =>
     GHC.Types.Int -> LRUCache.Cache k v -> GHC.Show.ShowS
@@ -266,70 +266,70 @@ f6fe5736f34c87b52de478c95beb6688
                  case w2 of ww { GHC.Types.I# ww1 ->
                  case w3 of ww2 { LRUCache.Cache ww3 ww4 ww5 ww6 ->
                  LRUCache.$w$cshowsPrec @ k @ v w w1 ww1 ww3 ww4 ww5 ww6 } }) -}
-b46db3c0f3d1da0688519af9851e6f7a
+d1d9d7bde2b018e496e3ea2ba5e1c420
   $tc'Cache :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   14056567042178430181##
-                   187227047874105072##
+                   2594353862162284554##
+                   3495743778761651752##
                    LRUCache.$trModule
                    LRUCache.$tc'Cache1) -}
-4ef6e68ebf38ca7d855c4ce66fa64b59
+d5728a3ef830213f1b103e8e7b216943
   $tc'Cache1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Cache"#) -}
-713a70d6970719b3142de417227baa2a
+68684fe343735ddac16c2757055dfaf3
   $tc'Handle :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   1788653043980528959##
-                   4937684277834309213##
+                   10724099794498191145##
+                   1287542611081412229##
                    LRUCache.$trModule
                    LRUCache.$tc'Handle1) -}
-6136de24203f502a1cd5f4b3a9281e8d
+6e9c6fd75d5588f66883538021eb4f09
   $tc'Handle1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "'Handle"#) -}
-8e4e9302fc4de03c5d86f95140c2babf
+fdddef26fddfa7bdd6642021e7586dee
   $tcCache :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   10289605652726025588##
-                   11903195027609771502##
+                   7338750456415868869##
+                   16052540405340473987##
                    LRUCache.$trModule
                    LRUCache.$tcCache1) -}
-b0daec4cb3376f0229e450912ee8816f
+440ac132bd8dea304c2272897b57bcdd
   $tcCache1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Cache"#) -}
-4b3d57a78e813c684867cd104bba518a
+a5e874a11ae8c44f9d5cc1ce2362281c
   $tcHandle :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   8910539808982029282##
-                   1603095030907925587##
+                   17744882716926832744##
+                   8912361576888045871##
                    LRUCache.$trModule
                    LRUCache.$tcHandle1) -}
-b5c0e7dbd0c12b48f1b43eaa3448fac3
+dc3ec3b6553c380f912de48096b123ea
   $tcHandle1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Handle"#) -}
-8c60073646d056518a209e837a20dad4
+cae57f82426193c460d99f7170583f35
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.Module
                    LRUCache.$trModule2
                    LRUCache.$trModule1) -}
-1ea83c901e1c29216c5d0a35b6630343
+ef54ff0ae4e3eefde8535828cc2ae75a
   $trModule1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "LRUCache"#) -}
-37831b0a3fe67db79035c8668a4089be
+2d56eccd1e47faee6be611038527596f
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
-                   "ClientProxy-0.1.0.0-9BMPHdvJGz0CItnFcEqFG3"#) -}
-39ab55933364cd6f7944098379657d17
+                   "ClientProxy-0.1.0.0-IdLS6IwgFz3D4JMQYl8KuJ"#) -}
+983511f8b3a6f1bb57f852e0cbfb74e9
   $w$cshowsPrec ::
     (GHC.Show.Show k, GHC.Show.Show v) =>
     GHC.Prim.Int#
@@ -422,7 +422,7 @@ b5c0e7dbd0c12b48f1b43eaa3448fac3
                         @ GHC.Types.Char
                         GHC.Show.shows9
                         (p (GHC.Types.: @ GHC.Types.Char GHC.Show.shows6 x)) }) -}
-75e7c89f65336c6a1bb311b9d712993d
+ef75e2f06a2e851c3d0c08e8a5a45d6e
   $wiolookup ::
     (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
     GHC.Prim.MutVar# GHC.Prim.RealWorld (LRUCache.Cache k v)
@@ -455,7 +455,7 @@ b5c0e7dbd0c12b48f1b43eaa3448fac3
                               (a'1, GHC.Base.Just @ v v1) } } } })
                         w3 of ds1 { (#,#) ipv ipv1 ->
                  case ipv1 of b1 { DEFAULT -> ds1 } }) -}
-57fc71e2794c3fc56cef2f36f3519e13
+a0c6028370676c3a61c6f39aad473407
   $wlookup ::
     (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
     k
@@ -570,17 +570,17 @@ b5c0e7dbd0c12b48f1b43eaa3448fac3
                                        @ k
                                        @ v } } of c' { LRUCache.Cache ipv ipv1 ipv2 ipv3 ->
                       GHC.Base.Just @ (v, LRUCache.Cache k v) (x, c') } } } }) -}
-7ee8008648035b910ad371413c7210cb
+345b5ebf6adef97de25566bc895559c0
   data Cache k v
     = Cache {cCapacity :: {-# UNPACK #-}GHC.Types.Int,
              cSize :: {-# UNPACK #-}GHC.Types.Int,
              cTick :: {-# UNPACK #-}LRUCache.Priority,
              cQueue :: !Data.HashPSQ.Internal.HashPSQ k LRUCache.Priority v}
-93b503ec49ba9d642627db380be7ea74
+d69cdc061821d74d204302b82ebaf9c6
   newtype Handle k v = Handle (GHC.IORef.IORef (LRUCache.Cache k v))
-4697a668246b81789a46c1a218553e63
+abeecab56106e123406e7296bed20c33
   type Priority = GHC.Int.Int64
-2214278e91b0357d23386f2a599b526e
+0c247daa78229866228cddec9851c71d
   cCapacity :: LRUCache.Cache k v -> GHC.Types.Int
   RecSel Left LRUCache.Cache
   {- Arity: 1, HasNoCafRefs, Strictness: <S(SLLL),1*U(U,A,A,A)>m,
@@ -588,7 +588,7 @@ b5c0e7dbd0c12b48f1b43eaa3448fac3
                 (\ @ k @ v (ds :: LRUCache.Cache k v) ->
                  case ds of wild { LRUCache.Cache dt dt1 dt2 ds1 ->
                  GHC.Types.I# dt }) -}
-73205bf65233d05043ae5ba25b894864
+f8ac2b430d4944c6fdcd0741f345d2b5
   cQueue ::
     LRUCache.Cache k v
     -> Data.HashPSQ.Internal.HashPSQ k LRUCache.Priority v
@@ -597,7 +597,7 @@ b5c0e7dbd0c12b48f1b43eaa3448fac3
      Unfolding: InlineRule (1, True, False)
                 (\ @ k @ v (ds :: LRUCache.Cache k v) ->
                  case ds of wild { LRUCache.Cache dt dt1 dt2 ds1 -> ds1 }) -}
-07bb564a61ea1067e9ac7910aed5203d
+8a055b049b40e68843937c86de35c7c9
   cSize :: LRUCache.Cache k v -> GHC.Types.Int
   RecSel Left LRUCache.Cache
   {- Arity: 1, HasNoCafRefs, Strictness: <S(LSLL),1*U(A,U,A,A)>m,
@@ -605,7 +605,7 @@ b5c0e7dbd0c12b48f1b43eaa3448fac3
                 (\ @ k @ v (ds :: LRUCache.Cache k v) ->
                  case ds of wild { LRUCache.Cache dt dt1 dt2 ds1 ->
                  GHC.Types.I# dt1 }) -}
-f3bf12301226512e74ba310bd4c57b1e
+7c364b7db07b768906ac00ba193c3da3
   cTick :: LRUCache.Cache k v -> LRUCache.Priority
   RecSel Left LRUCache.Cache
   {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,U,A)>m,
@@ -613,7 +613,7 @@ f3bf12301226512e74ba310bd4c57b1e
                 (\ @ k @ v (ds :: LRUCache.Cache k v) ->
                  case ds of wild { LRUCache.Cache dt dt1 dt2 ds1 ->
                  GHC.Int.I64# dt2 }) -}
-5459c8bd61afba87ce193bfe08a9d0c2
+e26aa2d6aa05dedc0da7a37f7b5b9351
   empty :: GHC.Types.Int -> LRUCache.Cache k v
   {- Arity: 1, Strictness: <S(S),1*U(U)>m,
      Unfolding: InlineRule (1, True, False)
@@ -636,10 +636,10 @@ f3bf12301226512e74ba310bd4c57b1e
                         (Sym (Data.HashPSQ.Internal.N:HashPSQ[0]
                                   <k>_R <LRUCache.Priority>_R <v>_R))
                    GHC.Types.True -> LRUCache.empty1 @ k @ v } }) -}
-f526acaa65fa19885d167a5a42f9f454
+cc888eda94720a1be202e6270462259a
   empty1 :: LRUCache.Cache k v
   {- Strictness: x -}
-a1af8dde51764aa67cb0762954348204
+b5df6796f5596d9d34e99a71690ab9eb
   insert ::
     (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
     k -> v -> LRUCache.Cache k v -> LRUCache.Cache k v
@@ -786,7 +786,7 @@ a1af8dde51764aa67cb0762954348204
                              -> case LRUCache.empty1
                                 ret_ty (LRUCache.Cache k v)
                                 of {} } } } } }) -}
-9f73b1edc019caf71565a5a706619fb2
+a024b8b22f16986b346921774ad78249
   ioinsert ::
     (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
     LRUCache.Handle k v -> k -> v -> GHC.Types.IO ()
@@ -802,7 +802,7 @@ a1af8dde51764aa67cb0762954348204
                  ->_R <k>_R
                  ->_R <v>_R
                  ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-f0d5f75dbb72fa505320daaeb640c137
+78d6a92bbb7a298152e03ab1ffbdfdb9
   ioinsert1 ::
     (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
     LRUCache.Handle k v
@@ -845,7 +845,7 @@ f0d5f75dbb72fa505320daaeb640c137
                          (a'1, GHC.Tuple.()) })
                         s of ds1 { (#,#) ipv ipv1 ->
                  case ipv1 of b1 { () -> (# ipv, GHC.Tuple.() #) } } }) -}
-0f3aa70b50107fbd6884db9eefa79b6a
+eb340917afd352d8350bab18d9cd661b
   iolookup ::
     (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
     LRUCache.Handle k v -> k -> GHC.Types.IO (GHC.Base.Maybe v)
@@ -860,7 +860,7 @@ f0d5f75dbb72fa505320daaeb640c137
                  ->_R <LRUCache.Handle k v>_R
                  ->_R <k>_R
                  ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.Maybe v>_R)) -}
-a130242e131484b7f4e62d0792a4b268
+0f9f329e5d418eac23faa875b9f0564a
   iolookup1 ::
     (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
     LRUCache.Handle k v
@@ -885,14 +885,14 @@ a130242e131484b7f4e62d0792a4b268
                            (GHC.IORef.N:IORef[0] <LRUCache.Cache
                                                     k v>_N)) of ww { GHC.STRef.STRef ww1 ->
                  LRUCache.$wiolookup @ k @ v w w1 ww1 w3 w4 }) -}
-346fb1cef98a73a4a983684e5f96762f
+e4668630ce430cd745eabe2eca0ff1f3
   iolookup2 ::
     (GHC.Base.Maybe v, GHC.Base.Maybe (LRUCache.Priority, v))
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (\ @ v ->
                  (GHC.Base.Nothing @ v,
                   GHC.Base.Nothing @ (LRUCache.Priority, v))) -}
-001e59090cc176743c9e6fd5e8571c57
+308595a10d221185f1990de4c8d7b49c
   lookup ::
     (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
     k -> LRUCache.Cache k v -> GHC.Base.Maybe (v, LRUCache.Cache k v)
@@ -908,7 +908,7 @@ a130242e131484b7f4e62d0792a4b268
                    (w3 :: LRUCache.Cache k v) ->
                  case w3 of ww { LRUCache.Cache ww1 ww2 ww3 ww4 ->
                  LRUCache.$wlookup @ k @ v w w1 w2 ww1 ww2 ww3 ww4 }) -}
-24112a842b2331ffacd59cc888841566
+a7f2b70f5d7e1f29e5de25be2f19da49
   newHandle :: GHC.Types.Int -> GHC.Types.IO (LRUCache.Handle k v)
   {- Arity: 2, Strictness: <L,1*U(U)><S,U>,
      Unfolding: InlineRule (0, True, True)
@@ -917,7 +917,7 @@ a130242e131484b7f4e62d0792a4b268
                 (forall (k :: <*>_N) (v :: <*>_N).
                  <GHC.Types.Int>_R
                  ->_R Sym (GHC.Types.N:IO[0] <LRUCache.Handle k v>_R)) -}
-d78054690e3d358048f2069f558e363b
+cb6ddf19c766f7ca29df03d04427d95e
   newHandle1 ::
     GHC.Types.Int
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -939,7 +939,7 @@ d78054690e3d358048f2069f558e363b
                     (Trans
                          (Sym (GHC.IORef.N:IORef[0]) <LRUCache.Cache k v>_N)
                          (Sym (LRUCache.N:Handle[0] <k>_R <v>_R))) #) }) -}
-4c2b3eeba4bb39484ac1a5b9754cab78
+2b32a0018c3383d43f8bbd06f551110d
   trim ::
     (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
     LRUCache.Cache k v -> LRUCache.Cache k v

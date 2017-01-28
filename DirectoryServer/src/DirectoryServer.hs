@@ -55,8 +55,9 @@ fileApi = Proxy
 files:: ClientM [FilePath]
 download :: FileName -> ClientM File
 upload :: FileUpload -> ClientM Response
+delete :: FileName -> ClientM Response
 
-files :<|> download :<|> upload = client fileApi
+files :<|> download :<|> upload :<|> delete = client fileApi
 
 
 getFilesQuery :: ClientM[FilePath]
@@ -82,13 +83,15 @@ server =
     fsJoin :<|>
     DirectoryServer.openFile :<|>
     closeFile :<|>
-    allFiles
+    allFiles :<|>
+    removeFileName
 
 directoryApp :: Application
 directoryApp = serve directoryApi server
 
 mkApp :: IO()
 mkApp = do
+    putStrLn ("Starting Directory Server on port: " ++ dirserverport)
     run (read (dirserverport) ::Int) directoryApp 
 
 deriving instance FromBSON FileServer  -- we need these as BSON does not provide
@@ -96,14 +99,14 @@ deriving instance ToBSON   FileServer
 
 storefs:: FileServer -> IO()
 storefs fs@(FileServer key _ _) = liftIO $ do
-    warnLog $ "Storing file under key " ++ key ++ "."
+    putStrLn ("Storing file under key " ++ key ++ ".")
     withMongoDbConnection $ upsert (select ["_id" =: key] "FILESERVER_RECORD") $ toBSON fs
-    warnLog $ "Success"
+    putStrLn ("Success")
    -- return True
 
 storefm :: String  -> String-> [FileMapping] -> String -> IO[FileMapping]
 storefm  port address a  filename =  do
-	warnLog $ "Storing file under key " ++ filename ++ "."
+	putStrLn ("Storing file under key " ++ filename ++ ".")
         let fileMapping = (FileMapping filename address port)
 	withMongoDbConnection $ upsert (select ["_id" =: filename] "FILEMAPPING_RECORD") $ toBSON fileMapping
         return $ (FileMapping filename address port):a
@@ -130,7 +133,7 @@ fsJoin fs = liftIO $  do
 
 searchFileMappings :: String -> IO(FileMapping)
 searchFileMappings key =  do
-	warnLog $ "Searching for value for key: " ++ key
+	putStrLn ("Searching for value for key: " ++ key)
 	filemappings <- withMongoDbConnection $ do 
 	    docs <- find (select ["_id" =: key] "FILEMAPPING_RECORD") >>= drainCursor
             return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileMapping) docs
@@ -153,11 +156,11 @@ openFile fileName@(FileName ticket encryptedTimeout encryptedFN) = liftIO $ do
           let decryptedFN = encryptDecrypt sessionKey encryptedFN
           putStrLn decryptedFN
 
-          logMessage True ("Checking client timeout")
+          putStrLn ("Checking client timeout")
 
           currentTime <- getCurrentTime
           if (currentTime > decryptedTimeout) then do
-            logMessage True ("Clients token timed out")
+            putStrLn ("Clients token timed out")
             return (File encryptedFN (encryptDecrypt sessionKey "Failed"))
           else do
             fileServers <- liftIO $ withMongoDbConnection $ do
@@ -176,7 +179,7 @@ closeFile fileupload@(FileUpload ticket encryptedTimeout (File encryptedFN encry
 
   currentTime <- getCurrentTime
   if (currentTime > decryptedTimeout) then do
-    logMessage True ("Client ticket timeout")
+    putStrLn ("Client ticket timeout")
     let encryptedResponse = encryptDecrypt sessionKey "Session Timeout"
     return (Response encryptedResponse)
   else do
@@ -185,7 +188,7 @@ closeFile fileupload@(FileUpload ticket encryptedTimeout (File encryptedFN encry
       return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileMapping) docs
     case (length fileMapping) of
       0 -> do 
-        logMessage True ("New File")
+        putStrLn ("New File")
         fileServers <- liftIO $ withMongoDbConnection $ do
           docs <- find (select [] "FILESERVER_RECORD") >>= drainCursor
           return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileServer) docs
@@ -196,12 +199,12 @@ closeFile fileupload@(FileUpload ticket encryptedTimeout (File encryptedFN encry
         res <- runClientM (uploadQuery fileupload) (ClientEnv manager (BaseUrl Http (fsaddress fs) (read(fsport fs) :: Int) ""))
         case res of
           Left err -> do
-            logMessage True ("File upload failed")
+            putStrLn ("File upload failed")
             let encryptedResponse = encryptDecrypt sessionKey "Failed"
             return (Response encryptedResponse)
           Right (Response response) -> do
             let decryptResponse = encryptDecrypt sessionKey response
-            logMessage True "File uploaded"
+            putStrLn "File uploaded"
             return (Response response)
       _ -> do
         let fm = head $ fileMapping
@@ -209,27 +212,27 @@ closeFile fileupload@(FileUpload ticket encryptedTimeout (File encryptedFN encry
         res <- runClientM (uploadQuery fileupload) (ClientEnv manager (BaseUrl Http (fmaddress fm) (read(fmport fm) :: Int) ""))
         case res of
           Left err -> do
-            logMessage True ("File upload failed")
+            putStrLn ("File upload failed")
             let encryptedResponse = encryptDecrypt sessionKey "Failed"
             return (Response encryptedResponse)
           Right (Response response) -> do
             let decryptResponse = encryptDecrypt sessionKey response
-            logMessage True "File uploaded"
+            putStrLn "File uploaded"
             return (Response response)
   
 allFiles :: Ticket -> ApiHandler [String]
 allFiles (Ticket ticket encryptedTimeout) = liftIO $ do
-  logMessage True ("Checking User Credentials")
+  putStrLn ("Checking User Credentials")
   let decryptedTimeout = decryptTime sharedSecret encryptedTimeout
   let sessionKey = encryptDecrypt sharedSecret ticket
 
   currentTime <- getCurrentTime
   if (currentTime > decryptedTimeout) then do
-    logMessage True ("Client ticket timeout")
+    putStrLn ("Client ticket timeout")
     let encryptedResponse = encryptDecryptArray sessionKey (["Failed", "Session key timeout"])
     return encryptedResponse
   else do
-    logMessage True ("Client Credentials ok, fetching files")
+    putStrLn ("Client Credentials ok, fetching files")
     fileServers <- liftIO $ withMongoDbConnection $ do
       docs <- find (select [] "FILESERVER_RECORD") >>= drainCursor
       return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileServer) docs
@@ -241,30 +244,35 @@ allFiles (Ticket ticket encryptedTimeout) = liftIO $ do
     let filenames' = DL.nub $ DL.sort filenames
     let encryptedResponse = encryptDecryptArray sessionKey filenames'
     return encryptedResponse
+
+removeFileName :: FileName -> ApiHandler Response
+removeFileName fileName@(FileName ticket encryptedTimeout encryptedFN) = liftIO $ do
+          let decryptedTimeout = decryptTime sharedSecret encryptedTimeout
+          let sessionKey = encryptDecrypt sharedSecret ticket
+          let decryptedFN = encryptDecrypt sessionKey encryptedFN
+
+          putStrLn ("Checking client timeout")
+
+          currentTime <- getCurrentTime
+          if (currentTime > decryptedTimeout) then do
+            putStrLn ("Clients token timed out")
+            return (Response (encryptDecrypt sessionKey "Failed"))
+          else do
+            fileServers <- liftIO $ withMongoDbConnection $ do
+              docs <- find (select [] "FILESERVER_RECORD") >>= drainCursor
+              return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileServer) docs
+            mapM getStoreFm fileServers
+            filemappings <- withMongoDbConnection $ do 
+              docs <- find (select ["_id" =: decryptedFN] "FILEMAPPING_RECORD") >>= drainCursor
+              return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe FileMapping) docs
+            let filemap =  head $ filemappings
+            manager <- newManager defaultManagerSettings
+            let fileName = (FileName ticket encryptedTimeout encryptedFN)
+            res <- runClientM (DirectoryServer.delete fileName) (ClientEnv manager (BaseUrl Http (fmaddress filemap) (read(fmport filemap) :: Int) ""))
+            case res of
+              Left err -> do
+                return (Response (encryptDecrypt sessionKey (show err)))
+                          
+              Right response -> return (response)
   
-          
- -- | Logging stuff
-iso8601 :: UTCTime -> String
-iso8601 = formatTime defaultTimeLocale "%FT%T%q%z"
-
--- global loggin functions
-debugLog, warnLog, errorLog :: String -> IO ()
-debugLog = doLog debugM
-warnLog  = doLog warningM
-errorLog = doLog errorM
-noticeLog = doLog noticeM
-
-doLog f s = getProgName >>= \ p -> do
-                t <- getCurrentTime
-                f p $ (iso8601 t) ++ " " ++ s
-
-withLogging act = withStdoutLogger $ \aplogger -> do
-
-  lname  <- getProgName
-  llevel <- logLevel
-  updateGlobalLogger lname
-                     (setLevel $ case llevel of
-                                  "WARNING" -> WARNING
-                                  "ERROR"   -> ERROR
-                                  _         -> DEBUG)
-  act aplogger
+        

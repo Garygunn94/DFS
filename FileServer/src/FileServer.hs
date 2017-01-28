@@ -37,8 +37,9 @@ join :: FileServer -> ClientM Response
 open :: FileName -> ClientM File
 close :: FileUpload -> ClientM Response
 allfiles :: Ticket -> ClientM [String]
+remove :: FileName -> ClientM Response
 
-join :<|> open :<|> close :<|> allfiles = client directoryApi
+join :<|> open :<|> close :<|> allfiles :<|> remove = client directoryApi
 
 joinQuery :: FileServer -> ClientM Response
 joinQuery fs = do
@@ -52,7 +53,8 @@ server :: Server FileApi
 server = 
     getFiles :<|>
     downloadFile :<|>
-    uploadFile
+    uploadFile :<|>
+    deleteFile
 
 fileApp :: Application
 fileApp = serve fileApi server
@@ -68,7 +70,10 @@ mkApp = do
     res <- runClientM (joinQuery fs) (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
     case res of
        Left err -> putStrLn $ "Error: " ++ show err
-       Right response -> run (read (fsserverport) ::Int) fileApp 
+       Right response -> do
+        putStrLn "Service Joined Successfully"
+        putStrLn ("Starting FileServer on port: " ++ fsserverport)
+        run (read (fsserverport) ::Int) fileApp 
 
 getFiles :: ApiHandler [FilePath]
 getFiles =
@@ -82,13 +87,13 @@ downloadFile (FileName ticket encryptedTimeout encryptedFN) = do
 
   currentTime <- liftIO $ getCurrentTime
   if (currentTime > decryptedTimeout) then do
-    liftIO $ logMessage True ("Client ticket timeout")
+    liftIO $ putStrLn ("Client ticket timeout")
     let encryptedResponse = encryptDecrypt sessionKey ("Session Timeout")
     return (File encryptedFN encryptedResponse)
   else do
-    liftIO $ logMessage True "Fetching File Contents"
+    liftIO $ putStrLn "Fetching File Contents"
     content <- liftIO (readFile decryptedFN)
-    return (File decryptedFN (encryptDecrypt sessionKey content))
+    return (File encryptedFN (encryptDecrypt sessionKey content))
 
 uploadFile :: FileUpload -> ApiHandler Response
 uploadFile (FileUpload ticket encryptTimeout (File encryptedFN encryptedFC)) = do
@@ -98,13 +103,29 @@ uploadFile (FileUpload ticket encryptTimeout (File encryptedFN encryptedFC)) = d
 
   currentTime <- liftIO $ getCurrentTime
   if (currentTime > decryptedTimeout) then do
-    liftIO $ logMessage True ("Client ticket timeout")
+    liftIO $ putStrLn ("Client ticket timeout")
     let encryptedResponse = encryptDecrypt sessionKey ("SessionTimeout")
     return (Response encryptedResponse)
   else do
     let decryptedFC = encryptDecrypt sessionKey encryptedFC
-    liftIO $ logMessage True ("Storing File")
+    liftIO $ putStrLn ("Storing File")
     liftIO (writeFile decryptedFN decryptedFC)
     let encryptedResponse = encryptDecrypt sessionKey "Success"
     return (Response encryptedResponse)
+
+deleteFile :: FileName -> ApiHandler Response
+deleteFile (FileName ticket encryptedTimeout encryptedFN) = liftIO $ do
+  let decryptedTimeout = decryptTime sharedSecret encryptedTimeout
+  let sessionKey = encryptDecrypt sharedSecret ticket
+  let decryptedFN = encryptDecrypt sessionKey encryptedFN  
+
+  currentTime <- liftIO $ getCurrentTime
+  if (currentTime > decryptedTimeout) then do
+    putStrLn ("Client ticket timeout")
+    let encryptedResponse = encryptDecrypt sessionKey ("Session Timeout")
+    return (Response (encryptDecrypt sessionKey "SessionTimeout"))
+  else do
+    putStrLn ("Deleting file: " ++ decryptedFN)
+    removeFile decryptedFN
+    return (Response (encryptDecrypt sessionKey "Success"))
 

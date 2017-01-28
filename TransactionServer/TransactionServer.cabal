@@ -1,0 +1,62 @@
+name:                TransactionServer
+version:             0.1.0.0
+synopsis:            Initial project template from stack
+description:         Please see README.md
+homepage:            https://github.com/githubuser/TransactionServer#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Author name here
+maintainer:          example@example.com
+copyright:           2017 Author name here
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     TransactionServer
+  build-depends:       base >= 4.7 && < 5
+                     , servant == 0.9.*
+                     , servant-server
+                     , servant-client
+                     , aeson
+                     , directory  
+                     , warp
+                     , wai
+                     , transformers
+                     , random
+                     , wai-logger
+                     , mongoDB
+                     , CommonResources
+                     , hslogger
+                     , time
+                     , bson-generic
+                     , resourcet
+                     , text
+                     , bytestring
+                     , bson
+                     , mtl
+                     , http-client
+  default-language:    Haskell2010
+
+executable TransactionServer-exe
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , TransactionServer
+  default-language:    Haskell2010
+
+test-suite TransactionServer-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , TransactionServer
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/githubuser/TransactionServer
