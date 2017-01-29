@@ -176,6 +176,28 @@ mainloop session cache = do
         _ -> do putStrLn $ "Invalid Command. Try Again"
                 mainloop session cache
 
+updateCache :: Session -> (C.Handle String String) -> IO()
+updateCache session@(Session ticket sessionKey encryptedTimeout) cache = liftIO $ do
+  putStrLn "Updating Cache..."
+  fileList <- C.iogetContents cache
+  mapM (downloadAndUpdate session cache) fileList
+  putStrLn "Cache Updated"
+
+
+downloadAndUpdate :: Session -> (C.Handle String String) -> String -> IO()
+downloadAndUpdate session@(Session ticket sessionKey encryptedTimeout) cache fileName = liftIO $ do
+  manager <- newManager defaultManagerSettings
+  let encryptedFN = encryptDecrypt sessionKey fileName
+  res <- runClientM (openQuery (FileName ticket encryptedTimeout encryptedFN)) (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
+  case res of
+    Left err -> putStrLn (show err)
+    Right response -> do 
+      let decryptedFC = encryptDecrypt sessionKey (fileContent response)
+      C.ioinsert cache fileName decryptedFC
+      putStrLn ("File: " ++ fileName ++ " Updated in Cache")
+
+
+
 displayFiles :: Session -> (C.Handle String String) -> IO()
 displayFiles session@(Session ticket sessionKey encryptedTimeout) cache = do
   putStrLn "Fetching file list. Please wait."
@@ -222,6 +244,7 @@ uploadFile session@(Session ticket sessionKey encryptedTimeout) cache = do
 
 downloadFile :: Session -> (C.Handle String String) -> IO()
 downloadFile session@(Session ticket sessionKey encryptedTimeout) cache = do
+  updateCache session cache
   putStrLn "Please enter the name of the file to download"
   fileName <- getLine
   islocked <- lockFile (FileName ticket encryptedTimeout (encryptDecrypt sessionKey fileName)) sessionKey

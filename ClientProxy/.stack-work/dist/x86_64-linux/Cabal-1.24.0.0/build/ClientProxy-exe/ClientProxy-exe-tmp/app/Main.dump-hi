@@ -1,9 +1,9 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-28 20:57:51.39224 UTC
+2017-01-29 11:52:14.115162 UTC
 
 interface main@main:Main 8001
-  interface hash: 261cedef731d1492a4bf39bee80ad041
+  interface hash: 497fac81d2881cf3a983417824393ed1
   ABI hash: 02cfecdff0c6ac9d8ff0801cab58fb86
   export-list hash: 54eeac4aa88cdf1c7980c4cc2c60c01b
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
@@ -181,7 +181,7 @@ family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-IdLS6IwgFz3D4JMQYl8KuJ:ClientProxyApi dedf367ec17a6f03d7dbc20a24e1ca26
+import  -/  ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-IdLS6IwgFz3D4JMQYl8KuJ:ClientProxyApi d848801df45a0ed6d377916029377d07
 import  -/  ClientProxy-0.1.0.0@ClientProxy-0.1.0.0-IdLS6IwgFz3D4JMQYl8KuJ:Lib a53352c5cef3818911dd3da95cd4e592
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c

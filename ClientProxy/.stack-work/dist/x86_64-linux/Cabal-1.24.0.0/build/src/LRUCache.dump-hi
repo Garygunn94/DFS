@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-28 19:43:44.876871 UTC
+2017-01-29 11:37:48.87857 UTC
 
 interface ClientProxy-0.1.0.0-IdLS6IwgFz3D4JMQYl8KuJ:LRUCache 8001
-  interface hash: b274d04c634f961529f3f5c2d2b82c3b
-  ABI hash: b8ad186e258e1802101df524b6701cf6
-  export-list hash: 6f95d9c3bdedb311ffed3bb4fce6a051
+  interface hash: c47514dd270f55708cbaf0fe2ca385a1
+  ABI hash: d7bcf6c243f177f251759bce258357ca
+  export-list hash: a93358a7ba544afd51f59b0c3daf8d20
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: d016f4f4e235848b6a91adfad17364ec
   sig of: Nothing
@@ -14,6 +14,7 @@ interface ClientProxy-0.1.0.0-IdLS6IwgFz3D4JMQYl8KuJ:LRUCache 8001
 exports:
   LRUCache.empty
   LRUCache.insert
+  LRUCache.iogetContents
   LRUCache.ioinsert
   LRUCache.iolookup
   LRUCache.lookup
@@ -786,6 +787,53 @@ b5df6796f5596d9d34e99a71690ab9eb
                              -> case LRUCache.empty1
                                 ret_ty (LRUCache.Cache k v)
                                 of {} } } } } }) -}
+8f201bcfd325837b2b893fd3e99764f6
+  iogetContents ::
+    (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
+    LRUCache.Handle k v -> GHC.Types.IO [k]
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,A><S(S),1*U(U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                LRUCache.iogetContents1
+                  `cast`
+                (forall (k :: <*>_N) (v :: <*>_N).
+                 <Data.Hashable.Class.Hashable k>_R
+                 ->_R <GHC.Classes.Ord k>_R
+                 ->_R <LRUCache.Handle k v>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <[k]>_R)) -}
+f9bac52446b7800f74774a314307b8d1
+  iogetContents1 ::
+    (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>
+    LRUCache.Handle k v
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [k] #)
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,A><S(S),1*U(U)><S,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ k
+                   @ v
+                   ($dHashable :: Data.Hashable.Class.Hashable k)
+                   ($dOrd :: GHC.Classes.Ord k)
+                   (ds :: LRUCache.Handle k v)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case ds
+                        `cast`
+                      (Trans
+                           (LRUCache.N:Handle[0] <k>_R <v>_R)
+                           (GHC.IORef.N:IORef[0] <LRUCache.Cache
+                                                    k v>_N)) of wild { GHC.STRef.STRef r# ->
+                 case GHC.Prim.atomicModifyMutVar#
+                        @ GHC.Prim.RealWorld
+                        @ (LRUCache.Cache k v)
+                        @ (LRUCache.Cache k v, [k])
+                        @ [k]
+                        r#
+                        (\ (a1 :: LRUCache.Cache k v) ->
+                         case a1 of a'1 { LRUCache.Cache ipv ipv1 ipv2 ipv3 ->
+                         (a'1,
+                          Data.HashPSQ.Internal.$wkeys @ k @ LRUCache.Priority @ v ipv3) })
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of b1 { DEFAULT -> (# ipv, b1 #) } } }) -}
 a024b8b22f16986b346921774ad78249
   ioinsert ::
     (Data.Hashable.Class.Hashable k, GHC.Classes.Ord k) =>

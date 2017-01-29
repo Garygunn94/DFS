@@ -46,8 +46,7 @@ insert key val c = trim $!
         , cQueue = queue
         }
 
-lookup
-    :: (Hashable k, Ord k) => k -> Cache k v -> Maybe (v, Cache k v)
+lookup :: (Hashable k, Ord k) => k -> Cache k v -> Maybe (v, Cache k v)
 lookup k c = case HashPSQ.alter lookupAndBump k (cQueue c) of
     (Nothing, _) -> Nothing
     (Just x, q)  ->
@@ -56,8 +55,6 @@ lookup k c = case HashPSQ.alter lookupAndBump k (cQueue c) of
   where
     lookupAndBump Nothing       = (Nothing, Nothing)
     lookupAndBump (Just (_, x)) = (Just x,  Just ((cTick c), x))
-
-
 
 newtype Handle k v = Handle (IORef (Cache k v))
 newHandle :: Int -> IO (Handle k v)
@@ -74,3 +71,8 @@ iolookup (Handle ref) k = do
 ioinsert :: (Hashable k, Ord k) => Handle k v -> k -> v -> IO()
 ioinsert (Handle ref) k v = do
   atomicModifyIORef' ref $ \c -> (insert k v c, ())
+
+iogetContents :: (Hashable k, Ord k) => Handle k v -> IO([(k)])
+iogetContents (Handle ref) = atomicModifyIORef' ref $ \c -> (c, (HashPSQ.keys (cQueue c)))
+  
+    
