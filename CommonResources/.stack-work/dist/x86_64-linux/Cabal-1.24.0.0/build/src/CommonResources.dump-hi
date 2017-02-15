@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-28 18:09:43.169271 UTC
+2017-02-15 14:41:02.935871 UTC
 
 interface CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources [orphan module] [family instance module] 8001
-  interface hash: 7b713d28dbf82f914d06840665562de5
-  ABI hash: 4ffe98351fae513bc2a6c99bc4c2c796
+  interface hash: e5d77c810864af22b9c7f220de541ada
+  ABI hash: ec24e9e84b6d6e2c1399c964030447a9
   export-list hash: d9c927a615c31d5ceb999a8f019cf4aa
   orphan hash: 4050fccf16e19a1f3bbcd04fd3d8f2a3
   flag hash: b0e3f8b573d72bae0f984477a0acb626
@@ -26015,9 +26015,9 @@ f760516df7ebc068b473a59b5a70a314
 62693b68226f9a935f544e6306163390
   authserverhost :: GHC.Base.String
   {- Unfolding: (CommonResources.transserverhost) -}
-29361a8f5e4837968100f57beb776eb0
+24ddfe222b230982acfecf86d408a0f9
   authserverport :: GHC.Base.String
-  {- Unfolding: (GHC.CString.unpackCString# "8082"#) -}
+  {- Unfolding: (GHC.CString.unpackCString# "8083"#) -}
 0cd014f4b7163f37074fa2dba26cc04e
   decryptPort :: GHC.Base.String -> GHC.Base.String -> GHC.Types.Int
   {- Arity: 2, Strictness: <L,1*U><L,1*U>,
@@ -26096,9 +26096,9 @@ ea882440d741669257f13cbd59dae5e2
 113fc6aa749421e820e1c5cb472f1320
   dirserverhost :: GHC.Base.String
   {- Unfolding: (CommonResources.transserverhost) -}
-8dfb2afc661ede88072570510f942f99
+841d8188a17a9c5e9122a8cd86654ad7
   dirserverport :: GHC.Base.String
-  {- Unfolding: (GHC.CString.unpackCString# "7008"#) -}
+  {- Unfolding: (GHC.CString.unpackCString# "8080"#) -}
 cf4300ef25bb287f5a6ad3d2c64dfaa6
   encTimeout :: CommonResources.FileUpload -> GHC.Base.String
   RecSel Left CommonResources.FileUpload
@@ -26363,9 +26363,9 @@ cbc0243b7f3e9f26e444f33eaea6a414
 9bb18cc6bd5356146c7d8c26cccad83f
   lockserverhost :: GHC.Base.String
   {- Unfolding: (CommonResources.transserverhost) -}
-38b6563c7962f4ac53ce1a1d3f166d3d
+48f72db20963650ff7a372362ae49fb8
   lockserverport :: GHC.Base.String
-  {- Unfolding: (GHC.CString.unpackCString# "8000"#) -}
+  {- Unfolding: (GHC.CString.unpackCString# "8084"#) -}
 ea0e9f49da7ce417626f5fb0faca8ef0
   logMessage :: GHC.Types.Bool -> GHC.Base.String -> GHC.Types.IO ()
   {- Arity: 3, Strictness: <S,1*U><L,1*U><S,U>,
@@ -26444,9 +26444,9 @@ dc92647d1b2b616f277dfa722552f298
 14b421058dc7e734256dfad23731af34
   transserverhost :: GHC.Base.String
   {- Unfolding: (GHC.CString.unpackCString# "localhost"#) -}
-bd530d0cc9bc2778903d6bcf8f84bf5c
+0c1e32c1d34fd7755aef4e1de173f7e7
   transserverport :: GHC.Base.String
-  {- Unfolding: (GHC.CString.unpackCString# "8888"#) -}
+  {- Unfolding: (GHC.CString.unpackCString# "8085"#) -}
 5f5c14ef446a6389b74ba3f3c862f5bc
   userID :: CommonResources.TransactionFile -> GHC.Base.String
   RecSel Left CommonResources.TransactionFile

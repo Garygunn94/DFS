@@ -1,9 +1,9 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-28 18:09:49.808621 UTC
+2017-02-15 14:41:23.590184 UTC
 
 interface main@main:Main 8001
-  interface hash: b1b22373c36451155963820c78fe9144
+  interface hash: a66cccc42f30e519a34709e41f8527a4
   ABI hash: ad3f5aee7c700fbc10d450d5df09209c
   export-list hash: 4e4b87be4d90927ea00310c604d33743
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
@@ -165,7 +165,7 @@ family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources 4ffe98351fae513bc2a6c99bc4c2c796
+import  -/  CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources ec24e9e84b6d6e2c1399c964030447a9
 import  -/  CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:MongodbHelpers f6dde8f3c354dde042a2d52c41b8d6f2
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  base-4.9.0.0:System.IO eb1d40aa793a4047069a5023f2ebcfe3

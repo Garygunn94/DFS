@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2017-01-28 20:12:42.459941 UTC
+2017-02-15 14:38:39.121094 UTC
 
 interface main@main:Main 8001
-  interface hash: 88479f5dc8aec7b1f39b80420bda4c3c
-  ABI hash: 80b32cb127e87fc2c544e370fb0ccc5c
+  interface hash: 6fd5570ff8f2efdc0f566976117cb898
+  ABI hash: 6a0afc1814eed871c36905bbff10d82b
   export-list hash: 434c9335826588b199ec0c336b2b4250
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 843d1844531e2000602023ea0a6e6e2e
@@ -164,8 +164,12 @@ family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
                          vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
                          zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
-import  -/  FileServer-0.1.0.0@FileServer-0.1.0.0-2xQQWPr9p7nWBP1v47ULz:FileServer c9e6ddba9631e53217658ebdde6a0daf
+import  -/  FileServer-0.1.0.0@FileServer-0.1.0.0-2xQQWPr9p7nWBP1v47ULz:FileServer 638422a205f9f689cc825b1c939b05fd
+import  -/  base-4.9.0.0:GHC.List 13d2451194c1c6e53b4f4f07947736dd
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
+import  -/  base-4.9.0.0:System.Environment ee0914a962f5508d0fd404c89ee4999b
+import  -/  base-4.9.0.0:System.IO eb1d40aa793a4047069a5023f2ebcfe3
+import  -/  base-4.9.0.0:Text.Read 9c1be14f7e5eac8b18bcb566c5763677
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
 d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule :: GHC.Types.Module
@@ -179,19 +183,52 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-00aa58261bf91abaeb7f0e80c07b8675
+bfbd847dba64c2ffbcc54bcfaf1483bb
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
-                FileServer.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-3bd9f9dea5602bbc1e8b12ea2a3663b2
+                Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+88e3cf32d19fa6d5b2dcc7b16b7947f1
   main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case System.Environment.getArgs1 s of ds1 { (#,#) ipv ipv1 ->
+                 FileServer.mkApp1
+                   (case Text.Read.readEither6
+                           @ GHC.Types.Int
+                           (Text.ParserCombinators.ReadP.run
+                              @ GHC.Types.Int
+                              Main.main4
+                              (case ipv1 of wild {
+                                 [] -> GHC.List.badHead @ GHC.Base.String : x ds2 -> x })) of wild {
+                      [] -> Main.main3
+                      : x ds -> case ds of wild1 { [] -> x : ipv2 ipv3 -> Main.main2 } })
+                   ipv }) -}
+1cab924d0cd565ecdcefb6c3f4561344
+  main2 :: GHC.Types.Int
+  {- Strictness: x -}
+649af1f590f20baad89400f56adf6243
+  main3 :: GHC.Types.Int
+  {- Strictness: x -}
+ecd834adb720f8884f6a89477e285906
+  main4 :: Text.ParserCombinators.ReadP.P GHC.Types.Int
+  {- Unfolding: ((GHC.Read.$fReadInt3
+                    GHC.Read.$fReadInt_$sconvertInt
+                    Text.ParserCombinators.ReadPrec.minPrec)
+                   `cast`
+                 (Text.ParserCombinators.ReadP.N:ReadP[0] <GHC.Types.Int>_R)
+                   @ GHC.Types.Int
+                   (Text.Read.readEither5 @ GHC.Types.Int)) -}
+519d7625326ab8ecdada1a35323b29fd
+  main5 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1,
      Unfolding: (GHC.TopHandler.runMainIO1
                    @ ()
-                   FileServer.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

@@ -73,6 +73,7 @@ join :<|> open :<|> close :<|> allfiles :<|> remove = client directoryApi
 
 runApp :: IO()
 runApp = do
+    putStrLn ("Starting TransactionServer on port: " ++ transserverport)
     run (read (transserverport) ::Int) transactionApp
 
 beginTrans :: Ticket -> ApiHandler Response

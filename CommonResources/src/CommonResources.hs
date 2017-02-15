@@ -19,13 +19,13 @@ import            GHC.Generics
 import            Servant
 
 authserverport :: String
-authserverport = "8082"
+authserverport = "8083"
 
 authserverhost :: String
 authserverhost = "localhost"
 
 dirserverport :: String
-dirserverport = "7008"
+dirserverport = "8080"
 
 dirserverhost :: String
 dirserverhost = "localhost"
@@ -37,7 +37,7 @@ fsserverhost :: String
 fsserverhost = "localhost"
 
 lockserverport :: String
-lockserverport = "8000"
+lockserverport = "8084"
 
 lockserverhost :: String
 lockserverhost = "localhost"
@@ -46,7 +46,7 @@ transserverhost :: String
 transserverhost = "localhost"
 
 transserverport :: String
-transserverport = "8888"
+transserverport = "8085"
 
 type DirectoryApi = 
     "join" :> ReqBody '[JSON] FileServer :> Post '[JSON] Response :<|>

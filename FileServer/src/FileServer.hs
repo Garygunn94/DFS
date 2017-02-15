@@ -9,7 +9,7 @@
 {-# LANGUAGE TypeOperators        #-}
 {-# LANGUAGE TypeSynonymInstances #-}
 
-module FileServer where
+module FileServer (mkApp) where
 
 import           Control.Monad.Trans.Except
 import           Control.Monad.IO.Class
@@ -49,83 +49,87 @@ joinQuery fs = do
 fileApi :: Proxy FileApi
 fileApi = Proxy
 
-server :: Server FileApi
-server = 
-    getFiles :<|>
-    downloadFile :<|>
-    uploadFile :<|>
-    deleteFile
 
-fileApp :: Application
-fileApp = serve fileApi server
 
-mkApp :: IO()
-mkApp = do
+fileApp :: Int -> Application
+fileApp port = serve fileApi $ server port
+
+mkApp :: Int -> IO()
+mkApp port = do
    -- fsToDsHandshake
-    createDirectoryIfMissing True ("fileserver" ++ fsserverhost ++ ":" ++ fsserverport ++ "/")
-    setCurrentDirectory ("fileserver" ++ fsserverhost ++ ":" ++ fsserverport ++ "/")
+    createDirectoryIfMissing True ("fileserver" ++ fsserverhost ++ ":" ++ show port ++ "/")
+    setCurrentDirectory ("fileserver" ++ fsserverhost ++ ":" ++ show port ++ "/")
     putStrLn $ "Attempting to join directory server"
     manager <- newManager defaultManagerSettings
-    let fs = (FileServer (fsserverhost++fsserverport) fsserverhost fsserverport)
+    let fs = (FileServer (fsserverhost++(show port)) fsserverhost (show port))
     res <- runClientM (joinQuery fs) (ClientEnv manager (BaseUrl Http dirserverhost (read(dirserverport) :: Int) ""))
     case res of
        Left err -> putStrLn $ "Error: " ++ show err
        Right response -> do
         putStrLn "Service Joined Successfully"
-        putStrLn ("Starting FileServer on port: " ++ fsserverport)
-        run (read (fsserverport) ::Int) fileApp 
+        putStrLn ("Starting FileServer on port: " ++ show port)
+        run port $ fileApp port
 
-getFiles :: ApiHandler [FilePath]
-getFiles =
-  liftIO(getDirectoryContents ("../fileserver" ++ fsserverhost ++ ":" ++ fsserverport ++ "/"))
+server :: Int -> Server FileApi
+server port = 
+    getFiles :<|>
+    downloadFile :<|>
+    uploadFile :<|>
+    deleteFile
 
-downloadFile :: FileName -> ApiHandler File
-downloadFile (FileName ticket encryptedTimeout encryptedFN) = do
-  let decryptedTimeout = decryptTime sharedSecret encryptedTimeout
-  let sessionKey = encryptDecrypt sharedSecret ticket
-  let decryptedFN = encryptDecrypt sessionKey encryptedFN  
+    where
 
-  currentTime <- liftIO $ getCurrentTime
-  if (currentTime > decryptedTimeout) then do
-    liftIO $ putStrLn ("Client ticket timeout")
-    let encryptedResponse = encryptDecrypt sessionKey ("Session Timeout")
-    return (File encryptedFN encryptedResponse)
-  else do
-    liftIO $ putStrLn "Fetching File Contents"
-    content <- liftIO (readFile decryptedFN)
-    return (File encryptedFN (encryptDecrypt sessionKey content))
+      getFiles :: ApiHandler [FilePath]
+      getFiles =
+        liftIO(getDirectoryContents ("../fileserver" ++ fsserverhost ++ ":" ++ show port ++ "/"))
 
-uploadFile :: FileUpload -> ApiHandler Response
-uploadFile (FileUpload ticket encryptTimeout (File encryptedFN encryptedFC)) = do
-  let decryptedTimeout = decryptTime sharedSecret encryptTimeout
-  let sessionKey = encryptDecrypt sharedSecret ticket
-  let decryptedFN = encryptDecrypt sessionKey encryptedFN
+      downloadFile :: FileName -> ApiHandler File
+      downloadFile (FileName ticket encryptedTimeout encryptedFN) = do
+        let decryptedTimeout = decryptTime sharedSecret encryptedTimeout
+        let sessionKey = encryptDecrypt sharedSecret ticket
+        let decryptedFN = encryptDecrypt sessionKey encryptedFN  
 
-  currentTime <- liftIO $ getCurrentTime
-  if (currentTime > decryptedTimeout) then do
-    liftIO $ putStrLn ("Client ticket timeout")
-    let encryptedResponse = encryptDecrypt sessionKey ("SessionTimeout")
-    return (Response encryptedResponse)
-  else do
-    let decryptedFC = encryptDecrypt sessionKey encryptedFC
-    liftIO $ putStrLn ("Storing File")
-    liftIO (writeFile decryptedFN decryptedFC)
-    let encryptedResponse = encryptDecrypt sessionKey "Success"
-    return (Response encryptedResponse)
+        currentTime <- liftIO $ getCurrentTime
+        if (currentTime > decryptedTimeout) then do
+          liftIO $ putStrLn ("Client ticket timeout")
+          let encryptedResponse = encryptDecrypt sessionKey ("Session Timeout")
+          return (File encryptedFN encryptedResponse)
+        else do
+          liftIO $ putStrLn "Fetching File Contents"
+          content <- liftIO (readFile decryptedFN)
+          return (File encryptedFN (encryptDecrypt sessionKey content))
 
-deleteFile :: FileName -> ApiHandler Response
-deleteFile (FileName ticket encryptedTimeout encryptedFN) = liftIO $ do
-  let decryptedTimeout = decryptTime sharedSecret encryptedTimeout
-  let sessionKey = encryptDecrypt sharedSecret ticket
-  let decryptedFN = encryptDecrypt sessionKey encryptedFN  
+      uploadFile :: FileUpload -> ApiHandler Response
+      uploadFile (FileUpload ticket encryptTimeout (File encryptedFN encryptedFC)) = do
+        let decryptedTimeout = decryptTime sharedSecret encryptTimeout
+        let sessionKey = encryptDecrypt sharedSecret ticket
+        let decryptedFN = encryptDecrypt sessionKey encryptedFN
 
-  currentTime <- liftIO $ getCurrentTime
-  if (currentTime > decryptedTimeout) then do
-    putStrLn ("Client ticket timeout")
-    let encryptedResponse = encryptDecrypt sessionKey ("Session Timeout")
-    return (Response (encryptDecrypt sessionKey "SessionTimeout"))
-  else do
-    putStrLn ("Deleting file: " ++ decryptedFN)
-    removeFile decryptedFN
-    return (Response (encryptDecrypt sessionKey "Success"))
+        currentTime <- liftIO $ getCurrentTime
+        if (currentTime > decryptedTimeout) then do
+          liftIO $ putStrLn ("Client ticket timeout")
+          let encryptedResponse = encryptDecrypt sessionKey ("SessionTimeout")
+          return (Response encryptedResponse)
+        else do
+          let decryptedFC = encryptDecrypt sessionKey encryptedFC
+          liftIO $ putStrLn ("Storing File")
+          liftIO (writeFile decryptedFN decryptedFC)
+          let encryptedResponse = encryptDecrypt sessionKey "Success"
+          return (Response encryptedResponse)
+
+      deleteFile :: FileName -> ApiHandler Response
+      deleteFile (FileName ticket encryptedTimeout encryptedFN) = liftIO $ do
+        let decryptedTimeout = decryptTime sharedSecret encryptedTimeout
+        let sessionKey = encryptDecrypt sharedSecret ticket
+        let decryptedFN = encryptDecrypt sessionKey encryptedFN  
+
+        currentTime <- liftIO $ getCurrentTime
+        if (currentTime > decryptedTimeout) then do
+          putStrLn ("Client ticket timeout")
+          let encryptedResponse = encryptDecrypt sessionKey ("Session Timeout")
+          return (Response (encryptDecrypt sessionKey "SessionTimeout"))
+        else do
+          putStrLn ("Deleting file: " ++ decryptedFN)
+          removeFile decryptedFN
+          return (Response (encryptDecrypt sessionKey "Success"))
 
