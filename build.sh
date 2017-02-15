@@ -1,5 +1,9 @@
 #!/bin/sh
 loc="$PWD"
+
+cd "$loc/CommonResources"
+stack setup
+stack build
 echo "Building Directory Server..."
 cd "$loc/DirectoryServer"
 stack setup
