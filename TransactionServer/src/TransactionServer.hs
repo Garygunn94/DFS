@@ -166,6 +166,10 @@ commitTrans tic@(Ticket ticket encryptedTimeout) = liftIO $ do
             docs <- find (select ["userID" =: sessionKey] "TRANSACTION_FILE_RECORD") >>= drainCursor
             return $ catMaybes $ DL.map (\ b -> fromBSON b :: Maybe TransactionFile) docs
           mapM (commitfile tic) transactions
+          liftIO $ withMongoDbConnection $ do
+            delete (select ["userID" =: sessionKey] "TRANSACTION_FILE_RECORD")
+          liftIO $ withMongoDbConnection $ do
+            delete (select ["transactionID" =: sessionKey] "TRANSACTION_ID_RECORD")
           return (Response (encryptDecrypt sessionKey "Successful"))
 
 commitfile :: Ticket -> TransactionFile -> IO()

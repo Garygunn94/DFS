@@ -1,0 +1,1182 @@
+
+==================== FINAL INTERFACE ====================
+2017-02-16 17:49:12.329854 UTC
+
+interface FileServer-0.1.0.0-2xQQWPr9p7nWBP1v47ULz:FileServer 8001
+  interface hash: fce9b1a982153a5841892852ccf38704
+  ABI hash: 891ec4d087fc0f8363761454b7f7c970
+  export-list hash: 37f98305f678c344619a486d2acf05fe
+  orphan hash: 1fc135389e6cfc5f1a2d874a14c2f535
+  flag hash: ab1dddaa39fb8a9e594899798c275a0c
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  FileServer.mkApp
+module dependencies:
+package dependencies: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0
+                      aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz
+                      appar-0.1.4@appar-0.1.4-1in4Ewd8JBkAYDZSWXLSe0
+                      array-0.5.1.1@array-0.5.1.1
+                      async-2.1.1@async-2.1.1-xFiBzw9xoB8HPZAuxUY2o
+                      attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR
+                      auto-update-0.1.4@auto-update-0.1.4-GAesfFmqoZzBz6e09kRyzb
+                      base-4.9.0.0
+                      base-compat-0.9.1@base-compat-0.9.1-tmPpmtbHbvIDjFWbkjGrR
+                      base64-bytestring-1.0.0.1@base64-bytestring-1.0.0.1-In9M41tLtcS9QYt3QpGpNY
+                      binary-0.8.3.0@binary-0.8.3.0
+                      blaze-builder-0.4.0.2@blaze-builder-0.4.0.2-KWDLbdBYSBoALiMW0LHIz1
+                      blaze-html-0.8.1.3@blaze-html-0.8.1.3-8MBPJsFNBtBBD2gWERenva
+                      blaze-markup-0.7.1.1@blaze-markup-0.7.1.1-IE161DWDHNXF9O8bBguli5
+                      bson-0.3.2.3@bson-0.3.2.3-3QA3aP5EtCyCltXUzEKOsQ
+                      bson-generic-0.0.8@bson-generic-0.0.8-DtORpoUHwQhDReLJ5Keop0
+                      byteorder-1.0.4@byteorder-1.0.4-BbL4c17EpZrL9PcZm0xys9
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      case-insensitive-1.2.0.7@case-insensitive-1.2.0.7-FlqweN7AuKj9EdU2arVEt4
+                      containers-0.5.7.1@containers-0.5.7.1
+                      cookie-0.4.2.1@cookie-0.4.2.1-2a2c54yIyBn79Ul3iLWclJ
+                      cryptohash-0.11.9@cryptohash-0.11.9-9KNu0EEbreBFrmNJAeHgYz
+                      cryptonite-0.19@cryptonite-0.19-G9PYO4oOEqhDTta2u9rAaU
+                      data-default-class-0.1.2.0@data-default-class-0.1.2.0-FYQpjIylblBDctdkHAFeXA
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 directory-1.2.6.2@directory-1.2.6.2
+                      dlist-0.8.0.2@dlist-0.8.0.2-GWAMmbX9rLg3tqrbOizHGv
+                      exceptions-0.8.3@exceptions-0.8.3-7py7fmRxowDFpHmiHGKrTb
+                      file-embed-0.0.10@file-embed-0.0.10-IXfudWSq57y1Athysk5ifZ
+                      filepath-1.4.1.0@filepath-1.4.1.0
+                      ghc-boot-th-8.0.1@ghc-boot-th-8.0.1 ghc-prim-0.5.0.0
+                      hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G
+                      http-api-data-0.3.2@http-api-data-0.3.2-A22DPUhAmUlrIoBZ4qkGB
+                      http-client-0.4.31.2@http-client-0.4.31.2-81NyMkNcWWADaJ0Cq5FYRE
+                      http-date-0.0.6.1@http-date-0.0.6.1-150spKQYCuoIrltdbMmYGs
+                      http-media-0.6.4@http-media-0.6.4-82jDVCpdN5H696EFF5l5I4
+                      http-types-0.9.1@http-types-0.9.1-8WdUZL4twHzANJbxvb1Aoj
+                      http2-1.6.2@http2-1.6.2-8AbNCX9FS8K1gUe78Emp1g integer-gmp-1.0.0.1
+                      iproute-1.7.1@iproute-1.7.1-9hsGfRvggCmFA0ueZi5Sd9
+                      memory-0.13@memory-0.13-ABHR5331zHK9scHPRr7afU
+                      mime-types-0.1.0.7@mime-types-0.1.0.7-AxQ64wFjikqCSdK5pSeZvh
+                      mmorph-1.0.9@mmorph-1.0.9-DmSwQqk5nLj7roLAcydGz
+                      mtl-2.2.1@mtl-2.2.1-6qsR1PHUy5lL47Hpoa4jCM
+                      network-2.6.3.1@network-2.6.3.1-G4Up1CPKbp7DeFsnywOnGG
+                      network-uri-2.6.1.0@network-uri-2.6.1.0-DDHh2FNiPirBRgkuU9DEt2
+                      parsec-3.1.11@parsec-3.1.11-BCos4GEVCuDB8dnOCBHO6X
+                      pretty-1.1.3.3@pretty-1.1.3.3
+                      primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa
+                      psqueues-0.2.2.3@psqueues-0.2.2.3-YN2xKllZOMJLtAgRHlkEw
+                      random-1.1@random-1.1-54KmMHXjttlERYcr1mvsAe
+                      safe-0.3.10@safe-0.3.10-1VyrsjWhmjvGnGud5lgW7f
+                      scientific-0.3.4.9@scientific-0.3.4.9-6oTYuCcx6H5BsTGU7D2Gk3
+                      servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1
+                      servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3
+                      servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd
+                      simple-sendfile-0.2.25@simple-sendfile-0.2.25-FZS0Stqtwd5AOyFRQgM4IV
+                      stm-2.4.4.1@stm-2.4.4.1-4z2NRWnB0NIIUvSJsHW0kF
+                      streaming-commons-0.1.16@streaming-commons-0.1.16-KtRawhq8O97EWCabefpk66
+                      string-conversions-0.4@string-conversions-0.4-8T0UFmRDEly2gsNJzmHrNQ
+                      tagged-0.8.5@tagged-0.8.5-CtgV6EcN0do8F92i1S6iYx
+                      template-haskell-2.11.0.0
+                      text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s
+                      time-1.6.0.1@time-1.6.0.1
+                      time-locale-compat-0.1.1.3@time-locale-compat-0.1.1.3-1j5dGjxxtiTDuAsO86iSk0
+                      transformers-0.5.2.0@transformers-0.5.2.0 unix-2.7.2.0@unix-2.7.2.0
+                      unix-compat-0.4.3.1@unix-compat-0.4.3.1-GamCWWfiT0318wIeUlpE1K
+                      unordered-containers-0.2.7.1@unordered-containers-0.2.7.1-Eo9jd5DMz45DhBLCG8skzW
+                      uri-bytestring-0.2.2.1@uri-bytestring-0.2.2.1-LMJUdG9s1QpIQ10mPWMO6d
+                      utf8-string-1.0.1.1@utf8-string-1.0.1.1-2T8mBCuEDlXDo8zed8Onw4
+                      uuid-types-1.0.3@uuid-types-1.0.3-1qmdgBeDGlbCUibOmxVGqx
+                      vault-0.3.0.6@vault-0.3.0.6-CA9Xj82tAPe9nD32xVMgDG
+                      vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6
+                      wai-3.2.1.1@wai-3.2.1.1-f77bMYZGLQBAD3XJrvGiW
+                      wai-app-static-3.1.6.1@wai-app-static-3.1.6.1-Y5BgITaOwCDdLFeUawo4r
+                      warp-3.2.9@warp-3.2.9-1srGDEsq7RWF9RsucFj6bw
+                      word8-0.1.2@word8-0.1.2-2E1SgvvAV2fK8vZPDHbRan
+                      zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV
+orphans: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources
+         aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson.Types.Generic
+         aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson.Types.Instances
+         attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.ByteString.Char8
+         attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Text.Internal
+         base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bson-generic-0.0.8@bson-generic-0.0.8-DtORpoUHwQhDReLJ5Keop0:Data.Bson.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G:Data.Hashable.Generic
+         http-client-0.4.31.2@http-client-0.4.31.2-81NyMkNcWWADaJ0Cq5FYRE:Network.HTTP.Client.Request
+         network-2.6.3.1@network-2.6.3.1-G4Up1CPKbp7DeFsnywOnGG:Network.Socket
+         stm-2.4.4.1@stm-2.4.4.1-4z2NRWnB0NIIUvSJsHW0kF:Control.Monad.STM
+         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text
+         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text.Lazy
+         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text.Show
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Fusion.Bundle
+         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
+family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources
+                         attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Internal.Types
+                         base-4.9.0.0:Control.Applicative base-4.9.0.0:Data.Complex
+                         base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Compose
+                         base-4.9.0.0:Data.Functor.Const base-4.9.0.0:Data.Functor.Identity
+                         base-4.9.0.0:Data.Functor.Product base-4.9.0.0:Data.List.NonEmpty
+                         base-4.9.0.0:Data.Monoid base-4.9.0.0:Data.Semigroup
+                         base-4.9.0.0:Data.Type.Equality base-4.9.0.0:Data.Version
+                         base-4.9.0.0:Data.Void base-4.9.0.0:GHC.Exts
+                         base-4.9.0.0:GHC.Generics base-4.9.0.0:GHC.IO.Exception
+                         base-4.9.0.0:GHC.TypeLits
+                         bson-generic-0.0.8@bson-generic-0.0.8-DtORpoUHwQhDReLJ5Keop0:Data.Bson.Generic
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         dlist-0.8.0.2@dlist-0.8.0.2-GWAMmbX9rLg3tqrbOizHGv:Data.DList
+                         ghc-boot-th-8.0.1@ghc-boot-th-8.0.1:GHC.LanguageExtensions.Type
+                         http-api-data-0.3.2@http-api-data-0.3.2-A22DPUhAmUlrIoBZ4qkGB:Web.Internal.FormUrlEncoded
+                         http-client-0.4.31.2@http-client-0.4.31.2-81NyMkNcWWADaJ0Cq5FYRE:Network.HTTP.Client
+                         iproute-1.7.1@iproute-1.7.1-9hsGfRvggCmFA0ueZi5Sd9:Data.IP.Addr
+                         iproute-1.7.1@iproute-1.7.1-9hsGfRvggCmFA0ueZi5Sd9:Data.IP.Range
+                         network-uri-2.6.1.0@network-uri-2.6.1.0-DDHh2FNiPirBRgkuU9DEt2:Network.URI
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa:Control.Monad.Primitive
+                         servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.ContentTypes
+                         servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.IsSecure
+                         servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.Verbs
+                         servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.Utils.Links
+                         servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3:Servant.Client
+                         servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3:Servant.Common.BaseUrl
+                         servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3:Servant.Common.Req
+                         servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd:Servant.Server.Internal
+                         servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd:Servant.Server.Internal.BasicAuth
+                         tagged-0.8.5@tagged-0.8.5-CtgV6EcN0do8F92i1S6iYx:Data.Tagged
+                         template-haskell-2.11.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text
+                         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text.Lazy
+                         unordered-containers-0.2.7.1@unordered-containers-0.2.7.1-Eo9jd5DMz45DhBLCG8skzW:Data.HashMap.Base
+                         unordered-containers-0.2.7.1@unordered-containers-0.2.7.1-Eo9jd5DMz45DhBLCG8skzW:Data.HashSet
+                         uri-bytestring-0.2.2.1@uri-bytestring-0.2.2.1-LMJUdG9s1QpIQ10mPWMO6d:URI.ByteString.Types
+                         uuid-types-1.0.3@uuid-types-1.0.3-1qmdgBeDGlbCUibOmxVGqx:Data.UUID.Types.Internal
+                         uuid-types-1.0.3@uuid-types-1.0.3-1qmdgBeDGlbCUibOmxVGqx:Data.UUID.Types.Internal.Builder
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Primitive
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Storable
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
+                         zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
+import  -/  CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources 3a3234dc92c278c50e5f7698eafc99e9
+import  -/  aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson 94b59824488f369f190c261b6e39e7ba
+import  -/  base-4.9.0.0:Control.Monad.IO.Class d702028d883e700bd7066b031147030d
+import  -/  base-4.9.0.0:Data.Either bd9f099b82d4ed2d98c56d7144ac6957
+import  -/  base-4.9.0.0:Data.Proxy aa86c72628cf3b1ceb0816ca84687d80
+import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
+import  -/  base-4.9.0.0:GHC.Generics 8e2a7658e8b966c1d29d0d5fd4129f38
+import  -/  base-4.9.0.0:GHC.IO 7ddc7086a7fc3b7d7043cc7bc59a04ba
+import  -/  base-4.9.0.0:GHC.Show 952347a6ab730bcb25c0854d8bc6ca51
+import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
+import  -/  base-4.9.0.0:System.IO eb1d40aa793a4047069a5023f2ebcfe3
+import  -/  base-4.9.0.0:Text.Read 9c1be14f7e5eac8b18bcb566c5763677
+import  -/  directory-1.2.6.2@directory-1.2.6.2:System.Directory f7c57c4a392d1767b38addc37d00ceed
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
+import  -/  http-client-0.4.31.2@http-client-0.4.31.2-81NyMkNcWWADaJ0Cq5FYRE:Network.HTTP.Client 8c31602f44dbd2cc18bd07c76bc0453c
+import  -/  http-client-0.4.31.2@http-client-0.4.31.2-81NyMkNcWWADaJ0Cq5FYRE:Network.HTTP.Client.Manager e07649b973bb21d02bf327f94e8a831b
+import  -/  servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API 0037a8ec5e3d7af775970baa2c52d7c1
+import  -/  servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.Alternative 7d4e73ce01670cd8a85baa5f3ddc5484
+import  -/  servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3:Servant.Client b0d728a61d1fac7860e8647e2d204379
+import  -/  servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3:Servant.Common.BaseUrl 3c2b14238cab8a7b60feab8c16b34c5c
+import  -/  servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3:Servant.Common.Req c0da3bf0cf41b7c626a184755ad3ec5b
+import  -/  servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd:Servant 486b79878ba489ae3f0fe8391c7fd3c5
+import  -/  servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd:Servant.Server 0403ee10c86ea534a893b481d1235a97
+import  -/  servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd:Servant.Server.Internal dc0da1c88277b9abbf442d4c9a2149f0
+import  -/  servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd:Servant.Server.Internal.ServantErr 03ccb634e8bb3af78dd83269b3acd873
+import  -/  time-1.6.0.1@time-1.6.0.1:Data.Time 11aa6bb0881cf13119ff057ae5c21663
+import  -/  time-1.6.0.1@time-1.6.0.1:Data.Time.Clock.POSIX a0c5708011f4e3cb1d85608a99ae773a
+import  -/  transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Except 71b1d86204f6908788cb5223e3c73193
+import  -/  wai-3.2.1.1@wai-3.2.1.1-f77bMYZGLQBAD3XJrvGiW:Network.Wai f10fb472d685284a8637bf34e58bc7f2
+import  -/  warp-3.2.9@warp-3.2.9-1srGDEsq7RWF9RsucFj6bw:Network.Wai.Handler.Warp 3da15d24b266d35965cd5350be944ee3
+import  -/  warp-3.2.9@warp-3.2.9-1srGDEsq7RWF9RsucFj6bw:Network.Wai.Handler.Warp.Run ef3cbc0ed9598c9652e6b6b9671eb6f3
+f5eba0fc8f9b74d06bce1863532847a1
+  $s$fAllCTRender:a ::
+    Servant.API.ContentTypes.AllCTRender
+      '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ [GHC.IO.FilePath]
+                  (Servant.API.ContentTypes.$fAllCTRender:a_$cp1AllCTRender
+                     @ Servant.API.ContentTypes.JSON
+                     @ '[]
+                     @ [GHC.IO.FilePath]
+                     Servant.API.ContentTypes.$fAcceptTYPEJSON_$ccontentType
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:Accept[0]
+                               <*>_N <Servant.API.ContentTypes.JSON>_N))
+                     Servant.API.ContentTypes.$fAllMimeUnrender[]a_$callMime
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
+                     FileServer.$s$fAllCTRender:a1)
+                  (Servant.API.ContentTypes.$fAllCTRender:a_$chandleAcceptH
+                     @ Servant.API.ContentTypes.JSON
+                     @ '[]
+                     @ [GHC.IO.FilePath]
+                     Servant.API.ContentTypes.$fAcceptTYPEJSON_$ccontentType
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:Accept[0]
+                               <*>_N <Servant.API.ContentTypes.JSON>_N))
+                     Servant.API.ContentTypes.$fAllMimeUnrender[]a_$callMime
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
+                     FileServer.$s$fAllCTRender:a1) -}
+a9c4e419f6cde09e661d02e5d316f53f
+  $s$fAllCTRender:a1 ::
+    Servant.API.ContentTypes.AllMimeRender
+      '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath]
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                FileServer.$s$fAllCTRender:a_$s$fAllMimeRender:a0 -}
+78733a3abda57c56aec3022ccf4a3baa
+  $s$fAllCTRender:a10 ::
+    Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
+    -> CommonResources.File
+    -> [(Network.HTTP.Media.MediaType.Internal.MediaType,
+         Data.ByteString.Lazy.Internal.ByteString)]
+  {- Arity: 2, Strictness: <L,A><L,1*U(1*U,1*U)>m2,
+     Unfolding: InlineRule (2, True, False)
+                (\ (eta :: Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON])
+                   (eta1 :: CommonResources.File) ->
+                 GHC.Types.:
+                   @ (Network.HTTP.Media.MediaType.Internal.MediaType,
+                      Data.ByteString.Lazy.Internal.ByteString)
+                   (Servant.API.ContentTypes.$fAcceptTYPEJSON1,
+                    Data.ByteString.Builder.toLazyByteString
+                      (Data.Aeson.Encode.Builder.encodeToBuilder
+                         (CommonResources.$fToJSONFile1 eta1)
+                           `cast`
+                         (Data.Aeson.Types.Generic.N:Tagged[0]
+                              <Data.Aeson.Types.Generic.True>_P
+                              <Data.Aeson.Types.Internal.Value>_R)))
+                   (GHC.Types.[]
+                      @ (Network.HTTP.Media.MediaType.Internal.MediaType,
+                         Data.ByteString.Lazy.Internal.ByteString))) -}
+6e60fb7ebe96423142510d219d2e83cd
+  $s$fAllCTRender:a11 ::
+    Servant.API.ContentTypes.MimeRender
+      Servant.API.ContentTypes.JSON CommonResources.File
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                FileServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa2 -}
+085bd8e48a95689e7e93febd2036aef2
+  $s$fAllCTRender:a2 ::
+    Data.Aeson.Types.Class.ToJSON [GHC.IO.FilePath]
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                FileServer.$s$fAllCTRender:a_$s$fToJSON[] -}
+5c27c4a2a303a8f3e44948b8725f5ead
+  $s$fAllCTRender:a3 ::
+    Servant.API.ContentTypes.MimeRender
+      Servant.API.ContentTypes.JSON [GHC.IO.FilePath]
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                FileServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa -}
+14a23634cf5b05705a7d07325e93d186
+  $s$fAllCTRender:a4 ::
+    Servant.API.ContentTypes.AllCTRender
+      '[Servant.API.ContentTypes.JSON] CommonResources.Response
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ CommonResources.Response
+                  (Servant.API.ContentTypes.$fAllCTRender:a_$cp1AllCTRender
+                     @ Servant.API.ContentTypes.JSON
+                     @ '[]
+                     @ CommonResources.Response
+                     Servant.API.ContentTypes.$fAcceptTYPEJSON_$ccontentType
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:Accept[0]
+                               <*>_N <Servant.API.ContentTypes.JSON>_N))
+                     Servant.API.ContentTypes.$fAllMimeUnrender[]a_$callMime
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
+                     FileServer.$s$fAllCTRender:a5)
+                  (Servant.API.ContentTypes.$fAllCTRender:a_$chandleAcceptH
+                     @ Servant.API.ContentTypes.JSON
+                     @ '[]
+                     @ CommonResources.Response
+                     Servant.API.ContentTypes.$fAcceptTYPEJSON_$ccontentType
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:Accept[0]
+                               <*>_N <Servant.API.ContentTypes.JSON>_N))
+                     Servant.API.ContentTypes.$fAllMimeUnrender[]a_$callMime
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
+                     FileServer.$s$fAllCTRender:a5) -}
+141937381ab8168ef141bea45818117a
+  $s$fAllCTRender:a5 ::
+    Servant.API.ContentTypes.AllMimeRender
+      '[Servant.API.ContentTypes.JSON] CommonResources.Response
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                FileServer.$s$fAllCTRender:a_$s$fAllMimeRender:a1 -}
+c6205aa15b91882f1f8a1e3a118ad37d
+  $s$fAllCTRender:a6 ::
+    Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
+    -> CommonResources.Response
+    -> [(Network.HTTP.Media.MediaType.Internal.MediaType,
+         Data.ByteString.Lazy.Internal.ByteString)]
+  {- Arity: 2, Strictness: <L,A><L,1*U(1*U)>m2,
+     Unfolding: InlineRule (2, True, False)
+                (\ (eta :: Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON])
+                   (eta1 :: CommonResources.Response) ->
+                 GHC.Types.:
+                   @ (Network.HTTP.Media.MediaType.Internal.MediaType,
+                      Data.ByteString.Lazy.Internal.ByteString)
+                   (Servant.API.ContentTypes.$fAcceptTYPEJSON1,
+                    Data.ByteString.Builder.toLazyByteString
+                      (Data.Aeson.Encode.Builder.encodeToBuilder
+                         (CommonResources.$fToJSONResponse1 eta1)
+                           `cast`
+                         (Data.Aeson.Types.Generic.N:Tagged[0]
+                              <Data.Aeson.Types.Generic.True>_P
+                              <Data.Aeson.Types.Internal.Value>_R)))
+                   (GHC.Types.[]
+                      @ (Network.HTTP.Media.MediaType.Internal.MediaType,
+                         Data.ByteString.Lazy.Internal.ByteString))) -}
+680ef2cb5973a8f498485d6b8abc02e1
+  $s$fAllCTRender:a7 ::
+    Servant.API.ContentTypes.MimeRender
+      Servant.API.ContentTypes.JSON CommonResources.Response
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                FileServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa1 -}
+9b812980e58ab751e94a864f27cbd644
+  $s$fAllCTRender:a8 ::
+    Servant.API.ContentTypes.AllCTRender
+      '[Servant.API.ContentTypes.JSON] CommonResources.File
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ CommonResources.File
+                  (Servant.API.ContentTypes.$fAllCTRender:a_$cp1AllCTRender
+                     @ Servant.API.ContentTypes.JSON
+                     @ '[]
+                     @ CommonResources.File
+                     Servant.API.ContentTypes.$fAcceptTYPEJSON_$ccontentType
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:Accept[0]
+                               <*>_N <Servant.API.ContentTypes.JSON>_N))
+                     Servant.API.ContentTypes.$fAllMimeUnrender[]a_$callMime
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
+                     FileServer.$s$fAllCTRender:a9)
+                  (Servant.API.ContentTypes.$fAllCTRender:a_$chandleAcceptH
+                     @ Servant.API.ContentTypes.JSON
+                     @ '[]
+                     @ CommonResources.File
+                     Servant.API.ContentTypes.$fAcceptTYPEJSON_$ccontentType
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:Accept[0]
+                               <*>_N <Servant.API.ContentTypes.JSON>_N))
+                     Servant.API.ContentTypes.$fAllMimeUnrender[]a_$callMime
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
+                     FileServer.$s$fAllCTRender:a9) -}
+f476ad56d90e2f599e8adb077b2c0ef6
+  $s$fAllCTRender:a9 ::
+    Servant.API.ContentTypes.AllMimeRender
+      '[Servant.API.ContentTypes.JSON] CommonResources.File
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                FileServer.$s$fAllCTRender:a_$s$fAllMimeRender:a2 -}
+8712d965d551a220f411f187323a50af
+  $s$fAllCTRender:a_$s$fAllMimeRender:a0 ::
+    Servant.API.ContentTypes.AllMimeRender
+      '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ [GHC.IO.FilePath]
+                  (Servant.API.ContentTypes.$fAllMimeRender:a0_$cp1AllMimeRender
+                     @ Servant.API.ContentTypes.JSON
+                     @ [GHC.IO.FilePath]
+                     FileServer.$s$fAllCTRender:a3)
+                  FileServer.$s$fAllCTRender:a_$s$fAllMimeRender:a0_$callMimeRender -}
+a4e8d09a8c997e0a26dc32f0a2c0d312
+  $s$fAllCTRender:a_$s$fAllMimeRender:a0_$callMimeRender ::
+    Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
+    -> [GHC.IO.FilePath]
+    -> [(Network.HTTP.Media.MediaType.Internal.MediaType,
+         Data.ByteString.Lazy.Internal.ByteString)]
+  {- Arity: 2, Strictness: <L,A><L,1*U>m2,
+     Unfolding: InlineRule (2, True, False)
+                (\ (eta :: Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON])
+                   (eta1 :: [GHC.IO.FilePath]) ->
+                 GHC.Types.:
+                   @ (Network.HTTP.Media.MediaType.Internal.MediaType,
+                      Data.ByteString.Lazy.Internal.ByteString)
+                   ((Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cp1MimeRender
+                       @ [GHC.IO.FilePath]
+                       FileServer.$s$fAllCTRender:a2)
+                      `cast`
+                    (Servant.API.ContentTypes.N:Accept[0]
+                         <GHC.Types.*>_N <Servant.API.ContentTypes.JSON>_N)
+                      (Data.Proxy.Proxy @ GHC.Types.* @ Servant.API.ContentTypes.JSON),
+                    FileServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender
+                      (Data.Proxy.Proxy @ GHC.Types.* @ Servant.API.ContentTypes.JSON)
+                      eta1)
+                   (GHC.Types.[]
+                      @ (Network.HTTP.Media.MediaType.Internal.MediaType,
+                         Data.ByteString.Lazy.Internal.ByteString))) -}
+5c9517a5cffd8b430b09db78e783d987
+  $s$fAllCTRender:a_$s$fAllMimeRender:a1 ::
+    Servant.API.ContentTypes.AllMimeRender
+      '[Servant.API.ContentTypes.JSON] CommonResources.Response
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ CommonResources.Response
+                  (Servant.API.ContentTypes.$fAllMimeRender:a0_$cp1AllMimeRender
+                     @ Servant.API.ContentTypes.JSON
+                     @ CommonResources.Response
+                     FileServer.$s$fAllCTRender:a7)
+                  FileServer.$s$fAllCTRender:a6 -}
+d6449a1cdbd010c2b54e82e7579b5006
+  $s$fAllCTRender:a_$s$fAllMimeRender:a2 ::
+    Servant.API.ContentTypes.AllMimeRender
+      '[Servant.API.ContentTypes.JSON] CommonResources.File
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ CommonResources.File
+                  (Servant.API.ContentTypes.$fAllMimeRender:a0_$cp1AllMimeRender
+                     @ Servant.API.ContentTypes.JSON
+                     @ CommonResources.File
+                     FileServer.$s$fAllCTRender:a11)
+                  FileServer.$s$fAllCTRender:a10 -}
+94d56cd1d893fc7c5c8fced0b344f238
+  $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa ::
+    Servant.API.ContentTypes.MimeRender
+      Servant.API.ContentTypes.JSON [GHC.IO.FilePath]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ [GHC.IO.FilePath]
+                  (Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cp1MimeRender
+                     @ [GHC.IO.FilePath]
+                     FileServer.$s$fAllCTRender:a2)
+                  FileServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender -}
+8ae8ac986df7572f17a48c85c10e1a81
+  $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa1 ::
+    Servant.API.ContentTypes.MimeRender
+      Servant.API.ContentTypes.JSON CommonResources.Response
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ CommonResources.Response
+                  (Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cp1MimeRender
+                     @ CommonResources.Response
+                     CommonResources.$fToJSONResponse)
+                  FileServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender1 -}
+e4d1f1c0c5e5768fd2e1a8112ca57208
+  $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa2 ::
+    Servant.API.ContentTypes.MimeRender
+      Servant.API.ContentTypes.JSON CommonResources.File
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ CommonResources.File
+                  (Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cp1MimeRender
+                     @ CommonResources.File
+                     CommonResources.$fToJSONFile)
+                  FileServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender2 -}
+6e5e80324518889b5b6014376ce078ac
+  $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> [GHC.IO.FilePath] -> Data.ByteString.Lazy.Internal.ByteString
+  {- Arity: 2, Strictness: <L,A><L,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
+                   (eta :: [GHC.IO.FilePath]) ->
+                 Data.ByteString.Builder.toLazyByteString
+                   (case eta of wild {
+                      []
+                      -> Data.Aeson.Types.Internal.fromEncoding
+                           Data.Aeson.Encode.Builder.emptyArray_
+                      : x xs
+                      -> Data.Aeson.Types.Internal.fromEncoding
+                           (GHC.Base.$
+                              @ 'GHC.Types.PtrRepLifted
+                              @ Data.ByteString.Builder.Internal.Builder
+                              @ Data.Aeson.Types.Internal.Encoding
+                              (\ (tpl :: Data.ByteString.Builder.Internal.Builder) -> tpl)
+                                `cast`
+                              (<Data.ByteString.Builder.Internal.Builder>_R
+                               ->_R Sym (Data.Aeson.Types.Internal.N:Encoding[0]))
+                              (Data.ByteString.Builder.Internal.append
+                                 (Data.ByteString.Builder.Prim.primBounded
+                                    @ GHC.Types.Char
+                                    (Data.ByteString.Builder.Prim.Internal.toB
+                                       @ GHC.Types.Char
+                                       Data.ByteString.Builder.Prim.ASCII.char7)
+                                    (GHC.Types.C# '['#))
+                                 (Data.ByteString.Builder.Internal.append
+                                    (Data.Aeson.Types.Internal.fromEncoding
+                                       (Data.Aeson.Encode.Builder.string x)
+                                         `cast`
+                                       (Sym (Data.Aeson.Types.Internal.N:Encoding[0])))
+                                    (Data.ByteString.Builder.Internal.append
+                                       (GHC.Base.foldr
+                                          @ [GHC.Types.Char]
+                                          @ Data.ByteString.Builder.Internal.Builder
+                                          (\ (v :: [GHC.Types.Char])
+                                             (vs :: Data.ByteString.Builder.Internal.Builder)[OneShot] ->
+                                           Data.ByteString.Builder.Internal.append
+                                             (Data.ByteString.Builder.Prim.primBounded
+                                                @ GHC.Types.Char
+                                                (Data.ByteString.Builder.Prim.Internal.toB
+                                                   @ GHC.Types.Char
+                                                   Data.ByteString.Builder.Prim.ASCII.char7)
+                                                (GHC.Types.C# ','#))
+                                             (Data.ByteString.Builder.Internal.append
+                                                (Data.Aeson.Types.Internal.fromEncoding
+                                                   (Data.Aeson.Encode.Builder.string v)
+                                                     `cast`
+                                                   (Sym (Data.Aeson.Types.Internal.N:Encoding[0])))
+                                                vs))
+                                          Data.ByteString.Builder.Internal.empty
+                                          xs)
+                                       (Data.ByteString.Builder.Prim.primBounded
+                                          @ GHC.Types.Char
+                                          (Data.ByteString.Builder.Prim.Internal.toB
+                                             @ GHC.Types.Char
+                                             Data.ByteString.Builder.Prim.ASCII.char7)
+                                          (GHC.Types.C# ']'#)))))) })) -}
+f690e6c3ea8eac5f5de6a9be291217ba
+  $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender1 ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> CommonResources.Response
+    -> Data.ByteString.Lazy.Internal.ByteString
+  {- Arity: 2, Strictness: <L,A><L,1*U(1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
+                   (eta :: CommonResources.Response) ->
+                 Data.ByteString.Builder.toLazyByteString
+                   (Data.Aeson.Types.Internal.fromEncoding
+                      (Data.Aeson.Encode.Builder.encodeToBuilder
+                         (CommonResources.$fToJSONResponse_$ctoJSON eta))
+                        `cast`
+                      (Sym (Data.Aeson.Types.Internal.N:Encoding[0])))) -}
+80e603e5773f976aca91e7073236afbd
+  $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender2 ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> CommonResources.File -> Data.ByteString.Lazy.Internal.ByteString
+  {- Arity: 2, Strictness: <L,A><L,1*U(1*U,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
+                   (eta :: CommonResources.File) ->
+                 Data.ByteString.Builder.toLazyByteString
+                   (Data.Aeson.Types.Internal.fromEncoding
+                      (Data.Aeson.Encode.Builder.encodeToBuilder
+                         (CommonResources.$fToJSONFile_$ctoJSON eta))
+                        `cast`
+                      (Sym (Data.Aeson.Types.Internal.N:Encoding[0])))) -}
+e2c4d4be561836a5b9ca87508c985cfe
+  $s$fAllCTRender:a_$s$fToJSON[] ::
+    Data.Aeson.Types.Class.ToJSON [[GHC.Types.Char]]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ [[GHC.Types.Char]]
+                  (\ (eta :: [[GHC.Types.Char]]) ->
+                   case Data.Vector.Generic.new
+                          @ Data.Vector.Vector
+                          @ Data.Aeson.Types.Internal.Value
+                          (Data.Vector.$fVectorVectora @ Data.Aeson.Types.Internal.Value)
+                          (Data.Vector.Generic.New.unstream
+                             @ Data.Vector.Vector
+                             @ Data.Aeson.Types.Internal.Value
+                             (Data.Vector.$fVectorVectora @ Data.Aeson.Types.Internal.Value)
+                             (Data.Vector.Fusion.Bundle.Monadic.unsafeFromList
+                                @ Data.Vector.Fusion.Util.Id
+                                @ Data.Aeson.Types.Internal.Value
+                                @ Data.Vector.Vector
+                                Data.Vector.Fusion.Util.$fMonadId
+                                Data.Vector.Fusion.Bundle.Size.Unknown
+                                (GHC.Base.build
+                                   @ Data.Aeson.Types.Internal.Value
+                                   (\ @ b1
+                                      (c :: Data.Aeson.Types.Internal.Value -> b1 -> b1)[OneShot]
+                                      (n :: b1)[OneShot] ->
+                                    GHC.Base.foldr
+                                      @ [GHC.Types.Char]
+                                      @ b1
+                                      (GHC.Base.mapFB
+                                         @ Data.Aeson.Types.Internal.Value
+                                         @ b1
+                                         @ [GHC.Types.Char]
+                                         c
+                                         Data.Aeson.Types.Instances.$fToJSON[]0_$ctoJSON)
+                                      n
+                                      eta)))) of dt { Data.Vector.Vector ipv ipv1 ipv2 ->
+                   Data.Aeson.Types.Internal.Array dt })
+                  (Data.Aeson.Types.Instances.$fToJSON[]_$ctoEncoding
+                     @ [GHC.Types.Char]
+                     Data.Aeson.Types.Instances.$fToJSON[]0) -}
+dc9e67966151af718f4f4dda4ed700ae
+  $s$fAllMimeUnrender:a ::
+    Servant.API.ContentTypes.AllMimeUnrender
+      '[Servant.API.ContentTypes.JSON] CommonResources.FileUpload
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ CommonResources.FileUpload
+                  (Servant.API.ContentTypes.$fAllMimeUnrender:a_$cp1AllMimeUnrender
+                     @ Servant.API.ContentTypes.JSON
+                     @ CommonResources.FileUpload
+                     @ '[]
+                     FileServer.$s$fAllMimeUnrender:a1
+                     (Servant.API.ContentTypes.$fAllMimeUnrender[]a
+                        @ CommonResources.FileUpload))
+                  (Servant.API.ContentTypes.$fAllMimeUnrender:a_$callMimeUnrender
+                     @ Servant.API.ContentTypes.JSON
+                     @ CommonResources.FileUpload
+                     @ '[]
+                     FileServer.$s$fAllMimeUnrender:a1
+                     (Servant.API.ContentTypes.$fAllMimeUnrender[]a
+                        @ CommonResources.FileUpload)) -}
+1d96bbd8b756fa2dea8c5dd918f4a6db
+  $s$fAllMimeUnrender:a1 ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON CommonResources.FileUpload
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                FileServer.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa -}
+41f1af8d557e029acc18dcd574c2ae70
+  $s$fAllMimeUnrender:a2 ::
+    Servant.API.ContentTypes.AllMimeUnrender
+      '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ CommonResources.FileName
+                  (Servant.API.ContentTypes.$fAllMimeUnrender:a_$cp1AllMimeUnrender
+                     @ Servant.API.ContentTypes.JSON
+                     @ CommonResources.FileName
+                     @ '[]
+                     FileServer.$s$fAllMimeUnrender:a3
+                     (Servant.API.ContentTypes.$fAllMimeUnrender[]a
+                        @ CommonResources.FileName))
+                  (Servant.API.ContentTypes.$fAllMimeUnrender:a_$callMimeUnrender
+                     @ Servant.API.ContentTypes.JSON
+                     @ CommonResources.FileName
+                     @ '[]
+                     FileServer.$s$fAllMimeUnrender:a3
+                     (Servant.API.ContentTypes.$fAllMimeUnrender[]a
+                        @ CommonResources.FileName)) -}
+61ef11aa11d3fda4c2c16c45184a7585
+  $s$fAllMimeUnrender:a3 ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON CommonResources.FileName
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                FileServer.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa1 -}
+a5b839d00dc9c297e86f9aa50d1bd838
+  $s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON CommonResources.FileUpload
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ CommonResources.FileUpload
+                  (Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cp1MimeUnrender
+                     @ CommonResources.FileUpload
+                     CommonResources.$fFromJSONFileUpload_$cparseJSON
+                       `cast`
+                     (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                               <CommonResources.FileUpload>_N)))
+                  FileServer.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender -}
+830bfc71f7a24d230e9fbb17df3ac5e5
+  $s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa1 ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON CommonResources.FileName
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ CommonResources.FileName
+                  (Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cp1MimeUnrender
+                     @ CommonResources.FileName
+                     CommonResources.$fFromJSONFileName_$cparseJSON
+                       `cast`
+                     (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                               <CommonResources.FileName>_N)))
+                  FileServer.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender1 -}
+5690f21175170469877d8503a71d4708
+  $s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.Either.Either GHC.Base.String CommonResources.FileUpload
+  {- Arity: 2, Strictness: <L,A><S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
+                   (eta :: Data.ByteString.Lazy.Internal.ByteString) ->
+                 Servant.API.ContentTypes.eitherDecodeLenient
+                   @ CommonResources.FileUpload
+                   CommonResources.$fFromJSONFileUpload_$cparseJSON
+                     `cast`
+                   (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                             <CommonResources.FileUpload>_N))
+                   eta) -}
+022cc3b026fbe846f1c3bd1fe6e8ad56
+  $s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender1 ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.Either.Either GHC.Base.String CommonResources.FileName
+  {- Arity: 2, Strictness: <L,A><S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
+                   (eta :: Data.ByteString.Lazy.Internal.ByteString) ->
+                 Servant.API.ContentTypes.eitherDecodeLenient
+                   @ CommonResources.FileName
+                   CommonResources.$fFromJSONFileName_$cparseJSON
+                     `cast`
+                   (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                             <CommonResources.FileName>_N))
+                   eta) -}
+ed20f10c1739e123e29e6d3c4c1b63a5
+  $s$fMimeUnrenderTYPEJSONa6 ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON CommonResources.Response
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ CommonResources.Response
+                  (Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cp1MimeUnrender
+                     @ CommonResources.Response
+                     CommonResources.$fFromJSONResponse_$cparseJSON
+                       `cast`
+                     (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                               <CommonResources.Response>_N)))
+                  FileServer.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender1 -}
+0a0f0d89e99a68261e40dad69d773b04
+  $s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender1 ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.Either.Either GHC.Base.String CommonResources.Response
+  {- Arity: 2, Strictness: <L,A><S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
+                   (eta :: Data.ByteString.Lazy.Internal.ByteString) ->
+                 Servant.API.ContentTypes.eitherDecodeLenient
+                   @ CommonResources.Response
+                   CommonResources.$fFromJSONResponse_$cparseJSON
+                     `cast`
+                   (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                             <CommonResources.Response>_N))
+                   eta) -}
+5ffe8fdb67cbaa51d3efe2e38766324f
+  $sserve2 ::
+    Data.Proxy.Proxy
+      (("files"
+        Servant.API.Sub.:> Servant.API.Verbs.Get
+                             '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath])
+       Servant.API.Alternative.:<|> (("download"
+                                      Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                            '[Servant.API.ContentTypes.JSON]
+                                                            CommonResources.FileName
+                                                          Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                               '[Servant.API.ContentTypes.JSON]
+                                                                               CommonResources.File))
+                                     Servant.API.Alternative.:<|> (("upload"
+                                                                    Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                          '[Servant.API.ContentTypes.JSON]
+                                                                                          CommonResources.FileUpload
+                                                                                        Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                             '[Servant.API.ContentTypes.JSON]
+                                                                                                             CommonResources.Response))
+                                                                   Servant.API.Alternative.:<|> ("delete"
+                                                                                                 Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                       '[Servant.API.ContentTypes.JSON]
+                                                                                                                       CommonResources.FileName
+                                                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                          '[Servant.API.ContentTypes.JSON]
+                                                                                                                                          CommonResources.Response)))))
+    -> Servant.Server.Internal.Context.Context '[]
+    -> Servant.Server.Internal.RoutingApplication.Delayed
+         env
+         (Servant.Server.Internal.Server
+            (("files"
+              Servant.API.Sub.:> Servant.API.Verbs.Get
+                                   '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath])
+             Servant.API.Alternative.:<|> (("download"
+                                            Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.FileName
+                                                                Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                     '[Servant.API.ContentTypes.JSON]
+                                                                                     CommonResources.File))
+                                           Servant.API.Alternative.:<|> (("upload"
+                                                                          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                '[Servant.API.ContentTypes.JSON]
+                                                                                                CommonResources.FileUpload
+                                                                                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                   '[Servant.API.ContentTypes.JSON]
+                                                                                                                   CommonResources.Response))
+                                                                         Servant.API.Alternative.:<|> ("delete"
+                                                                                                       Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                             '[Servant.API.ContentTypes.JSON]
+                                                                                                                             CommonResources.FileName
+                                                                                                                           Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                                '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                CommonResources.Response))))))
+    -> Servant.Server.Internal.Router.Router'
+         env Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Arity: 3, Strictness: <S,1*H><L,U><L,U>, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ env
+                   (w :: Data.Proxy.Proxy
+                           (("files"
+                             Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                  '[Servant.API.ContentTypes.JSON]
+                                                  [GHC.IO.FilePath])
+                            Servant.API.Alternative.:<|> (("download"
+                                                           Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                 '[Servant.API.ContentTypes.JSON]
+                                                                                 CommonResources.FileName
+                                                                               Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                    '[Servant.API.ContentTypes.JSON]
+                                                                                                    CommonResources.File))
+                                                          Servant.API.Alternative.:<|> (("upload"
+                                                                                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                               '[Servant.API.ContentTypes.JSON]
+                                                                                                               CommonResources.FileUpload
+                                                                                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                                                                                  CommonResources.Response))
+                                                                                        Servant.API.Alternative.:<|> ("delete"
+                                                                                                                      Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                                            '[Servant.API.ContentTypes.JSON]
+                                                                                                                                            CommonResources.FileName
+                                                                                                                                          Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                                               '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                               CommonResources.Response))))))
+                   (w1 :: Servant.Server.Internal.Context.Context '[])
+                   (w2 :: Servant.Server.Internal.RoutingApplication.Delayed
+                            env
+                            (Servant.Server.Internal.Server
+                               (("files"
+                                 Servant.API.Sub.:> Servant.API.Verbs.Get
+                                                      '[Servant.API.ContentTypes.JSON]
+                                                      [GHC.IO.FilePath])
+                                Servant.API.Alternative.:<|> (("download"
+                                                               Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                     '[Servant.API.ContentTypes.JSON]
+                                                                                     CommonResources.FileName
+                                                                                   Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                        '[Servant.API.ContentTypes.JSON]
+                                                                                                        CommonResources.File))
+                                                              Servant.API.Alternative.:<|> (("upload"
+                                                                                             Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                   '[Servant.API.ContentTypes.JSON]
+                                                                                                                   CommonResources.FileUpload
+                                                                                                                 Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                      '[Servant.API.ContentTypes.JSON]
+                                                                                                                                      CommonResources.Response))
+                                                                                            Servant.API.Alternative.:<|> ("delete"
+                                                                                                                          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                                                '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                CommonResources.FileName
+                                                                                                                                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                                                   '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                                   CommonResources.Response))))))) ->
+                 case w of w3 { Data.Proxy.Proxy ->
+                 FileServer.$w$dHasServer
+                   @ env
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (("files"
+                          Servant.API.Sub.:> Servant.API.Verbs.Get
+                                               '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath])
+                         Servant.API.Alternative.:<|> (("download"
+                                                        Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                              '[Servant.API.ContentTypes.JSON]
+                                                                              CommonResources.FileName
+                                                                            Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                 '[Servant.API.ContentTypes.JSON]
+                                                                                                 CommonResources.File))
+                                                       Servant.API.Alternative.:<|> (("upload"
+                                                                                      Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                            '[Servant.API.ContentTypes.JSON]
+                                                                                                            CommonResources.FileUpload
+                                                                                                          Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                               '[Servant.API.ContentTypes.JSON]
+                                                                                                                               CommonResources.Response))
+                                                                                     Servant.API.Alternative.:<|> ("delete"
+                                                                                                                   Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                                         '[Servant.API.ContentTypes.JSON]
+                                                                                                                                         CommonResources.FileName
+                                                                                                                                       Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                                            '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                            CommonResources.Response))))))
+                   w1
+                   w2 }) -}
+56c70bb3d74f6c5efbd48a6b90931dd9
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   FileServer.$trModule2
+                   FileServer.$trModule1) -}
+989273ddb2acfc38c27e20418f1ef121
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "FileServer"#) -}
+6df8fd40abbb2ded0701f05a38c34935
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "FileServer-0.1.0.0-2xQQWPr9p7nWBP1v47ULz"#) -}
+652321bc7449a0d4b05fa1f4474404cb
+  $w$dHasServer ::
+    Data.Proxy.Proxy
+      (("files"
+        Servant.API.Sub.:> Servant.API.Verbs.Get
+                             '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath])
+       Servant.API.Alternative.:<|> (("download"
+                                      Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                            '[Servant.API.ContentTypes.JSON]
+                                                            CommonResources.FileName
+                                                          Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                               '[Servant.API.ContentTypes.JSON]
+                                                                               CommonResources.File))
+                                     Servant.API.Alternative.:<|> (("upload"
+                                                                    Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                          '[Servant.API.ContentTypes.JSON]
+                                                                                          CommonResources.FileUpload
+                                                                                        Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                             '[Servant.API.ContentTypes.JSON]
+                                                                                                             CommonResources.Response))
+                                                                   Servant.API.Alternative.:<|> ("delete"
+                                                                                                 Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                       '[Servant.API.ContentTypes.JSON]
+                                                                                                                       CommonResources.FileName
+                                                                                                                     Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                          '[Servant.API.ContentTypes.JSON]
+                                                                                                                                          CommonResources.Response)))))
+    -> Servant.Server.Internal.Context.Context '[]
+    -> Servant.Server.Internal.RoutingApplication.Delayed
+         env
+         (Servant.Server.Internal.Server
+            (("files"
+              Servant.API.Sub.:> Servant.API.Verbs.Get
+                                   '[Servant.API.ContentTypes.JSON] [GHC.IO.FilePath])
+             Servant.API.Alternative.:<|> (("download"
+                                            Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.FileName
+                                                                Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                     '[Servant.API.ContentTypes.JSON]
+                                                                                     CommonResources.File))
+                                           Servant.API.Alternative.:<|> (("upload"
+                                                                          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                '[Servant.API.ContentTypes.JSON]
+                                                                                                CommonResources.FileUpload
+                                                                                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                   '[Servant.API.ContentTypes.JSON]
+                                                                                                                   CommonResources.Response))
+                                                                         Servant.API.Alternative.:<|> ("delete"
+                                                                                                       Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                                                             '[Servant.API.ContentTypes.JSON]
+                                                                                                                             CommonResources.FileName
+                                                                                                                           Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                                '[Servant.API.ContentTypes.JSON]
+                                                                                                                                                CommonResources.Response))))))
+    -> Servant.Server.Internal.Router.Router'
+         env Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Arity: 3, Strictness: <S,1*H><L,U><L,U>, Inline: [0] -}
+22f2ee294f5e91d118e50284d3c6b557
+  type ApiHandler =
+    Control.Monad.Trans.Except.ExceptT
+      Servant.Server.Internal.ServantErr.ServantErr GHC.Types.IO
+    :: * -> *
+ec4488a82298dcd0df8a36315f6dfc2c
+  mkApp :: GHC.Types.Int -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <L,U(U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                FileServer.mkApp1
+                  `cast`
+                (<GHC.Types.Int>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+004ff26a4af2f66b452f4a213b14b828
+  mkApp1 ::
+    GHC.Types.Int
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <L,U(U)><S,U> -}
+"SPEC/FileServer $fAllCTRender:a @ JSON @ '[] @ File" [ALWAYS] forall ($dAccept :: Servant.API.ContentTypes.Accept
+                                                                                     Servant.API.ContentTypes.JSON)
+                                                                      ($dAllMime :: Servant.API.ContentTypes.AllMime
+                                                                                      '[])
+                                                                      ($dAllMimeRender :: Servant.API.ContentTypes.AllMimeRender
+                                                                                            '[Servant.API.ContentTypes.JSON]
+                                                                                            CommonResources.File)
+  Servant.API.ContentTypes.$fAllCTRender:a @ Servant.API.ContentTypes.JSON
+                                           @ '[]
+                                           @ CommonResources.File
+                                           $dAccept
+                                           $dAllMime
+                                           $dAllMimeRender
+  = FileServer.$s$fAllCTRender:a8
+"SPEC/FileServer $fAllCTRender:a @ JSON @ '[] @ Response" [ALWAYS] forall ($dAccept :: Servant.API.ContentTypes.Accept
+                                                                                         Servant.API.ContentTypes.JSON)
+                                                                          ($dAllMime :: Servant.API.ContentTypes.AllMime
+                                                                                          '[])
+                                                                          ($dAllMimeRender :: Servant.API.ContentTypes.AllMimeRender
+                                                                                                '[Servant.API.ContentTypes.JSON]
+                                                                                                CommonResources.Response)
+  Servant.API.ContentTypes.$fAllCTRender:a @ Servant.API.ContentTypes.JSON
+                                           @ '[]
+                                           @ CommonResources.Response
+                                           $dAccept
+                                           $dAllMime
+                                           $dAllMimeRender
+  = FileServer.$s$fAllCTRender:a4
+"SPEC/FileServer $fAllCTRender:a @ JSON @ '[] @ [FilePath]" [ALWAYS] forall ($dAccept :: Servant.API.ContentTypes.Accept
+                                                                                           Servant.API.ContentTypes.JSON)
+                                                                            ($dAllMime :: Servant.API.ContentTypes.AllMime
+                                                                                            '[])
+                                                                            ($dAllMimeRender :: Servant.API.ContentTypes.AllMimeRender
+                                                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                                                  [GHC.IO.FilePath])
+  Servant.API.ContentTypes.$fAllCTRender:a @ Servant.API.ContentTypes.JSON
+                                           @ '[]
+                                           @ [GHC.IO.FilePath]
+                                           $dAccept
+                                           $dAllMime
+                                           $dAllMimeRender
+  = FileServer.$s$fAllCTRender:a
+"SPEC/FileServer $fAllMimeRender:a0 @ JSON @ File" [ALWAYS] forall ($dMimeRender :: Servant.API.ContentTypes.MimeRender
+                                                                                      Servant.API.ContentTypes.JSON
+                                                                                      CommonResources.File)
+  Servant.API.ContentTypes.$fAllMimeRender:a0 @ Servant.API.ContentTypes.JSON
+                                              @ CommonResources.File
+                                              $dMimeRender
+  = FileServer.$s$fAllCTRender:a_$s$fAllMimeRender:a2
+"SPEC/FileServer $fAllMimeRender:a0 @ JSON @ Response" [ALWAYS] forall ($dMimeRender :: Servant.API.ContentTypes.MimeRender
+                                                                                          Servant.API.ContentTypes.JSON
+                                                                                          CommonResources.Response)
+  Servant.API.ContentTypes.$fAllMimeRender:a0 @ Servant.API.ContentTypes.JSON
+                                              @ CommonResources.Response
+                                              $dMimeRender
+  = FileServer.$s$fAllCTRender:a_$s$fAllMimeRender:a1
+"SPEC/FileServer $fAllMimeRender:a0 @ JSON @ [FilePath]" [ALWAYS] forall ($dMimeRender :: Servant.API.ContentTypes.MimeRender
+                                                                                            Servant.API.ContentTypes.JSON
+                                                                                            [GHC.IO.FilePath])
+  Servant.API.ContentTypes.$fAllMimeRender:a0 @ Servant.API.ContentTypes.JSON
+                                              @ [GHC.IO.FilePath]
+                                              $dMimeRender
+  = FileServer.$s$fAllCTRender:a_$s$fAllMimeRender:a0
+"SPEC/FileServer $fAllMimeRender:a0_$callMimeRender @ JSON @ [FilePath]" [ALWAYS] forall ($dMimeRender :: Servant.API.ContentTypes.MimeRender
+                                                                                                            Servant.API.ContentTypes.JSON
+                                                                                                            [GHC.IO.FilePath])
+  Servant.API.ContentTypes.$fAllMimeRender:a0_$callMimeRender @ Servant.API.ContentTypes.JSON
+                                                              @ [GHC.IO.FilePath]
+                                                              $dMimeRender
+  = FileServer.$s$fAllCTRender:a_$s$fAllMimeRender:a0_$callMimeRender
+"SPEC/FileServer $fAllMimeUnrender:a @ JSON @ FileName @ '[]" [ALWAYS] forall ($dMimeUnrender :: Servant.API.ContentTypes.MimeUnrender
+                                                                                                   Servant.API.ContentTypes.JSON
+                                                                                                   CommonResources.FileName)
+                                                                              ($dAllMimeUnrender :: Servant.API.ContentTypes.AllMimeUnrender
+                                                                                                      '[]
+                                                                                                      CommonResources.FileName)
+  Servant.API.ContentTypes.$fAllMimeUnrender:a @ Servant.API.ContentTypes.JSON
+                                               @ CommonResources.FileName
+                                               @ '[]
+                                               $dMimeUnrender
+                                               $dAllMimeUnrender
+  = FileServer.$s$fAllMimeUnrender:a2
+"SPEC/FileServer $fAllMimeUnrender:a @ JSON @ FileUpload @ '[]" [ALWAYS] forall ($dMimeUnrender :: Servant.API.ContentTypes.MimeUnrender
+                                                                                                     Servant.API.ContentTypes.JSON
+                                                                                                     CommonResources.FileUpload)
+                                                                                ($dAllMimeUnrender :: Servant.API.ContentTypes.AllMimeUnrender
+                                                                                                        '[]
+                                                                                                        CommonResources.FileUpload)
+  Servant.API.ContentTypes.$fAllMimeUnrender:a @ Servant.API.ContentTypes.JSON
+                                               @ CommonResources.FileUpload
+                                               @ '[]
+                                               $dMimeUnrender
+                                               $dAllMimeUnrender
+  = FileServer.$s$fAllMimeUnrender:a
+"SPEC/FileServer $fMimeRenderTYPEJSONa @ File" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
+                                                                              CommonResources.File)
+  Servant.API.ContentTypes.$fMimeRenderTYPEJSONa @ CommonResources.File
+                                                 $dToJSON
+  = FileServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa2
+"SPEC/FileServer $fMimeRenderTYPEJSONa @ Response" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
+                                                                                  CommonResources.Response)
+  Servant.API.ContentTypes.$fMimeRenderTYPEJSONa @ CommonResources.Response
+                                                 $dToJSON
+  = FileServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa1
+"SPEC/FileServer $fMimeRenderTYPEJSONa @ [FilePath]" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
+                                                                                    [GHC.IO.FilePath])
+  Servant.API.ContentTypes.$fMimeRenderTYPEJSONa @ [GHC.IO.FilePath]
+                                                 $dToJSON
+  = FileServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa
+"SPEC/FileServer $fMimeRenderTYPEJSONa_$cmimeRender @ File" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
+                                                                                           CommonResources.File)
+  Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cmimeRender @ CommonResources.File
+                                                              $dToJSON
+  = FileServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender2
+"SPEC/FileServer $fMimeRenderTYPEJSONa_$cmimeRender @ Response" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
+                                                                                               CommonResources.Response)
+  Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cmimeRender @ CommonResources.Response
+                                                              $dToJSON
+  = FileServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender1
+"SPEC/FileServer $fMimeRenderTYPEJSONa_$cmimeRender @ [FilePath]" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
+                                                                                                 [GHC.IO.FilePath])
+  Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cmimeRender @ [GHC.IO.FilePath]
+                                                              $dToJSON
+  = FileServer.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender
+"SPEC/FileServer $fMimeUnrenderTYPEJSONa @ FileName" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
+                                                                                      CommonResources.FileName)
+  Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa @ CommonResources.FileName
+                                                   $dFromJSON
+  = FileServer.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa1
+"SPEC/FileServer $fMimeUnrenderTYPEJSONa @ FileUpload" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
+                                                                                        CommonResources.FileUpload)
+  Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa @ CommonResources.FileUpload
+                                                   $dFromJSON
+  = FileServer.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa
+"SPEC/FileServer $fMimeUnrenderTYPEJSONa @ Response" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
+                                                                                      CommonResources.Response)
+  Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa @ CommonResources.Response
+                                                   $dFromJSON
+  = FileServer.$s$fMimeUnrenderTYPEJSONa6
+"SPEC/FileServer $fMimeUnrenderTYPEJSONa_$cmimeUnrender @ FileName" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
+                                                                                                     CommonResources.FileName)
+  Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cmimeUnrender @ CommonResources.FileName
+                                                                  $dFromJSON
+  = FileServer.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender1
+"SPEC/FileServer $fMimeUnrenderTYPEJSONa_$cmimeUnrender @ FileUpload" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
+                                                                                                       CommonResources.FileUpload)
+  Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cmimeUnrender @ CommonResources.FileUpload
+                                                                  $dFromJSON
+  = FileServer.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender
+"SPEC/FileServer $fMimeUnrenderTYPEJSONa_$cmimeUnrender @ Response" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
+                                                                                                     CommonResources.Response)
+  Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cmimeUnrender @ CommonResources.Response
+                                                                  $dFromJSON
+  = FileServer.$s$fMimeUnrenderTYPEJSONa_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender1
+"SPEC/FileServer $fToJSON[] @ [Char]" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
+                                                                     [GHC.Types.Char])
+  Data.Aeson.Types.Instances.$fToJSON[] @ [GHC.Types.Char] $dToJSON
+  = FileServer.$s$fAllCTRender:a_$s$fToJSON[]
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

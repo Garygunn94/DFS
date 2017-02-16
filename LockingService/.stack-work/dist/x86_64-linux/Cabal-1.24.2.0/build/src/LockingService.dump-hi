@@ -1,0 +1,1876 @@
+
+==================== FINAL INTERFACE ====================
+2017-02-16 17:51:55.314218 UTC
+
+interface LockingService-0.1.0.0-7k0JqlEeWD7F2VFBzyPr5l:LockingService 8001
+  interface hash: 8771526aaae5d9b03766a882bff45ff1
+  ABI hash: a048d8a074ca5312b6b34874edaa58f9
+  export-list hash: 61d12afab2d3407260bf76e93f092652
+  orphan hash: b8e7447f1aeab68df907853fddee533a
+  flag hash: ab1dddaa39fb8a9e594899798c275a0c
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  LockingService.isFileLocked
+  LockingService.lockFile
+  LockingService.lockingApi
+  LockingService.lockingApp
+  LockingService.mkApp
+  LockingService.server
+  LockingService.unlockFile
+  LockingService.ApiHandler
+module dependencies:
+package dependencies: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0
+                      MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov
+                      aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz
+                      appar-0.1.4@appar-0.1.4-1in4Ewd8JBkAYDZSWXLSe0
+                      array-0.5.1.1@array-0.5.1.1
+                      async-2.1.1@async-2.1.1-xFiBzw9xoB8HPZAuxUY2o
+                      attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR
+                      auto-update-0.1.4@auto-update-0.1.4-GAesfFmqoZzBz6e09kRyzb
+                      base-4.9.0.0
+                      base-compat-0.9.1@base-compat-0.9.1-tmPpmtbHbvIDjFWbkjGrR
+                      base16-bytestring-0.1.1.6@base16-bytestring-0.1.1.6-5dPoF8dzhwzBaEB2MvnmIS
+                      base64-bytestring-1.0.0.1@base64-bytestring-1.0.0.1-In9M41tLtcS9QYt3QpGpNY
+                      binary-0.8.3.0@binary-0.8.3.0
+                      blaze-builder-0.4.0.2@blaze-builder-0.4.0.2-KWDLbdBYSBoALiMW0LHIz1
+                      blaze-html-0.8.1.3@blaze-html-0.8.1.3-8MBPJsFNBtBBD2gWERenva
+                      blaze-markup-0.7.1.1@blaze-markup-0.7.1.1-IE161DWDHNXF9O8bBguli5
+                      bson-0.3.2.3@bson-0.3.2.3-3QA3aP5EtCyCltXUzEKOsQ
+                      bson-generic-0.0.8@bson-generic-0.0.8-DtORpoUHwQhDReLJ5Keop0
+                      byteable-0.1.1@byteable-0.1.1-15aIBCArSOBEnGxArzrDTM
+                      byteorder-1.0.4@byteorder-1.0.4-BbL4c17EpZrL9PcZm0xys9
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      case-insensitive-1.2.0.7@case-insensitive-1.2.0.7-FlqweN7AuKj9EdU2arVEt4
+                      cipher-aes-0.2.11@cipher-aes-0.2.11-6IDqXzfBW6B3WK2bKJbiBh
+                      containers-0.5.7.1@containers-0.5.7.1
+                      cookie-0.4.2.1@cookie-0.4.2.1-2a2c54yIyBn79Ul3iLWclJ
+                      cprng-aes-0.6.1@cprng-aes-0.6.1-COLYQrn2KP0KrG5tq2u9OS
+                      crypto-cipher-types-0.0.9@crypto-cipher-types-0.0.9-Iwzx9devSK6HQoOjujg46u
+                      crypto-random-0.0.9@crypto-random-0.0.9-GQAZIw8UH93GFERaAFFYYo
+                      cryptohash-0.11.9@cryptohash-0.11.9-9KNu0EEbreBFrmNJAeHgYz
+                      cryptonite-0.19@cryptonite-0.19-G9PYO4oOEqhDTta2u9rAaU
+                      data-binary-ieee754-0.4.4@data-binary-ieee754-0.4.4-F1HjhwdV1xx5grS0eMjeg2
+                      data-default-class-0.1.2.0@data-default-class-0.1.2.0-FYQpjIylblBDctdkHAFeXA
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 directory-1.2.6.2@directory-1.2.6.2
+                      dlist-0.8.0.2@dlist-0.8.0.2-GWAMmbX9rLg3tqrbOizHGv
+                      easy-file-0.2.1@easy-file-0.2.1-bAUkz2rC2kFhBbPjw2Of5
+                      exceptions-0.8.3@exceptions-0.8.3-7py7fmRxowDFpHmiHGKrTb
+                      fast-logger-2.4.7@fast-logger-2.4.7-E7H6TuZQzia59KuB50vayl
+                      file-embed-0.0.10@file-embed-0.0.10-IXfudWSq57y1Athysk5ifZ
+                      filepath-1.4.1.0@filepath-1.4.1.0
+                      ghc-boot-th-8.0.1@ghc-boot-th-8.0.1 ghc-prim-0.5.0.0
+                      hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G
+                      hashtables-1.2.1.0@hashtables-1.2.1.0-97BixhaJIWTIDAaThqJujl
+                      hslogger-1.2.10@hslogger-1.2.10-6Ih3VN3QBbAJ6pLH6h3KNu
+                      http-api-data-0.3.2@http-api-data-0.3.2-A22DPUhAmUlrIoBZ4qkGB
+                      http-client-0.4.31.2@http-client-0.4.31.2-81NyMkNcWWADaJ0Cq5FYRE
+                      http-date-0.0.6.1@http-date-0.0.6.1-150spKQYCuoIrltdbMmYGs
+                      http-media-0.6.4@http-media-0.6.4-82jDVCpdN5H696EFF5l5I4
+                      http-types-0.9.1@http-types-0.9.1-8WdUZL4twHzANJbxvb1Aoj
+                      http2-1.6.2@http2-1.6.2-8AbNCX9FS8K1gUe78Emp1g integer-gmp-1.0.0.1
+                      iproute-1.7.1@iproute-1.7.1-9hsGfRvggCmFA0ueZi5Sd9
+                      lifted-base-0.2.3.8@lifted-base-0.2.3.8-KLkd0w1UJqu6nE8oVTTEBy
+                      memory-0.13@memory-0.13-ABHR5331zHK9scHPRr7afU
+                      mime-types-0.1.0.7@mime-types-0.1.0.7-AxQ64wFjikqCSdK5pSeZvh
+                      mmorph-1.0.9@mmorph-1.0.9-DmSwQqk5nLj7roLAcydGz
+                      monad-control-1.0.1.0@monad-control-1.0.1.0-HoNEBoNfniX3vjSfkI7WTT
+                      mongoDB-2.1.1.1@mongoDB-2.1.1.1-5wYXyk7zdwHHB6m4bwUEQN
+                      mtl-2.2.1@mtl-2.2.1-6qsR1PHUy5lL47Hpoa4jCM
+                      network-2.6.3.1@network-2.6.3.1-G4Up1CPKbp7DeFsnywOnGG
+                      network-uri-2.6.1.0@network-uri-2.6.1.0-DDHh2FNiPirBRgkuU9DEt2
+                      nonce-1.0.2@nonce-1.0.2-187zSgt2OIA84d9i9xgwRX
+                      old-locale-1.0.0.7@old-locale-1.0.0.7-6glXNhHF891B41ZfuI8hU8
+                      old-time-1.1.0.3@old-time-1.1.0.3-IcvdkJUsE9M8t3io8peAEp
+                      parsec-3.1.11@parsec-3.1.11-BCos4GEVCuDB8dnOCBHO6X
+                      pretty-1.1.3.3@pretty-1.1.3.3
+                      primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa
+                      psqueues-0.2.2.3@psqueues-0.2.2.3-YN2xKllZOMJLtAgRHlkEw
+                      random-1.1@random-1.1-54KmMHXjttlERYcr1mvsAe
+                      random-shuffle-0.0.4@random-shuffle-0.0.4-LfeDYNPfwrQ2o9p6tw2M9l
+                      resourcet-1.1.8.1@resourcet-1.1.8.1-1XWaZ7RmVde330DM5PRI3Z
+                      safe-0.3.10@safe-0.3.10-1VyrsjWhmjvGnGud5lgW7f
+                      scientific-0.3.4.9@scientific-0.3.4.9-6oTYuCcx6H5BsTGU7D2Gk3
+                      securemem-0.1.9@securemem-0.1.9-AlUbMorzPNe4lwnV15ASIa
+                      servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1
+                      servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3
+                      servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd
+                      simple-sendfile-0.2.25@simple-sendfile-0.2.25-FZS0Stqtwd5AOyFRQgM4IV
+                      stm-2.4.4.1@stm-2.4.4.1-4z2NRWnB0NIIUvSJsHW0kF
+                      streaming-commons-0.1.16@streaming-commons-0.1.16-KtRawhq8O97EWCabefpk66
+                      string-conversions-0.4@string-conversions-0.4-8T0UFmRDEly2gsNJzmHrNQ
+                      tagged-0.8.5@tagged-0.8.5-CtgV6EcN0do8F92i1S6iYx
+                      template-haskell-2.11.0.0
+                      text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s
+                      time-1.6.0.1@time-1.6.0.1
+                      time-locale-compat-0.1.1.3@time-locale-compat-0.1.1.3-1j5dGjxxtiTDuAsO86iSk0
+                      transformers-0.5.2.0@transformers-0.5.2.0
+                      transformers-base-0.4.4@transformers-base-0.4.4-25SoAegOdaF8rLEnnb5jPI
+                      unix-2.7.2.0@unix-2.7.2.0
+                      unix-compat-0.4.3.1@unix-compat-0.4.3.1-GamCWWfiT0318wIeUlpE1K
+                      unix-time-0.3.7@unix-time-0.3.7-HcxGsrnTmTlC98pyanzoMW
+                      unordered-containers-0.2.7.1@unordered-containers-0.2.7.1-Eo9jd5DMz45DhBLCG8skzW
+                      uri-bytestring-0.2.2.1@uri-bytestring-0.2.2.1-LMJUdG9s1QpIQ10mPWMO6d
+                      utf8-string-1.0.1.1@utf8-string-1.0.1.1-2T8mBCuEDlXDo8zed8Onw4
+                      uuid-types-1.0.3@uuid-types-1.0.3-1qmdgBeDGlbCUibOmxVGqx
+                      vault-0.3.0.6@vault-0.3.0.6-CA9Xj82tAPe9nD32xVMgDG
+                      vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6
+                      wai-3.2.1.1@wai-3.2.1.1-f77bMYZGLQBAD3XJrvGiW
+                      wai-app-static-3.1.6.1@wai-app-static-3.1.6.1-Y5BgITaOwCDdLFeUawo4r
+                      wai-logger-2.3.0@wai-logger-2.3.0-IfusT8I9ees2102USHAF8e
+                      warp-3.2.9@warp-3.2.9-1srGDEsq7RWF9RsucFj6bw
+                      word8-0.1.2@word8-0.1.2-2E1SgvvAV2fK8vZPDHbRan
+                      zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV
+orphans: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources
+         MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.Monad.Random
+         aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson.Types.Generic
+         aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson.Types.Instances
+         attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.ByteString.Char8
+         attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Text.Internal
+         base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bson-generic-0.0.8@bson-generic-0.0.8-DtORpoUHwQhDReLJ5Keop0:Data.Bson.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G:Data.Hashable.Generic
+         http-client-0.4.31.2@http-client-0.4.31.2-81NyMkNcWWADaJ0Cq5FYRE:Network.HTTP.Client.Request
+         mongoDB-2.1.1.1@mongoDB-2.1.1.1-5wYXyk7zdwHHB6m4bwUEQN:Database.MongoDB.Internal.Util
+         network-2.6.3.1@network-2.6.3.1-G4Up1CPKbp7DeFsnywOnGG:Network.Socket
+         stm-2.4.4.1@stm-2.4.4.1-4z2NRWnB0NIIUvSJsHW0kF:Control.Monad.STM
+         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text
+         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text.Lazy
+         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text.Show
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+         unix-time-0.3.7@unix-time-0.3.7-HcxGsrnTmTlC98pyanzoMW:Data.UnixTime.Diff
+         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Fusion.Bundle
+         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
+family instance modules: CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources
+                         attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Internal.Types
+                         base-4.9.0.0:Control.Applicative base-4.9.0.0:Data.Complex
+                         base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Compose
+                         base-4.9.0.0:Data.Functor.Const base-4.9.0.0:Data.Functor.Identity
+                         base-4.9.0.0:Data.Functor.Product base-4.9.0.0:Data.List.NonEmpty
+                         base-4.9.0.0:Data.Monoid base-4.9.0.0:Data.Semigroup
+                         base-4.9.0.0:Data.Type.Equality base-4.9.0.0:Data.Version
+                         base-4.9.0.0:Data.Void base-4.9.0.0:GHC.Exts
+                         base-4.9.0.0:GHC.Generics base-4.9.0.0:GHC.IO.Exception
+                         base-4.9.0.0:GHC.TypeLits
+                         bson-generic-0.0.8@bson-generic-0.0.8-DtORpoUHwQhDReLJ5Keop0:Data.Bson.Generic
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         dlist-0.8.0.2@dlist-0.8.0.2-GWAMmbX9rLg3tqrbOizHGv:Data.DList
+                         ghc-boot-th-8.0.1@ghc-boot-th-8.0.1:GHC.LanguageExtensions.Type
+                         http-api-data-0.3.2@http-api-data-0.3.2-A22DPUhAmUlrIoBZ4qkGB:Web.Internal.FormUrlEncoded
+                         http-client-0.4.31.2@http-client-0.4.31.2-81NyMkNcWWADaJ0Cq5FYRE:Network.HTTP.Client
+                         iproute-1.7.1@iproute-1.7.1-9hsGfRvggCmFA0ueZi5Sd9:Data.IP.Addr
+                         iproute-1.7.1@iproute-1.7.1-9hsGfRvggCmFA0ueZi5Sd9:Data.IP.Range
+                         monad-control-1.0.1.0@monad-control-1.0.1.0-HoNEBoNfniX3vjSfkI7WTT:Control.Monad.Trans.Control
+                         network-uri-2.6.1.0@network-uri-2.6.1.0-DDHh2FNiPirBRgkuU9DEt2:Network.URI
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa:Control.Monad.Primitive
+                         resourcet-1.1.8.1@resourcet-1.1.8.1-1XWaZ7RmVde330DM5PRI3Z:Control.Monad.Trans.Resource.Internal
+                         servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.ContentTypes
+                         servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.IsSecure
+                         servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.Verbs
+                         servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.Utils.Links
+                         servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3:Servant.Client
+                         servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3:Servant.Common.BaseUrl
+                         servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3:Servant.Common.Req
+                         servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd:Servant.Server.Internal
+                         servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd:Servant.Server.Internal.BasicAuth
+                         tagged-0.8.5@tagged-0.8.5-CtgV6EcN0do8F92i1S6iYx:Data.Tagged
+                         template-haskell-2.11.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text
+                         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text.Lazy
+                         unordered-containers-0.2.7.1@unordered-containers-0.2.7.1-Eo9jd5DMz45DhBLCG8skzW:Data.HashMap.Base
+                         unordered-containers-0.2.7.1@unordered-containers-0.2.7.1-Eo9jd5DMz45DhBLCG8skzW:Data.HashSet
+                         uri-bytestring-0.2.2.1@uri-bytestring-0.2.2.1-LMJUdG9s1QpIQ10mPWMO6d:URI.ByteString.Types
+                         uuid-types-1.0.3@uuid-types-1.0.3-1qmdgBeDGlbCUibOmxVGqx:Data.UUID.Types.Internal
+                         uuid-types-1.0.3@uuid-types-1.0.3-1qmdgBeDGlbCUibOmxVGqx:Data.UUID.Types.Internal.Builder
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Primitive
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Storable
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
+                         zlib-0.6.1.2@zlib-0.6.1.2-4CWLN1T27kOJhNvXgy46ZV:Codec.Compression.Zlib.Stream
+import  -/  CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:CommonResources 3a3234dc92c278c50e5f7698eafc99e9
+import  -/  CommonResources-0.1.0.0@CommonResources-0.1.0.0-2hAoDRm32jf136sTU7I7w0:MongodbHelpers f6dde8f3c354dde042a2d52c41b8d6f2
+import  -/  aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson 94b59824488f369f190c261b6e39e7ba
+import  -/  aeson-0.11.2.1@aeson-0.11.2.1-5ZQWuTFmffALcfpzDCXoOz:Data.Aeson.TH 869262ef224a0287f5d5fc093506acd2
+import  -/  base-4.9.0.0:Control.Monad 7767aebfd53f0b584cef2fe66ad3986c
+import  -/  base-4.9.0.0:Control.Monad.IO.Class d702028d883e700bd7066b031147030d
+import  -/  base-4.9.0.0:Data.List 49b86831b79b49ce5d4d9416ecba61df
+import  -/  base-4.9.0.0:Data.Maybe 5f2ba364cbe65c060bc5436bc0b9d049
+import  -/  base-4.9.0.0:Data.Proxy aa86c72628cf3b1ceb0816ca84687d80
+import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
+import  -/  base-4.9.0.0:GHC.Generics 8e2a7658e8b966c1d29d0d5fd4129f38
+import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
+import  -/  base-4.9.0.0:System.Environment ee0914a962f5508d0fd404c89ee4999b
+import  -/  base-4.9.0.0:System.IO eb1d40aa793a4047069a5023f2ebcfe3
+import  -/  base-4.9.0.0:Text.Read 9c1be14f7e5eac8b18bcb566c5763677
+import  -/  bson-0.3.2.3@bson-0.3.2.3-3QA3aP5EtCyCltXUzEKOsQ:Data.Bson 609b35b07f554dfa69c4b31dfeed380e
+import  -/  bson-generic-0.0.8@bson-generic-0.0.8-DtORpoUHwQhDReLJ5Keop0:Data.Bson.Generic 8688e6671f6f36dd3a9c6c1c23977c50
+import  -/  directory-1.2.6.2@directory-1.2.6.2:System.Directory f7c57c4a392d1767b38addc37d00ceed
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
+import  -/  hslogger-1.2.10@hslogger-1.2.10-6Ih3VN3QBbAJ6pLH6h3KNu:System.Log.Formatter d9070a840f59099321614c8f0ef2e6e9
+import  -/  hslogger-1.2.10@hslogger-1.2.10-6Ih3VN3QBbAJ6pLH6h3KNu:System.Log.Handler 8f3ebc04d50e3ae880e55bca06cd601c
+import  -/  hslogger-1.2.10@hslogger-1.2.10-6Ih3VN3QBbAJ6pLH6h3KNu:System.Log.Handler.Simple 13b7c2ecdca1ccb8efd90dd72aa60b1f
+import  -/  hslogger-1.2.10@hslogger-1.2.10-6Ih3VN3QBbAJ6pLH6h3KNu:System.Log.Handler.Syslog 7c221af04466aa82fc642476402df61b
+import  -/  hslogger-1.2.10@hslogger-1.2.10-6Ih3VN3QBbAJ6pLH6h3KNu:System.Log.Logger 57a31a76a1588b053185f58ff800a901
+import  -/  http-client-0.4.31.2@http-client-0.4.31.2-81NyMkNcWWADaJ0Cq5FYRE:Network.HTTP.Client 8c31602f44dbd2cc18bd07c76bc0453c
+import  -/  mongoDB-2.1.1.1@mongoDB-2.1.1.1-5wYXyk7zdwHHB6m4bwUEQN:Database.MongoDB 2f74f1157c9bd4aada7bc55dbcb0be00
+import  -/  mongoDB-2.1.1.1@mongoDB-2.1.1.1-5wYXyk7zdwHHB6m4bwUEQN:Database.MongoDB.Query 11154b7ccce00f58189d815abaac6794
+import  -/  random-1.1@random-1.1-54KmMHXjttlERYcr1mvsAe:System.Random 12e582ce6a18ca02c107789bb28c509c
+import  -/  resourcet-1.1.8.1@resourcet-1.1.8.1-1XWaZ7RmVde330DM5PRI3Z:Control.Monad.Trans.Resource 6add5f57c5a8580f3180b0380a45d977
+import  -/  servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API 0037a8ec5e3d7af775970baa2c52d7c1
+import  -/  servant-0.9.1.1@servant-0.9.1.1-JzVvK9yk6sQ1E4UZympEK1:Servant.API.Alternative 7d4e73ce01670cd8a85baa5f3ddc5484
+import  -/  servant-client-0.9.1.1@servant-client-0.9.1.1-Jfbv4D3w2K1d9wGI5VTz3:Servant.Client b0d728a61d1fac7860e8647e2d204379
+import  -/  servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd:Servant 486b79878ba489ae3f0fe8391c7fd3c5
+import  -/  servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd:Servant.Server 0403ee10c86ea534a893b481d1235a97
+import  -/  servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd:Servant.Server.Internal dc0da1c88277b9abbf442d4c9a2149f0
+import  -/  servant-server-0.9.1.1@servant-server-0.9.1.1-66M2tFOHqQqK0MqMhFZVCd:Servant.Server.Internal.ServantErr 03ccb634e8bb3af78dd83269b3acd873
+import  -/  text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text 6515f3179e27a91345842b6e634f584c
+import  -/  time-1.6.0.1@time-1.6.0.1:Data.Time.Clock b91051c7767d1f23314064be1d4311d7
+import  -/  time-1.6.0.1@time-1.6.0.1:Data.Time.Clock.POSIX a0c5708011f4e3cb1d85608a99ae773a
+import  -/  time-1.6.0.1@time-1.6.0.1:Data.Time.Format b6d4cc5df3f9159b1156baa52a254cf6
+import  -/  transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Except 71b1d86204f6908788cb5223e3c73193
+import  -/  wai-3.2.1.1@wai-3.2.1.1-f77bMYZGLQBAD3XJrvGiW:Network.Wai f10fb472d685284a8637bf34e58bc7f2
+import  -/  wai-logger-2.3.0@wai-logger-2.3.0-IfusT8I9ees2102USHAF8e:Network.Wai.Logger 676219d60f680a2e3b4c9a3bb9537896
+import  -/  warp-3.2.9@warp-3.2.9-1srGDEsq7RWF9RsucFj6bw:Network.Wai.Handler.Warp 3da15d24b266d35965cd5350be944ee3
+import  -/  warp-3.2.9@warp-3.2.9-1srGDEsq7RWF9RsucFj6bw:Network.Wai.Handler.Warp.Run ef3cbc0ed9598c9652e6b6b9671eb6f3
+5adbce96353d2e711ba0d08b33aae30d
+  $s$fAllCTRender:a ::
+    Servant.API.ContentTypes.AllCTRender
+      '[Servant.API.ContentTypes.JSON] CommonResources.Response
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ CommonResources.Response
+                  (Servant.API.ContentTypes.$fAllCTRender:a_$cp1AllCTRender
+                     @ Servant.API.ContentTypes.JSON
+                     @ '[]
+                     @ CommonResources.Response
+                     Servant.API.ContentTypes.$fAcceptTYPEJSON_$ccontentType
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:Accept[0]
+                               <*>_N <Servant.API.ContentTypes.JSON>_N))
+                     Servant.API.ContentTypes.$fAllMimeUnrender[]a_$callMime
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
+                     LockingService.$s$fAllCTRender:a1)
+                  (Servant.API.ContentTypes.$fAllCTRender:a_$chandleAcceptH
+                     @ Servant.API.ContentTypes.JSON
+                     @ '[]
+                     @ CommonResources.Response
+                     Servant.API.ContentTypes.$fAcceptTYPEJSON_$ccontentType
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:Accept[0]
+                               <*>_N <Servant.API.ContentTypes.JSON>_N))
+                     Servant.API.ContentTypes.$fAllMimeUnrender[]a_$callMime
+                       `cast`
+                     (Sym (Servant.API.ContentTypes.N:AllMime[0] <'[]>_N))
+                     LockingService.$s$fAllCTRender:a1) -}
+dc021b2f8035622cc35e19d9659551c7
+  $s$fAllCTRender:a1 ::
+    Servant.API.ContentTypes.AllMimeRender
+      '[Servant.API.ContentTypes.JSON] CommonResources.Response
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                LockingService.$s$fAllCTRender:a_$s$fAllMimeRender:a0 -}
+986eef64952f24254d4eebe433f371d2
+  $s$fAllCTRender:a2 ::
+    Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
+    -> CommonResources.Response
+    -> [(Network.HTTP.Media.MediaType.Internal.MediaType,
+         Data.ByteString.Lazy.Internal.ByteString)]
+  {- Arity: 2, Strictness: <L,A><L,1*U(1*U)>m2,
+     Unfolding: InlineRule (2, True, False)
+                (\ (eta :: Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON])
+                   (eta1 :: CommonResources.Response) ->
+                 GHC.Types.:
+                   @ (Network.HTTP.Media.MediaType.Internal.MediaType,
+                      Data.ByteString.Lazy.Internal.ByteString)
+                   (Servant.API.ContentTypes.$fAcceptTYPEJSON1,
+                    Data.ByteString.Builder.toLazyByteString
+                      (Data.Aeson.Encode.Builder.encodeToBuilder
+                         (CommonResources.$fToJSONResponse1 eta1)
+                           `cast`
+                         (Data.Aeson.Types.Generic.N:Tagged[0]
+                              <Data.Aeson.Types.Generic.True>_P
+                              <Data.Aeson.Types.Internal.Value>_R)))
+                   (GHC.Types.[]
+                      @ (Network.HTTP.Media.MediaType.Internal.MediaType,
+                         Data.ByteString.Lazy.Internal.ByteString))) -}
+5d69c3a49d2bec88c4ef3569c860d126
+  $s$fAllCTRender:a3 ::
+    Servant.API.ContentTypes.MimeRender
+      Servant.API.ContentTypes.JSON CommonResources.Response
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                LockingService.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa -}
+82be5d6ddc51735af6783e3edc3b84e2
+  $s$fAllCTRender:a_$s$fAllMimeRender:a0 ::
+    Servant.API.ContentTypes.AllMimeRender
+      '[Servant.API.ContentTypes.JSON] CommonResources.Response
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ CommonResources.Response
+                  (Servant.API.ContentTypes.$fAllMimeRender:a0_$cp1AllMimeRender
+                     @ Servant.API.ContentTypes.JSON
+                     @ CommonResources.Response
+                     LockingService.$s$fAllCTRender:a3)
+                  LockingService.$s$fAllCTRender:a2 -}
+add7f6e47a47de2532d9fb9a179eee29
+  $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa ::
+    Servant.API.ContentTypes.MimeRender
+      Servant.API.ContentTypes.JSON CommonResources.Response
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ CommonResources.Response
+                  (Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cp1MimeRender
+                     @ CommonResources.Response
+                     CommonResources.$fToJSONResponse)
+                  LockingService.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender -}
+517352ab826896322634e8d8c61a894a
+  $s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> CommonResources.Response
+    -> Data.ByteString.Lazy.Internal.ByteString
+  {- Arity: 2, Strictness: <L,A><L,1*U(1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
+                   (eta :: CommonResources.Response) ->
+                 Data.ByteString.Builder.toLazyByteString
+                   (Data.Aeson.Types.Internal.fromEncoding
+                      (Data.Aeson.Encode.Builder.encodeToBuilder
+                         (CommonResources.$fToJSONResponse_$ctoJSON eta))
+                        `cast`
+                      (Sym (Data.Aeson.Types.Internal.N:Encoding[0])))) -}
+723f8f3f68ab5cb1e48c86228dc9ab92
+  $s$fAllMimeUnrender:a ::
+    Servant.API.ContentTypes.AllMimeUnrender
+      '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ '[Servant.API.ContentTypes.JSON]
+                  @ CommonResources.FileName
+                  (Servant.API.ContentTypes.$fAllMimeUnrender:a_$cp1AllMimeUnrender
+                     @ Servant.API.ContentTypes.JSON
+                     @ CommonResources.FileName
+                     @ '[]
+                     LockingService.$s$fAllMimeUnrender:a1
+                     (Servant.API.ContentTypes.$fAllMimeUnrender[]a
+                        @ CommonResources.FileName))
+                  (Servant.API.ContentTypes.$fAllMimeUnrender:a_$callMimeUnrender
+                     @ Servant.API.ContentTypes.JSON
+                     @ CommonResources.FileName
+                     @ '[]
+                     LockingService.$s$fAllMimeUnrender:a1
+                     (Servant.API.ContentTypes.$fAllMimeUnrender[]a
+                        @ CommonResources.FileName)) -}
+92786eac8066674f0ba1d30b0619d145
+  $s$fAllMimeUnrender:a1 ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON CommonResources.FileName
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                LockingService.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa -}
+3d15d27809e6ba56d6cad1fc673a6c73
+  $s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa ::
+    Servant.API.ContentTypes.MimeUnrender
+      Servant.API.ContentTypes.JSON CommonResources.FileName
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ *
+                  @ Servant.API.ContentTypes.JSON
+                  @ CommonResources.FileName
+                  (Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cp1MimeUnrender
+                     @ CommonResources.FileName
+                     CommonResources.$fFromJSONFileName_$cparseJSON
+                       `cast`
+                     (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                               <CommonResources.FileName>_N)))
+                  LockingService.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender -}
+511d4dd5f88bd05ef3a57c7b04018afc
+  $s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender ::
+    Data.Proxy.Proxy Servant.API.ContentTypes.JSON
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.Either.Either GHC.Base.String CommonResources.FileName
+  {- Arity: 2, Strictness: <L,A><S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ (ds :: Data.Proxy.Proxy Servant.API.ContentTypes.JSON)
+                   (eta :: Data.ByteString.Lazy.Internal.ByteString) ->
+                 Servant.API.ContentTypes.eitherDecodeLenient
+                   @ CommonResources.FileName
+                   CommonResources.$fFromJSONFileName_$cparseJSON
+                     `cast`
+                   (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                             <CommonResources.FileName>_N))
+                   eta) -}
+c1e260da9cca417a3fb7fefe9df79608
+  $sserve10 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "lock"#) -}
+7d7d20f505224db49a341c7a4373957a
+  $sserve2 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 1,
+     Unfolding: (\ (s1 :: GHC.Prim.State#
+                            GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newByteArray#
+                        @ GHC.Prim.RealWorld
+                        8#
+                        s1 of ds1 { (#,#) ipv ipv1 ->
+                 Servant.Server.Internal.$wouter
+                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                   Servant.Server.Internal.$fHasServerTYPE:>context20
+                   LockingService.$sserve3
+                   0#
+                   ipv }) -}
+ed796ff78f25c37f1f2dbad490a7f819
+  $sserve3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "islocked"#) -}
+e712f96ae25f504c47813282f340d7e3
+  $sserve4 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 1,
+     Unfolding: (\ (s1 :: GHC.Prim.State#
+                            GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newByteArray#
+                        @ GHC.Prim.RealWorld
+                        8#
+                        s1 of ds1 { (#,#) ipv ipv1 ->
+                 Servant.Server.Internal.$wouter
+                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                   Servant.Server.Internal.$fHasServerTYPE:>context20
+                   LockingService.$sserve5
+                   0#
+                   ipv }) -}
+c2c76bfdec5af24b97f3cc13a7420aee
+  $sserve5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "unlock"#) -}
+04ae04e5e7444e9023d589ef60964b91
+  $sserve6 ::
+    Data.Proxy.Proxy
+      (Servant.API.Verbs.Verb
+         'Network.HTTP.Types.Method.POST
+         200
+         '[Servant.API.ContentTypes.JSON]
+         CommonResources.Response)
+    -> Servant.Server.Internal.Context.Context '[]
+    -> Servant.Server.Internal.RoutingApplication.Delayed
+         env
+         (Servant.Server.Internal.Server
+            (Servant.API.Verbs.Verb
+               'Network.HTTP.Types.Method.POST
+               200
+               '[Servant.API.ContentTypes.JSON]
+               CommonResources.Response))
+    -> Servant.Server.Internal.Router.Router env
+  {- Arity: 2, Strictness: <S,1*H><L,A>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ env
+                   (w3 :: Data.Proxy.Proxy
+                            (Servant.API.Verbs.Verb
+                               'Network.HTTP.Types.Method.POST
+                               200
+                               '[Servant.API.ContentTypes.JSON]
+                               CommonResources.Response))
+                   (w4 :: Servant.Server.Internal.Context.Context '[]) ->
+                 case w3 of w5 { Data.Proxy.Proxy ->
+                 Servant.Server.Internal.$w$croute8
+                   @ Network.HTTP.Types.Method.StdMethod
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ CommonResources.Response
+                   @ 'Network.HTTP.Types.Method.POST
+                   @ 200
+                   @ '[]
+                   LockingService.$s$fAllCTRender:a
+                   Servant.API.Verbs.$fReflectMethodStdMethodPOST_$creflectMethod
+                     `cast`
+                   (Sym (Servant.API.Verbs.N:ReflectMethod[0]
+                             <Network.HTTP.Types.Method.StdMethod>_N
+                             <'Network.HTTP.Types.Method.POST>_N))
+                   LockingService.$sserve7
+                     `cast`
+                   (Trans
+                        (Sym (GHC.TypeLits.N:SNat[0] <200>_P))
+                        (Sym (GHC.TypeLits.N:KnownNat[0]) <200>_N))
+                   @ env
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.Verbs.Verb
+                           'Network.HTTP.Types.Method.POST
+                           200
+                           '[Servant.API.ContentTypes.JSON]
+                           CommonResources.Response)) }) -}
+99910e95f4105d948be524e7af5ef510
+  $sserve7 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (200) -}
+23ab052aac49dde7c8b9e71a7af411d6
+  $sserve8 ::
+    Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON]
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> Data.ByteString.Lazy.Internal.ByteString
+    -> GHC.Base.Maybe
+         (Data.Either.Either GHC.Base.String CommonResources.FileName)
+  {- Arity: 3, Strictness: <L,A><L,1*U><L,U>,
+     Unfolding: InlineRule (3, True, True)
+                (\ (w1 :: Data.Proxy.Proxy '[Servant.API.ContentTypes.JSON])
+                   (w2 :: Data.ByteString.Lazy.Internal.ByteString)
+                   (w3 :: Data.ByteString.Lazy.Internal.ByteString) ->
+                 Servant.API.ContentTypes.$w$chandleCTypeH
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ CommonResources.FileName
+                   LockingService.$s$fAllMimeUnrender:a
+                   w2
+                   w3) -}
+e735c828f627590aced955617fb81aff
+  $sserve9 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Text.Internal.Text #)
+  {- Arity: 1,
+     Unfolding: (\ (s1 :: GHC.Prim.State#
+                            GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newByteArray#
+                        @ GHC.Prim.RealWorld
+                        8#
+                        s1 of ds1 { (#,#) ipv ipv1 ->
+                 Servant.Server.Internal.$wouter
+                   (Data.Text.Array.MArray @ GHC.Prim.RealWorld ipv1)
+                   Servant.Server.Internal.$fHasServerTYPE:>context20
+                   LockingService.$sserve10
+                   0#
+                   ipv }) -}
+8b7b7ace509a5ca5b3c6087d25750466
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   LockingService.$trModule2
+                   LockingService.$trModule1) -}
+7308ad69528eba88cf7c5b618d143731
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "LockingService"#) -}
+5e24dc9bd607d298416ccbc677599cc1
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "LockingService-0.1.0.0-7k0JqlEeWD7F2VFBzyPr5l"#) -}
+5ab10c304e8dc4229f89bb703a83d50c
+  $wisFileLocked ::
+    GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either
+            Servant.Server.Internal.ServantErr.ServantErr
+            CommonResources.Response #)
+  {- Arity: 4, Strictness: <L,1*U><L,1*U><L,1*U><S,U>, Inline: [0] -}
+7b84d6e8d887564892bd9fdb5bdd67ce
+  $wlockFile ::
+    GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either
+            Servant.Server.Internal.ServantErr.ServantErr
+            CommonResources.Response #)
+  {- Arity: 4, Strictness: <L,1*U><L,1*U><L,1*U><S,U>, Inline: [0] -}
+93a531b7c8383b65507d95c06b7052cb
+  $wunlockFile ::
+    GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either
+            Servant.Server.Internal.ServantErr.ServantErr
+            CommonResources.Response #)
+  {- Arity: 4, Strictness: <L,1*U><L,1*U><L,1*U><S,U>, Inline: [0] -}
+bcde34968848173d0d3edcc584d783de
+  type ApiHandler =
+    Control.Monad.Trans.Except.ExceptT
+      Servant.Server.Internal.ServantErr.ServantErr GHC.Types.IO
+    :: * -> *
+b24d042787e1096c1f37261f8a1f9984
+  isFileLocked ::
+    CommonResources.FileName
+    -> LockingService.ApiHandler CommonResources.Response
+  {- Arity: 2, Strictness: <S,1*U(1*U,1*U,1*U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                LockingService.isFileLocked1
+                  `cast`
+                (<CommonResources.FileName>_R
+                 ->_R Trans
+                          (Sym (GHC.Types.N:IO[0]
+                                    <Data.Either.Either
+                                       Servant.Server.Internal.ServantErr.ServantErr
+                                       CommonResources.Response>_R))
+                          (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                    <Servant.Server.Internal.ServantErr.ServantErr>_N
+                                    <GHC.Types.IO>_R
+                                    <CommonResources.Response>_N))) -}
+c904b3402c9e17d647fbb68c15516faf
+  isFileLocked1 ::
+    CommonResources.FileName
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either
+            Servant.Server.Internal.ServantErr.ServantErr
+            CommonResources.Response #)
+  {- Arity: 2, Strictness: <S,1*U(1*U,1*U,1*U)><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: CommonResources.FileName)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w of ww { CommonResources.FileName ww1 ww2 ww3 ->
+                 LockingService.$wisFileLocked ww1 ww2 ww3 w1 }) -}
+8f1bd12fc248f5663c1153dd11b0d8d2
+  lockFile ::
+    CommonResources.FileName
+    -> LockingService.ApiHandler CommonResources.Response
+  {- Arity: 2, Strictness: <S,1*U(1*U,1*U,1*U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                LockingService.lockFile1
+                  `cast`
+                (<CommonResources.FileName>_R
+                 ->_R Trans
+                          (Sym (GHC.Types.N:IO[0]
+                                    <Data.Either.Either
+                                       Servant.Server.Internal.ServantErr.ServantErr
+                                       CommonResources.Response>_R))
+                          (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                    <Servant.Server.Internal.ServantErr.ServantErr>_N
+                                    <GHC.Types.IO>_R
+                                    <CommonResources.Response>_N))) -}
+a9b123ee708862d28478bc85898acc6d
+  lockFile1 ::
+    CommonResources.FileName
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either
+            Servant.Server.Internal.ServantErr.ServantErr
+            CommonResources.Response #)
+  {- Arity: 2, Strictness: <S,1*U(1*U,1*U,1*U)><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: CommonResources.FileName)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w of ww { CommonResources.FileName ww1 ww2 ww3 ->
+                 LockingService.$wlockFile ww1 ww2 ww3 w1 }) -}
+1c38b0cdb6c530500cb472e4e6e28f70
+  lockingApi :: Data.Proxy.Proxy CommonResources.LockingApi
+  {- HasNoCafRefs,
+     Unfolding: InlineRule (0, True, True)
+                (Data.Proxy.Proxy @ * @ CommonResources.LockingApi) -}
+3f6cc09e7208897fdd6f8066a258b0e0
+  lockingApp :: Network.Wai.Application
+  {- Arity: 2,
+     Unfolding: (Servant.Server.Internal.RoutingApplication.toApplication
+                   LockingService.lockingApp1) -}
+7b6d0449ca4c0d21077ff232f667edd8
+  lockingApp1 ::
+    Network.Wai.Internal.Request
+    -> (Servant.Server.Internal.RoutingApplication.RouteResult
+          Network.Wai.Internal.Response
+        -> GHC.Types.IO Network.Wai.Internal.ResponseReceived)
+    -> GHC.Types.IO Network.Wai.Internal.ResponseReceived
+  {- Arity: 2,
+     Strictness: <L,U(U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U)><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (eta :: Network.Wai.Internal.Request)
+                   (eta1 :: Servant.Server.Internal.RoutingApplication.RouteResult
+                              Network.Wai.Internal.Response
+                            -> GHC.Types.IO Network.Wai.Internal.ResponseReceived)[OneShot] ->
+                 Servant.Server.Internal.Router.runRouterEnv
+                   @ ()
+                   LockingService.lockingApp_r
+                   GHC.Tuple.()
+                   eta
+                   eta1) -}
+e0247b3a44a17e148120ab7c53f13676
+  lockingApp10 ::
+    Data.Map.Base.Map
+      Data.Text.Internal.Text
+      (Servant.Server.Internal.Router.Router'
+         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
+  {- Unfolding: (case GHC.Magic.runRW#
+                        @ 'GHC.Types.PtrRepLifted
+                        @ Data.Text.Internal.Text
+                        LockingService.$sserve4 of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
+                 Data.Map.Base.Bin
+                   @ Data.Text.Internal.Text
+                   @ (Servant.Server.Internal.Router.Router'
+                        () Servant.Server.Internal.RoutingApplication.RoutingApplication)
+                   1#
+                   dt
+                   LockingService.lockingApp11
+                   (Data.Map.Base.Tip
+                      @ Data.Text.Internal.Text
+                      @ (Servant.Server.Internal.Router.Router'
+                           () Servant.Server.Internal.RoutingApplication.RoutingApplication))
+                   (Data.Map.Base.Tip
+                      @ Data.Text.Internal.Text
+                      @ (Servant.Server.Internal.Router.Router'
+                           ()
+                           Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
+af495dd0d640fb36ddc127ab42abe096
+  lockingApp11 :: Servant.Server.Internal.Router.Router ()
+  {- Unfolding: (Servant.Server.Internal.$w$croute2
+                   @ *
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ CommonResources.FileName
+                   @ (Servant.API.Verbs.Verb
+                        'Network.HTTP.Types.Method.POST
+                        200
+                        '[Servant.API.ContentTypes.JSON]
+                        CommonResources.Response)
+                   @ '[]
+                   LockingService.$sserve8
+                     `cast`
+                   (Sym (Servant.API.ContentTypes.N:AllCTUnrender[0]
+                             <'[Servant.API.ContentTypes.JSON]>_N <CommonResources.FileName>_N))
+                   LockingService.$sserve6
+                     `cast`
+                   (Sym (Servant.Server.Internal.N:HasServer[0]
+                             <*>_N
+                             <Servant.API.Verbs.Verb
+                                'Network.HTTP.Types.Method.POST
+                                200
+                                '[Servant.API.ContentTypes.JSON]
+                                CommonResources.Response>_N
+                             <'[]>_N))
+                   @ ()
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.ReqBody.ReqBody
+                           '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                         Servant.API.Sub.:> Servant.API.Verbs.Verb
+                                              'Network.HTTP.Types.Method.POST
+                                              200
+                                              '[Servant.API.ContentTypes.JSON]
+                                              CommonResources.Response))
+                   Servant.Server.Internal.Context.$WEmptyContext
+                   LockingService.lockingApp12
+                     `cast`
+                   (Servant.Server.Internal.RoutingApplication.Delayed
+                      <()>_R
+                      (Sub (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                <*>_N
+                                <"unlock">_N
+                                <Servant.API.ReqBody.ReqBody
+                                   '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                                 Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                      '[Servant.API.ContentTypes.JSON]
+                                                      CommonResources.Response>_N
+                                <Control.Monad.Trans.Except.ExceptT
+                                   Servant.Server.Internal.ServantErr.ServantErr
+                                   GHC.Types.IO>_N)))_R) -}
+4a957d18eb1ecaace71efcd60c3f12cc
+  lockingApp12 ::
+    Servant.Server.Internal.RoutingApplication.Delayed
+      ()
+      (Servant.Server.Internal.Server
+         ("unlock"
+          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                   '[Servant.API.ContentTypes.JSON]
+                                                   CommonResources.Response)))
+  {- Unfolding: (Servant.Server.Internal.RoutingApplication.Delayed
+                   @ ()
+                   @ (Servant.Server.Internal.Server
+                        ("unlock"
+                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.Response)))
+                   @ ()
+                   @ ()
+                   @ ()
+                   (Servant.Server.Internal.RoutingApplication.emptyDelayed2 @ ())
+                     `cast`
+                   (<()>_R
+                    ->_R Trans
+                             (<Network.Wai.Internal.Request>_R
+                              ->_R Sym (GHC.Types.N:IO[0]
+                                            <Servant.Server.Internal.RoutingApplication.RouteResult
+                                               ()>_R))
+                             (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                       <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   LockingService.lockingApp13) -}
+6406dc2bcf78cf6d2acee2e6a0790d58
+  lockingApp13 ::
+    ()
+    -> ()
+    -> ()
+    -> Network.Wai.Internal.Request
+    -> Servant.Server.Internal.RoutingApplication.RouteResult
+         (Servant.Server.Internal.Server
+            ("unlock"
+             Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                   '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                                 Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                      '[Servant.API.ContentTypes.JSON]
+                                                      CommonResources.Response)))
+  {- Arity: 4,
+     Unfolding: (\ (c :: ())
+                   (a1 :: ())
+                   (b1 :: ())
+                   (req :: Network.Wai.Internal.Request) ->
+                 LockingService.lockingApp14) -}
+c1176e2af777ce6c3aced3a8db765619
+  lockingApp14 ::
+    Servant.Server.Internal.RoutingApplication.RouteResult
+      (Servant.Server.Internal.Server
+         ("unlock"
+          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                   '[Servant.API.ContentTypes.JSON]
+                                                   CommonResources.Response)))
+  {- Unfolding: (Servant.Server.Internal.RoutingApplication.Route
+                   @ (Servant.Server.Internal.Server
+                        ("unlock"
+                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.Response)))
+                   LockingService.lockingApp15
+                     `cast`
+                   (Trans
+                        (<CommonResources.FileName>_R
+                         ->_R Trans
+                                  (Sym (GHC.Types.N:IO[0]
+                                            <Data.Either.Either
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               CommonResources.Response>_R))
+                                  (Trans
+                                       (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                                 <Servant.Server.Internal.ServantErr.ServantErr>_N
+                                                 <GHC.Types.IO>_R
+                                                 <CommonResources.Response>_N))
+                                       (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
+                                                      <Network.HTTP.Types.Method.StdMethod>_N
+                                                      <'[Servant.API.ContentTypes.JSON]>_N
+                                                      <CommonResources.Response>_N
+                                                      <'Network.HTTP.Types.Method.POST>_N
+                                                      <200>_N
+                                                      <Control.Monad.Trans.Except.ExceptT
+                                                         Servant.Server.Internal.ServantErr.ServantErr
+                                                         GHC.Types.IO>_N)))))
+                        (Trans
+                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
+                                            <*>_N
+                                            <'[Servant.API.ContentTypes.JSON]>_N
+                                            <CommonResources.FileName>_N
+                                            <Servant.API.Verbs.Verb
+                                               'Network.HTTP.Types.Method.POST
+                                               200
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.Response>_N
+                                            <Control.Monad.Trans.Except.ExceptT
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               GHC.Types.IO>_N)))
+                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                            <*>_N
+                                            <"unlock">_N
+                                            <Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.Response>_N
+                                            <Control.Monad.Trans.Except.ExceptT
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               GHC.Types.IO>_N)))))) -}
+10a6c0c8a3bb92001e3ee35c7305ea0a
+  lockingApp15 ::
+    CommonResources.FileName
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either
+            Servant.Server.Internal.ServantErr.ServantErr
+            CommonResources.Response #)
+  {- Arity: 2, Strictness: <S,1*U(1*U,1*U,1*U)><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: CommonResources.FileName)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w of ww { CommonResources.FileName ww1 ww2 ww3 ->
+                 LockingService.$wunlockFile ww1 ww2 ww3 w1 }) -}
+fb362a67ecc8ef32484d34cc6958bd06
+  lockingApp16 ::
+    Servant.Server.Internal.Router.Router'
+      () Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
+                   @ ()
+                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
+                   LockingService.lockingApp17
+                   (GHC.Types.[]
+                      @ (()
+                         -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
+bcdd8cc9f4ce27f9d3f2e2b8092a146b
+  lockingApp17 ::
+    Data.Map.Base.Map
+      Data.Text.Internal.Text
+      (Servant.Server.Internal.Router.Router'
+         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
+  {- Unfolding: (case GHC.Magic.runRW#
+                        @ 'GHC.Types.PtrRepLifted
+                        @ Data.Text.Internal.Text
+                        LockingService.$sserve9 of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
+                 Data.Map.Base.Bin
+                   @ Data.Text.Internal.Text
+                   @ (Servant.Server.Internal.Router.Router'
+                        () Servant.Server.Internal.RoutingApplication.RoutingApplication)
+                   1#
+                   dt
+                   LockingService.lockingApp18
+                   (Data.Map.Base.Tip
+                      @ Data.Text.Internal.Text
+                      @ (Servant.Server.Internal.Router.Router'
+                           () Servant.Server.Internal.RoutingApplication.RoutingApplication))
+                   (Data.Map.Base.Tip
+                      @ Data.Text.Internal.Text
+                      @ (Servant.Server.Internal.Router.Router'
+                           ()
+                           Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
+b4d1f7b77d37044a9984dc88087f6e38
+  lockingApp18 :: Servant.Server.Internal.Router.Router ()
+  {- Unfolding: (Servant.Server.Internal.$w$croute2
+                   @ *
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ CommonResources.FileName
+                   @ (Servant.API.Verbs.Verb
+                        'Network.HTTP.Types.Method.POST
+                        200
+                        '[Servant.API.ContentTypes.JSON]
+                        CommonResources.Response)
+                   @ '[]
+                   LockingService.$sserve8
+                     `cast`
+                   (Sym (Servant.API.ContentTypes.N:AllCTUnrender[0]
+                             <'[Servant.API.ContentTypes.JSON]>_N <CommonResources.FileName>_N))
+                   LockingService.$sserve6
+                     `cast`
+                   (Sym (Servant.Server.Internal.N:HasServer[0]
+                             <*>_N
+                             <Servant.API.Verbs.Verb
+                                'Network.HTTP.Types.Method.POST
+                                200
+                                '[Servant.API.ContentTypes.JSON]
+                                CommonResources.Response>_N
+                             <'[]>_N))
+                   @ ()
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.ReqBody.ReqBody
+                           '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                         Servant.API.Sub.:> Servant.API.Verbs.Verb
+                                              'Network.HTTP.Types.Method.POST
+                                              200
+                                              '[Servant.API.ContentTypes.JSON]
+                                              CommonResources.Response))
+                   Servant.Server.Internal.Context.$WEmptyContext
+                   LockingService.lockingApp19
+                     `cast`
+                   (Servant.Server.Internal.RoutingApplication.Delayed
+                      <()>_R
+                      (Sub (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                <*>_N
+                                <"lock">_N
+                                <Servant.API.ReqBody.ReqBody
+                                   '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                                 Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                      '[Servant.API.ContentTypes.JSON]
+                                                      CommonResources.Response>_N
+                                <Control.Monad.Trans.Except.ExceptT
+                                   Servant.Server.Internal.ServantErr.ServantErr
+                                   GHC.Types.IO>_N)))_R) -}
+7bc0a878e14174768beeb69346d7dd75
+  lockingApp19 ::
+    Servant.Server.Internal.RoutingApplication.Delayed
+      ()
+      (Servant.Server.Internal.Server
+         ("lock"
+          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                   '[Servant.API.ContentTypes.JSON]
+                                                   CommonResources.Response)))
+  {- Unfolding: (Servant.Server.Internal.RoutingApplication.Delayed
+                   @ ()
+                   @ (Servant.Server.Internal.Server
+                        ("lock"
+                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.Response)))
+                   @ ()
+                   @ ()
+                   @ ()
+                   (Servant.Server.Internal.RoutingApplication.emptyDelayed2 @ ())
+                     `cast`
+                   (<()>_R
+                    ->_R Trans
+                             (<Network.Wai.Internal.Request>_R
+                              ->_R Sym (GHC.Types.N:IO[0]
+                                            <Servant.Server.Internal.RoutingApplication.RouteResult
+                                               ()>_R))
+                             (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                       <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   LockingService.lockingApp20) -}
+dca3f3b4b76a2fc97e3cef6f1d61d201
+  lockingApp2 ::
+    Servant.Server.Internal.Router.Router'
+      () Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Unfolding: (Servant.Server.Internal.Router.choice
+                   @ ()
+                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
+                   LockingService.lockingApp9
+                   LockingService.lockingApp3) -}
+ca8e6f2befc50fde6e5cba3170a32542
+  lockingApp20 ::
+    ()
+    -> ()
+    -> ()
+    -> Network.Wai.Internal.Request
+    -> Servant.Server.Internal.RoutingApplication.RouteResult
+         (Servant.Server.Internal.Server
+            ("lock"
+             Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                   '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                                 Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                      '[Servant.API.ContentTypes.JSON]
+                                                      CommonResources.Response)))
+  {- Arity: 4,
+     Unfolding: (\ (c :: ())
+                   (a1 :: ())
+                   (b1 :: ())
+                   (req :: Network.Wai.Internal.Request) ->
+                 LockingService.lockingApp21) -}
+10ec7c37bd039516e8efd10a1375092e
+  lockingApp21 ::
+    Servant.Server.Internal.RoutingApplication.RouteResult
+      (Servant.Server.Internal.Server
+         ("lock"
+          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                   '[Servant.API.ContentTypes.JSON]
+                                                   CommonResources.Response)))
+  {- Unfolding: (Servant.Server.Internal.RoutingApplication.Route
+                   @ (Servant.Server.Internal.Server
+                        ("lock"
+                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.Response)))
+                   LockingService.lockFile1
+                     `cast`
+                   (Trans
+                        (<CommonResources.FileName>_R
+                         ->_R Trans
+                                  (Sym (GHC.Types.N:IO[0]
+                                            <Data.Either.Either
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               CommonResources.Response>_R))
+                                  (Trans
+                                       (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                                 <Servant.Server.Internal.ServantErr.ServantErr>_N
+                                                 <GHC.Types.IO>_R
+                                                 <CommonResources.Response>_N))
+                                       (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
+                                                      <Network.HTTP.Types.Method.StdMethod>_N
+                                                      <'[Servant.API.ContentTypes.JSON]>_N
+                                                      <CommonResources.Response>_N
+                                                      <'Network.HTTP.Types.Method.POST>_N
+                                                      <200>_N
+                                                      <Control.Monad.Trans.Except.ExceptT
+                                                         Servant.Server.Internal.ServantErr.ServantErr
+                                                         GHC.Types.IO>_N)))))
+                        (Trans
+                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
+                                            <*>_N
+                                            <'[Servant.API.ContentTypes.JSON]>_N
+                                            <CommonResources.FileName>_N
+                                            <Servant.API.Verbs.Verb
+                                               'Network.HTTP.Types.Method.POST
+                                               200
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.Response>_N
+                                            <Control.Monad.Trans.Except.ExceptT
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               GHC.Types.IO>_N)))
+                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                            <*>_N
+                                            <"lock">_N
+                                            <Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.Response>_N
+                                            <Control.Monad.Trans.Except.ExceptT
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               GHC.Types.IO>_N)))))) -}
+549ed76518c45800d7fd0d59ff2cc1d2
+  lockingApp3 ::
+    Servant.Server.Internal.Router.Router'
+      () Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
+                   @ ()
+                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
+                   LockingService.lockingApp4
+                   (GHC.Types.[]
+                      @ (()
+                         -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
+d787a8f35cfa192058aeab2f56bd4b47
+  lockingApp4 ::
+    Data.Map.Base.Map
+      Data.Text.Internal.Text
+      (Servant.Server.Internal.Router.Router'
+         () Servant.Server.Internal.RoutingApplication.RoutingApplication)
+  {- Unfolding: (case GHC.Magic.runRW#
+                        @ 'GHC.Types.PtrRepLifted
+                        @ Data.Text.Internal.Text
+                        LockingService.$sserve2 of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
+                 Data.Map.Base.Bin
+                   @ Data.Text.Internal.Text
+                   @ (Servant.Server.Internal.Router.Router'
+                        () Servant.Server.Internal.RoutingApplication.RoutingApplication)
+                   1#
+                   dt
+                   LockingService.lockingApp5
+                   (Data.Map.Base.Tip
+                      @ Data.Text.Internal.Text
+                      @ (Servant.Server.Internal.Router.Router'
+                           () Servant.Server.Internal.RoutingApplication.RoutingApplication))
+                   (Data.Map.Base.Tip
+                      @ Data.Text.Internal.Text
+                      @ (Servant.Server.Internal.Router.Router'
+                           ()
+                           Servant.Server.Internal.RoutingApplication.RoutingApplication)) } }) -}
+4ce9c7db2ee98b65fc4e2435a1cbf6d5
+  lockingApp5 :: Servant.Server.Internal.Router.Router ()
+  {- Unfolding: (Servant.Server.Internal.$w$croute2
+                   @ *
+                   @ '[Servant.API.ContentTypes.JSON]
+                   @ CommonResources.FileName
+                   @ (Servant.API.Verbs.Verb
+                        'Network.HTTP.Types.Method.POST
+                        200
+                        '[Servant.API.ContentTypes.JSON]
+                        CommonResources.Response)
+                   @ '[]
+                   LockingService.$sserve8
+                     `cast`
+                   (Sym (Servant.API.ContentTypes.N:AllCTUnrender[0]
+                             <'[Servant.API.ContentTypes.JSON]>_N <CommonResources.FileName>_N))
+                   LockingService.$sserve6
+                     `cast`
+                   (Sym (Servant.Server.Internal.N:HasServer[0]
+                             <*>_N
+                             <Servant.API.Verbs.Verb
+                                'Network.HTTP.Types.Method.POST
+                                200
+                                '[Servant.API.ContentTypes.JSON]
+                                CommonResources.Response>_N
+                             <'[]>_N))
+                   @ ()
+                   (Data.Proxy.Proxy
+                      @ *
+                      @ (Servant.API.ReqBody.ReqBody
+                           '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                         Servant.API.Sub.:> Servant.API.Verbs.Verb
+                                              'Network.HTTP.Types.Method.POST
+                                              200
+                                              '[Servant.API.ContentTypes.JSON]
+                                              CommonResources.Response))
+                   Servant.Server.Internal.Context.$WEmptyContext
+                   LockingService.lockingApp6
+                     `cast`
+                   (Servant.Server.Internal.RoutingApplication.Delayed
+                      <()>_R
+                      (Sub (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                <*>_N
+                                <"islocked">_N
+                                <Servant.API.ReqBody.ReqBody
+                                   '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                                 Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                      '[Servant.API.ContentTypes.JSON]
+                                                      CommonResources.Response>_N
+                                <Control.Monad.Trans.Except.ExceptT
+                                   Servant.Server.Internal.ServantErr.ServantErr
+                                   GHC.Types.IO>_N)))_R) -}
+3bbf5a33b9186e4a1bef0bbbf4be952a
+  lockingApp6 ::
+    Servant.Server.Internal.RoutingApplication.Delayed
+      ()
+      (Servant.Server.Internal.Server
+         ("islocked"
+          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                   '[Servant.API.ContentTypes.JSON]
+                                                   CommonResources.Response)))
+  {- Unfolding: (Servant.Server.Internal.RoutingApplication.Delayed
+                   @ ()
+                   @ (Servant.Server.Internal.Server
+                        ("islocked"
+                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.Response)))
+                   @ ()
+                   @ ()
+                   @ ()
+                   (Servant.Server.Internal.RoutingApplication.emptyDelayed2 @ ())
+                     `cast`
+                   (<()>_R
+                    ->_R Trans
+                             (<Network.Wai.Internal.Request>_R
+                              ->_R Sym (GHC.Types.N:IO[0]
+                                            <Servant.Server.Internal.RoutingApplication.RouteResult
+                                               ()>_R))
+                             (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                       <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   Servant.Server.Internal.RoutingApplication.emptyDelayed1
+                     `cast`
+                   (Trans
+                        (<Network.Wai.Internal.Request>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Servant.Server.Internal.RoutingApplication.RouteResult
+                                          ()>_R))
+                        (Sym (Servant.Server.Internal.RoutingApplication.N:DelayedIO[0]
+                                  <()>_R)))
+                   LockingService.lockingApp7) -}
+2ef3745be5540665fa8f670204aad9da
+  lockingApp7 ::
+    ()
+    -> ()
+    -> ()
+    -> Network.Wai.Internal.Request
+    -> Servant.Server.Internal.RoutingApplication.RouteResult
+         (Servant.Server.Internal.Server
+            ("islocked"
+             Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                   '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                                 Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                      '[Servant.API.ContentTypes.JSON]
+                                                      CommonResources.Response)))
+  {- Arity: 4,
+     Unfolding: (\ (c :: ())
+                   (a1 :: ())
+                   (b1 :: ())
+                   (req :: Network.Wai.Internal.Request) ->
+                 LockingService.lockingApp8) -}
+8cc120776996226b23651947d4c984e1
+  lockingApp8 ::
+    Servant.Server.Internal.RoutingApplication.RouteResult
+      (Servant.Server.Internal.Server
+         ("islocked"
+          Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                '[Servant.API.ContentTypes.JSON] CommonResources.FileName
+                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                   '[Servant.API.ContentTypes.JSON]
+                                                   CommonResources.Response)))
+  {- Unfolding: (Servant.Server.Internal.RoutingApplication.Route
+                   @ (Servant.Server.Internal.Server
+                        ("islocked"
+                         Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.Response)))
+                   LockingService.isFileLocked1
+                     `cast`
+                   (Trans
+                        (<CommonResources.FileName>_R
+                         ->_R Trans
+                                  (Sym (GHC.Types.N:IO[0]
+                                            <Data.Either.Either
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               CommonResources.Response>_R))
+                                  (Trans
+                                       (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                                 <Servant.Server.Internal.ServantErr.ServantErr>_N
+                                                 <GHC.Types.IO>_R
+                                                 <CommonResources.Response>_N))
+                                       (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
+                                                      <Network.HTTP.Types.Method.StdMethod>_N
+                                                      <'[Servant.API.ContentTypes.JSON]>_N
+                                                      <CommonResources.Response>_N
+                                                      <'Network.HTTP.Types.Method.POST>_N
+                                                      <200>_N
+                                                      <Control.Monad.Trans.Except.ExceptT
+                                                         Servant.Server.Internal.ServantErr.ServantErr
+                                                         GHC.Types.IO>_N)))))
+                        (Trans
+                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
+                                            <*>_N
+                                            <'[Servant.API.ContentTypes.JSON]>_N
+                                            <CommonResources.FileName>_N
+                                            <Servant.API.Verbs.Verb
+                                               'Network.HTTP.Types.Method.POST
+                                               200
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.Response>_N
+                                            <Control.Monad.Trans.Except.ExceptT
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               GHC.Types.IO>_N)))
+                             (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                            <*>_N
+                                            <"islocked">_N
+                                            <Servant.API.ReqBody.ReqBody
+                                               '[Servant.API.ContentTypes.JSON]
+                                               CommonResources.FileName
+                                             Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                  '[Servant.API.ContentTypes.JSON]
+                                                                  CommonResources.Response>_N
+                                            <Control.Monad.Trans.Except.ExceptT
+                                               Servant.Server.Internal.ServantErr.ServantErr
+                                               GHC.Types.IO>_N)))))) -}
+bbec605bd8e8dfd7302cdeb856ccf1f9
+  lockingApp9 ::
+    Servant.Server.Internal.Router.Router'
+      () Servant.Server.Internal.RoutingApplication.RoutingApplication
+  {- Unfolding: (Servant.Server.Internal.Router.StaticRouter
+                   @ ()
+                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
+                   LockingService.lockingApp10
+                   (GHC.Types.[]
+                      @ (()
+                         -> Servant.Server.Internal.RoutingApplication.RoutingApplication))) -}
+ede518983d4e90ee187229d0d66b5b14
+  lockingApp_r :: Servant.Server.Internal.Router.Router ()
+  {- Unfolding: (Servant.Server.Internal.Router.choice
+                   @ ()
+                   @ Servant.Server.Internal.RoutingApplication.RoutingApplication
+                   LockingService.lockingApp16
+                   LockingService.lockingApp2) -}
+701c4e5b740ea6ecd4a0f1e6da6e61e2
+  mkApp :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                LockingService.mkApp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+dfc38cff48158da89f7cf7ec0270e727
+  mkApp1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        LockingService.mkApp5
+                        GHC.Types.True
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 Network.Wai.Handler.Warp.Run.$wrunSettings
+                   LockingService.mkApp2
+                   Network.Wai.Handler.Warp.Settings.defaultSettings16
+                   Network.Wai.Handler.Warp.Settings.defaultOnException1
+                     `cast`
+                   (<GHC.Base.Maybe Network.Wai.Internal.Request>_R
+                    ->_R <GHC.Exception.SomeException>_R
+                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))
+                   Network.Wai.Handler.Warp.Settings.defaultOnExceptionResponse
+                   Network.Wai.Handler.Warp.Settings.defaultSettings14
+                     `cast`
+                   (<Network.Socket.Types.SockAddr>_R
+                    ->_R Sym (GHC.Types.N:IO[0] <GHC.Types.Bool>_R))
+                   Network.Wai.Handler.Warp.Settings.defaultSettings13
+                     `cast`
+                   (<Network.Socket.Types.SockAddr>_R
+                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))
+                   Network.Wai.Handler.Warp.Settings.defaultSettings12
+                   (GHC.Base.Nothing @ Network.Wai.Handler.Warp.Timeout.Manager)
+                   Network.Wai.Handler.Warp.Settings.defaultSettings11
+                   Network.Wai.Handler.Warp.Settings.defaultSettings11
+                   Network.Wai.Handler.Warp.Settings.defaultSettings9
+                     `cast`
+                   (Sym (GHC.Types.N:IO[0] <()>_R))
+                   Network.Wai.Handler.Warp.Settings.defaultSettings10
+                     `cast`
+                   (<(forall a. GHC.Types.IO a -> GHC.Types.IO a)
+                     -> GHC.Types.IO ()>_R
+                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))
+                   GHC.Types.False
+                   Network.Wai.Handler.Warp.Settings.defaultSettings8
+                     `cast`
+                   (<GHC.Types.IO ()>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R))
+                   Network.Wai.Handler.Warp.Settings.defaultSettings6
+                   Network.Wai.Handler.Warp.Settings.defaultSettings4
+                   Network.Wai.Handler.Warp.Settings.ProxyProtocolNone
+                   Network.Wai.Handler.Warp.Settings.defaultSettings3
+                   GHC.Types.True
+                   Network.Wai.Handler.Warp.Settings.defaultSettings2
+                     `cast`
+                   (<Network.Wai.Internal.Request>_R
+                    ->_R <Network.HTTP.Types.Status.Status>_R
+                    ->_R <GHC.Base.Maybe GHC.Integer.Type.Integer>_R
+                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))
+                   Network.Wai.Handler.Warp.Settings.defaultSettings1
+                     `cast`
+                   (<Network.Wai.Internal.Request>_R
+                    ->_R <Data.ByteString.Internal.ByteString>_R
+                    ->_R <GHC.Integer.Type.Integer>_R
+                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))
+                   (GHC.Base.Nothing @ GHC.Types.Int)
+                   LockingService.lockingApp
+                   ipv }) -}
+323160e593f93037c5295273e32dd897
+  mkApp2 :: Network.Wai.Handler.Warp.Types.Port
+  {- Unfolding: (case Text.Read.readEither6
+                        @ GHC.Types.Int
+                        LockingService.mkApp3 of wild {
+                   []
+                   -> GHC.Err.error
+                        @ 'GHC.Types.PtrRepLifted
+                        @ GHC.Types.Int
+                        GHC.Err.errorWithoutStackTrace_wild1
+                          `cast`
+                        (Sym (GHC.Classes.N:IP[0]
+                                  <"callStack">_N <GHC.Stack.Types.CallStack>_N))
+                        Text.Read.readEither4
+                   : x ds
+                   -> case ds of wild1 {
+                        [] -> x
+                        : ipv ipv1
+                        -> GHC.Err.error
+                             @ 'GHC.Types.PtrRepLifted
+                             @ GHC.Types.Int
+                             GHC.Err.errorWithoutStackTrace_wild1
+                               `cast`
+                             (Sym (GHC.Classes.N:IP[0]
+                                       <"callStack">_N <GHC.Stack.Types.CallStack>_N))
+                             Text.Read.readEither2 } }) -}
+2bde802583cd5fc5e2b719e876c634ee
+  mkApp3 :: [(GHC.Types.Int, GHC.Base.String)]
+  {- Unfolding: (Text.ParserCombinators.ReadP.run
+                   @ GHC.Types.Int
+                   LockingService.mkApp4
+                   CommonResources.lockserverport) -}
+a284a697b031b76ef965cd77f79a5d93
+  mkApp4 :: Text.ParserCombinators.ReadP.P GHC.Types.Int
+  {- Unfolding: ((GHC.Read.$fReadInt3
+                    GHC.Read.$fReadInt_$sconvertInt
+                    Text.ParserCombinators.ReadPrec.minPrec)
+                   `cast`
+                 (Text.ParserCombinators.ReadP.N:ReadP[0] <GHC.Types.Int>_R)
+                   @ GHC.Types.Int
+                   (Text.Read.readEither5 @ GHC.Types.Int)) -}
+85bf31291515bcf645b3b00430a9f199
+  mkApp5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "Starting Lock Service on port: "#
+                   CommonResources.lockserverport) -}
+ad9ead63b9db0522f94f754f57c589f5
+  server :: Servant.Server.Internal.Server CommonResources.LockingApi
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                LockingService.server1
+                  `cast`
+                (Trans
+                     (Trans
+                          (<CommonResources.FileName>_R
+                           ->_R Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
+                                              <Network.HTTP.Types.Method.StdMethod>_N
+                                              <'[Servant.API.ContentTypes.JSON]>_N
+                                              <CommonResources.Response>_N
+                                              <'Network.HTTP.Types.Method.POST>_N
+                                              <200>_N
+                                              <Control.Monad.Trans.Except.ExceptT
+                                                 Servant.Server.Internal.ServantErr.ServantErr
+                                                 GHC.Types.IO>_N)))
+                          (Trans
+                               (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
+                                              <*>_N
+                                              <'[Servant.API.ContentTypes.JSON]>_N
+                                              <CommonResources.FileName>_N
+                                              <Servant.API.Verbs.Verb
+                                                 'Network.HTTP.Types.Method.POST
+                                                 200
+                                                 '[Servant.API.ContentTypes.JSON]
+                                                 CommonResources.Response>_N
+                                              <Control.Monad.Trans.Except.ExceptT
+                                                 Servant.Server.Internal.ServantErr.ServantErr
+                                                 GHC.Types.IO>_N)))
+                               (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                              <*>_N
+                                              <"lock">_N
+                                              <Servant.API.ReqBody.ReqBody
+                                                 '[Servant.API.ContentTypes.JSON]
+                                                 CommonResources.FileName
+                                               Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                    '[Servant.API.ContentTypes.JSON]
+                                                                    CommonResources.Response>_N
+                                              <Control.Monad.Trans.Except.ExceptT
+                                                 Servant.Server.Internal.ServantErr.ServantErr
+                                                 GHC.Types.IO>_N))))
+                      Servant.API.Alternative.:<|> Trans
+                                                       (Trans
+                                                            (<CommonResources.FileName>_R
+                                                             ->_R Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
+                                                                                <Network.HTTP.Types.Method.StdMethod>_N
+                                                                                <'[Servant.API.ContentTypes.JSON]>_N
+                                                                                <CommonResources.Response>_N
+                                                                                <'Network.HTTP.Types.Method.POST>_N
+                                                                                <200>_N
+                                                                                <Control.Monad.Trans.Except.ExceptT
+                                                                                   Servant.Server.Internal.ServantErr.ServantErr
+                                                                                   GHC.Types.IO>_N)))
+                                                            (Trans
+                                                                 (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
+                                                                                <*>_N
+                                                                                <'[Servant.API.ContentTypes.JSON]>_N
+                                                                                <CommonResources.FileName>_N
+                                                                                <Servant.API.Verbs.Verb
+                                                                                   'Network.HTTP.Types.Method.POST
+                                                                                   200
+                                                                                   '[Servant.API.ContentTypes.JSON]
+                                                                                   CommonResources.Response>_N
+                                                                                <Control.Monad.Trans.Except.ExceptT
+                                                                                   Servant.Server.Internal.ServantErr.ServantErr
+                                                                                   GHC.Types.IO>_N)))
+                                                                 (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                                                                <*>_N
+                                                                                <"unlock">_N
+                                                                                <Servant.API.ReqBody.ReqBody
+                                                                                   '[Servant.API.ContentTypes.JSON]
+                                                                                   CommonResources.FileName
+                                                                                 Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                      '[Servant.API.ContentTypes.JSON]
+                                                                                                      CommonResources.Response>_N
+                                                                                <Control.Monad.Trans.Except.ExceptT
+                                                                                   Servant.Server.Internal.ServantErr.ServantErr
+                                                                                   GHC.Types.IO>_N))))
+                                                        Servant.API.Alternative.:<|> Trans
+                                                                                         (<CommonResources.FileName>_R
+                                                                                          ->_R Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPEVerbm0[0]
+                                                                                                             <Network.HTTP.Types.Method.StdMethod>_N
+                                                                                                             <'[Servant.API.ContentTypes.JSON]>_N
+                                                                                                             <CommonResources.Response>_N
+                                                                                                             <'Network.HTTP.Types.Method.POST>_N
+                                                                                                             <200>_N
+                                                                                                             <Control.Monad.Trans.Except.ExceptT
+                                                                                                                Servant.Server.Internal.ServantErr.ServantErr
+                                                                                                                GHC.Types.IO>_N)))
+                                                                                         (Trans
+                                                                                              (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m5[0]
+                                                                                                             <*>_N
+                                                                                                             <'[Servant.API.ContentTypes.JSON]>_N
+                                                                                                             <CommonResources.FileName>_N
+                                                                                                             <Servant.API.Verbs.Verb
+                                                                                                                'Network.HTTP.Types.Method.POST
+                                                                                                                200
+                                                                                                                '[Servant.API.ContentTypes.JSON]
+                                                                                                                CommonResources.Response>_N
+                                                                                                             <Control.Monad.Trans.Except.ExceptT
+                                                                                                                Servant.Server.Internal.ServantErr.ServantErr
+                                                                                                                GHC.Types.IO>_N)))
+                                                                                              (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:>m4[0]
+                                                                                                             <*>_N
+                                                                                                             <"islocked">_N
+                                                                                                             <Servant.API.ReqBody.ReqBody
+                                                                                                                '[Servant.API.ContentTypes.JSON]
+                                                                                                                CommonResources.FileName
+                                                                                                              Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                                   '[Servant.API.ContentTypes.JSON]
+                                                                                                                                   CommonResources.Response>_N
+                                                                                                             <Control.Monad.Trans.Except.ExceptT
+                                                                                                                Servant.Server.Internal.ServantErr.ServantErr
+                                                                                                                GHC.Types.IO>_N)))))_R
+                                                       (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:<|>m[0]
+                                                                      <"unlock"
+                                                                       Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                             '[Servant.API.ContentTypes.JSON]
+                                                                                             CommonResources.FileName
+                                                                                           Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                '[Servant.API.ContentTypes.JSON]
+                                                                                                                CommonResources.Response)>_N
+                                                                      <"islocked"
+                                                                       Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                             '[Servant.API.ContentTypes.JSON]
+                                                                                             CommonResources.FileName
+                                                                                           Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                                '[Servant.API.ContentTypes.JSON]
+                                                                                                                CommonResources.Response)>_N
+                                                                      <Control.Monad.Trans.Except.ExceptT
+                                                                         Servant.Server.Internal.ServantErr.ServantErr
+                                                                         GHC.Types.IO>_N))))_R
+                     (Sub (Sym (Servant.Server.Internal.D:R:ServerTTYPE:<|>m[0]
+                                    <"lock"
+                                     Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                           '[Servant.API.ContentTypes.JSON]
+                                                           CommonResources.FileName
+                                                         Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                              '[Servant.API.ContentTypes.JSON]
+                                                                              CommonResources.Response)>_N
+                                    <("unlock"
+                                      Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                            '[Servant.API.ContentTypes.JSON]
+                                                            CommonResources.FileName
+                                                          Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                               '[Servant.API.ContentTypes.JSON]
+                                                                               CommonResources.Response))
+                                     Servant.API.Alternative.:<|> ("islocked"
+                                                                   Servant.API.Sub.:> (Servant.API.ReqBody.ReqBody
+                                                                                         '[Servant.API.ContentTypes.JSON]
+                                                                                         CommonResources.FileName
+                                                                                       Servant.API.Sub.:> Servant.API.Verbs.Post
+                                                                                                            '[Servant.API.ContentTypes.JSON]
+                                                                                                            CommonResources.Response))>_N
+                                    <Control.Monad.Trans.Except.ExceptT
+                                       Servant.Server.Internal.ServantErr.ServantErr
+                                       GHC.Types.IO>_N)))) -}
+7495cc204f524258c1b52071ed5f5b4c
+  server1 ::
+    (CommonResources.FileName
+     -> LockingService.ApiHandler CommonResources.Response)
+    Servant.API.Alternative.:<|> ((CommonResources.FileName
+                                   -> LockingService.ApiHandler CommonResources.Response)
+                                  Servant.API.Alternative.:<|> (CommonResources.FileName
+                                                                -> LockingService.ApiHandler
+                                                                     CommonResources.Response))
+  {- Strictness: m,
+     Unfolding: (Servant.API.Alternative.:<|>
+                   @ (CommonResources.FileName
+                      -> LockingService.ApiHandler CommonResources.Response)
+                   @ ((CommonResources.FileName
+                       -> LockingService.ApiHandler CommonResources.Response)
+                      Servant.API.Alternative.:<|> (CommonResources.FileName
+                                                    -> LockingService.ApiHandler
+                                                         CommonResources.Response))
+                   LockingService.lockFile1
+                     `cast`
+                   (<CommonResources.FileName>_R
+                    ->_R Trans
+                             (Sym (GHC.Types.N:IO[0]
+                                       <Data.Either.Either
+                                          Servant.Server.Internal.ServantErr.ServantErr
+                                          CommonResources.Response>_R))
+                             (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                       <Servant.Server.Internal.ServantErr.ServantErr>_N
+                                       <GHC.Types.IO>_R
+                                       <CommonResources.Response>_N)))
+                   LockingService.server2) -}
+220a6527116f6f67f062137a1dfdb10a
+  server2 ::
+    (CommonResources.FileName
+     -> LockingService.ApiHandler CommonResources.Response)
+    Servant.API.Alternative.:<|> (CommonResources.FileName
+                                  -> LockingService.ApiHandler CommonResources.Response)
+  {- Strictness: m,
+     Unfolding: (Servant.API.Alternative.:<|>
+                   @ (CommonResources.FileName
+                      -> LockingService.ApiHandler CommonResources.Response)
+                   @ (CommonResources.FileName
+                      -> LockingService.ApiHandler CommonResources.Response)
+                   LockingService.lockingApp15
+                     `cast`
+                   (<CommonResources.FileName>_R
+                    ->_R Trans
+                             (Sym (GHC.Types.N:IO[0]
+                                       <Data.Either.Either
+                                          Servant.Server.Internal.ServantErr.ServantErr
+                                          CommonResources.Response>_R))
+                             (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                       <Servant.Server.Internal.ServantErr.ServantErr>_N
+                                       <GHC.Types.IO>_R
+                                       <CommonResources.Response>_N)))
+                   LockingService.isFileLocked1
+                     `cast`
+                   (<CommonResources.FileName>_R
+                    ->_R Trans
+                             (Sym (GHC.Types.N:IO[0]
+                                       <Data.Either.Either
+                                          Servant.Server.Internal.ServantErr.ServantErr
+                                          CommonResources.Response>_R))
+                             (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                       <Servant.Server.Internal.ServantErr.ServantErr>_N
+                                       <GHC.Types.IO>_R
+                                       <CommonResources.Response>_N)))) -}
+9ce3cb0ac4d580207516bb9282e66f19
+  unlockFile ::
+    CommonResources.FileName
+    -> LockingService.ApiHandler CommonResources.Response
+  {- Arity: 2, Strictness: <S,1*U(1*U,1*U,1*U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                LockingService.lockingApp15
+                  `cast`
+                (<CommonResources.FileName>_R
+                 ->_R Trans
+                          (Sym (GHC.Types.N:IO[0]
+                                    <Data.Either.Either
+                                       Servant.Server.Internal.ServantErr.ServantErr
+                                       CommonResources.Response>_R))
+                          (Sym (Control.Monad.Trans.Except.N:ExceptT[0]
+                                    <Servant.Server.Internal.ServantErr.ServantErr>_N
+                                    <GHC.Types.IO>_R
+                                    <CommonResources.Response>_N))) -}
+"SPEC/LockingService $fAllCTRender:a @ JSON @ '[] @ Response" [ALWAYS] forall ($dAccept :: Servant.API.ContentTypes.Accept
+                                                                                             Servant.API.ContentTypes.JSON)
+                                                                              ($dAllMime :: Servant.API.ContentTypes.AllMime
+                                                                                              '[])
+                                                                              ($dAllMimeRender :: Servant.API.ContentTypes.AllMimeRender
+                                                                                                    '[Servant.API.ContentTypes.JSON]
+                                                                                                    CommonResources.Response)
+  Servant.API.ContentTypes.$fAllCTRender:a @ Servant.API.ContentTypes.JSON
+                                           @ '[]
+                                           @ CommonResources.Response
+                                           $dAccept
+                                           $dAllMime
+                                           $dAllMimeRender
+  = LockingService.$s$fAllCTRender:a
+"SPEC/LockingService $fAllMimeRender:a0 @ JSON @ Response" [ALWAYS] forall ($dMimeRender :: Servant.API.ContentTypes.MimeRender
+                                                                                              Servant.API.ContentTypes.JSON
+                                                                                              CommonResources.Response)
+  Servant.API.ContentTypes.$fAllMimeRender:a0 @ Servant.API.ContentTypes.JSON
+                                              @ CommonResources.Response
+                                              $dMimeRender
+  = LockingService.$s$fAllCTRender:a_$s$fAllMimeRender:a0
+"SPEC/LockingService $fAllMimeUnrender:a @ JSON @ FileName @ '[]" [ALWAYS] forall ($dMimeUnrender :: Servant.API.ContentTypes.MimeUnrender
+                                                                                                       Servant.API.ContentTypes.JSON
+                                                                                                       CommonResources.FileName)
+                                                                                  ($dAllMimeUnrender :: Servant.API.ContentTypes.AllMimeUnrender
+                                                                                                          '[]
+                                                                                                          CommonResources.FileName)
+  Servant.API.ContentTypes.$fAllMimeUnrender:a @ Servant.API.ContentTypes.JSON
+                                               @ CommonResources.FileName
+                                               @ '[]
+                                               $dMimeUnrender
+                                               $dAllMimeUnrender
+  = LockingService.$s$fAllMimeUnrender:a
+"SPEC/LockingService $fMimeRenderTYPEJSONa @ Response" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
+                                                                                      CommonResources.Response)
+  Servant.API.ContentTypes.$fMimeRenderTYPEJSONa @ CommonResources.Response
+                                                 $dToJSON
+  = LockingService.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa
+"SPEC/LockingService $fMimeRenderTYPEJSONa_$cmimeRender @ Response" [ALWAYS] forall ($dToJSON :: Data.Aeson.Types.Class.ToJSON
+                                                                                                   CommonResources.Response)
+  Servant.API.ContentTypes.$fMimeRenderTYPEJSONa_$cmimeRender @ CommonResources.Response
+                                                              $dToJSON
+  = LockingService.$s$fAllCTRender:a_$s$fMimeRenderTYPEJSONa_$cmimeRender
+"SPEC/LockingService $fMimeUnrenderTYPEJSONa @ FileName" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
+                                                                                          CommonResources.FileName)
+  Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa @ CommonResources.FileName
+                                                   $dFromJSON
+  = LockingService.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa
+"SPEC/LockingService $fMimeUnrenderTYPEJSONa_$cmimeUnrender @ FileName" [ALWAYS] forall ($dFromJSON :: Data.Aeson.Types.Class.FromJSON
+                                                                                                         CommonResources.FileName)
+  Servant.API.ContentTypes.$fMimeUnrenderTYPEJSONa_$cmimeUnrender @ CommonResources.FileName
+                                                                  $dFromJSON
+  = LockingService.$s$fAllMimeUnrender:a_$s$fMimeUnrenderTYPEJSONa_$cmimeUnrender
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

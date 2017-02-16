@@ -273,6 +273,9 @@ removeFileName fileName@(FileName ticket encryptedTimeout encryptedFN) = liftIO 
               Left err -> do
                 return (Response (encryptDecrypt sessionKey (show err)))
                           
-              Right response -> return (response)
+              Right response -> do 
+                liftIO $ withMongoDbConnection $ do
+                  Database.MongoDB.delete (select ["fileName" =: decryptedFN] "FILEMAPPING_RECORD")
+                return (response)
   
         

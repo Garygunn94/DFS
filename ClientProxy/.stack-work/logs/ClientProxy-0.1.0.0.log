@@ -1,12 +1,15 @@
+Configuring ClientProxy-0.1.0.0...
 Preprocessing library ClientProxy-0.1.0.0...
-[3 of 3] Compiling ClientProxyApi   ( src/ClientProxyApi.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/ClientProxyApi.o )
+[1 of 3] Compiling LRUCache         ( src/LRUCache.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/LRUCache.o )
+[2 of 3] Compiling ClientProxyApi   ( src/ClientProxyApi.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/ClientProxyApi.o )
 
 src/ClientProxyApi.hs:36:16: warning: [-Wtabs]
     Tab character found here, and in 7 further locations.
     Please use spaces instead.
+[3 of 3] Compiling Lib              ( src/Lib.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Lib.o )
 Preprocessing executable 'ClientProxy-exe' for ClientProxy-0.1.0.0...
-[1 of 1] Compiling Main             ( app/Main.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/ClientProxy-exe/ClientProxy-exe-tmp/Main.o ) [ClientProxyApi changed]
-Linking .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/ClientProxy-exe/ClientProxy-exe ...
+[1 of 1] Compiling Main             ( app/Main.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/ClientProxy-exe/ClientProxy-exe-tmp/Main.o )
+Linking .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/ClientProxy-exe/ClientProxy-exe ...
 Installing library in
 /home/ggunn/DFS/ClientProxy/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/lib/x86_64-linux-ghc-8.0.1/ClientProxy-0.1.0.0-IdLS6IwgFz3D4JMQYl8KuJ
 Installing executable(s) in

@@ -1,13 +1,14 @@
+Configuring TransactionServer-0.1.0.0...
 Preprocessing library TransactionServer-0.1.0.0...
-[1 of 1] Compiling TransactionServer ( src/TransactionServer.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/TransactionServer.o )
+[1 of 1] Compiling TransactionServer ( src/TransactionServer.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/TransactionServer.o )
 
 src/TransactionServer.hs:30:18: warning: [-Wtabs]
     Tab character found here, and in 149 further locations.
     Please use spaces instead.
 Preprocessing executable 'TransactionServer-exe' for
 TransactionServer-0.1.0.0...
-[1 of 1] Compiling Main             ( app/Main.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/TransactionServer-exe/TransactionServer-exe-tmp/Main.o ) [TransactionServer changed]
-Linking .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/TransactionServer-exe/TransactionServer-exe ...
+[1 of 1] Compiling Main             ( app/Main.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/TransactionServer-exe/TransactionServer-exe-tmp/Main.o )
+Linking .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/TransactionServer-exe/TransactionServer-exe ...
 Installing library in
 /home/ggunn/DFS/TransactionServer/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/lib/x86_64-linux-ghc-8.0.1/TransactionServer-0.1.0.0-34rMlVxbboTIWoFn2YZUep
 Installing executable(s) in

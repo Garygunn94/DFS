@@ -1,12 +1,14 @@
+Configuring AuthServer-0.1.0.0...
 Preprocessing library AuthServer-0.1.0.0...
-[2 of 2] Compiling AuthServer       ( src/AuthServer.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/AuthServer.o )
+[1 of 2] Compiling AuthServer       ( src/AuthServer.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/AuthServer.o )
 
 src/AuthServer.hs:30:18: warning: [-Wtabs]
     Tab character found here, and in 15 further locations.
     Please use spaces instead.
+[2 of 2] Compiling Lib              ( src/Lib.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/Lib.o )
 Preprocessing executable 'AuthServer-exe' for AuthServer-0.1.0.0...
-[1 of 1] Compiling Main             ( app/Main.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/AuthServer-exe/AuthServer-exe-tmp/Main.o ) [AuthServer changed]
-Linking .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/AuthServer-exe/AuthServer-exe ...
+[1 of 1] Compiling Main             ( app/Main.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/AuthServer-exe/AuthServer-exe-tmp/Main.o )
+Linking .stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/AuthServer-exe/AuthServer-exe ...
 Installing library in
 /home/ggunn/DFS/AuthServer/.stack-work/install/x86_64-linux/lts-7.13/8.0.1/lib/x86_64-linux-ghc-8.0.1/AuthServer-0.1.0.0-HUsbF5losB5ICY0RhRwEou
 Installing executable(s) in
