@@ -1,4 +1,5 @@
 flags: {}
+allow-different-user: true
 extra-package-dbs: []
 packages:
 - '.'
